@@ -1,0 +1,18 @@
+{
+  "description": "Deny destructive/history-rewriting git commands (git stash, reset --hard, clean -f, checkout --/restore, branch -D, push --force/--delete, rebase, filter-branch, gc --prune) before they run. Mirrors .claude/settings.local.json's permissions.deny.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.codex/hooks/deny_git_commands.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking git command safety"
+          }
+        ]
+      }
+    ]
+  }
+}
