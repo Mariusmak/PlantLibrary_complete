@@ -1,0 +1,18 @@
+[submodule "PlantLibrary_AndroidApp"]
+	path = PlantLibrary_AndroidApp
+	url = https://github.com/Mariusmak/PlantLibrary_AndroidApp.git
+[submodule "PlantLibrary_Dashboard"]
+	path = PlantLibrary_Dashboard
+	url = https://github.com/Mariusmak/PlantLibrary_Dashboard.git
+[submodule "PlantLibrary_PyApp"]
+	path = PlantLibrary_PyApp
+	url = https://github.com/Mariusmak/PlantLibrary_PyApp.git
+[submodule "PlantLibrary_Server"]
+	path = PlantLibrary_Server
+	url = https://github.com/Mariusmak/PlantLibrary_Server.git
+[submodule "PlantLibrary_SharedContracts"]
+	path = PlantLibrary_SharedContracts
+	url = https://github.com/Mariusmak/PlantLibrary_SharedContracts.git
+[submodule "PlantLibrary_Workspace"]
+	path = PlantLibrary_Workspace
+	url = https://github.com/Mariusmak/PlantLibrary_Workspace.git
