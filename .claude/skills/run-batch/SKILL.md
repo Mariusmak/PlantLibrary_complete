@@ -113,6 +113,9 @@ anchor — never the whole files):
 5. Evidence-producing rows write to `validation/<BATCH-KEY>_<slug>.md`
    with: steps, commands, honest pass/fail per criterion, and artifact
    paths. Failures become new row proposals, never silent inline fixes.
+6. Deep or bundled validation lives in dedicated validation batches per
+   `PlantLibrary_Workspace/methodology/VALIDATION_METHODOLOGY.md`; a batch
+   close requires only row-level validation plus standing invariants.
 
 ## 7. Close the batch
 

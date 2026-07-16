@@ -92,6 +92,13 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
   scope file — never restated per row.
 - A batch whose goal is only "update documents" should be a `STATE.md`
   continuation entry instead, unless the documents are contracts.
+- **Validation batches** (methodology:
+  `PlantLibrary_Workspace/methodology/VALIDATION_METHODOLOGY.md`): every
+  implementation batch must be covered by exactly one downstream validation
+  batch, or its plan section states "row-level validation sufficient" with a
+  reason. Validation rows name runnable headless commands first; a
+  walkthrough row exists only for residual human judgment. A bundle that
+  touched UI schedules the suite's `impeccable:audit` row.
 
 ## 5. Approval gate — nothing is written before this
 

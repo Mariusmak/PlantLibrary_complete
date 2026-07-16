@@ -125,3 +125,29 @@ Keine Clear-Text Ausnahme für http bei Android! HTTPS einplanen!
 
 
 Validation Proposal creation
+
+
+
+Task chain for future implementations: 
+
+
+Start with the Server. Its sync and API work is the V1 critical path: Server → SharedContracts → clients.
+Before product code, record the MVP closure in the integration package, then run SY1-B01 so Android’s V1 gate is formally open. The current handoff still says MVP is open. Also run SY1-B06 first—the existing V1 package explicitly makes it the validation/process foundation. [V1 handoffs](C:/Programmierung/SW_Development/PlantLibrary_Workspace/implementation/System_V1_Implementation/SUITE_HANDOFFS.md)
+I’m treating model roles as:
+Sol — cross-system, security, sync, contracts, release, or high-ambiguity work.
+Terra — normal scoped feature and test implementation.
+Luna — reconciliation, documentation, checkpoints, and mechanical reporting.
+Wave	Recommended batches and model
+0 — establish V1	SY1-B06 Sol → SY1-B00 Terra → SY1-B01 Luna. Complete/record SYS-B16 first if it is not yet marked done.
+1 — independent foundations	SV1-B07 Terra; SC1-B03 Luna; WD1-B00 Terra, WD1-B06 Terra, WD1-B08 Terra; PY1-B00 Sol, PY1-B01 Terra, PY1-B06 Terra, PY1-B08 Terra; AN1-B11 Terra, AN1-B13 Terra, AN1-B14 Sol.
+2 — core contract path	SV1-B00 Sol → SC1-B00 Sol. Do not let clients consume changes before this contract wave lands.
+3 — API expansion	SV1-B01 Terra → (SV1-B02 Sol and SV1-B04 Terra) → SV1-B03 Sol → SC1-B02 Sol → SY1-B02 Terra. If only one stream runs, keep the listed order rather than parallelizing B02/B04.
+4 — client V1 capability	Dashboard: WD1-B01 Terra → WD1-B02 Terra. PyApp: PY1-B02 Terra → PY1-B03 Sol. Android: AN1-B01 Terra → AN1-B02 Terra → AN1-B03 Sol → AN1-B04 Terra → AN1-B05 Terra → AN1-B06 Sol → AN1-B07 Terra.
+5 — optional design track	SDA-B00 is a human decision gate. After decisions: SDA-B01 Sol → SDA-B02 Sol → SDA-B03 Terra → SDA-B04 Terra → SDA-B05 Luna → SDA-B06 Terra → SDA-B07 Sol → SDA-B08 Sol. This must not block V1. Then, only if SDA-B02 arrives in time: WD1-B04 Terra, PY1-B04 Terra, AN1-B08 Sol. Run SY1-B03 Luna to record the taken/deferred result.
+6 — harden and release	SV1-B06 Sol; WD1-B05 Sol; PY1-B05 Sol; AN1-B09 Sol → jointly schedule AN1-B10 Sol with SY1-B04 Sol → SY1-B05 Sol.
+
+Do not rerun completed batches: SC1-B01, AN1-B00, AN1-B12, WD1-B07, and PY1-B07. SV1-B05 and WD1-B03 are removed/deferred, not work to schedule.
+The immediate practical sequence is therefore:
+SY1-B06 → MVP closure record + SY1-B00/B01 → SV1-B00 → SC1-B00 → SV1-B01…B04 → SC1-B02 → client feature waves → suite hardening → V1 smoke/release.
+This follows the package’s existing dependency rules while putting Sol only where a faulty change could cascade across clients, data, contracts, or release readiness.
+

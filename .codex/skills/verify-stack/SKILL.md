@@ -46,6 +46,44 @@ Scripted API access: obtain a token from Keycloak's token endpoint via
 password grant for `testgrower` (credentials per the doc above), then
 `curl -H "Authorization: Bearer $TOKEN" http://localhost:8000/api/v1/...`.
 
+## Client environments
+
+Walkthrough scriptable steps may drive clients through these recipes.
+GUI-emulator or visible-browser runs happen only on explicit user request;
+headless execution is the default.
+
+### Android (headless)
+
+Use AVD `plantlibrary_test_noGUI`. Start it and run the test recipe through
+`PlantLibrary_AndroidApp/scripts/run_headless_tests.ps1`, created by
+`AN-V1-TEST-02`; the emulator uses `-no-window -no-audio -no-boot-anim` and
+waits for `sys.boot_completed`. For a direct instrumented run, execute
+`gradlew connectedDebugAndroidTest` from `PlantLibrary_AndroidApp/`.
+
+The GUI fallback — AVD `plantlibrary_test_GUI` through
+`scripts/start_gui_emulator.ps1` — is used only on explicit request.
+
+### Dashboard (headless browser)
+
+From `PlantLibrary_Dashboard/`, run `npm run test:e2e` for Playwright
+Chromium headless against the MSW-mocked development server; no stack is
+needed. Run `npm run test:e2e:live` for the environment-gated live project
+against this skill's canonical stack. These recipes are created by
+`WD-V1-TEST-01` and `WD-V1-TEST-02`.
+
+### PyApp (offscreen)
+
+From `PlantLibrary_PyApp/`, run:
+
+- `python scripts/offline_smoke.py` — the real `main.py` subprocess with
+  `QT_QPA_PLATFORM=offscreen` and a disposable application-data directory.
+- `pytest -m app_e2e` — the in-process assembled `MainWindow` tier.
+- `pytest -m server_integration` — the service-level tier against the live
+  stack.
+
+These recipes are created by `PY-V1-TEST-02`, `PY-V1-TEST-03`, and
+`PY-V1-INT-01`.
+
 ## Commands
 
 ### `up`
@@ -99,10 +137,11 @@ the diff is the convergence evidence.
    `validation/evidence/<RUN-ID>/` in the invoking package,
    `RUN-ID = <ROW-ID>-<yyyymmdd>-NN`; take the `before` snapshot.
 3. **Execute scenarios in order.** Scriptable steps (API calls, service
-   checks, snapshots) run directly. GUI steps are human steps: print **one**
-   exact numbered instruction (what to click/enter, expected result, what to
-   capture), then wait for confirmation and the evidence path before the
-   next. Never batch-print all steps and never mark a human step `pass`
+   checks, snapshots, and client-automation commands from the Client
+   environments section) run directly. GUI steps are human steps: print
+   **one** exact numbered instruction (what to click/enter, expected result,
+   what to capture), then wait for confirmation and the evidence path before
+   the next. Never batch-print all steps and never mark a human step `pass`
    without its evidence.
 4. **Capture**: evidence files named `<ROW-ID>_<flow>_<timestamp>.<ext>`
    into the run folder; `after` snapshots following each mutating scenario.
