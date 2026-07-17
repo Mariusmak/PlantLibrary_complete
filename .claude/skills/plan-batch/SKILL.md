@@ -5,6 +5,9 @@ user-invocable: true
 argument-hint: "[suite-or-package-path] [what to plan]"
 ---
 
+<!-- plan-batch skill version: 1.1.0 (2026-07-17) — adds the model column/field
+     (§3, §4) recommending a Claude/Codex tier pair per row and per batch. -->
+
 Produce batch plans that run-batch can execute unattended. Plan quality is
 measured by one thing: can a fresh session complete each row from its
 checklist line + anchor alone, and prove it with the named validation?
@@ -40,7 +43,7 @@ checklist line + anchor alone, and prove it with the named validation?
 Checklist schema (one table, one row per task):
 
 ```text
-ID | status | skill | design_context | baseline_id | area | file(s) | task | context | requirements | done-when | validation | risk | effort
+ID | status | skill | design_context | baseline_id | area | file(s) | task | context | requirements | done-when | validation | risk | effort | model
 ```
 
 - **ID**: `<SUITE>-<PROGRAM>-<AREA>-NN`, e.g. `PY-V1-UX-03`. Continue existing
@@ -65,6 +68,16 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
   (`pytest -m server_integration`, `validation/<BATCH>_<slug>.md`).
   **"tests" or "review" alone is not a valid entry — the row is rejected.**
 - **risk/effort**: H/M/L and S/M/L. An `L` effort must still fit one session.
+- **model**: recommended worker tier pair, one of `opus/sol`, `sonnet/terra`, or
+  `haiku/luna` — left is the Claude tier, right the matching Codex tier, always
+  named together (never one alone). These are the same tier names as
+  `vendors.claude.ladder` / `vendors.codex.ladder` in `config.example.yaml`,
+  which already pair them 1:1 (Opus 4.8 ≡ GPT 5.6 Sol, Sonnet 5 ≡ GPT 5.6 Terra,
+  Haiku 4.5 ≡ GPT 5.6 Luna). Default `sonnet/terra`; use `opus/sol` for
+  architectural/high-risk rows (`risk: H` or design-defining work) and
+  `haiku/luna` for mechanical/low-risk rows (`risk: L`, boilerplate, rote
+  edits). run-batch surfaces this so the operator (or an Agent-spawning caller)
+  can select the matching model when the row executes.
 
 ## 4. Anchor and batch rules
 
@@ -82,6 +95,7 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
 
 **Goal:** <one or two sentences — the user-visible or system outcome>
 **Primary rows:** `<ID>`, `<ID>`
+**Model:** <default tier pair for this batch's rows, e.g. `sonnet/terra`; a row's own `model` column overrides this>
 **Requires:** <checkable artifacts, or "Nothing — independent">
 **Blockers:** <known failure modes and what to record when they hit>
 **Notes:** <coordination with other packages; route-don't-duplicate targets>
@@ -92,13 +106,6 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
   scope file — never restated per row.
 - A batch whose goal is only "update documents" should be a `STATE.md`
   continuation entry instead, unless the documents are contracts.
-- **Validation batches** (methodology:
-  `PlantLibrary_Workspace/methodology/VALIDATION_METHODOLOGY.md`): every
-  implementation batch must be covered by exactly one downstream validation
-  batch, or its plan section states "row-level validation sufficient" with a
-  reason. Validation rows name runnable headless commands first; a
-  walkthrough row exists only for residual human judgment. A bundle that
-  touched UI schedules the suite's `impeccable:audit` row.
 
 ## 5. Approval gate — nothing is written before this
 
@@ -142,5 +149,6 @@ checklist status is the single source of truth).
 - [ ] Every `requirements` entry checkable; dependency cycle-free
 - [ ] Every row traces to a baseline; no untraceable scope
 - [ ] Row/anchor `skill` + `design_context` values identical
+- [ ] Every row and batch names a `model` pair (`opus/sol` · `sonnet/terra` · `haiku/luna`); never a Claude tier without its Codex match
 - [ ] IDs collision-free; batches ordered; independence marked
 - [ ] Findings for other packages routed, not duplicated

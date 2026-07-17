@@ -85,7 +85,15 @@ anchor — never the whole files):
    first (metadata fix before task work, as in step 1), then work from the
    anchor and note the event in the report's Notes. Hard-stop only if the
    needed content cannot be summarized.
-6. Track the selected rows with TodoWrite (one todo per row).
+6. Model recommendation — read the row's `model` column (falling back to the
+   batch's `**Model:**` line when the row leaves it blank): `opus/sol` |
+   `sonnet/terra` | `haiku/luna` (Claude tier / matching Codex tier, see
+   plan-batch §3). If this invocation can select a model (e.g. an Agent-tool
+   `model` param, or a session model switch), use the Claude tier when the
+   executing worker is Claude Code and the Codex tier when it is Codex CLI.
+   If the invocation has no model selection available, do not attempt one —
+   just carry the recommendation into the report's Notes.
+7. Track the selected rows with TodoWrite (one todo per row).
 
 ## 5. Implement
 
@@ -113,9 +121,6 @@ anchor — never the whole files):
 5. Evidence-producing rows write to `validation/<BATCH-KEY>_<slug>.md`
    with: steps, commands, honest pass/fail per criterion, and artifact
    paths. Failures become new row proposals, never silent inline fixes.
-6. Deep or bundled validation lives in dedicated validation batches per
-   `PlantLibrary_Workspace/methodology/VALIDATION_METHODOLOGY.md`; a batch
-   close requires only row-level validation plus standing invariants.
 
 ## 7. Close the batch
 
@@ -136,6 +141,7 @@ anchor — never the whole files):
 ```text
 Batch: <key + title>
 Rows: <ID status, ...>
+Model: <recommended tier pair, and whether it was applied or only noted>
 Changed: <paths, max 12; else "N files, see git diff --stat">
 Validation: <command: pass/fail/skipped+reason, one line each>
 Invariants: <e.g. offline smoke: pass>
