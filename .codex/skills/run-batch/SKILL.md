@@ -100,9 +100,11 @@ anchor — never the whole files):
 - Only the selected rows, in risk order H → M → L. No opportunistic fixes or
   refactors beyond what a row needs; route out-of-scope findings to the
   owning package or a new row proposal in the report — never duplicate.
-- Read source narrowly: locate symbols with Grep, read windows around them,
-  expand only as needed. Whole-file reads only for small files or when
-  narrow reads fail.
+- Read source narrowly: for cross-file questions (callers, relationships,
+  where a concept lives) try `graphify query`/`path`/`explain` first when
+  `graphify-out/graph.json` exists; otherwise locate symbols with Grep, read
+  windows around them, expand only as needed. Whole-file reads only for
+  small files or when narrow reads fail.
 - Smallest safe edit first. Run formatters only on touched files.
 - Cross-suite resources marked read-only in the hard scope (e.g. generated
   clients, other packages' control files) are never edited from here.
@@ -112,6 +114,10 @@ anchor — never the whole files):
 1. Run each row's `validation` column entry literally. A row whose named
    validation did not actually run is **not done** — leave it
    `needs-reverify` with a note, even if the code looks right.
+   When a row's named validation fails unexpectedly, apply the
+   `systematic-debugging` skill (reproduce → trace → single hypothesis)
+   before any fix or retry — this failure condition is its only
+   activation; it is never row-wired (SKILLS.md §7).
 2. Lint/type-check touched files (`ruff check`, `ruff format`, targeted
    `mypy` for Python; suite equivalents otherwise). Full test suites only
    when a row requires them.
@@ -135,6 +141,10 @@ anchor — never the whole files):
    stage the batch's changes and commit as
    `<batch-key>: <batch title>` with the row IDs in the body. If it was
    dirty at start, skip the commit and say so in the report.
+5. **Refresh the knowledge graph** — from the workspace root (the directory
+   containing `graphify-out/`), run `graphify update .` (AST-only, no LLM,
+   no API cost). Non-fatal: on failure, note it in the report's Notes and
+   continue; never block batch close on it.
 
 ## 8. Report and stop
 

@@ -7,3 +7,6 @@ __pycache__/
 *.db-shm
 *.db-wal
 *.log
+
+# graphify knowledge graph (regenerable via update_graph.bat / graphify update .)
+graphify-out/

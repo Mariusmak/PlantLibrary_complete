@@ -151,3 +151,45 @@ The immediate practical sequence is therefore:
 SY1-B06 → MVP closure record + SY1-B00/B01 → SV1-B00 → SC1-B00 → SV1-B01…B04 → SC1-B02 → client feature waves → suite hardening → V1 smoke/release.
 This follows the package’s existing dependency rules while putting Sol only where a faulty change could cascade across clients, data, contracts, or release readiness.
 
+
+
+-------------- Skill assessment -------------
+Here's my assessment, grounded in what this repo actually is: a five-subsystem monorepo (Python/FastAPI server, React dashboard with an existing Playwright e2e/ setup, PySide6 desktop app, Android app, generated shared contracts) with a mature house process already in place — plan-batch/run-batch for execution, verify-stack for the Docker stack, sync-contracts for the contract wave, gui-validation for desktop UI, and a binding design system. Any skill you add has to fit around that process, not replace it.
+
+Verdicts on the ones you named
+Webapp Testing (Playwright-based) — yes, this is the best fit of the five. Your Dashboard already has Playwright wired up, but your only UI-driving skill (gui-validation) is built for OS-level mouse/keyboard control of desktop apps — the wrong tool for browser flows. A webapp-testing skill gives Claude a reliable way to exercise Dashboard V1 rows (the pending WD-V1-DS-* adoption work, walkthrough evidence packs) in-process instead of by screen coordinates. It slots directly into your evidence-based validation rows.
+
+Test-Driven Development — yes, for the Server and contracts track. V1's critical path runs through Server SV1-* batches and the contract wave, which is exactly where TDD pays off: write the failing test from the batch row's acceptance criterion, implement, and the test becomes the row's named validation evidence for free. It complements run-batch rather than competing with it. Less useful for the GUI-heavy PyApp/Android rows where your walkthrough-based validation is the real gate.
+
+Superpowers — cherry-pick, don't install wholesale. It's a large opinionated workflow bundle (brainstorm → plan → subagent-driven implementation) that directly overlaps and would fight your BATCH_PLAN/TASK_CHECKLIST house format, which is more disciplined than what it offers. The pieces worth extracting are the systematic debugging (root-cause-before-fix) and verification-before-completion skills — genuinely useful for cross-subsystem sync bugs, which is where V1 debugging will hurt most. If you install the full plugin, expect it to try to steer sessions away from run-batch.
+
+Frontend Design — skip, or use only under constraint. Your design system is binding (P-DS-01..10, tokens 1.2.0 as canon, banned palette values). Generic frontend-design skills are built to invent distinctive aesthetics, which is precisely what your rules forbid, and you already have ui-ux-pro-max for design intelligence. If you want anything here, it's a small house skill that encodes your token canon and adoption rules — see below.
+
+Caveman (print/trace debugging) — marginal. Trace-based debugging is occasionally the right move in PySide6 (where attaching a debugger to the Qt event loop is awkward), but it's a technique, not a workflow gap. A systematic-debugging skill covers the same ground with more discipline. I'd pass.
+
+What I'd add that you didn't name
+These follow from actual gaps in your skill coverage, and given how well your house skills work, the highest-value additions are ones you author in the same style:
+
+android-validation (author it) — Android is your only subsystem with no validation harness skill: verify-stack covers the server stack, gui-validation covers PySide6, Playwright covers the Dashboard. A house skill wrapping adb/emulator bring-up, screenshot capture, and evidence-pack conventions would close the loop for the AN-V1-* rows.
+
+design-adoption (author it, small) — encode the token canon, banned values, and the pending adoption rows (WD-V1-DS-06, AN-V1-DS-05, PY-V1-DS-03) so any session touching UI checks against the ledger instead of relying on memory recall.
+
+Use the built-in security-review before release readiness — you already have it; it's not being exercised. With Keycloak/OIDC, MinIO presigned URLs, and 20 providers in scope, running it as a named row before the SYS-B16-equivalent V1 gate is cheap insurance.
+
+fewer-permission-prompts (built-in, one-time) — quality-of-life; with the volume of batch runs ahead, trimming repeated Bash prompts compounds.
+
+Bottom line: install a webapp-testing skill and a TDD skill, extract just the debugging/verification pieces from Superpowers, skip Frontend Design and Caveman, and put the remaining budget into authoring android-validation in your house format — that's the one hole no marketplace skill will fill.
+
+
+
+Improve permissions!
+. Run the permission-prompt reduction — Sonnet 5
+The built-in skill does the scanning; the model's job is judging what's safe to allowlist, which Sonnet handles — but review its proposal yourself before accepting.
+
+
+/fewer-permission-prompts Scan my transcripts and propose an allowlist for this project. Before writing anything: show me the full proposed list first and let me approve it. Rules for the proposal: read-only commands only (git status/log/diff, ls, Grep-style searches, graphify query/path/explain, docker ps, adb devices) — nothing that mutates state (no git commit/push, no docker up/down, no file writes) even if it appears frequently in transcripts. Write the approved list to c:/Programmierung/SW_Development/.claude/settings.json — note that file already exists and is untracked; merge into it, don't overwrite it.
+
+
+
+
+Make a proposal for a security assessment before releasing the final system using Fable 5.

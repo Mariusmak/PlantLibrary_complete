@@ -12,6 +12,15 @@
             "statusMessage": "Checking git command safety"
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "C:\\Users\\WindowsAI\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\graphify.EXE hook-check"
+          }
+        ]
       }
     ]
   }
