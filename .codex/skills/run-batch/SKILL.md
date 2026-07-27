@@ -72,6 +72,9 @@ anchor — never the whole files):
    requirements pass — e.g. `verify-stack:walkthrough+gui-validation` runs
    the walkthrough procedure under the gui-validation input-safety protocol
    for its live-driving steps.
+   `validate-real-stack` is execution plumbing owned by
+   `real-stack-testing`, not an additional row skill. Invoke it only after
+   implementing a selected `real-stack-testing` row.
 4. `design_context: required` → read the suite `DESIGN.md` once per session,
    then reuse it. `not-required` → do not read it merely because GUI paths
    appear. Load `PRODUCT.md` independently, only for product
@@ -111,20 +114,28 @@ anchor — never the whole files):
 
 ## 6. Validate — a gate, not a formality
 
-1. Run each row's `validation` column entry literally. A row whose named
+1. For each selected `real-stack-testing` row, invoke `validate-real-stack`
+   after implementation. Pass only the row ID, exact named command, acceptance
+   criteria, touched paths, and a full-output artifact path under the package
+   evidence or scratch directory. Wait for the cheaper validation worker's
+   compact result. The parent agent owns fixes, evidence prose, row status,
+   and completion. If the worker is unavailable, run inline and report the
+   fallback.
+2. Run each row's `validation` column entry literally. Delegating the command
+   still counts as running it; a row whose named
    validation did not actually run is **not done** — leave it
    `needs-reverify` with a note, even if the code looks right.
    When a row's named validation fails unexpectedly, apply the
    `systematic-debugging` skill (reproduce → trace → single hypothesis)
    before any fix or retry — this failure condition is its only
    activation; it is never row-wired (SKILLS.md §7).
-2. Lint/type-check touched files (`ruff check`, `ruff format`, targeted
+3. Lint/type-check touched files (`ruff check`, `ruff format`, targeted
    `mypy` for Python; suite equivalents otherwise). Full test suites only
    when a row requires them.
-3. Run the suite's standing invariant checks before closing the batch
+4. Run the suite's standing invariant checks before closing the batch
    (e.g. offline startup smoke for PyApp).
-4. Long output → write to the scratchpad, quote ≤20 relevant lines.
-5. Evidence-producing rows write to `validation/<BATCH-KEY>_<slug>.md`
+5. Long output → write to the scratchpad, quote ≤20 relevant lines.
+6. Evidence-producing rows write to `validation/<BATCH-KEY>_<slug>.md`
    with: steps, commands, honest pass/fail per criterion, and artifact
    paths. Failures become new row proposals, never silent inline fixes.
 
@@ -151,7 +162,7 @@ anchor — never the whole files):
 ```text
 Batch: <key + title>
 Rows: <ID status, ...>
-Model: <recommended tier pair, and whether it was applied or only noted>
+Model: <parent recommended tier pair + applied/noted; validation worker tier/fallback>
 Changed: <paths, max 12; else "N files, see git diff --stat">
 Validation: <command: pass/fail/skipped+reason, one line each>
 Invariants: <e.g. offline smoke: pass>

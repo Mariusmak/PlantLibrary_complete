@@ -5,8 +5,8 @@ user-invocable: true
 argument-hint: "[suite-or-package-path] [what to plan]"
 ---
 
-<!-- plan-batch skill version: 1.1.0 (2026-07-17) — adds the model column/field
-     (§3, §4) recommending a Claude/Codex tier pair per row and per batch. -->
+<!-- plan-batch skill version: 1.2.0 (2026-07-26) — adds mandatory local
+     Telegram notification enqueueing at every terminal user handoff. -->
 
 Produce batch plans that run-batch can execute unattended. Plan quality is
 measured by one thing: can a fresh session complete each row from its
@@ -67,6 +67,15 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
 - **validation**: a runnable command or a concrete artifact path
   (`pytest -m server_integration`, `validation/<BATCH>_<slug>.md`).
   **"tests" or "review" alone is not a valid entry — the row is rejected.**
+  The named validation must **execute the code the row changes**. A row whose
+  validation can pass while its production code is broken is rejected — most
+  often because the test substitutes the layer under test with a fixture
+  stand-in. Substitution is allowed only at process boundaries (subprocesses,
+  third-party HTTP, clock, randomness); the composition root, domain services,
+  persistence, and routes/rendering always run for real. See the
+  `real-stack-testing` skill. For any row touching a rendered surface or
+  cross-module behavior, cite that skill in the row's `skill` column and make
+  the validation observe real behavior end to end.
 - **risk/effort**: H/M/L and S/M/L. An `L` effort must still fit one session.
 - **model**: recommended worker tier pair, one of `opus/sol`, `sonnet/terra`, or
   `haiku/luna` — left is the Claude tier, right the matching Codex tier, always
@@ -113,14 +122,18 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
    (ID, task one-liner, requirements, validation, risk/effort), what gets
    dropped or routed elsewhere, and any inherited constraint you recommend
    discarding.
-2. Ask for approval item-by-item (AskUserQuestion when interactive; otherwise
-   stop and leave the draft in the report). Apply vetoes and re-present only
-   the changed items.
+2. Before every approval request, enqueue an `approval required` notification
+   per §8. Then ask for approval item-by-item (AskUserQuestion when
+   interactive; otherwise stop and leave the draft in the report). Apply
+   vetoes and re-present only the changed items, enqueueing again before any
+   new approval request.
 3. On approval, write in one pass: batch section(s), checklist rows, anchors,
    and a dated `STATE.md` continuation entry —
    `**<date> — plan amendment (<short>, no code run).** <what + why + authority>`.
 4. Amendments to existing batches follow the same gate. Never edit a `done`
    row's meaning — supersede it with a new row.
+5. After the approved write and self-review succeed, report the planning task
+   as finished and enqueue a `completed` notification per §8 before returning.
 
 ## 6. Scaffolding a new package
 
@@ -146,9 +159,48 @@ checklist status is the single source of truth).
 
 - [ ] Every row completable by a fresh session from row + anchor alone
 - [ ] Every `validation` entry runnable or a concrete artifact path
+- [ ] Every `validation` entry executes the row's real production code — no
+      row can pass while the code it changes is broken (`real-stack-testing`)
 - [ ] Every `requirements` entry checkable; dependency cycle-free
 - [ ] Every row traces to a baseline; no untraceable scope
 - [ ] Row/anchor `skill` + `design_context` values identical
 - [ ] Every row and batch names a `model` pair (`opus/sol` · `sonnet/terra` · `haiku/luna`); never a Claude tier without its Codex match
 - [ ] IDs collision-free; batches ordered; independence marked
 - [ ] Findings for other packages routed, not duplicated
+
+## 8. Notify at every terminal user handoff
+
+Notify whenever the invocation must yield control and the user must be
+informed:
+
+- before requesting approval, including a revised approval request;
+- after the planning task finishes successfully, including a conclusion that
+  no package changes are needed;
+- before stopping for any blocker, ambiguity, missing input/artifact,
+  required decision, failed write/validation, or other human action; and
+- before any other terminal report whose outcome the user must see.
+
+Do not notify for routine progress updates that do not yield control. For each
+required notification, prepare this compact plain-text notice:
+
+```text
+Plan batch: <package path, or unresolved target>
+Status: <approval required | completed | blocked | stopped>
+Summary: <what was drafted, written, concluded, or prevented>
+Human action needed: <specific approval/action, or none>
+```
+
+**Notify.** Best-effort, never blocks: pipe the notice text to
+`python scripts/notify_telegram.py --enqueue` (repo root). This command performs
+only an atomic local outbox write; it does not access Credential Manager, the
+network, Telegram, or any other external system, so it needs no external-action
+authorization or host/sandbox escalation. A user-installed Windows background
+task independently drains the outbox, reads the token from Credential Manager,
+sends the message, and retains transient failures for retry.
+
+The plan-batch agent must use `--enqueue`; never invoke this script's
+direct-send, `--drain-once`, or `--watch` modes. Enqueue before presenting the
+approval prompt or terminal report. On exit 0 report `Notification: queued for
+local Telegram notifier` — do not claim synchronous delivery. On non-zero note
+the local enqueue failure and continue; notification failure never changes the
+planning result or replaces the user-facing prompt/report.
