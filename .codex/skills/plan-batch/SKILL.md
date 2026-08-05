@@ -1,12 +1,14 @@
 ---
 name: plan-batch
-description: Author or amend an implementation batch package in the PlantLibrary house format (BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md). Turns a proposal, audit finding, or feature request into sized, verifiable batch rows; enforces the row schema, ID scheme, and dependency/evidence rules; presents the draft for item-by-item approval before writing any file. Use for "plan a batch for X", "add rows for finding Y", "turn this proposal into batches", "create a new implementation package".
+description: Author or amend an implementation batch package in the PlantLibrary house format (BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md). Turns a proposal, audit finding, or feature request into sized, verifiable batch rows; enforces the row schema, ID scheme, and dependency/evidence rules; drafts the plan, auto-resolves open choices by picking the recommended option, and writes the batches/rows/anchors without waiting for approval. Use for "plan a batch for X", "add rows for finding Y", "turn this proposal into batches", "create a new implementation package".
 user-invocable: true
 argument-hint: "[suite-or-package-path] [what to plan]"
 ---
 
-<!-- plan-batch skill version: 1.2.0 (2026-07-26) — adds mandatory local
-     Telegram notification enqueueing at every terminal user handoff. -->
+<!-- plan-batch skill version: 1.3.1 (2026-08-05) — adds optional subagent
+     delegation (section reads, draft audit) with mandatory inline fallbacks.
+     PlantLibrary line; diverged from the Orchestrator_System copy, whose
+     1.4.0 carries the same additions. 1.3.0 removed the approval gate. -->
 
 Produce batch plans that run-batch can execute unattended. Plan quality is
 measured by one thing: can a fresh session complete each row from its
@@ -19,7 +21,13 @@ checklist line + anchor alone, and prove it with the named validation?
    new package — see §6.
 2. Read `STATE.md` (durable status, blockers) and only the sections of the
    proposal/authority docs the request touches. Do not re-read what the
-   conversation already established.
+   conversation already established. If this invocation can spawn agents,
+   delegate proposal/authority-doc section lookups to the workspace's
+   read-only section-reader agent where one exists (e.g. Conductor's
+   `v5-section-reader`), passing the question or section references and
+   consuming only the returned quoted windows. If it cannot, read the
+   sections yourself — section map first, then bounded `offset`/`limit`
+   windows, never the whole document.
 3. List existing batch keys and row IDs (grep headings and ID column) so new
    ones extend the sequences without collision.
 
@@ -116,24 +124,33 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
 - A batch whose goal is only "update documents" should be a `STATE.md`
   continuation entry instead, unless the documents are contracts.
 
-## 5. Approval gate — nothing is written before this
+## 5. Write the plan — no approval gate
 
-1. Present the draft compactly: batch heading(s), a table of proposed rows
-   (ID, task one-liner, requirements, validation, risk/effort), what gets
-   dropped or routed elsewhere, and any inherited constraint you recommend
-   discarding.
-2. Before every approval request, enqueue an `approval required` notification
-   per §8. Then ask for approval item-by-item (AskUserQuestion when
-   interactive; otherwise stop and leave the draft in the report). Apply
-   vetoes and re-present only the changed items, enqueueing again before any
-   new approval request.
-3. On approval, write in one pass: batch section(s), checklist rows, anchors,
-   and a dated `STATE.md` continuation entry —
+1. Present the draft compactly in the report: batch heading(s), a table of
+   proposed rows (ID, task one-liner, requirements, validation, risk/effort),
+   what gets dropped or routed elsewhere, and any inherited constraint
+   discarded. This is a record for the user, not a prompt — do not wait for a
+   response before writing.
+2. Where the draft has an open choice (sizing, sequencing, batch split, model
+   tier, scope trim), resolve it yourself: pick the recommended option per
+   §2–§4 and note the choice with a one-line rationale in the draft instead of
+   asking. Only stop short of writing when the request is genuinely
+   underspecified in a way no recommendation can safely resolve (e.g. the
+   target package or the concern itself is ambiguous) — then follow §8's
+   blocked path.
+3. Run the §7 self-review. If this invocation can spawn agents, also submit
+   the complete draft (batch sections, rows, anchors) plus the package path
+   to a fresh-context read-only plan-audit agent (e.g. `batch-plan-auditor`)
+   and treat every checklist item it fails as a §7 failure; if it cannot, the
+   inline self-review alone is the gate. Either way, on failure fix the draft
+   and re-review before writing anything.
+4. Write in one pass: batch section(s), checklist rows, anchors, and a dated
+   `STATE.md` continuation entry —
    `**<date> — plan amendment (<short>, no code run).** <what + why + authority>`.
-4. Amendments to existing batches follow the same gate. Never edit a `done`
-   row's meaning — supersede it with a new row.
-5. After the approved write and self-review succeed, report the planning task
-   as finished and enqueue a `completed` notification per §8 before returning.
+5. Amendments to existing batches follow the same procedure. Never edit a
+   `done` row's meaning — supersede it with a new row.
+6. After the write succeeds, report the planning task as finished and
+   enqueue a `completed` notification per §8 before returning.
 
 ## 6. Scaffolding a new package
 
@@ -155,7 +172,7 @@ Procedure lives in the run-batch skill — do **not** generate a per-package
 DRIVER_SCRIPT.md; `SCOPE.md` replaces it. No `_ACT_STATE.md` (deprecated;
 checklist status is the single source of truth).
 
-## 7. Self-review before presenting
+## 7. Self-review before writing
 
 - [ ] Every row completable by a fresh session from row + anchor alone
 - [ ] Every `validation` entry runnable or a concrete artifact path
@@ -173,11 +190,11 @@ checklist status is the single source of truth).
 Notify whenever the invocation must yield control and the user must be
 informed:
 
-- before requesting approval, including a revised approval request;
-- after the planning task finishes successfully, including a conclusion that
-  no package changes are needed;
-- before stopping for any blocker, ambiguity, missing input/artifact,
-  required decision, failed write/validation, or other human action; and
+- after the planning task finishes successfully, including a written package
+  or a conclusion that no package changes are needed;
+- before stopping for a blocker that no recommended option can resolve —
+  unreadable/missing input, an unresolvable target/concern ambiguity, or a
+  failed write/validation; and
 - before any other terminal report whose outcome the user must see.
 
 Do not notify for routine progress updates that do not yield control. For each
@@ -185,9 +202,9 @@ required notification, prepare this compact plain-text notice:
 
 ```text
 Plan batch: <package path, or unresolved target>
-Status: <approval required | completed | blocked | stopped>
+Status: <completed | blocked | stopped>
 Summary: <what was drafted, written, concluded, or prevented>
-Human action needed: <specific approval/action, or none>
+Human action needed: <specific action, or none>
 ```
 
 **Notify.** Best-effort, never blocks: pipe the notice text to
@@ -200,7 +217,7 @@ sends the message, and retains transient failures for retry.
 
 The plan-batch agent must use `--enqueue`; never invoke this script's
 direct-send, `--drain-once`, or `--watch` modes. Enqueue before presenting the
-approval prompt or terminal report. On exit 0 report `Notification: queued for
-local Telegram notifier` — do not claim synchronous delivery. On non-zero note
-the local enqueue failure and continue; notification failure never changes the
-planning result or replaces the user-facing prompt/report.
+terminal report. On exit 0 report `Notification: queued for local Telegram
+notifier` — do not claim synchronous delivery. On non-zero note the local
+enqueue failure and continue; notification failure never changes the planning
+result or replaces the user-facing report.

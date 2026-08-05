@@ -108,6 +108,12 @@ anchor — never the whole files):
   `graphify-out/graph.json` exists; otherwise locate symbols with Grep, read
   windows around them, expand only as needed. Whole-file reads only for
   small files or when narrow reads fail.
+- Large authority documents (e.g. a package's normative proposal) follow the
+  same rule: if this invocation can spawn agents, delegate section lookups to
+  the workspace's read-only section-reader agent where one exists (e.g.
+  Conductor's `v5-section-reader`) and consume only its quoted windows; if it
+  cannot, use the document's section map and bounded windows per the package
+  `CONTEXT_INDEX.md`.
 - Smallest safe edit first. Run formatters only on touched files.
 - Cross-suite resources marked read-only in the hard scope (e.g. generated
   clients, other packages' control files) are never edited from here.
@@ -140,6 +146,15 @@ anchor — never the whole files):
    paths. Failures become new row proposals, never silent inline fixes.
 
 ## 7. Close the batch
+
+Before completion, inspect `git diff --stat` first and then only focused hunks
+for the touched paths. If this invocation can spawn agents, also pass the
+batch key, each selected row's done-when, the touched paths, and the package
+scope file to a read-only closeout-review agent (e.g.
+`batch-closeout-reviewer`) and resolve every confirmed finding it returns —
+fix in-batch or record it as a blocker/new-row proposal — before committing.
+If it cannot, this inline diff inspection against the same criteria is the
+full review.
 
 1. Update only the affected checklist row lines with Edit (match the exact
    `| <ID> | <status> |` prefix). Partial work → `blocked` or
