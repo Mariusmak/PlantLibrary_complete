@@ -10,3 +10,6 @@ __pycache__/
 
 # graphify knowledge graph (regenerable via update_graph.bat / graphify update .)
 graphify-out/
+
+# personal scratch notes, not tracked (2026-09-15)
+Todo.md

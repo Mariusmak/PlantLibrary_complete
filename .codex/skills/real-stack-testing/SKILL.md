@@ -37,6 +37,10 @@ not permission to replace it with a stand-in.
 5. Capture full failure evidence to files; keep model-visible output compact.
 6. Treat a skipped required validation as failure through the repository's
    strict flag.
+7. Run chunked validation in the foreground with the resumable runner; the
+   envelope is derived (`foreground_ceiling_s − envelope_grace_s`), never a
+   hand-typed number, and a runner is never backgrounded (AM-44 cl.7,
+   AC131/AC132).
 
 For a rendered UI, assert the triad: visible DOM, outbound request, and
 persisted state. Read [references/gui-testing.md](references/gui-testing.md)
@@ -45,17 +49,37 @@ only when the selected work exercises a rendered surface.
 Read [references/metered-validation.md](references/metered-validation.md) only
 when validation would use paid APIs, real workers, or another metered resource.
 
+## Protocol migration
+
+For a row that changes a constructor, protocol, shared seam, or mandatory
+preflight, establish the fixture/double blast radius before the first test run.
+The surface is every constructor, implementer, hand-written double, fixture,
+and affected consumer of the changed seam; process-boundary substitutes remain
+the only permitted doubles.
+
+Record a complete relative-path and symbol inventory in the row evidence. Migrate
+every enumerated fixture or double as one mechanical pass, then compare the
+migrated count with the pre-test inventory before running the scoped matrix.
+Never use repeated pytest failures to discover this surface. A row that does not
+edit a seam may demonstrate the procedure with a read-only representative survey;
+it must not alter the surveyed product fixtures.
+
 ## Validation handoff
 
-After implementation, invoke the `validate-real-stack` action with the row or
-task ID, exact command, acceptance criteria, touched paths, and artifact path.
-The cheaper validation worker runs the command in isolated context and returns
-compact evidence.
+An implementation agent, after implementation, invokes the
+`validate-real-stack` action with the row or task ID, exact command, acceptance
+criteria, touched paths, and artifact path. This handoff applies only to the
+implementation agent. A delegated validation agent instead executes its
+already-supplied command and returns compact evidence; it must never invoke or
+delegate `validate-real-stack`. Evidence for any chunked run must state, per
+run, its trigger kind (closeout/soak), the manifest path actually executed,
+and its chunk count — a mismatch with the recorded fact block is a refusal,
+not a footnote (AM-45; INC-D-05).
 
 The parent implementation agent owns fixes, checklist state, evidence
 decisions, and completion. A validator must not change product code, tests, or
-batch metadata. If the worker is unavailable, validate inline and report the
-fallback.
+batch metadata. If the worker is unavailable, the implementation agent
+validates inline and reports the fallback.
 
 ## Review checklist
 

@@ -30,6 +30,8 @@ Return:
 - command and exit code
 - pass/fail for each acceptance criterion
 - artifact paths
+- the manifest or target set actually executed (path + count), verbatim from
+  the run
 - no more than 20 relevant output lines
 - suspected cause when failed
 

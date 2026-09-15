@@ -1,14 +1,14 @@
 ---
 name: plan-batch
-description: Author or amend an implementation batch package in the PlantLibrary house format (BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md). Turns a proposal, audit finding, or feature request into sized, verifiable batch rows; enforces the row schema, ID scheme, and dependency/evidence rules; drafts the plan, auto-resolves open choices by picking the recommended option, and writes the batches/rows/anchors without waiting for approval. Use for "plan a batch for X", "add rows for finding Y", "turn this proposal into batches", "create a new implementation package".
+description: Author or amend an implementation batch package (BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md). Turns a proposal, audit finding, or feature request into sized, verifiable batch rows; enforces the row schema, ID scheme, and dependency/evidence rules; drafts the plan, auto-resolves open choices by picking the recommended option, and writes the batches/rows/anchors without waiting for approval. Use for "plan a batch for X", "add rows for finding Y", "turn this proposal into batches", "create a new implementation package".
 user-invocable: true
 argument-hint: "[suite-or-package-path] [what to plan]"
 ---
 
-<!-- plan-batch skill version: 1.3.1 (2026-08-05) — adds optional subagent
+<!-- plan-batch skill version: 1.4.0 (2026-08-05) — adds optional subagent
      delegation (section reads, draft audit) with mandatory inline fallbacks.
-     PlantLibrary line; diverged from the Orchestrator_System copy, whose
-     1.4.0 carries the same additions. 1.3.0 removed the approval gate. -->
+     1.3.0 removed the approval gate; plan-batch auto-selects the recommended
+     option and writes the package in one pass. -->
 
 Produce batch plans that run-batch can execute unattended. Plan quality is
 measured by one thing: can a fresh session complete each row from its
@@ -45,6 +45,11 @@ checklist line + anchor alone, and prove it with the named validation?
    skeleton first and detail only the first batch; later batches get
    detailed when their prerequisites exist (plans written far ahead of
    reality rot).
+4. **Out-of-band fixes swept?** List commits since the last gate that carry a
+   decision id but no checklist row (the AM-49 shape: fix + tests + gate
+   decision). Write the retroactive row for each — baseline = the decision
+   id — before adding new scope. Untracked fixes erode the row→baseline
+   traceability this format exists to keep.
 
 ## 3. Row authoring rules
 
@@ -64,7 +69,12 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
 - **design_context**: decide from the row's *action*, not its file paths.
 - **baseline_id**: what the row traces to — a gap ID, decision ID, deferral,
   or `GAP(<short>)`. Every row must trace to something; a row that traces to
-  nothing is scope creep — cut it or record the new decision first.
+  nothing is scope creep — cut it or record the new decision first. A row
+  premise that states a current-repo fact (a digest, a version, a file's
+  existence or content) must be verified against the tree at authoring time
+  and cited (`cites:` target) so the package premise guard (AM-52/AC142) can
+  check it mechanically; a row whose premise cannot be verified is not
+  written.
 - **task**: imperative, self-contained, one session of work. Split anything
   larger; merge fragments that always ship together.
 - **context**: `[details](TASK_CONTEXT.md#<id-lowercase>)`.
@@ -89,7 +99,7 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
   `haiku/luna` — left is the Claude tier, right the matching Codex tier, always
   named together (never one alone). These are the same tier names as
   `vendors.claude.ladder` / `vendors.codex.ladder` in `config.example.yaml`,
-  which already pair them 1:1 (Opus 4.8 ≡ GPT 5.6 Sol, Sonnet 5 ≡ GPT 5.6 Terra,
+  which already pair them 1:1 (Opus 5 ≡ GPT 5.6 Sol, Sonnet 5 ≡ GPT 5.6 Terra,
   Haiku 4.5 ≡ GPT 5.6 Luna). Default `sonnet/terra`; use `opus/sol` for
   architectural/high-risk rows (`risk: H` or design-defining work) and
   `haiku/luna` for mechanical/low-risk rows (`risk: L`, boilerplate, rote
@@ -147,6 +157,10 @@ ID | status | skill | design_context | baseline_id | area | file(s) | task | con
 4. Write in one pass: batch section(s), checklist rows, anchors, and a dated
    `STATE.md` continuation entry —
    `**<date> — plan amendment (<short>, no code run).** <what + why + authority>`.
+   Any new file written into a package's `planning/`, `proposal/`, or
+   `handovers/` folder is named `<TYPE>_<topic>_<YYYY-MM-DD>.md` and added to
+   that folder's `INDEX.md` in the same commit (see CLAUDE.md's "Deliverable
+   naming" section).
 5. Amendments to existing batches follow the same procedure. Never edit a
    `done` row's meaning — supersede it with a new row.
 6. After the write succeeds, report the planning task as finished and
@@ -184,6 +198,11 @@ checklist status is the single source of truth).
 - [ ] Every row and batch names a `model` pair (`opus/sol` · `sonnet/terra` · `haiku/luna`); never a Claude tier without its Codex match
 - [ ] IDs collision-free; batches ordered; independence marked
 - [ ] Findings for other packages routed, not duplicated
+- [ ] Every stated row premise verified against the current tree; cited-fact
+      rows name their `cites:` target (AM-52/AC142)
+- [ ] Every batch's touched-path set scopes under the active cap; a batch that
+      touches a root `conftest.py` scopes the whole corpus and must say so in
+      its `Blockers`
 
 ## 8. Notify at every terminal user handoff
 
@@ -206,6 +225,11 @@ Status: <completed | blocked | stopped>
 Summary: <what was drafted, written, concluded, or prevented>
 Human action needed: <specific action, or none>
 ```
+
+<!-- Telegram notify block: prose is intentionally near-duplicated in
+     run-batch/SKILL.md §8 (notice vs. report artifact, "planning result" vs.
+     "batch failure" wording differ on purpose). Keep the enqueue-only
+     contract and mode restrictions in sync across both when either changes. -->
 
 **Notify.** Best-effort, never blocks: pipe the notice text to
 `python scripts/notify_telegram.py --enqueue` (repo root). This command performs

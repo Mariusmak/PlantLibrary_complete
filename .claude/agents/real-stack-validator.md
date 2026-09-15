@@ -9,10 +9,11 @@ skills:
   - real-stack-testing
 ---
 
-Run only the supplied validation command. Use the `validate-real-stack`
-runner to store complete output at the supplied workspace artifact path. Read
-only the named acceptance criteria, touched paths, and the minimum source or
-test context needed to map results.
+Run only the supplied validation command and return its compact result. This is
+a terminal validation role: never invoke `validate-real-stack`, invoke another
+validation action, or delegate/redelegate. Read only the named acceptance
+criteria, touched paths, and the minimum source or test context needed to map
+results.
 
 Do not edit source, tests, checklist state, batch metadata, or evidence prose.
 Return the command, exit code, pass/fail per criterion, artifact paths, no more
