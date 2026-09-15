@@ -183,8 +183,8 @@ column fix. What does **not** vanish is listed under F-2…F-4 and F-11.
 | Step | What it does | Model · reasoning | cwd | State |
 |---|---|---|---|---|
 | `0` | Freeze and commit what is dirty; refresh the two stale `.codex/agents` files; add the census script; open the register | **Sonnet 5 · standard** | `SW_Development` | todo |
-| `1` | The skill-assumption audit the handover left undone (handbook step 7 items 1–2), with F-6/F-7 measured rather than argued | **Opus 5 · high** | `SW_Development` | todo |
-| `G1` | Operator gate: decisions D1–D8 (§4) | you | — | open |
+| `1` | The skill-assumption audit the handover left undone (handbook step 7 items 1–2), with F-6/F-7 measured rather than argued | **Opus 5 · high** | `SW_Development` | done |
+| `G1` | Operator gate: decisions D1–D8 (§4) | you | — | decided |
 | `2a` | Schema migration recipe + PyApp package (the pilot): 15 columns, models, F-2/F-3/F-4, `SCOPE.md`, batch reorder, zero parser errors | **Sonnet 5 · thinking** | `PlantLibrary_PyApp` | todo |
 | `2b` | The same recipe over Server, SharedContracts, Dashboard, AndroidApp, Workspace V1 and SDA | **Sonnet 5 · standard** | each suite folder in turn (one session per suite is allowed) | todo |
 | `3` | Per-suite `CLAUDE.md`/`AGENTS.md`, skill + agent mirrors into the suites, `.tmp/` policy, README notes for the terminal packages | **Sonnet 5 · standard** | `SW_Development` | todo |
@@ -207,14 +207,14 @@ follow-up commit of your own, before pasting `2a`.
 
 | ID | Decision | Recommendation (why) | decided |
 |---|---|---|---|
-| D1 | Which packages migrate to the 15-column schema | The **seven live** packages (six `System_V1_Implementation` + `System_Design_Architecture`). The four terminal packages and every `MVP\`/`Archive_PreMVP\` folder stay as they are, read-only, with a README note (F-10; `IMPLEMENTATION_PLAN.md` §7 already refused deletion) | |
-| D2 | How to handle the closeout harness (F-6) | **Port** the three harness scripts with suite-named sentinels into **PyApp** first (step `4`), then **Server** (step `7`). Non-pytest suites run **out of band** (step `9`) until the step-`8` proposal ships a non-pytest route. Rejected: `validation.enabled: false` (moves the gap, does not close it); editing the skill mirrors (parity rule, "a prompt never overrides a skill") | |
-| D3 | Where the batch skills live | Mirror `run-batch`, `plan-batch`, `real-stack-testing`, `validate-real-stack`, `test-driven-development` and the three agents into **every live suite**'s `.claude\` (and `.codex\` for parity), byte-identical, checked by the parity script — **unless** step `1` proves parent-folder discovery works from a submodule cwd, in which case only the agents are mirrored | |
-| D4 | Project topology on instance 2 | One project per package, named `<Suite>` (`PlantLibrary_PyApp` binds `pyapp/System_V1_Implementation`, …). Workspace binds `System_V1_Implementation` now and gets a second project `PlantLibrary_Workspace-SDA` only after D5. Archive the six unbound projects. Active project = **PyApp** for the canary, then **Server** (`SV1-B00` is the critical path) | |
-| D5 | `SDA-DEC-01..05` (design track; open since July) | Accept the five recommendations as written in `System_Design_Architecture\STATE.md` (sibling folders · fully generated tokens · native per-platform capture · Material Symbols · system font). Non-gating either way; deciding unblocks `SDA-B01..B08` for the out-of-band lane | |
-| D6 | Canary batch | **`PY1-B08`** (`PY-V1-TEST-02`, `PY-V1-TEST-03`, `PY-V1-DOC-01`: headless app-e2e tier + docs; skill `none`, pure pytest, no Docker, no GUI driving). `PY1-B00` and `PY1-B06` need a human at the screen (`gui-validation`) and are unsuitable for a headless worker | |
-| D7 | Batch order inside each plan (F-11 d) | Reorder "Conductor-suitable first, attended last" during migration; attended batches (`PY1-B00`, `WD1-B00`, every `gui-validation`/`android-validation` batch) get an explicit `**Requires:**` sentence naming the operator, so they classify honestly. Recorded as a dated plan amendment in each `STATE.md` | |
-| D8 | Model defaults for the migration | Per batch from `IMPLEMENTATION_PLAN.md` §4 role assignments: Sol → `opus/sol`, Terra → `sonnet/terra`, Luna → `haiku/luna`; rows inherit their batch's pair except `risk: H` rows → `opus/sol`. Batches §4 does not name default to `sonnet/terra` (Appendix B lists every batch) | |
+| D1 | Which packages migrate to the 15-column schema | The **seven live** packages (six `System_V1_Implementation` + `System_Design_Architecture`). The four terminal packages and every `MVP\`/`Archive_PreMVP\` folder stay as they are, read-only, with a README note (F-10; `IMPLEMENTATION_PLAN.md` §7 already refused deletion) | **accepted as recommended** (G1, 2026-09-15) |
+| D2 | How to handle the closeout harness (F-6) | **Port** the three harness scripts with suite-named sentinels into **PyApp** first (step `4`), then **Server** (step `7`). Non-pytest suites run **out of band** (step `9`) until the step-`8` proposal ships a non-pytest route. Rejected: `validation.enabled: false` (moves the gap, does not close it); editing the skill mirrors (parity rule, "a prompt never overrides a skill") | **accepted as recommended** (G1, 2026-09-15), resized per `onboarding\AUDIT_skill-assumptions_2026-09-15.md` §2c/§4: step `4` is six deliverables, not a copy — the three scripts + importable `scripts/harness/` package, suite-named sentinels, a resolvable `KNOWN_FAILURES.md`, a `tests/acceptance` target, and a suite-local source for `max_scope_targets` (step `4` constraint 6) |
+| D3 | Where the batch skills live | Mirror `run-batch`, `plan-batch`, `real-stack-testing`, `validate-real-stack`, `test-driven-development` and the three agents into **every live suite**'s `.claude\` (and `.codex\` for parity), byte-identical, checked by the parity script — **unless** step `1` proves parent-folder discovery works from a submodule cwd, in which case only the agents are mirrored | **accepted as recommended** (G1, 2026-09-15); the "unless" branch did not fire — `onboarding\AUDIT_skill-assumptions_2026-09-15.md` §2a/§2b measured no parent-folder discovery from PyApp or Server. Mirror whole skill folders (scripts and references travel inside them) together with the agents |
+| D4 | Project topology on instance 2 | One project per package, named `<Suite>` (`PlantLibrary_PyApp` binds `pyapp/System_V1_Implementation`, …). Workspace binds `System_V1_Implementation` now and gets a second project `PlantLibrary_Workspace-SDA` only after D5. Archive the six unbound projects. Active project = **PyApp** for the canary, then **Server** (`SV1-B00` is the critical path) | **accepted as recommended** (G1, 2026-09-15), with the audit's Workspace addition in link-safe form: the two terminal Workspace packages keep their `BATCH_PLAN.md` (renaming breaks links in `IMPLEMENTATION_PLAN.md` and in frozen Android MVP evidence). Instead every Workspace `/run-batch` or `/plan-batch` names the package **path** (run-batch §1.1), because from the Workspace cwd four packages match and the §1.2 `STATE.md` tiebreak cannot resolve (V1, SDA and the terminal MVP package all name a next batch) — Appendix B.5 |
+| D5 | `SDA-DEC-01..05` (design track; open since July) | Accept the five recommendations as written in `System_Design_Architecture\STATE.md` (sibling folders · fully generated tokens · native per-platform capture · Material Symbols · system font). Non-gating either way; deciding unblocks `SDA-B01..B08` for the out-of-band lane | **accepted as recommended** (G1, 2026-09-15); step `2b` also creates the missing `System_Design_Architecture\validation\` |
+| D6 | Canary batch | **`PY1-B08`** (`PY-V1-TEST-02`, `PY-V1-TEST-03`, `PY-V1-DOC-01`: headless app-e2e tier + docs; skill `none`, pure pytest, no Docker, no GUI driving). `PY1-B00` and `PY1-B06` need a human at the screen (`gui-validation`) and are unsuitable for a headless worker | **accepted as recommended** (G1, 2026-09-15) |
+| D7 | Batch order inside each plan (F-11 d) | Reorder "Conductor-suitable first, attended last" during migration; attended batches (`PY1-B00`, `WD1-B00`, every `gui-validation`/`android-validation` batch) get an explicit `**Requires:**` sentence naming the operator, so they classify honestly. Recorded as a dated plan amendment in each `STATE.md` | **accepted as recommended** (G1, 2026-09-15), including the audit's addition: every live package gets an authored `SCOPE.md` with a `## Standing invariants` heading (none has one today — `onboarding\AUDIT_skill-assumptions_2026-09-15.md` A4), not further amendments to `DRIVER_SCRIPT.md` |
+| D8 | Model defaults for the migration | Per batch from `IMPLEMENTATION_PLAN.md` §4 role assignments: Sol → `opus/sol`, Terra → `sonnet/terra`, Luna → `haiku/luna`; rows inherit their batch's pair except `risk: H` rows → `opus/sol`. Batches §4 does not name default to `sonnet/terra` (Appendix B lists every batch) | **accepted as recommended** (G1, 2026-09-15) |
 
 Carried, not decided here (they belong to the program, not the onboarding): the two named
 security sign-offs (`AN-V1-SEC-01`, `SV-V1-SEC-01`), the release-scope confirmation of
@@ -360,10 +360,14 @@ Do, in this order:
    run-batch skill; DRIVER_SCRIPT.md is legacy — its procedural sections are superseded." Do not
    delete DRIVER_SCRIPT.md.
 4. Add .tmp/ to .gitignore if absent (it is present here — verify) and a
-   "**2026-09-16 — plan amendment (Conductor schema migration, no code run).**" entry to
+   "**<YYYY-MM-DD of the day this step runs> — plan amendment (Conductor schema migration, no code
+   run).**" entry to
    STATE.md naming: the column and model additions (D8), the F-2 fix, the reorder (D7), the
    restored PY-V1-REL-02 cell, and the four blocked rows whose blockers this entry now records
    on one dated line each ("<ID> blocked: <reason from the row>") so the parser sees them.
+   In the same edit, replace the stale "Next actionable batch: `PY1-B00`" statements in
+   STATE.md's status header with the post-reorder first batch (`PY1-B08`); earlier dated log
+   entries stay as written.
 5. Prove it: run ..\scripts\harness\check_batch_packages.py (instance-2 interpreter) — this
    package must show 0 errors and print one classification per batch. Expected: PY1-B07
    already_done; PY1-B08 will_run first in plan order; PY1-B03/PY1-B05 blocked (their Requires
@@ -514,6 +518,10 @@ supported shape, create it under implementation\System_V1_Implementation\validat
 which rule allows it. (4) duration_history.json: omit the file; the skill says the flag is
 omitted when the file is absent. (5) Scratch: .tmp\chunks\ and .tmp\p\ under this git root;
 document in CLAUDE.md.
+(6) Also required, per the audit's C3/C7/C9 and decision D2: scripts\harness\ importable as a
+package (regression_scope.py imports run_chunks at module load); a tests\acceptance target for
+run-batch §6 5a(iii), or a recorded waiver; and a suite-local, documented source for
+validation.max_scope_targets (600), since no config.yaml is reachable from this cwd.
 
 Prove it, in the foreground, and put the transcript in implementation\System_V1_Implementation\
 validation\ONBOARDING_harness-port.md: (a) python scripts\harness\regression_scope.py
@@ -834,7 +842,7 @@ column must be complete); use the batch's pair.
 | SharedContracts | recipe only |
 | Dashboard | `WD1-B03` heading demoted · `WD1-B04`, `WD1-B06` Requires (`WD1-B05`) · eight `blocked` rows: dated blocker lines · two `deferred` rows: rationale lines · `WD1-B00` attended, last |
 | AndroidApp | `AN1-B08` (`AN1-B09`, `AN1-B10`), `AN1-B11` (`AN1-B09`) Requires · batches whose primaries are all `gated`: first-sentence `**Requires:**` naming the gate · `android-validation` batches attended, last |
-| Workspace V1 | `SY1-B05` Requires (`SY1-B07`) · keep `SY1-B07` before `SY1-B05` in plan order |
+| Workspace V1 | `SY1-B05` Requires (`SY1-B07`) · keep `SY1-B07` before `SY1-B05` in plan order · D4: do **not** rename the terminal packages' `BATCH_PLAN.md` (linked from `IMPLEMENTATION_PLAN.md` and frozen MVP evidence); instead state in `implementation\README.md` and in `SCOPE.md` that from this suite's cwd four packages match `implementation/*/BATCH_PLAN.md`, so every `/run-batch` and `/plan-batch` here must name the package path |
 | SDA | insert `baseline_id` (13 → 15) · `SDA-B00` Requires the five decisions |
 
 **B.6 `SCOPE.md`** (per package, from `DRIVER_SCRIPT.md`): `# SCOPE — <package>` · "Procedure:
@@ -895,7 +903,7 @@ path for every live V1 package: `System_V1_Implementation`; SDA: `System_Design_
 |---|---|---|
 | `0` | freeze + commit, agents refreshed, census script, register | done — `f6ffcd4` (superproject); `5147569` (PlantLibrary_Workspace) |
 | `1` | skill-assumption audit (measured F-6/F-7) | done — `AUDIT_skill-assumptions_2026-09-15.md`; F-7 confirmed (no parent-folder discovery), F-6 confirmed with verbatim refusals |
-| `G1` | decisions D1–D8 | open |
+| `G1` | decisions D1–D8 | decided 2026-09-15 — all eight accepted as recommended, with the audit's additions to D2/D4/D7 (see §4) |
 | `2a` | recipe + PyApp migrated, 0 errors | todo |
 | `2b` | Server · SharedContracts · Dashboard · AndroidApp · Workspace V1 · SDA migrated | todo |
 | `3` | suite guides, mirrors, scratch policy, README notes | todo |
