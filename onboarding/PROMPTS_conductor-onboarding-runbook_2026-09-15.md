@@ -893,7 +893,7 @@ path for every live V1 package: `System_V1_Implementation`; SDA: `System_Design_
 
 | Step | What | Status |
 |---|---|---|
-| `0` | freeze + commit, agents refreshed, census script, register | todo |
+| `0` | freeze + commit, agents refreshed, census script, register | done — `f6ffcd4` (superproject); `5147569` (PlantLibrary_Workspace) |
 | `1` | skill-assumption audit (measured F-6/F-7) | todo |
 | `G1` | decisions D1–D8 | open |
 | `2a` | recipe + PyApp migrated, 0 errors | todo |
