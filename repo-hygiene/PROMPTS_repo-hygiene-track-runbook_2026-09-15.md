@@ -153,6 +153,11 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
     steps, but they touch the same files twice: the rule block (phase A) and the per-suite `CLAUDE.md`/`AGENTS.md` (onboarding
     step `3`) — either order works because the block is marked and the checker reports its loss; and the eleven live-package
     holds (§1b) wait for onboarding `2a`/`2b` (`M-9`).
+11. **2026-09-16 — why `K-5` exists.** Opening `A-2`, the session found that kit `0.1.0` required a prompt file floor ≥ 1,
+    while every suite's `planning\` root is seeded empty, so `A-2`…`A-7` could only fail `proof-floor`
+    (`handovers\FINDING_kit-proof-floor-blocks-suite-anchoring_2026-09-16.md`); the operator's decision was "Stop; kit
+    patch first (Recommended)", and `K-5` released kit `0.2.0`, in which a floor of 0 is legal when a decision entry
+    records it — the suites anchor on `0.2.0` (§12).
 
 ## 3. Step map — the sequence and its state
 
@@ -167,6 +172,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `K-4` | version 0.1.0, changelog, commit, tag | **Sonnet 5 · thinking** | KIT | done 2026-09-16 |
 | `GK` | operator gate: the kit at `v0.1.0` is accepted for anchoring | operator | — | **answered** 2026-09-16 (§4) |
 | `A-1` | anchor the superproject (roots `repo-hygiene\`, `onboarding\`, `handovers\`; root-allowlist module on) | **Opus 5 · high** | TARGET | done 2026-09-16 |
+| `K-5` | kit patch: prompt file floor 0 by decision entry; kit `0.2.0`, tag `v0.2.0`; this runbook's §12 moved to `0.2.0` (§2 item 11) | **Fable 5.1 · high** | KIT → TARGET | done 2026-09-16 |
 | `A-2` | anchor PyApp | **Opus 5 · high** | `PlantLibrary_PyApp` → TARGET | todo |
 | `A-3` | anchor Server | **Opus 5 · high** | `PlantLibrary_Server` → TARGET | todo |
 | `A-4` | anchor SharedContracts | **Opus 5 · high** | `PlantLibrary_SharedContracts` → TARGET | todo |
@@ -186,9 +192,9 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `M-8` | the closing pass: checker green over the whole tree, census re-run and diffed against the register, the HANDOVER, the kit's changelog | **Sonnet 5 · thinking** | TARGET, then KIT | todo |
 | `M-9` | rolling: release held names as their citers change (onboarding `2a`/`2b`) or the operator releases them | **Opus 5 · high** | the repo that holds the name → TARGET | rolling |
 
-Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `A-2` … `A-7` → `GA` → `M-0` → `GM` → `M-1` …
-`M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are independent of each other and may
-run in any order once `A-1` is done; `M-2`…`M-7` likewise once `GM` is answered.
+Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `K-5` → `A-2` … `A-7` → `GA` → `M-0` →
+`GM` → `M-1` … `M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are independent of
+each other and may run in any order once `A-1` and `K-5` are done; `M-2`…`M-7` likewise once `GM` is answered.
 
 ## 4. Gates the operator owns — record the answer here, in the step's commit
 
@@ -526,6 +532,13 @@ SharedContracts, `A-5` Dashboard, `A-6` AndroidApp, `A-7` Workspace. Depends on 
 submodule folder, then TARGET for the gitlink bump. One paste block; before pasting, replace `A-n` with the step id and
 `<SUITE>` with the folder name, and read the row below — it is what the decision record must say and what `GA` confirms.
 
+The suites anchor to kit `0.2.0` (tag `v0.2.0`, step `K-5`). A suite with no `PROMPT_`/`PROMPTS_` file in a declared
+`planning\` root — every suite today, since each `planning\` root is seeded empty — is anchored with `--floor 0`, and its
+`D-<today>-01` entry records that floor-0 declaration, citing
+`handovers\FINDING_kit-proof-floor-blocks-suite-anchoring_2026-09-16.md`. The superproject stays pinned to kit `0.1.0`
+(`A-1`: its pin and its `scripts\hygiene\` copy) until an operator-decided re-pin — `install.py --target` then `--force`
+with a decision entry — which is not part of `A-2`…`A-7` or of `K-5`.
+
 | `<SUITE>` | declared roots | pytest wrapper | decision record seeds (census §2.n and §3; hold groups per §1b) |
 |---|---|---|---|
 | `PlantLibrary_PyApp` | `implementation\System_V1_Implementation\{planning,proposal,handovers}` | yes | frozen `implementation\MVP\`, `implementation\Archive_PreMVP\`; exempt legacy corpus `Documentation\` (Q4b, 31 files never renamed, listed by name); exempt by name `PRODUCT.md`, `DESIGN.md`; generated `.docpipeline\`, `app\**\*.md`; held — live-package group: `proposal\PYAPP_V1_PROPOSAL.md` (`STATE.md`, Q5c); pinned group: `Documentation\Design_Implementation_Claude.md`, `GUI\screen_structures\improvements.md`; code group: `Documentation\plant_information_system_implementation_plan_v1.md`; scratch deferred |
@@ -538,21 +551,24 @@ submodule folder, then TARGET for the gitlink bump. One paste block; before past
 ```text
 Step A-n of C:\Programmierung\SW_Development\repo-hygiene\PROMPTS_repo-hygiene-track-runbook_2026-09-15.md for <SUITE>.
 cwd C:\Programmierung\SW_Development\<SUITE> on main, tree clean; A-1 is done and the superproject is clean. Anchor this
-submodule to the kit at v0.1.0. Nothing is renamed or moved in this step; no other submodule is touched.
+submodule to the kit at v0.2.0. Nothing is renamed or moved in this step; no other submodule is touched.
 
 Read first: the runbook's section 12 row for <SUITE> (roots, wrapper, decision seeds), section 1b (the hold groups) and
-section 1d; KIT\installer\INSTALL.md; KIT\KIT_SPEC.md sections 2, 3, 6; repo-hygiene\REGISTER_target-corpus-census_
+section 1d; KIT\installer\INSTALL.md; KIT\KIT_SPEC.md sections 2, 3, 4, 6; repo-hygiene\REGISTER_target-corpus-census_
 2026-09-15.md section 2.<n> for this suite, section 3 (its holds) and section 4 (its row: pytest surface, line endings,
 existing CLAUDE.md/AGENTS.md); this suite's CLAUDE.md and AGENTS.md if they exist (PyApp: CRLF, rich; Server: LF,
 runtime-only; the other four: absent).
 
 Do: run the installer per INSTALL.md with this suite's roots; the pytest wrapper per the row; modules off (root allowlist
-off, scratch deferred); no pre-commit hook. Then complete what it seeds: an INDEX.md in every declared root that has none
+off, scratch deferred); no pre-commit hook; --floor 0 where this suite has no PROMPT_/PROMPTS_ file in a declared planning
+root (else the default floor). Then complete what it seeds: an INDEX.md in every declared root that has none
 (proposal\ gets one line for its existing file, marked held with its group; planning\ and handovers\ are created with an
 empty index so new deliverables have a home); hygiene\HYGIENE_DECISIONS.md entry D-<today>-01 with, quoting the G0 words:
 the roots and routing, the frozen trees, the pinned trees, the exempt names, the generated trees, the held names each with
 its hold group, its citing file class and its target-on-release (TYPE and topic from census section 2, date from the
-git-created column), the scratch module deferred to onboarding step 3, and for Workspace the sentence that the loose roots
+git-created column), the scratch module deferred to onboarding step 3, the floor-0 declaration where the installer ran
+with --floor 0 (why: no prompt file in a planning root yet; citing handovers\FINDING_kit-proof-floor-blocks-suite-
+anchoring_2026-09-16.md in the superproject and its operator decision), and for Workspace the sentence that the loose roots
 are declared at M-7; the rule block present in CLAUDE.md and AGENTS.md (both created by the installer where absent, with the
 block only). Commit here; then in the superproject add the gitlink and commit with the ledger flip.
 
@@ -562,11 +578,11 @@ batch package file (BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md)
 (PyApp, Server) is untouched apart from the inserted block; nothing pushed.
 
 Done when: INSTALL.md's Verify section reports its pass-with-holds verdict for this submodule with exactly the row's held
-names that sit inside a declared root listed as held and zero violations; the pin and the -01 decision entry exist; every
-declared root has an INDEX.md that names every file in it; one commit on the submodule's main and one superproject commit
-carrying the gitlink and the ledger flip.
+names that sit inside a declared root listed as held and zero violations; the pin (kit 0.2.0, and the floor the -01 entry
+declares) and the -01 decision entry exist; every declared root has an INDEX.md that names every file in it; one commit on
+the submodule's main and one superproject commit carrying the gitlink and the ledger flip.
 
-Commit line (submodule): hygiene: A-n - <SUITE> anchored to kit 0.1.0
+Commit line (submodule): hygiene: A-n - <SUITE> anchored to kit 0.2.0
 Commit line (superproject): repo-hygiene: A-n - bump <SUITE> gitlink; ledger A-n
 ```
 
@@ -806,7 +822,7 @@ a package file; the pinned and code groups are released by other owners, or neve
 | Shape | Model · reasoning |
 |---|---|
 | Open-ended design and gates (the bootstrap, `K-1`) | Fable 5.1 · xhigh |
-| Building against a written specification, and rename maps (`K-2a`, `K-2b`, `K-2c`, `M-0`) | Fable 5.1 · high |
+| Building against a written specification, and rename maps (`K-2a`, `K-2b`, `K-2c`, `K-5`, `M-0`) | Fable 5.1 · high |
 | Structured execution of an existing procedure (`A-1`…`A-7`, `M-1`…`M-7`, `M-9`) | Opus 5 · high |
 | Mechanical verification and closing passes (`K-3`, `K-4`, `M-8`) | Sonnet 5 · thinking |
 
@@ -828,6 +844,7 @@ present), never `xhigh` on Opus and never Sonnet for a Fable slot. The compensat
 | `K-4` | 0.1.0, changelog, tag `v0.1.0` | Sonnet 5 · thinking | done 2026-09-16 — KIT `1360c0c` on `main`, tag `v0.1.0` on that commit: the one `K-3` finding decided (not a defect — `KIT_SPEC.md` §14's reproduction-target paragraph amended to state the expected three `index` lines and the literal `repo-hygiene: fail — 3 violations, 2 held, 1 skipped` verdict, so a re-run compares against the true baseline); `KIT_VERSION.md`'s `0.1.0` changelog entry completed (what the kit contains, the SOURCE pin, the self-test summary, the decided finding, nothing deferred); `README.md` and the rule block's `{{KIT_VERSION}}` default already agreed (`0.1.0`), no edit needed; `CONTRIBUTING.md` §1's full verification order re-run and green on every row at the tagged commit; no checker or installer behaviour changed; nothing pushed |
 | `GK` | kit accepted for anchoring | operator | done 2026-09-16 — "Yes, accept (Recommended)" (§4) |
 | `A-1` | superproject anchored | Opus 5 · high | done 2026-09-16 — superproject `master` (this commit): installer run with roots `repo-hygiene`, `onboarding`, `handovers`, module `root-allowlist`, no wrapper, no hook — `install: done — pin written`; `hygiene\CONSUMED_HYGIENE.md` pins kit `0.1.0` @ `C:/Programmierung/Repo_Hygiene_Template_Kit`, SOURCE `fc5a14c`; `handovers\INDEX.md` seeded empty; `hygiene\HYGIENE_DECISIONS.md` entry `D-2026-09-16-01` (G0 and GK words, roots and routing, the four onboarding-runbook holds with citing lines and targets, `IMPLEMENTATION_PLAN.md` → `M-0` proposal 1, 24 allowlist entries = today's root listing plus `.github`/`handovers`/`hygiene`, no retired names, scratch deferred to onboarding step `3`); rule block appended to `CLAUDE.md`/`AGENTS.md` in CRLF (each file's first-line ending), prior bytes unchanged, both still mixed; checker verdict `repo-hygiene: pass with holds — 0 violations, 2 held`, `--self-test` `pass — 6 defects detected, original unchanged`; census 10 files, 5 compliant, 0 candidates, 3 exempt, 2 held. **Finding for `GA`/`M-0`:** the checker lists a held name only inside a declared root, so the two root-level holds (`HANDOVER_…`, `IMPLEMENTATION_PLAN.md`) are in the record but not in the verdict — 2 held, not the 4 the done-when expected; kit unchanged |
+| `K-5` | kit patch: prompt file floor 0 by decision entry; 0.2.0, tag `v0.2.0` | Fable 5.1 · high (run on Opus 5 · high with the §18 fresh-context review) | done 2026-09-16 — KIT `77ab513` on `main`, tag `v0.2.0` on that commit, per `handovers\FINDING_kit-proof-floor-blocks-suite-anchoring_2026-09-16.md` ("Stop; kit patch first (Recommended)"): the pin's `Prompt file floor` is an integer ≥ 0, 0 legal only when a decision entry records it (`KIT_SPEC.md` §4, §6, §7.2, §9); the checker's pin parser and the installer's `--floor` accept 0 and still refuse a negative value (`must be an integer ≥ 0`; a non-integer is refused as before); the installer default stays 1; with floor 0 the scan still reports `proof-argv`/`proof-prose`; `INSTALL.md` (flag line, "After the installer", Verify note, Troubleshooting), the pin and decision-record templates and the anchor runbook say so; new fixture `tests\prompt-floor-zero` → `repo-hygiene: pass — 0 violations, 0 held`, and `--self-test` over it detects both proof defects and ends `pass — 6 defects detected, original unchanged`; the example re-pinned to `0.2.0` with its own `D-2026-09-16-02`; `CONTRIBUTING.md` §1 green on every row (`fixtures: pass — 9/9 fixtures, 3/3 self-tests`, `installer: pass — 8/8 cases`, `git status --short` empty); `KIT_VERSION.md` `0.2.0` with its changelog entry. Here: §2 item 11, the §3 row, §12 on `0.2.0` with the floor-0 route, the `handovers\INDEX.md` line resolved; the superproject stays on `0.1.0` (its verdict unchanged: `pass with holds — 0 violations, 2 held`); no submodule touched; nothing pushed |
 | `A-2` | PyApp anchored | Opus 5 · high | todo |
 | `A-3` | Server anchored | Opus 5 · high | todo |
 | `A-4` | SharedContracts anchored | Opus 5 · high | todo |
