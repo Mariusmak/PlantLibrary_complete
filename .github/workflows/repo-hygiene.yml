@@ -1,0 +1,28 @@
+# repo-hygiene — CI job template, written into a target repository by the Repo Hygiene Template Kit's
+# installer (installer/install.py, write 3) and re-synced on every run. Runs the installed checker in
+# check mode from the repository root on every push and pull request; nothing is installed, the checker
+# is stdlib-only Python 3. Exit 0 is pass or pass with holds, exit 1 is violations, exit 2 could not run;
+# the verdict line and its reading are the kit's installer/INSTALL.md, Verify section.
+
+name: repo-hygiene
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  repo-hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: repo-hygiene check
+        run: python scripts/hygiene/repo_hygiene_check.py check
