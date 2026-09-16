@@ -159,7 +159,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | Step | What it does | Model · reasoning | cwd | State |
 |---|---|---|---|---|
 | `G0` | the eleven questions + five census sub-questions | operator | — | **answered** 2026-09-15 (§1d) |
-| `K-1` | create KIT; `KIT_SPEC.md` from the inventory and G0 — what the kit contains and never contains | **Fable 5.1 · xhigh** | `C:\Programmierung` → KIT | todo |
+| `K-1` | create KIT; `KIT_SPEC.md` from the inventory and G0 — what the kit contains and never contains | **Fable 5.1 · xhigh** | `C:\Programmierung` → KIT | done 2026-09-16 |
 | `K-2a` | the checker (check / census / self-test), the pytest wrapper, the rule block, the negative fixtures | **Fable 5.1 · high** | KIT | todo |
 | `K-2b` | the installer, the templates, `examples\anchored-target`, `CONTRIBUTING.md` with the verification order | **Fable 5.1 · high** | KIT | todo |
 | `K-2c` | `README.md`, `SOURCE_HARNESS.md` (the SOURCE pin), the three generic runbooks, `KIT_VERSION.md` | **Fable 5.1 · high** | KIT | todo |
@@ -820,7 +820,7 @@ present), never `xhigh` on Opus and never Sonnet for a Fable slot. The compensat
 | Step | What | Model · reasoning | Status |
 |---|---|---|---|
 | `G0` | the gate | operator | done 2026-09-15 — "all recommendations accepted" |
-| `K-1` | KIT created; `KIT_SPEC.md` | Fable 5.1 · xhigh | todo |
+| `K-1` | KIT created; `KIT_SPEC.md` | Fable 5.1 · xhigh | done 2026-09-16 — KIT `7475e13` on `main`: `KIT_SPEC.md` (sections 0–14 plus the section-15 mapping: inventory rows 1a–11b and G0 Q1–Q11 with Q3a, Q4b, Q5a–c, none unmapped), two-paragraph `README.md`, `.gitignore`; no tooling built; SOURCE untouched |
 | `K-2a` | checker, wrapper, rule block, negative fixtures | Fable 5.1 · high | todo |
 | `K-2b` | installer, templates, example, `CONTRIBUTING.md` §1 | Fable 5.1 · high | todo |
 | `K-2c` | README, SOURCE pin, three generic runbooks, `KIT_VERSION.md` | Fable 5.1 · high | todo |
