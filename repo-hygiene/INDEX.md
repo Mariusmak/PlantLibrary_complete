@@ -12,3 +12,17 @@ AUDIT, MATRIX, FINDING, EVIDENCE, HANDOVER}`; every new file gets a line here in
 | `REGISTER_target-corpus-census_2026-09-15.md` | Bootstrap item (b)/(c): the pre-migration census of 967 markdown files over the superproject and six submodules — folder classes, 103 candidates with git-created / header dates, proposed TYPE and topic, every citation and the 33 holds with their citing lines, per-repo totals (the M-8 baseline), enforcement surfaces per repo, the conventions catalogued and the rules used |
 | `PROMPTS_repo-hygiene-track-runbook_2026-09-15.md` | The track runbook: the three roots, where things stand from the two registers, the `G0` record ("all recommendations accepted", resolved per question), the fresh-context review record, the step map `K-1`…`K-4` / `GK` / `A-1`…`A-7` / `GA` / `M-0` / `GM` / `M-1`…`M-9` with one paste block per step, model · reasoning and cwd, the gates table, the ladder and the ledger (every step todo) |
 | `MATRIX_rename-map_2026-09-16.md` | Step `M-0`, presented at gate `GM`: the rename map for the superproject and six submodules — the 2026-09-16 re-measurement against the census (967 → 1024 files, no candidate changed), one row per candidate (103) with old → new, TYPE, git-created date, hold group, citer and target on release; the moves, the set folders, the never-renamed rows per decision record; the 35 holds by group; the 28 date divergences; the six proposals and two map calls with recommendations; the `GA` record and the `GM` words |
+
+## Renamed 2026-09-16
+
+Step `M-1` executed the superproject's section of `MATRIX_rename-map_2026-09-16.md` under `GM`'s words "Yes, all
+recommendations accepted (Recommended)"; entry `D-2026-09-16-03`. Nothing in this root was renamed. The table carries
+the superproject's held and exempt rows outside this root (the onboarding track's `INDEX.md` takes only the one-line
+path fix, runbook §14), and points at the move recorded in `handovers/INDEX.md`.
+
+| old name | new name |
+|---|---|
+| `../HANDOVER_batch-package-schema-drift_2026-09-15.md` (repository root) | `../handovers/HANDOVER_batch-package-schema-drift_2026-09-15.md` — moved, basename unchanged; **held** against rename — cited by `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md:5` (group onboarding-runbook). Target on release: unchanged. Row of record in `handovers/INDEX.md`. `D-2026-09-16-03` |
+| `../onboarding/AUDIT_skill-assumptions_2026-09-15.md` | **held** — cited by `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md:211,212,216,905` (group onboarding-runbook). Target on release: `AUDIT_skill-assumptions_2026-09-15.md` (unchanged; already compliant). `D-2026-09-16-01` |
+| `../onboarding/REGISTER_package-census_2026-09-15.md` | **held** — cited by `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md:251,584,911` (group onboarding-runbook). Target on release: `REGISTER_package-census_2026-09-15.md` (unchanged; already compliant). `D-2026-09-16-01` |
+| `../IMPLEMENTATION_PLAN.md` (repository root) | `IMPLEMENTATION_PLAN.md` — unchanged; **exempt by decision** as the living program plan (`GM` proposal 1), allowlisted; the census target `PLAN_plantlibrary-continuation_2026-08-05.md` (git-created 2026-08-05, header 2026-08-04) is not applied. `D-2026-09-16-03` |

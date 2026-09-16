@@ -151,3 +151,47 @@ lines). `M-1` runs next, on `0.2.1`, with a `release` of the old path and a `hel
 `handovers/HANDOVER_batch-package-schema-drift_2026-09-15.md` in its own entry (runbook §14). No directive line.
 
 Commit line: `repo-hygiene: K-6 - superproject re-pinned to kit 0.2.1; runbook resumes M-1; finding resolved`
+
+## 2026-09-16 — migration
+
+### D-2026-09-16-03 — superproject migrated per the confirmed rename map
+
+Authority: step `M-1` of `repo-hygiene/PROMPTS_repo-hygiene-track-runbook_2026-09-15.md` (§14), executing the
+superproject's section of `repo-hygiene/MATRIX_rename-map_2026-09-16.md` (§3) by the execute stage of the kit's
+`runbooks/RUNBOOK_migrate-an-existing-repository.md`; gate `GM` (runbook §4). The operator's words at `GM`, verbatim:
+"Yes, all recommendations accepted (Recommended)" — given to the question that listed the map's six proposals and two
+map calls; for this repository that settles proposal 1 as "(a) exempt by decision as the living program plan …,
+entered in the root allowlist (it already is) and listed as a never-renamed row". The kit rule that makes the move
+recordable is `0.2.1`'s (`D-2026-09-16-02`; `handovers/FINDING_kit-release-after-move-fails-record_2026-09-16.md`): a
+held name must exist only while held, and a released hold needs no file.
+
+Preconditions measured 2026-09-16: superproject on `master`, tree clean at `e639e5c`; the pin reads kit `0.2.1`; the
+verdict before the step `repo-hygiene: pass with holds — 0 violations, 2 held`; the four holds of `D-2026-09-16-01`
+re-verified by `git grep` — the onboarding runbook still cites the handover on line 5 (by basename), the `AUDIT` on
+lines 211, 212, 216, 905, the `REGISTER` on 251, 584, 911, and `IMPLEMENTATION_PLAN.md` on ten lines.
+
+Dispositions, in the map's order:
+
+1. Moved: `HANDOVER_batch-package-schema-drift_2026-09-15.md` → `handovers/HANDOVER_batch-package-schema-drift_2026-09-15.md`
+   by `git mv` (`G0` Q4), basename unchanged. Its hold continues at the new path: the onboarding runbook cites it by
+   basename, which still resolves, and never by path. The old path is released and the new path held in this entry;
+   the name leaves the root allowlist. `handovers/INDEX.md` gains its line and the "Renamed 2026-09-16" row.
+2. Renamed: nothing — the other superproject candidates are compliant (map §3).
+3. Held, unchanged: `onboarding/AUDIT_skill-assumptions_2026-09-15.md`, `onboarding/REGISTER_package-census_2026-09-15.md`
+   (`D-2026-09-16-01`); their mapping rows are carried in `repo-hygiene/INDEX.md`, since the onboarding track's index
+   takes only the one-line path fix (runbook §14).
+4. Exempt by decision: `IMPLEMENTATION_PLAN.md`, the living program plan (`GM` proposal 1), already allowlisted; its hold
+   is moot and released here, its census target `PLAN_plantlibrary-continuation_2026-08-05.md` is not applied. It is a
+   root-level file, so the `exempt-name` value below is read as a basename; no declared root holds a file of that name
+   today (the frozen MVP packages' files of the same basename are in submodules, outside this repository's roots).
+5. Sweep: `onboarding/INDEX.md` line 10, the relative link `../HANDOVER_…` → `../handovers/HANDOVER_…` (a path fix,
+   one line). No other file cites the old path as a link; `CLAUDE.md` and `AGENTS.md` cite neither name. The onboarding
+   runbook, register and audit, and every submodule, are untouched.
+
+- release: HANDOVER_batch-package-schema-drift_2026-09-15.md — moved to handovers/ by git mv in this commit (M-1)
+- held-name: handovers/HANDOVER_batch-package-schema-drift_2026-09-15.md — onboarding-runbook; cited by onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md:5; target on release: HANDOVER_batch-package-schema-drift_2026-09-15.md (unchanged)
+- allowlist-remove: HANDOVER_batch-package-schema-drift_2026-09-15.md — moved to handovers/ at M-1
+- release: IMPLEMENTATION_PLAN.md — moot: exempt by decision per GM proposal 1
+- exempt-name: IMPLEMENTATION_PLAN.md — the living program plan, never renamed (GM proposal 1); allowlisted since D-2026-09-16-01
+
+Commit line: `repo-hygiene: M-1 - superproject migrated per the confirmed map; INDEX mapping tables`
