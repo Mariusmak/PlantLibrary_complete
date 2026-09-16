@@ -11,7 +11,7 @@ source repository; where a step needs a fact, it cites the register that holds i
 |---|---|
 | Scope | Derive a reusable **Repo Hygiene Template Kit** from the harness `C:\Programmierung\Orchestrator_System` enforces (deliverable naming, folder roots, per-root `INDEX.md`, prompt proof-surface rule, `CLAUDE.md`/`AGENTS.md` rule-block parity, decision-recorded exemptions), shaped like `C:\Programmierung\Design_Template_Kit`; anchor it in `C:\Programmierung\SW_Development` and its six `PlantLibrary_*` submodules; migrate the existing corpus; carry three generic runbooks so the kit can be re-derived, re-anchored and re-applied elsewhere |
 | Three roots, fixed | **SOURCE** `C:\Programmierung\Orchestrator_System` on `main` at `fc5a14c` — read, never written; a stray file there is swept into an instance commit. **KIT** `C:\Programmierung\Repo_Hygiene_Template_Kit` — created by step `K-1` as its own git repository. **TARGET** `C:\Programmierung\SW_Development` — the superproject and its six submodules (`.gitmodules`: AndroidApp, Dashboard, PyApp, Server, SharedContracts, Workspace; GitHub remotes; gitlinks in the index) |
-| Working directories | `KIT` for every `K-*` step (`K-1` starts in `C:\Programmierung` to create it). `TARGET` for `A-1`, `M-0`, `M-1`, `M-8`. **The submodule folder** for `A-2`…`A-7`, `M-2`…`M-7` and `M-9`, followed by `TARGET` for the gitlink bump — the submodule is the git root of everything those steps change |
+| Working directories | `KIT` for every `K-*` step (`K-1` starts in `C:\Programmierung` to create it). `TARGET` for `A-1`, `M-0`, `M-1`, `M-8`. **The submodule folder** for `A-2`…`A-7`, `M-2`…`M-7` and `M-9`, followed by `TARGET` for the gitlink bump — the submodule is the git root of everything those steps change. `A-8` edits all six submodules in one session, each in its own folder in turn, then `TARGET` |
 | Normative sources | `repo-hygiene\REGISTER_hygiene-harness-inventory_2026-09-15.md` (what the kit is derived from; the `K-3` baseline) · `repo-hygiene\REGISTER_target-corpus-census_2026-09-15.md` (what the target holds; the `M-8` baseline; the hold register) · the `G0` record in §1d · after `K-1`: `KIT\KIT_SPEC.md`; after `K-2b`: `KIT\CONTRIBUTING.md` §1 (the verification order) and `KIT\installer\INSTALL.md` (what an anchoring writes, and how it is verified) |
 | Ledger of record | §L at the end of this file. Flip a step there in the same commit as the step's output; for a `K-*` step, whose output commits in KIT, the flip is its own one-line superproject commit (§2 item 8). Gate answers are recorded in §4 |
 | Where the track's artifacts live | `TARGET\repo-hygiene\`, indexed in `repo-hygiene\INDEX.md` in the same commit — with one exception the track itself creates: the `M-8` HANDOVER routes to the superproject's `handovers\` root, because that is the rule the kit installs (`HANDOVER`/`FINDING` → `handovers\`); `repo-hygiene\INDEX.md` carries a pointer line |
@@ -158,6 +158,18 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
     (`handovers\FINDING_kit-proof-floor-blocks-suite-anchoring_2026-09-16.md`); the operator's decision was "Stop; kit
     patch first (Recommended)", and `K-5` released kit `0.2.0`, in which a floor of 0 is legal when a decision entry
     records it — the suites anchor on `0.2.0` (§12).
+12. **2026-09-16 — why `A-8` exists.** `A-5`, `A-6` and `A-7` each recorded an observation for `GA`: the
+    `## Deliverable naming` section that onboarding step `3` wrote into all six suites' `CLAUDE.md` (and PyApp's
+    `AGENTS.md`) lists `TYPE` as `PROMPTS`, `AUDIT`, `REGISTER`, `FINDING`, `EVIDENCE`, `HANDOVER`, `PROPOSAL`, `REPORT`.
+    That list contradicts the kit's rule block a few lines below it: `REPORT` is outside the enum (Q6 makes a report
+    `EVIDENCE`), `PROMPT`, `PLAN`, `MATRIX` and `SNAPSHOT` are missing, and "create the `INDEX.md` with the folder's
+    first deliverable" is stale, since `A-2`…`A-7` seeded every root's index. The `run-batch` skill sends workers to
+    that section (§6.10), and PyApp is bound on Conductor instance 2 (onboarding step `5`), so a `REPORT_` deliverable
+    would fail the checker at a batch closeout. `GA` was confirmed first (the sets are unaffected). Asked "Does it make
+    sense to fix the report problem now or add a prompt to the runbook to fix it later?", the operator was
+    recommended a runbook step run soon, before PyApp dispatch resumes, replacing the list with a pointer to the rule
+    block; the operator's answer, verbatim: "write step to the runbook". `A-8` is that step. It does not add `REPORT`
+    to the enum (Q6 stands), and it does not edit the onboarding runbook or its ledger (§0).
 
 ## 3. Step map — the sequence and its state
 
@@ -179,6 +191,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `A-5` | anchor Dashboard | **Opus 5 · high** | `PlantLibrary_Dashboard` → TARGET | done 2026-09-16 |
 | `A-6` | anchor AndroidApp | **Opus 5 · high** | `PlantLibrary_AndroidApp` → TARGET | done 2026-09-16 |
 | `A-7` | anchor Workspace (the largest decision record: four frozen trees, two pinned, 15 holds) | **Opus 5 · high** | `PlantLibrary_Workspace` → TARGET | done 2026-09-16 |
+| `A-8` | point the six suites' `## Deliverable naming` section at the rule block (drops `REPORT`; §2 item 12) | **Opus 5 · high** | each `PlantLibrary_*` → TARGET | todo |
 | `GA` | operator gate: the seven decision records (exempt, frozen, pinned, held sets) are confirmed — `M-0` derives from them | operator | — | open |
 | `M-0` | the rename map per repo, re-verified against the tree, six proposals, presented at `GM` | **Fable 5.1 · high** | TARGET | todo |
 | `GM` | operator gate: the map is confirmed before the first `git mv` | operator | — | open |
@@ -195,6 +208,9 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `K-5` → `A-2` … `A-7` → `GA` → `M-0` →
 `GM` → `M-1` … `M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are independent of
 each other and may run in any order once `A-1` and `K-5` are done; `M-2`…`M-7` likewise once `GM` is answered.
+`A-8` needs `A-2`…`A-7` done and nothing else; it is independent of `GA`, `M-0` and `GM` and may run before, between or
+after them, but never at the same time as another step, since each needs the superproject tree clean. Run it before
+Conductor resumes dispatch in any suite.
 
 ## 4. Gates the operator owns — record the answer here, in the step's commit
 
@@ -594,6 +610,85 @@ installer wants to write `.gitignore` for `.tmp\`, that is the scratch module an
 CRLF: the inserted block must be CRLF too, and `AGENTS.md` (also CRLF) gets the same bytes; the parity check normalises, so a
 mismatch reported here is a real text difference. After `A-7`, answer `GA` in §4 and record it in the `M-0` commit.
 
+## 12a. Step `A-8` — point the suites' `## Deliverable naming` section at the rule block
+
+**Opus 5 · high, one session for all six suites.** A fixed text replacement in seven files, plus the record. Depends on
+G0 Q6, Q7, Q11, on `A-2`…`A-7`, and on the operator's words in §2 item 12. `cwd`: each submodule folder in §12's suite
+order, then TARGET.
+
+Today the seven copies (six suite `CLAUDE.md` files and PyApp's `AGENTS.md`) are byte-identical once line endings are
+ignored. Each is ten lines: the heading, a blank line, seven text lines and a trailing blank line before the next heading
+or the `<!-- repo-hygiene:begin -->` marker. No code, test or script matches the section's wording. The replacement
+below keeps the heading, because the `run-batch` skill cites the section by that name, and keeps the one fact the rule
+block does not state (where row evidence goes):
+
+```markdown
+## Deliverable naming
+
+A file written as a deliverable (report, audit, handover, incident write-up, register)
+goes into a declared root, a package's `planning/`, `proposal/` or `handovers/` folder,
+and is named, dated and indexed exactly as the "Repository hygiene" block in this file
+says. That block's `TYPE` list is the only one: a report is `EVIDENCE`, and every
+declared root already has its `INDEX.md`. Row evidence keeps the run-batch form
+`validation/<BATCH-KEY>_<slug>.md`; `validation/` is not a root. This is the section
+run-batch §6.10 and plan-batch §5.4 cite.
+```
+
+```text
+Step A-8 of C:\Programmierung\SW_Development\repo-hygiene\PROMPTS_repo-hygiene-track-runbook_2026-09-15.md. cwd
+C:\Programmierung\SW_Development; the superproject clean; A-2 to A-7 done. In each of the six submodules, replace the
+body of the "## Deliverable naming" section with the text in the runbook's section 12a. Nothing is renamed or moved; no
+kit file, no hygiene pin and no marked block changes.
+
+Read first: the runbook's section 2 item 12 (why, and the operator's words), section 12a (the replacement text) and
+section 12 (the suite order); KIT\KIT_SPEC.md section 6 (the decision-record shape); KIT\installer\INSTALL.md, Verify
+section; in each suite: hygiene\HYGIENE_DECISIONS.md entry -01 (its closing observation for GA, where present), and
+CLAUDE.md, plus AGENTS.md in PyApp, around the "## Deliverable naming" heading.
+
+Preconditions, per suite, before any edit (stop and report if one fails): on main, tree clean (a Conductor worker may
+have committed since A-n - that is fine; uncommitted work is not yours and is a stop); the section exists exactly once in
+CLAUDE.md (and in PyApp's AGENTS.md), and its body still carries the TYPE list ending with REPORT - if the onboarding
+track has already rewritten it, record what you found and leave that file alone; the checker verdict per INSTALL.md is
+still pass with holds with the held count A-n recorded (PyApp 1, Server 1, SharedContracts 1, Dashboard 1, AndroidApp 1,
+Workspace 8). Also check that the superproject's CLAUDE.md and AGENTS.md carry no such section, and do not edit them.
+
+Do, per suite in the section 12 order: (1) note git ls-files --eol for CLAUDE.md and AGENTS.md; (2) replace everything
+between the "## Deliverable naming" heading and the next heading or the <!-- repo-hygiene:begin --> marker with the
+section 12a text below its heading, keeping the heading line and one blank line before what follows, in the file's own
+line ending (in PyApp, both CLAUDE.md and AGENTS.md); (3) append hygiene\HYGIENE_DECISIONS.md entry D-<today>-nn (the
+next free id, verified by grep; expected -02) titled "Deliverable naming section points at the rule block", carrying:
+the authority (this step; the operator's question and answer quoted verbatim from section 2 item 12; GA confirmed
+before this step), what was wrong (the TYPE list with REPORT, the four missing types, the stale INDEX.md sentence), what
+changed (the file(s) and the section, replaced with runbook section 12a's text), what did not (the kit enum - Q6 stands,
+no enum-add; the marked block; the onboarding runbook and its ledger), and that the section belongs to the onboarding
+track, so a later regeneration of it by that track must keep the pointer instead of a list. The entry carries no
+directive line: the exempt, frozen, pinned and held sets GA confirmed are unchanged. No prose list item may start with a
+lowercase hyphenated word and a colon; (4) verify per INSTALL.md; (5) commit on the submodule's main. Then in the
+superproject: add the six gitlinks, flip A-8 in section 3 and section L with each submodule commit and verdict, and
+commit.
+
+Constraints: edits preserve each file's line endings (git ls-files --eol identical before and after, and git diff shows
+only the section's lines and the appended entry); no .gitattributes; nothing outside the section is edited in CLAUDE.md
+or AGENTS.md; no change under the marked block, hygiene\CONSUMED_HYGIENE.md, scripts\hygiene\, any package file
+(BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md, SCOPE.md), any skill or agent mirror, the onboarding runbook
+or its ledger, or the kit; no Conductor call; nothing pushed.
+
+Done when: in every suite, INSTALL.md's Verify section reports the same pass-with-holds verdict and held count as its
+A-n row, with zero violations; the word REPORT no longer appears as a TYPE in any suite's CLAUDE.md or AGENTS.md; the
+seven edited sections are byte-identical once line endings are ignored and equal the section 12a text; each suite has
+the new decision entry and exactly one new commit; one superproject commit carries the six gitlinks and the ledger flip.
+
+Commit line (each submodule): hygiene: A-8 - Deliverable naming section points at the rule block
+Commit line (superproject): repo-hygiene: A-8 - bump six gitlinks; ledger A-8
+```
+
+**Watch:** the whole value is that the suites' guides stop naming a second `TYPE` list. If the session proposes copying
+the kit's eleven types into the section instead of pointing at the block, that recreates the drift; send it back. If it
+proposes an `enum-add: REPORT` entry, that reopens Q6, which is an operator decision and not this step. The line-ending
+check is the one real risk: every suite file is LF in the index and CRLF in this machine's `autocrlf` checkout, so
+compare with `git ls-files --eol`, not a byte count of the working tree. If onboarding later regenerates the suites'
+guides, check that the pointer survived; the `-02` entries are the record that it must.
+
 ## 13. Step `M-0` — the rename map, presented at `GM`
 
 **Fable 5.1 · high.** A map derived from known facts, with six judgment calls the operator decides. Depends on G0 Q4/Q4b,
@@ -823,7 +918,7 @@ a package file; the pinned and code groups are released by other owners, or neve
 |---|---|
 | Open-ended design and gates (the bootstrap, `K-1`) | Fable 5.1 · xhigh |
 | Building against a written specification, and rename maps (`K-2a`, `K-2b`, `K-2c`, `K-5`, `M-0`) | Fable 5.1 · high |
-| Structured execution of an existing procedure (`A-1`…`A-7`, `M-1`…`M-7`, `M-9`) | Opus 5 · high |
+| Structured execution of an existing procedure (`A-1`…`A-8`, `M-1`…`M-7`, `M-9`) | Opus 5 · high |
 | Mechanical verification and closing passes (`K-3`, `K-4`, `M-8`) | Sonnet 5 · thinking |
 
 **Substitution when Fable 5.1 is unavailable** (the `D-2026-09-12-05` rule of the Meta V2 track): a Fable · high slot becomes
@@ -851,6 +946,7 @@ present), never `xhigh` on Opus and never Sonnet for a Fable slot. The compensat
 | `A-5` | Dashboard anchored | Opus 5 · high | done 2026-09-16 — Dashboard `a14ed94` on `main`: installer (kit `0.2.0`) with the three `implementation\System_V1_Implementation` roots, `--floor 0`, no pytest wrapper (Vitest/Playwright, no Python suite), no modules, no hook — `install: done — pin written`; pin kit `0.2.0`, SOURCE `fc5a14c`, floor 0, wrapper no; rule block appended to `CLAUDE.md`/`AGENTS.md` (19 lines each, nothing else changed; both files were created by the onboarding commit `4eefc61` after the census HEAD `472e7d2` recorded "none", LF in the index; no candidate changed since); `.github\workflows\repo-hygiene.yml` is the repo's first workflow; `planning\`/`handovers\` seeded empty, `proposal\INDEX.md` lists `DASHBOARD_V1_PROPOSAL.md` as held; `D-2026-09-16-01` records the G0/GK words, the floor-0 declaration citing the superproject finding, frozen `implementation\MVP` and `references\PlantLibrary_pythonApp_old`, `docs\` catalogued (three living notes), `validation\`'s two pre-contracted names, the five held names re-verified by `git grep` with group, citer and target in `planning\` per Q4b (`DASHBOARD_V1_PROPOSAL.md` live-package, `STATE.md:14`; `WD-A11Y-01_validation_report.md` and `WD-PARITY-01_parity_report.md` terminal-`STATE.md`, MVP `STATE.md:172`; `WD-MOCKUP-UPGRADE_PROPOSAL.md` and `WD-UX-10_mockup_parity_report.md` pinned, Design initiative `METHODOLOGY_RECONCILIATION.md:24`, also MVP `STATE.md:403`/`:75`), the note that the `PROPOSAL`-typed `docs\` file follows Q4b to `planning\` unless `M-0` routes it to `proposal\`, scratch deferred (`.tmp/` already ignored since `4eefc61`); verdict `repo-hygiene: pass with holds — 0 violations, 1 held` (the four `docs\` holds are outside every root), `--self-test` `pass — 6 defects detected, original unchanged`; census 4 files, 3 exempt, 1 held; no root sentinel, so no allowlist edit. **Observation for `GA`:** the onboarding track's `CLAUDE.md` section "Deliverable naming" lists `REPORT` as a TYPE, outside the kit enum (Q6 maps it to `EVIDENCE`), in all six suites (and PyApp's `AGENTS.md`); a `REPORT_` file in a root would fail `name`; none exists today; recorded in the `-01` entry, onboarding text untouched |
 | `A-6` | AndroidApp anchored | Opus 5 · high | done 2026-09-16 — AndroidApp `0ac7b6f` on `main`: installer (kit `0.2.0`) with the three `implementation\System_V1_Implementation` roots, `--floor 0`, no pytest wrapper (Gradle, no Python suite), no modules, no hook — `install: done — pin written`; pin kit `0.2.0`, SOURCE `fc5a14c`, floor 0, wrapper no; rule block appended to `CLAUDE.md`/`AGENTS.md` (19 lines each, nothing else changed; both files were created by the onboarding commit `869572f` after the census HEAD `b75265a` recorded "none", LF in the index; no candidate changed since); `.github\workflows\repo-hygiene.yml` is the repo's first workflow, beside the untouched `.github\skills` mirror (the superproject's parity checker covers `.claude`/`.codex` only); `planning\`/`handovers\` seeded empty, `proposal\INDEX.md` lists `ANDROIDAPP_V1_PROPOSAL.md` as held; `D-2026-09-16-01` records the G0/GK words, the floor-0 declaration citing the superproject finding, frozen `implementation\MVP` (9 + 11 + 2 `.md`), `docs\` catalogued (README, nine row-anchored plans, the emulator-config note), `validation\`'s two pre-contracted names, the four skill/agent mirrors (`.codex` new since the census) left to onboarding, the two held names re-verified by `git grep` with group, citer and target (`ANDROIDAPP_V1_PROPOSAL.md` live-package **policy hold**, no citer anywhere, target `PROPOSAL_androidapp-v1_2026-07-10.md`, header 2026-07-09; `docs\security_token_storage_acceptance.md` code group, `AuthTokenStore.kt:27`, also live `TASK_CHECKLIST.md:56` (was 54) / `TASK_CONTEXT.md:350` and MVP `STATE.md:371`, target `planning\PROPOSAL_an-mvp-security-01-auth-token-storage-deviation_2026-07-06.md` — `PROPOSAL` per Q6 for the census's `DECISION?`, row id kept per Q4b, `M-0` may route it to `proposal\`), the `REPORT` observation for `GA` repeated, scratch deferred (`.tmp/` already ignored since `869572f`); verdict `repo-hygiene: pass with holds — 0 violations, 1 held` (the `docs\` hold is outside every root), `--self-test` `pass — 6 defects detected, original unchanged`; census 4 files, 3 exempt, 1 held; no root sentinel, so no allowlist edit |
 | `A-7` | Workspace anchored (six package roots) | Opus 5 · high | done 2026-09-16 — Workspace `040dad5` on `main`: installer (kit `0.2.0`) with the six roots of `implementation\System_V1_Implementation` and `implementation\System_Design_Architecture`, `--floor 0`, no pytest wrapper (no Python suite), no modules, no hook — `install: done — pin written`; pin kit `0.2.0`, SOURCE `fc5a14c`, floor 0, wrapper no; rule block appended to `CLAUDE.md`/`AGENTS.md` (19 lines each, nothing else changed; both files were created by the onboarding commit `be56647` after the census HEAD `5147569` recorded "none", LF in the index); `.github\workflows\repo-hygiene.yml` is the repo's first workflow; the four `planning\`/`handovers\` roots seeded empty, both `proposal\INDEX.md` list their numbered sets (V1 00–02, SDA 00–04) as held, each line with its target and the `M-0` proposal-3 alternative; `D-2026-09-16-01` records the G0/GK words (Q4, Q5, Q5a–c, Q6, Q8), the floor-0 declaration citing the superproject finding, the sentence that the loose roots and `MVP_Reconciliation\` are declared at `M-7`, frozen `System_Integration_MVP`, `System_Tooling`, `strategy\Cross_Platform_Strategy`, `system_description` (205 `.md`), pinned `GUI_Improvement_Methodology`, `Design_Template_Initiative` (107), the twelve exempt names of the §12 row (path form), generated `REVIEW_LIST.md`, and all 15 held names re-verified by `git grep` across the seven repos and the Design kit, grouped (live-package 6, terminal-`STATE.md` 1, pinned 4, code 4) with today's citing lines (`36445cc` moved several anchor lines; no hold class changed), citer and target (Q6 applied: the two DECISION-shaped files → `PROPOSAL`); the 37 unheld, unexempt candidates outside the roots listed for `M-0`; the new non-hold citers (the `design-adoption` skill mirrors, the suites' hygiene records); the `REPORT` observation for `GA` repeated; scratch deferred (`.tmp/` already ignored since `36445cc`); verdict `repo-hygiene: pass with holds — 0 violations, 8 held` (the seven other holds are outside every root), `--self-test` `pass — 6 defects detected, original unchanged`; census 14 files, 6 exempt, 8 held, and 313 exempt-tree files (205 frozen + 107 pinned + 1 generated, as the census counts); no root sentinel, so no allowlist edit. `GA` is open: the seven records are ready for confirmation |
+| `A-8` | suites' `## Deliverable naming` section points at the rule block | Opus 5 · high | todo |
 | `GA` | decision records confirmed | operator | open |
 | `M-0` | rename map, six proposals | Fable 5.1 · high | todo |
 | `GM` | map confirmed | operator | open |
