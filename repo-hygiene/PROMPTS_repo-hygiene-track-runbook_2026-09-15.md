@@ -170,6 +170,18 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
     recommended a runbook step run soon, before PyApp dispatch resumes, replacing the list with a pointer to the rule
     block; the operator's answer, verbatim: "write step to the runbook". `A-8` is that step. It does not add `REPORT`
     to the enum (Q6 stands), and it does not edit the onboarding runbook or its ledger (§0).
+13. **2026-09-16 — why `K-6` exists.** Opening `M-1`, the session moved the held root
+    `HANDOVER_batch-package-schema-drift_2026-09-15.md` into `handovers\` by `git mv`, with an entry carrying the `release`
+    of the old path and a `held-name` for the new one, and the checker of kit `0.1.0`/`0.2.0` still reported
+    `record — held-name … does not exist`: it judged a held name's existence when it folded that line, before the later
+    `release`, so any hold that ends with a move or rename was unreachable
+    (`handovers\FINDING_kit-release-after-move-fails-record_2026-09-16.md`). The operator's decision was "Stop; kit patch
+    first (Recommended)"; `M-1` stayed `todo` with its draft reverted, and `K-6` released kit `0.2.1`, in which a held name
+    must exist only *while held* — existence is judged after the whole record is folded, only for holds still active, and a
+    released hold needs no file. `K-6` re-pinned the superproject to `0.2.1` (`D-2026-09-16-02`); each submodule re-pins
+    itself at its `M-n` before its first `git mv` (§15); a held file that moves while its hold continues takes a `release`
+    of the old path plus a `held-name` at its new path in the same entry (§14, §15, §17). The finding's "State at the stop"
+    carries two notes for the `M-1` rerun (the mapping tables, `IMPLEMENTATION_PLAN.md`).
 
 ## 3. Step map — the sequence and its state
 
@@ -195,6 +207,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `GA` | operator gate: the seven decision records (exempt, frozen, pinned, held sets) are confirmed — `M-0` derives from them | operator | — | **answered** 2026-09-16 (§4) |
 | `M-0` | the rename map per repo, re-verified against the tree, six proposals, presented at `GM` | **Fable 5.1 · high** | TARGET | done 2026-09-16 |
 | `GM` | operator gate: the map is confirmed before the first `git mv` | operator | — | **answered** 2026-09-16 (§4) |
+| `K-6` | kit patch: a hold released by a move needs no file; kit `0.2.1`, tag `v0.2.1`; the superproject re-pinned; §14, §15, §17 carry the release-by-move entry (§2 item 13) | **Fable 5.1 · high** | KIT → TARGET | done 2026-09-16 |
 | `M-1` | migrate the superproject | **Opus 5 · high** | TARGET | todo |
 | `M-2` | migrate PyApp | **Opus 5 · high** | `PlantLibrary_PyApp` → TARGET | todo |
 | `M-3` | migrate Server | **Opus 5 · high** | `PlantLibrary_Server` → TARGET | todo |
@@ -206,8 +219,9 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `M-9` | rolling: release held names as their citers change (onboarding `2a`/`2b`) or the operator releases them | **Opus 5 · high** | the repo that holds the name → TARGET | rolling |
 
 Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `K-5` → `A-2` … `A-7` → `GA` → `M-0` →
-`GM` → `M-1` … `M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are independent of
-each other and may run in any order once `A-1` and `K-5` are done; `M-2`…`M-7` likewise once `GM` is answered.
+`GM` → `K-6` → `M-1` … `M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are
+independent of each other and may run in any order once `A-1` and `K-5` are done; `M-2`…`M-7` likewise once `GM` is
+answered and `K-6` is done.
 `A-8` needs `A-2`…`A-7` done and nothing else; it is independent of `GA`, `M-0` and `GM` and may run before, between or
 after them, but never at the same time as another step, since each needs the superproject tree clean. Run it before
 Conductor resumes dispatch in any suite.
@@ -757,11 +771,14 @@ Step M-1 of repo-hygiene\PROMPTS_repo-hygiene-track-runbook_2026-09-15.md. cwd C
 tree clean, GM answered (stop if not). Execute the superproject's section of repo-hygiene\MATRIX_rename-map_<date>.md.
 
 Read first: the map's preamble and superproject section; KIT\runbooks\RUNBOOK_migrate-an-existing-repository.md (the
-execute stage: git mv, sweep, INDEX regeneration, verify); hygiene\HYGIENE_DECISIONS.md; repo-hygiene\
-REGISTER_target-corpus-census_2026-09-15.md section 3 (the superproject's four hold rows).
+execute stage: git mv, sweep, INDEX regeneration, verify); hygiene\HYGIENE_DECISIONS.md (the pin reads kit 0.2.1 since
+K-6, entry D-2026-09-16-02); repo-hygiene\REGISTER_target-corpus-census_2026-09-15.md section 3 (the superproject's four
+hold rows); handovers\FINDING_kit-release-after-move-fails-record_2026-09-16.md, "State at the stop" (two notes for this
+rerun: the mapping tables, IMPLEMENTATION_PLAN.md).
 
-Do, in the map's order: git mv the root HANDOVER into handovers\ (a move, name unchanged); apply every confirmed rename by
-git mv; the reference sweep over the editable list - repo-hygiene\**, handovers\**, the relative link in onboarding\INDEX.md
+Do, in the map's order: git mv the root HANDOVER into handovers\ (a move, name unchanged) - its hold continues at the new
+path, so the decision entry carries a release of the old path and a held-name for handovers\<name> in the same entry (kit
+0.2.1: a held name must exist only while held; a released hold needs no file); apply every confirmed rename by git mv; the reference sweep over the editable list - repo-hygiene\**, handovers\**, the relative link in onboarding\INDEX.md
 that points at the moved HANDOVER (a path fix, one line), CLAUDE.md/AGENTS.md if they cite a renamed name - and never the
 onboarding runbook, the onboarding register or audit, any submodule; regenerate repo-hygiene\INDEX.md and handovers\INDEX.md
 with a "Renamed <date>" old -> new table that carries every held row with its group and target-on-release and every
@@ -795,15 +812,21 @@ cwd C:\Programmierung\SW_Development\<SUITE> on main, tree clean; GM answered (s
 Execute this submodule's section of ..\repo-hygiene\MATRIX_rename-map_<date>.md.
 
 Read first: the map's preamble, this suite's section and the GM decisions on proposals 2-6; KIT\runbooks\
-RUNBOOK_migrate-an-existing-repository.md (the execute stage); this repo's hygiene\HYGIENE_DECISIONS.md; ..\repo-hygiene\
-REGISTER_target-corpus-census_2026-09-15.md sections 2.<n> and 3 for this suite; the runbook's section 1b (the hold groups).
+RUNBOOK_migrate-an-existing-repository.md (the execute stage); KIT\installer\INSTALL.md, "The pin" (the kit-upgrade
+re-run); this repo's hygiene\HYGIENE_DECISIONS.md; ..\repo-hygiene\REGISTER_target-corpus-census_2026-09-15.md sections
+2.<n> and 3 for this suite; the runbook's section 1b (the hold groups).
 
-Do, in the map's order: for Workspace first, the decision entry that declares the loose roots the map adds (proposal 5) and
-seeds their INDEX.md files; every confirmed move by git mv (the docs\ candidates into planning\ where the map says so; a set
+Do, in the map's order: first, before the first git mv, re-pin this submodule to kit 0.2.1 per INSTALL.md - the installer
+with --target alone, then --force, its declarations (roots, modules, wrapper, launcher, floor) unchanged - with its own
+decision entry D-<today>-nn recording the re-pin and citing ..\handovers\FINDING_kit-release-after-move-fails-record_
+2026-09-16.md (kit 0.2.1: a held name must exist only while held; a released hold needs no file); for Workspace next, the
+decision entry that declares the loose roots the map adds (proposal 5) and seeds their INDEX.md files; every confirmed
+move by git mv (the docs\ candidates into planning\ where the map says so; a set
 folder renamed as a folder, its members untouched); every confirmed rename by git mv; a held name is released in this step
 only when git grep at HEAD across the whole superproject (every submodule included) shows no remaining hold-class citer of
 its old name, or GM's answer to proposal 6 covers it - the grep result or the proposal is quoted in the decision entry; every
-other held name stays held for M-9; the reference sweep over the editable list - the declared roots' files, README.md files,
+other held name stays held for M-9; a held file that moves while its hold continues takes, in the same entry, a release of
+the old path and a held-name for the new path (a released hold needs no file); the reference sweep over the editable list - the declared roots' files, README.md files,
 product documentation under docs\, Documentation\, GUI\ and similar, hygiene\, CLAUDE.md/AGENTS.md, this repo's own
 candidates - and never BATCH_PLAN.md, TASK_CHECKLIST.md, TASK_CONTEXT.md, STATE.md of any package, any frozen or pinned
 tree, any generated tree, any code or config file, anything outside this repo; regenerate every declared root's INDEX.md,
@@ -817,8 +840,9 @@ the mapping table, never by an edit; a code citation (a test docstring, a route 
 nothing pushed; a git grep for each old name after the sweep must hit only the mapping tables, the decision record, the
 register, the map, never-edit files, frozen trees and the onboarding track's files.
 
-Done when: INSTALL.md's Verify section reports its verdict for this submodule with exactly the remaining held names listed
-as held and zero violations; every declared root's INDEX.md names every file in it; the residue is accounted for by
+Done when: this submodule's pin reads kit 0.2.1 with its re-pin entry; INSTALL.md's Verify section reports its verdict
+for this submodule with exactly the remaining held names listed as held and zero violations; every declared root's
+INDEX.md names every file in it; the residue is accounted for by
 category in the commit message body; one commit on the submodule's main and one superproject commit with the gitlink and
 the ledger flip.
 
@@ -893,8 +917,9 @@ release words; the map ..\repo-hygiene\MATRIX_rename-map_<date>.md for the set-s
 
 Do: for each held name whose hold-class citer no longer cites the old name (verified by git grep at HEAD across the whole
 superproject, every submodule included, quoting the result) or whose release the operator has recorded: git mv to the
-target-on-release (a live proposal\ set becomes its dated subfolder); the sweep over the editable list as in M-n; flip the
-INDEX.md mapping row from held to renamed; a decision entry D-<today>-nn naming the releasing commit or the operator's
+target-on-release (a live proposal\ set becomes its dated subfolder); a held file that moves while its hold continues
+takes, in the same entry, a release of the old path and a held-name for the new path (a released hold needs no file); the
+sweep over the editable list as in M-n; flip the INDEX.md mapping row from held to renamed; a decision entry D-<today>-nn naming the releasing commit or the operator's
 words; verify per INSTALL.md; commit; gitlink bump with the ledger line "M-9: <REPO> <names> released <date>" appended in
 section L.
 
@@ -917,7 +942,7 @@ a package file; the pinned and code groups are released by other owners, or neve
 | Shape | Model · reasoning |
 |---|---|
 | Open-ended design and gates (the bootstrap, `K-1`) | Fable 5.1 · xhigh |
-| Building against a written specification, and rename maps (`K-2a`, `K-2b`, `K-2c`, `K-5`, `M-0`) | Fable 5.1 · high |
+| Building against a written specification, and rename maps (`K-2a`, `K-2b`, `K-2c`, `K-5`, `K-6`, `M-0`) | Fable 5.1 · high |
 | Structured execution of an existing procedure (`A-1`…`A-8`, `M-1`…`M-7`, `M-9`) | Opus 5 · high |
 | Mechanical verification and closing passes (`K-3`, `K-4`, `M-8`) | Sonnet 5 · thinking |
 
@@ -950,6 +975,7 @@ present), never `xhigh` on Opus and never Sonnet for a Fable slot. The compensat
 | `GA` | decision records confirmed | operator | done 2026-09-16 — confirmed at the `A-8` opening (§2 item 12); recorded in §4 by `M-0` |
 | `M-0` | rename map, six proposals | Fable 5.1 · high | done 2026-09-16 — superproject `master` (this commit): `repo-hygiene\MATRIX_rename-map_2026-09-16.md`, indexed. Re-measurement by the checker's census mode in all seven repositories (read-only, `git status` unchanged) and the register's own walk: 967 → 1024 `.md` files, the 57 new ones dated and dispositioned (package schema, instruction files, indexes, `hygiene\`, two validation-evidence files of onboarding `9dd6e97`, this track's four deliverables), no candidate created, deleted, renamed or moved; all 34 census holds re-verified at today's HEADs plus the `A-6` policy hold — 35 held names, no citer changed, none released. One row per candidate (103): 4 compliant, 1 move, 10 renames or move-renames, 14 held files plus 11 held set members, 4 releasable by proposal 6, 29 exempt by decision (the 27 PyApp legacy names carry the rule name they would have had), 41 set-folder members in 7 sets; the never-renamed rows of every record cited; 35 holds by group with citer and target on release; 28 date divergences; the three files that become `PROMPT_` in a general root scanned with the kit's detectors, zero lines; six proposals and two map calls, each with a recommendation, all accepted at `GM` ("Yes, all recommendations accepted (Recommended)"); `GA` recorded from §2 item 12 and restated verbatim ("GA confirmed (Recommended)"). Nothing renamed, no `git mv`; no edit outside `repo-hygiene\` |
 | `GM` | map confirmed | operator | done 2026-09-16 — "Yes, all recommendations accepted (Recommended)" (§4) |
+| `K-6` | kit patch: a hold released by a move needs no file; 0.2.1, tag `v0.2.1`; superproject re-pinned | Fable 5.1 · high | done 2026-09-16 — KIT `810733e` on `main`, tag `v0.2.1` on that commit, per `handovers\FINDING_kit-release-after-move-fails-record_2026-09-16.md` ("Stop; kit patch first (Recommended)"): a `held-name` must exist while held — existence judged after the whole record is folded, only for holds still active, reported on the `held-name` line in force with the unchanged text `held-name <path> does not exist`; a released hold needs no file (`KIT_SPEC.md` §1.6, §6; the record template's row); the checker implements it, every other record check unchanged in timing and text; two fixtures, `tests\held-name-released-by-move` (a root-level hold, the file moved into `planning\`, a later entry with the `release` and the new `held-name`) → `held: planning/Fixture_Old_Plan.md — …` then `repo-hygiene: pass with holds — 0 violations, 1 held`, and `tests\held-name-file-missing` → `hygiene/HYGIENE_DECISIONS.md:12: record — held-name planning/Fixture_Gone_Plan.md does not exist` then `repo-hygiene: fail — 1 violations, 0 held`; ad hoc, `0.2.0`'s checker over the positive fixture reproduces the finding's `record` line and `0.2.1`'s `--self-test` over it passes; the migrate runbook's `M-n` item (7) and `M-R` state the release-plus-held-name entry for a moved held file; the example re-pinned to `0.2.1` (`D-2026-09-16-03`); `CONTRIBUTING.md` §1 green on every row (`fixtures: pass — 11/11 fixtures, 3/3 self-tests`, `installer: pass — 8/8 cases`, `git status --short` empty); `KIT_VERSION.md` `0.2.1` with its changelog entry; installer default `0.2.1`. Here (this commit): the superproject re-pinned per `INSTALL.md` — `--target` alone → `install: done — pin records kit 0.1.0 @ …; this kit is 0.2.1 @ …; re-run with --force to re-pin`, then `--force` → `install: done — pin re-written (--force)` — declarations unchanged (roots `repo-hygiene`, `onboarding`, `handovers`; module `root-allowlist`; no wrapper, no hook; floor 1), recorded as `D-2026-09-16-02`; the checker copy re-synced (identical to the kit's); both rule blocks read `0.2.1` inside their markers, each file's CRLF/LF counts identical before and after; verdict unchanged `repo-hygiene: pass with holds — 0 violations, 2 held` with the same two `held:` lines, `--self-test` `pass — 6 defects detected, original unchanged`; §2 item 13, this row and §3's row and dependency line (`GM` → `K-6` → `M-1`), §14 and §17 with the release-by-move entry, §15 with the submodule re-pin before its first `git mv` and the same entry rule, §18's ladder; the `handovers\INDEX.md` line resolved, the finding file unedited; `M-1` not run, no submodule touched, nothing pushed |
 | `M-1` | superproject migrated | Opus 5 · high | todo |
 | `M-2` | PyApp migrated | Opus 5 · high | todo |
 | `M-3` | Server migrated | Opus 5 · high | todo |

@@ -230,6 +230,7 @@ class Record:
     exempt_subfolders: dict[str, int] = field(default_factory=dict)
     exempt_trees: dict[str, str] = field(default_factory=dict)  # path -> class
     held: dict[str, str] = field(default_factory=dict)  # path -> note
+    held_at: dict[str, int] = field(default_factory=dict)  # path -> the held-name line in force
     held_lines: set[tuple[str, int]] = field(default_factory=set)
     enum_add: list[str] = field(default_factory=list)
     allowlist: set[str] = field(default_factory=set)
@@ -357,9 +358,9 @@ def load_pin(path: Path) -> Pin:
     try:
         floor = int(fields["prompt file floor"])
     except ValueError:
-        raise ConfigError(f"{path.name}: Prompt file floor must be an integer ≥ 1") from None
-    if floor < 1:
-        raise ConfigError(f"{path.name}: Prompt file floor must be an integer ≥ 1")
+        raise ConfigError(f"{path.name}: Prompt file floor must be an integer ≥ 0") from None
+    if floor < 0:
+        raise ConfigError(f"{path.name}: Prompt file floor must be an integer ≥ 0")
     return Pin(fields, roots, frozenset(modules), rule_block == "on", launcher, floor)
 
 
@@ -414,6 +415,11 @@ def load_record(path: Path, repo_root: Path, label: str) -> Record:
             problem(number, f"unknown directive {name!r}")
             continue
         _apply_directive(directive, record, repo_root, problem)
+    # A held name must exist while held (§6): judged once the whole record is folded, only for
+    # holds still active, on the held-name line in force — a hold ended by a release needs no file.
+    for rel, number in record.held_at.items():
+        if not (repo_root / rel).is_file():
+            problem(number, f"held-name {rel} does not exist")
     return record
 
 
@@ -445,16 +451,16 @@ def _apply_directive(d: Directive, record: Record, repo_root: Path, problem) -> 
                 problem(d.line_number, f"exempt-tree {rel} does not exist")
             record.exempt_trees[rel] = tree_class or "legacy"
         elif name == "held-name":
-            if not target.is_file():
-                problem(d.line_number, f"held-name {rel} does not exist")
             if "cited by" not in d.note:
                 problem(d.line_number, f"held-name {rel}: note must read `<group>; cited by <citer>; target on release: <name>`")
             record.held[rel] = d.note
+            record.held_at[rel] = d.line_number  # existence is judged after the fold (load_record)
         elif name == "release":
             if rel not in record.held:
                 problem(d.line_number, f"release {rel}: no earlier held-name for this path")
             else:
                 del record.held[rel]
+                del record.held_at[rel]
         return
     if name == "held-line":
         path_part, sep, line_part = value.rpartition(":")
@@ -677,6 +683,8 @@ def check_proof_surface(rules: Rules, scans: list[RootScan], result: CheckResult
                     result.add(rel, "proof-argv", line.strip(), number)
                 if _prose_demands_a_whole_suite(line):
                     result.add(rel, "proof-prose", line.strip(), number)
+    # A floor of 0 is a pinned declaration backed by a decision entry (KIT_SPEC.md §4), never a default:
+    # the scan above still runs over every prompt file present; only the count has nothing to reach.
     if scanned < rules.pin.floor:
         result.add(
             pin_label, "proof-floor",

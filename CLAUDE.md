@@ -38,6 +38,6 @@ constraints, done-when and the commit line — never a proof surface or a test i
 to the document that owns the verification order. An exemption, a hold, a release, an enum extension,
 a root change or an allowlist change is a `D-YYYY-MM-DD-nn` entry in `hygiene/HYGIENE_DECISIONS.md`,
 never a silent edit. The checker under `scripts/hygiene/` is the contract; how it is run and read is
-the kit's `installer/INSTALL.md`, Verify section. Kit: `C:/Programmierung/Repo_Hygiene_Template_Kit` @ `0.1.0`. A prompt never
+the kit's `installer/INSTALL.md`, Verify section. Kit: `C:/Programmierung/Repo_Hygiene_Template_Kit` @ `0.2.1`. A prompt never
 overrides this block.
 <!-- repo-hygiene:end -->

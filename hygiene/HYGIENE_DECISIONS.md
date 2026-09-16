@@ -122,3 +122,32 @@ nothing in this step edits `.gitignore`. No enum extension. No exemption beyond 
 the allowlist only).
 
 Commit line: `repo-hygiene: A-1 - superproject anchored to kit 0.1.0; GK recorded`
+
+## 2026-09-16 — kit re-pin
+
+### D-2026-09-16-02 — superproject re-pinned to kit 0.2.1
+
+Authority: step `K-6` of `repo-hygiene/PROMPTS_repo-hygiene-track-runbook_2026-09-15.md`, executing the kit's
+`installer/INSTALL.md`, "The pin" (a kit upgrade is a re-run with `--target` alone, then `--force` once the re-pin is
+decided); the finding `handovers/FINDING_kit-release-after-move-fails-record_2026-09-16.md`. The operator's words,
+recorded there when asked how `M-1` should proceed: "Stop; kit patch first (Recommended)".
+
+Preconditions measured 2026-09-16: superproject on `master`, tree clean at `07e2f48`; kit clean at `810733e`, tag
+`v0.2.1`; the pin recorded kit `0.1.0` @ `C:/Programmierung/Repo_Hygiene_Template_Kit`; the declaration is unchanged —
+roots `repo-hygiene` (general, standard), `onboarding` (general, standard), `handovers` (handovers, date-anywhere);
+module `root-allowlist`; no pytest wrapper; no pre-commit hook; no launcher; prompt file floor 1. Installer runs:
+`--target` alone → `install: done — pin records kit 0.1.0 @ C:/Programmierung/Repo_Hygiene_Template_Kit; this kit is
+0.2.1 @ C:/Programmierung/Repo_Hygiene_Template_Kit; re-run with --force to re-pin` (the checker copy re-synced, both
+rule blocks updated to `0.2.1` inside their markers, each file keeping its line endings); then `--force` →
+`install: done — pin re-written (--force)`, `Pinned on` today, the roots table unchanged.
+
+Why: kit `0.1.0` and `0.2.0` judged a `held-name`'s existence when they folded that line, so the `M-1` entry that
+releases `HANDOVER_batch-package-schema-drift_2026-09-15.md` after its `git mv` into `handovers/` and holds the new
+path could never pass `record` (the finding, "Why"). Kit `0.2.1` judges existence after the whole record is folded,
+only for holds still active, on the `held-name` line in force; a released hold needs no file (`KIT_SPEC.md` §1.6, §6).
+Dispositions: nothing in this entry changes the held set — the four holds of `D-2026-09-16-01` stand, the allowlist
+stands, and the verdict is unchanged (`repo-hygiene: pass with holds — 0 violations, 2 held`, the same two `held:`
+lines). `M-1` runs next, on `0.2.1`, with a `release` of the old path and a `held-name` for
+`handovers/HANDOVER_batch-package-schema-drift_2026-09-15.md` in its own entry (runbook §14). No directive line.
+
+Commit line: `repo-hygiene: K-6 - superproject re-pinned to kit 0.2.1; runbook resumes M-1; finding resolved`
