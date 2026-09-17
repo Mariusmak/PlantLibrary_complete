@@ -8,6 +8,7 @@ under its current name, its row reading `**held** — cited by <citer>. Target o
 exempt-by-decision row cites its `D-YYYY-MM-DD-nn` entry. Seeded by the Repo Hygiene Template Kit's installer;
 the lines are the anchoring session's.
 
+- 2026-09-17 · FINDING_kit-exempt-tree-cannot-retire-on-rename_2026-09-17.md · FINDING · open · kit 0.2.1 checks exempt-tree/exempt-subfolder existence when the line folds and has no release for them, so an exempt path moved by git mv fails record for ever, and held-name cannot name a folder; M-7 held the Workspace restructure set under its current name instead of stopping; kit patch K-7 proposed, M-9 releases the set
 - 2026-09-16 · FINDING_kit-release-after-move-fails-record_2026-09-16.md · FINDING · resolved by K-6 (kit 0.2.1) · kit 0.1.0/0.2.0 checks held-name existence before a later release folds, so a hold ended by a git mv always fails record; M-1 stopped uncommitted, kit patch K-6 (0.2.1) proposed before M-1 resumes
 - 2026-09-16 · FINDING_kit-proof-floor-blocks-suite-anchoring_2026-09-16.md · FINDING · resolved by K-5 (kit 0.2.0) · kit 0.1.0's prompt file floor (≥ 1) makes A-2…A-7 unreachable (empty planning roots); kit patch proposed before A-2 resumes
 - 2026-09-15 · HANDOVER_batch-package-schema-drift_2026-09-15.md · HANDOVER · open, held against rename (D-2026-09-16-03) · batch-package schema drift across the PlantLibrary suites, Requires lint, instance-2 state — the onboarding track's starting point; moved here from the repository root at M-1 (2026-09-16)
