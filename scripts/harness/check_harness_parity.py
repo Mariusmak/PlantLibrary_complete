@@ -94,7 +94,14 @@ SHARED_SKILLS = (
 )
 # RC-A1-22 (B1, after Q-A1-04 / Q-G-07): PlantLibrary-only skills mirrored into a
 # suite join its row here in the same commit that mirrors them.
-SUITE_EXTRA_SKILLS: dict[str, tuple[str, ...]] = {}
+SUITE_EXTRA_SKILLS: dict[str, tuple[str, ...]] = {
+    "PlantLibrary_PyApp": ("gui-validation", "sync-contracts", "verify-stack"),
+    "PlantLibrary_AndroidApp": ("android-validation", "verify-stack"),
+    "PlantLibrary_Dashboard": ("verify-stack", "webapp-testing"),
+    "PlantLibrary_Server": ("sync-contracts",),
+    "PlantLibrary_SharedContracts": ("sync-contracts",),
+    "PlantLibrary_Workspace": ("design-adoption", "gui-validation", "sync-contracts", "ui-ux-pro-max", "verify-stack", "webapp-testing"),
+}
 RUN_BATCH_REQUIRED = (
     "Propose the commit — never mutate Git",
     "Do not run `git add`, `git commit`, `git push`, `git reset`",
