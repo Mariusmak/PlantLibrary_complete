@@ -17,8 +17,9 @@ rules bind in the suites too, and each suite `CLAUDE.md` adds that suite's param
 - Any test spanning more than one module (integration, e2e, browser,
   acceptance, batch-row validation) must follow the `real-stack-testing` skill.
 - After implementation, invoke `validate-real-stack` with the exact named
-  validation. Its Sonnet/Terra worker runs in isolated context and returns
-  compact evidence; the parent implementation agent owns fixes and completion.
+  validation. Its `real-stack-validator` subagent (Sonnet 5.5) runs in isolated
+  context and returns compact evidence; the parent implementation agent remains
+  responsible for fixes and completion.
 - UI tests fail on uncaught console exceptions, unasserted 4xx/5xx, and
   server-side exceptions — not only on missing selectors.
 
