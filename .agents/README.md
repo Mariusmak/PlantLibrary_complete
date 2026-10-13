@@ -46,7 +46,7 @@ on any drift; nothing runs it automatically.
 | `test-driven-development` | `../.claude/skills/test-driven-development` | `../.codex/skills/test-driven-development` | frozen (2026-10-13, D-2026-10-13-03); the Claude copy was re-based on the Conductor's OP-SK-A text at B1-1 |
 | `systematic-debugging` | `../.claude/skills/systematic-debugging` | `../.codex/skills/systematic-debugging` | frozen (2026-10-13, D-2026-10-13-03); the Claude copy was re-based on the Conductor's OP-SK-A text at B1-1 |
 | `android-validation` | `../.claude/skills/android-validation` | `../.codex/skills/android-validation` | frozen (2026-10-13, D-2026-10-13-03) |
-| `design-adoption` | `../.claude/skills/design-adoption` | `../.codex/skills/design-adoption` | frozen (2026-10-13, D-2026-10-13-03); retired for `design-gate` after `B5` (Q-G-07 (a)) |
+| `design-adoption` | `../.claude/skills/design-adoption` | `../.codex/skills/design-adoption` | frozen (2026-10-13, D-2026-10-13-03); retired 2026-10-13 at `B5-7` for `design-gate` (Q-G-07 (a)): the Claude copy is a pointer, the Codex copy keeps the frozen text |
 | `gui-validation` | `../.claude/skills/gui-validation` | `../.codex/skills/gui-validation` | frozen (2026-10-13, D-2026-10-13-03) |
 | `sync-contracts` | `../.claude/skills/sync-contracts` | `../.codex/skills/sync-contracts` | frozen (2026-10-13, D-2026-10-13-03) |
 | `ui-ux-pro-max` | `../.claude/skills/ui-ux-pro-max` | `../.codex/skills/ui-ux-pro-max` | frozen (2026-10-13, D-2026-10-13-03); superproject only (the Kit wizard's fallback root, RC-A1-24) |
@@ -81,7 +81,7 @@ below are not compared yet.
 | --- | --- | --- | --- |
 | shared skills and agents | each suite's `.claude/skills/` and `.claude/agents/` | `../.claude/skills/`, `../.claude/agents/` | changed here at B1-1; refreshed at B1-2 (the mirror compare is red until then) |
 | `gui-validation` | `PlantLibrary_PyApp/.claude/skills/gui-validation` (a 38-line pointer that does not resolve) | `../.claude/skills/gui-validation` | refreshed at B1-2 (Q-A1-04, Q-B7-01) |
-| `design-adoption` | `PlantLibrary_Workspace/.claude/skills/design-adoption` | `../.claude/skills/design-adoption` | refreshed at B1-2 (Q-A1-04, Q-B7-01) |
+| `design-adoption` | `PlantLibrary_Workspace/.claude/skills/design-adoption` | `../.claude/skills/design-adoption` | refreshed at B1-2 (Q-A1-04, Q-B7-01); the same pointer since `B5-7` (Q-G-07 (a)) |
 | `gui-validation` | `PlantLibrary_Workspace/.claude/skills/gui-validation` | `../.claude/skills/gui-validation` | refreshed at B1-2 (Q-A1-04, Q-B7-01) |
 | `sync-contracts` | `PlantLibrary_Workspace/.claude/skills/sync-contracts` | `../.claude/skills/sync-contracts` | refreshed at B1-2 (Q-A1-04, Q-B7-01) |
 | `ui-ux-pro-max` | `PlantLibrary_Workspace/.claude/skills/ui-ux-pro-max` | `../.claude/skills/ui-ux-pro-max` | refreshed at B1-2 (Q-A1-04, Q-B7-01) |
