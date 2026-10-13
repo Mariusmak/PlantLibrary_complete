@@ -1,3 +1,4 @@
+> Frozen 2026-10-13 (`D-2026-10-13-03`): codex disabled; `CLAUDE.md` is the live text.
 ## Testing
 
 - **Never fake the layer under test.** Tests substitute only *process

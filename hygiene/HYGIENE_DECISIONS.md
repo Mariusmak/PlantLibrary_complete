@@ -272,3 +272,57 @@ Dispositions:
 - retired-name: update_graph.bat — launcher of the dropped graphify tool; must not reappear
 
 Commit line: `rework: B3-2 - backlog register; graphify leftovers retired; D-2026-10-13-02`
+
+### D-2026-10-13-03 — Codex frozen: `.codex/**` and `AGENTS.md` outside its installer blocks; the freeze guard
+
+Authority: step `B7-2` of `rework/PROMPTS_master-rework-runbook_2026-10-13.md` (§3.3), run headless (Opus 5.5 · high),
+on the operator's answers to `Q-G-09` and `Q-A3-01` as recorded in `rework/REGISTER_operator-questions_2026-10-13.md`,
+verbatim: "all other recommended." (2026-10-13 18:05 UTC, §O session 2d91d072), resolving each to (a): Codex is frozen
+as the Conductor froze it (`D-2026-10-02-23` (c) of `C:/Programmierung/Orchestrator_System`), but block-aware, so the
+installer-owned blocks of `AGENTS.md` stay live. `Q-B7-02` (a), answered by the orchestrator on the operator's standing
+instruction: no separate per-suite `.claude`↔`.codex` compare; this freeze covers the suites. The shape follows
+`rework/AUDIT_skills-and-agents_2026-10-13.md` §7.6 items 1-5 and §7.7 item 3.
+
+Preconditions measured 2026-10-13: superproject on `master` at `1cd675d`, no superproject file modified (the
+`PlantLibrary_SharedContracts` gitlink shows B5-2's commit `a3f863d`, not staged here); verdicts before the step
+`repo-hygiene: pass with holds — 0 violations, 3 held` and `harness parity: pass` (B7-1's checker, codex compare on);
+59 tracked files under `.codex/` (13 skill folders, 3 agent `.toml`, `hooks.json`, `hooks/deny_git_commands.mjs`),
+none untracked; `AGENTS.md` 33 lines, CRLF in the working tree, the `repo-hygiene` block its only marker block, no title
+heading (it opens with `## Testing`); last entry `D-2026-10-13-02`, so the next free id by grep over this file is `-03`
+(the one other mention of `D-2026-10-13-03` in this repository, `rework/AUDIT_corpus-census-workspace_2026-10-13.md`,
+names an entry of Workspace's record).
+
+Dispositions:
+
+1. Frozen: every file under `.codex/` as it stands at the freeze commit — kept, never deleted, not edited, not mirrored.
+   Exempt: the four Kit folders `.codex/skills/design-gate/`, `design-audit/`, `gallery-governance/` and `impeccable/`
+   (absent today; the Design Template Kit installs and re-pins them from `B5` on), `settings.local.json` and any
+   `__pycache__/`. A skill or agent changed or added from now on lives under `.claude/` only.
+2. Frozen: `AGENTS.md` outside its installer-owned marker blocks, `<!-- repo-hygiene:begin -->`…`<!-- repo-hygiene:end -->`
+   now and `<!-- design-kit:begin -->`…`<!-- design-kit:end -->` once `B5` installs it. The installers keep writing their
+   blocks and the hygiene checker keeps enforcing their parity with `CLAUDE.md`; every other edit goes to `CLAUDE.md`,
+   the live text.
+3. Freeze commit: the commit immediately preceding this entry's commit in this repository, `1cd675d`. Its tree holds the
+   pre-banner `AGENTS.md` and the frozen `.codex/**` bytes; naming the parent, not this commit, avoids a hash fixed point.
+4. Banner: one line, `` > Frozen 2026-10-13 (`D-2026-10-13-03`): codex disabled; `CLAUDE.md` is the live text. ``,
+   inserted as line 1 of `AGENTS.md` (the file opens heading-less, with its `## Testing` section) in the line endings
+   the file carries; no other byte changes (`git hash-object` of the file with the banner line removed equals the
+   pre-step blob `3ddbec9`). The banner lies outside the hygiene block, so the block parity stays green.
+5. Guard: `scripts/harness/check_harness_parity.py` gains the freeze check over all seven repositories — a `FROZEN_AT`
+   row and a `FREEZE_DECISIONS` row per repository; SHA-256 pins of CRLF→LF-normalized bytes written once from
+   `git show <freeze commit>:<path>` by its `--print-freeze-table <repo>=<commit>` mode, never from the working tree;
+   `AGENTS.md` pinned with each marker block removed (markers included) and blank-line runs collapsed, so an installer
+   that inserts, updates or moves its block is not drift; the banner required once, as line 1 or directly under the
+   first heading line. The `.claude`↔`.codex` compare is off by default (`--with-codex-compare` turns it back on). A
+   bridge-coverage check requires every `.claude/skills/*` folder to be a frozen bridge row or a Claude-only row in
+   `.agents/README.md`; until `B1-1` rewrites that file it prints "README pending" and does not fail. The six suites'
+   freeze commits are their entries' parents, recorded in their own records (PyApp, AndroidApp, Dashboard, Server
+   `D-2026-10-13-02`; Workspace, SharedContracts `D-2026-10-13-03`).
+6. Unfreeze recipe (each a later entry in the repository concerned): re-mirror `.claude/**` changes since the freeze
+   commit into `.codex/**`, and `CLAUDE.md`'s text outside the blocks into `AGENTS.md`; remove the banner; flip the
+   `frozen` bridge statuses in `.agents/README.md` back to `mirrored`; set the repository's `FROZEN_AT` row to `None`
+   and drop its pins; for the superproject, make `--with-codex-compare` the default again.
+
+No directive line: the entry changes no root, exemption, hold or allowlist (`.codex/` is not a declared root).
+
+Commit line: `rework: B7-2 - codex frozen; AGENTS.md banner; D-2026-10-13-03`
