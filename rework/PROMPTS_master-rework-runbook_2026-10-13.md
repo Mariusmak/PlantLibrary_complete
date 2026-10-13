@@ -118,7 +118,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B5-1` | design-gate evidence pack | Opus 5.5 · xhigh | session (headless) | super | `R-3` | `rework/EVIDENCE_design-gate-pack_<date>.md` | — | §3.7 `B5-1` |
 | `B3-1` | M-8 closing pass | done 2026-10-13 — super `69d10de` | — | 7 repos green with holds (3/10/1×5); 967→1072 files diffed; M-9 set 7 names; Kit changelog owed (item 17) |
 | `B4-1` | parser-honest package edits without a question | Opus 5.5 · high | session (headless) | Server, Workspace, SharedContracts (serial, in place) | `B7-1` | three packages' `BATCH_PLAN.md`/`STATE.md` | — | §3.6 `B4-1` |
-| `B8-1` | bindings recorded obsolete; ledger and §N corrections; PyApp `.gitignore` and `graphify-out/` | Opus 5.5 · high | session (headless) | super; PyApp | `B4-1` | `onboarding/…runbook` §L/§N; PyApp `.gitignore` | Q-A2-03 (step-8 line only) | §3.8 `B8-1` |
+| `B8-1` | bindings recorded obsolete; ledger and §N corrections; PyApp cleanup | done 2026-10-13 — super `c8fa93d`; PyApp `2e81a34` | — | bindings obsolete (Q-G-02/Q-A8-02); 2b count ten; step 6 hold lapsed; step 8 superseded; GC-6082/2437/7053 closed; graphify-out/ 45 MB deleted; commit line wording stale |
 | `R-4.1` | wave 1 boundary | Fable 5.1 · high | procedure | super | all wave-1 steps done; register re-read | gitlinks, flips, register rows, §O | — | procedure: §3a |
 | `B2-1` | superproject `CLAUDE.md` reconciled; `AGENTS.md` untouched until the freeze | Opus 5.5 · high | session (headless) | super | `R-4.1` | `CLAUDE.md` | Q-A3-03 | §3.4 `B2-1` |
 | `B2-2` | Dashboard, AndroidApp, PyApp guides reconciled; PyApp `.claude/CLAUDE.md` folded | Opus 5.5 · high | session (headless) | the three suites (serial, in place) | `B2-1` | three `CLAUDE.md`; PyApp `.claude/CLAUDE.md` | Q-A3-05, Q-A6A-04 | §3.4 `B2-2` |
@@ -129,9 +129,9 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B1-3` | third-party-derived Conductor skills adopted or declined | Opus 5.5 · high | session (headless) | super | `B1-1` | `.claude/skills/*`, `.agents/README.md` | Q-A1-02 | §3.3 `B1-3` |
 | `B7-3` | scratch gate, harness docs page, Server ledger file | Opus 5.5 · high | session (headless) | super; PyApp; Server (serial; all six suites if Q-A2-06 (a)) | `B1-2` | `scripts/harness/README.md`, `.agents/README.md`, PyApp/Server `.claude/skills/scratch-gate`, Server package `validation/KNOWN_FAILURES.md`, suite pins | Q-A2-06 | §3.3 `B7-3` |
 | `B3-2` | superproject leftovers: graphify, `update_graph.bat`, the unplanned-backlog register from `Todo.md` and `IMPLEMENTATION_PLAN.md` §7 | Opus 5.5 · high | session (headless) | super | `R-4.1` | `rework/REGISTER_unplanned-backlog_<date>.md`, `hygiene/HYGIENE_DECISIONS.md`, root entries | Q-G-05, Q-A6S-03, Q-A6S-04 | §3.5 `B3-2` |
-| `B3-3` | Workspace: `archive/` declared (empty but for its README), exempt-tree notes restated | Opus 5.5 · high | session (headless) | Workspace | `R-4.1` | `archive/`, `hygiene/HYGIENE_DECISIONS.md` | Q-A6W-01, Q-A6W-04 | §3.5 `B3-3` |
+| `B3-3` | Workspace archive; exempt-tree notes | done 2026-10-13 — Workspace `cead813` | `D-2026-10-13-01`, `D-2026-10-13-02` (Workspace) | archive/ declared legacy (README only); DTI restated frozen (47), methodology pinned 4.1.0 (74); Q-B4-01 cite fixed in prose; verified |
 | `B3-4` | M-9 hold releases | done 2026-10-13 — PyApp `791da51`; AndroidApp `a0ea1a9`; Dashboard `f954fc9`; Server `8cb519f`; SharedContracts `4045817` | `D-2026-10-13-01` in each of the five suites | five V1 proposals renamed `PROPOSAL_<suite>-v1_2026-07-10.md`; Dashboard's two pinned docs moved; all five verdicts 0 held; verified |
-| `B3-5` | stale `run_next_batch.py` scripts retired; Server docs links fixed | Sonnet 5.5 · high | session (headless) | Dashboard, Server, Workspace (serial, in place) | `B4-2` | three `scripts/run_next_batch.py`, Server `docs/*.md`, READMEs | Q-A6V-04, Q-A6V-05 | §3.5 `B3-5` |
+| `B3-5` | stale scripts; Server docs links | done 2026-10-13 — Dashboard `c82434a`; Server `1484425`; Workspace `c209020` | — | 3 scripts removed (git rm, recoverable); Server 8 docs links fixed; residual prose lines → `B3-7`; verified |
 | `B4-2` | markers; DRIVER_SCRIPT stubs; README lines | done 2026-10-13 — PyApp `e8b738d`; Server `dd62b80`; SharedContracts `93933ff`; Dashboard `98c9b0a`; AndroidApp `b780d20`; Workspace `61dd9a2` | — | 5 markers, 7 stubs with owner tables, README run lines; census unchanged; PyApp hash unchanged; GC-7053 closed in all 7 drivers; verified |
 | `B4-3` | SDA superseded | done 2026-10-13 — Workspace `764c11f` | — | 41 open rows deferred with dated B5/B6 lines; DEC-01..05 overtaken; header six-value set; 9 batches already_done; verified |
 | `B4-4` | decision lines: plan-batch 1.5.1 adopted, model tiers, mechanical readings, validation cells pointed, `CONTEXT_INDEX.md` traceability | Opus 5.5 · high | session (headless) | the six suites (serial, in place) | `B1-2`, `B4-2` | seven `STATE.md`, `CONTEXT_INDEX.md`, `SCOPE.md` | Q-A7-01, Q-A7-03, Q-A7-04 | §3.6 `B4-4` |
@@ -156,6 +156,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `C1-1` | deferred validations planned, one `/plan-batch` act per package with `DV-…` rows | Opus 5.5 · high | plan | each suite (serial, in place) | `R-4.3` | packages' rows and `STATE.md` | — | §3.9 `C1-1` |
 | `C1-2` | the hand-back section H.1–H.7; `SUITE_HANDOFFS.md` reshaped; the backlog register pointed | Opus 5.5 · high | session (paste) | super; Workspace | `C1-1` | this file §H; Workspace V1 `SUITE_HANDOFFS.md` | Q-G-05, Q-A7-07 | §3.9 `C1-2` |
 | `B3-6` | the stale sequencers archived (superproject, Workspace) | Opus 5.5 · high | session (headless) | super; Workspace | `C1-2` | `archive/**`, two `hygiene/HYGIENE_DECISIONS.md`, root allowlist | Q-G-05, Q-A6S-01, Q-A6S-05 | §3.5 `B3-6` |
+| `B3-7` | residual prose sweep: lines that still name the retired scripts, the driver or the graphify sanction | Sonnet 5.5 · high | session (headless) | AndroidApp, Server, Workspace, PyApp (serial, in place) | `B3-6` | AndroidApp `README.md`; Server `README.md`, `docs/SV-DOMAIN-01_domain_port_notes.md`, `docs/SV-B07_dashboard_endpoint_coverage_report.md`; Workspace `docs/local_development.md`, `implementation/README.md`, V1 `DRIVER_SCRIPT.md`; PyApp `tests/test_repo_hygiene.py` allowlist entry, package `STATE.md` line | — | §3.5 `B3-7` |
 | `C1-3` | resume blocks per suite | Opus 5.5 · high | session (paste) | super | `C1-2` | this file §H | — | §3.9 `C1-3` |
 | `C1-4` | the hand-back HANDOVER | Fable 5.1 · high | procedure | super | `C1-3`, `B3-6` | `handovers/HANDOVER_master-rework-hand-back_<date>.md`, INDEX | — | §3.9 `C1-4` |
 | `R-4.4` | wave 4 boundary | Fable 5.1 · high | procedure | super | `C1-4` | gitlinks, flips, push list | — | procedure: §3a |
@@ -422,7 +423,7 @@ Constraints: sources read-only; no test; the declared path exists in the commit 
 Questions: proposed Q-B3-<nn> rows; continue.
 If the context runs short: commit what folds green, list the rest, stop; restart as B3-3-r2.
 Done when: one commit; the verdict is unchanged in count; archive/ exists with its README; the final message names the commit and the D-ids.
-Commit line: rework: B3-3 - archive/ declared; WORKSPACE_STATE.md retired; exempt-tree notes restated; D-<date>-<nn>
+Commit line: rework: B3-3 - archive/ declared; exempt-tree notes restated; D-<date>-<nn>
 ```
 
 *Orchestrator note:* superproject line `rework: B3-3 - bump PlantLibrary_Workspace gitlink; ledger B3-3`.
@@ -471,6 +472,27 @@ Commit line: rework: B3-5 - run_next_batch.py retired; docs links fixed
 
 **Watch:** a link "fix" that rewrites a frozen file; a script deleted that a package row's validation cell names (none does — grep first).
 
+#### `B3-7` — residual prose sweep (inserted at the B8-1/B3-5 flip, 2026-10-13)
+
+**Model · reasoning:** Sonnet 5.5 · high · **Route:** session (headless) · **Where:** `PlantLibrary_AndroidApp`, `PlantLibrary_Server`, `PlantLibrary_Workspace`, `PlantLibrary_PyApp` on `main` (serial, in place) · **Precondition:** `B3-6` · **Writes:** the files the step map row names · **Waits:** —
+
+```text
+B3-7 — the residual prose sweep
+Repoint or mark the live lines that still name the retired run_next_batch.py scripts, the superseded driver procedure, retired Workspace paths or PyApp's removed graphify sanction, each in its own suite commit, text only.
+Context: step B3-7 of C:\Programmierung\SW_Development\rework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.5); rules: kickoff §2; the answers: Q-B4-03 (a), Q-B3-05 (a), Q-B3-06 (a), Q-B3-07 (a), Q-B8-01 (a), all recorded 2026-10-13; the lines, by the reports of B3-5 and B8-1: AndroidApp suite README.md ("DRIVER_SCRIPT.md scope rules remain binding"); Server root README.md "Derivation" links, docs/SV-DOMAIN-01_domain_port_notes.md lines 4-5 (the ../PlantLibrary_PyApp paths, wrong from docs/), docs/SV-B07_dashboard_endpoint_coverage_report.md line 48 (an ACCEPTANCE_GATES.md path that does not resolve); Workspace docs/local_development.md line 7, implementation/README.md line 16, implementation/System_V1_Implementation/DRIVER_SCRIPT.md line 27 ("its fate is master rework step B3-5"); PyApp tests/test_repo_hygiene.py lines 45-47 (the graphify-out allowlist entry) with a dated STATE.md line in the V1 package naming the removal.
+Where: one suite at a time, in place on main, one commit each; the superproject is never written.
+Scope: the lines named; a retired path is marked "(retired path, see <the mapping or canonical file>)" as B3-5 did; a driver mention is restated as "superseded by the run-batch skill and SCOPE.md"; the PyApp allowlist entry removed (a test file edit limited to the allowlist list; no test is run) and the STATE line added. Not here: frozen trees; any package row cell; any validation cell; code.
+Read first: B3-5's and B8-1's reports as quoted in the master runbook §L notes; each line in place.
+Write: the files listed.
+Constraints: sources read-only; no test, no build, no app; line endings as found (Edit tool); each suite's hygiene verdict unchanged; no push; subagents in the foreground.
+Questions: proposed Q-B3-<nn> rows; continue.
+If the context runs short: commit the complete suites, stop; restart as B3-7-r2.
+Done when: four commits; no live line names the retired scripts or calls the driver binding; the final message gives the §L row and the commits the gitlinks take.
+Commit line: rework: B3-7 - residual prose sweep - <n> lines
+```
+
+**Watch:** a frozen file edited; a line in a package row.
+
 #### `B3-6` — the stale sequencers archived (superproject, Workspace)
 
 **Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`; then `PlantLibrary_Workspace` on `main` · **Precondition:** `C1-2` · **Writes:** superproject `archive/**`, `hygiene/HYGIENE_DECISIONS.md`, root; Workspace `archive/**`, `hygiene/HYGIENE_DECISIONS.md`, `implementation/System_V1_Implementation/*` citers · **Waits:** Q-G-05, Q-A6S-01, Q-A6S-05
@@ -487,7 +509,7 @@ Constraints: sources read-only; no test; nothing moves that an exempt-tree line 
 Questions: proposed Q-B3-<nn> rows; continue.
 If the context runs short: commit the complete repository, stop; restart as B3-6-r2.
 Done when: two commits; both verdicts green; the final message names them and the D-ids.
-Commit line: rework: B3-6 - sequencers archived; D-<date>-<nn>
+Commit line: rework: B3-6 - sequencers archived (WORKSPACE_STATE.md, IMPLEMENTATION_PLAN.md, V1_IMPLEMENTATION_SEQUENCE.md); D-<date>-<nn>
 ```
 
 **Watch:** archiving before §H exists; editing the onboarding runbook's citing lines (a kit constraint, and B8's file).
@@ -1038,8 +1060,9 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | A8 | `Q-A8-01` worktrees only for single-repository steps (none planned) · `Q-A8-02` instance 2 stays paused until C1 · `Q-A8-03` path-scoped `.gitattributes` at B5 · `Q-A8-04` D-ids pre-assigned per step · `Q-A8-05` `absorbgitdirs` deferred | —, —, `B5-4`, (§3 notes), — |
 | B7 | `Q-B7-01` same-name suite skill copies the parity check lists but does not compare (PyApp `gui-validation` pointer; six Workspace copies, `verify-stack` diverged): (a) leave to `B1-2` under Q-A1-04 · `Q-B7-02` a per-suite `.codex` compare now: (a) no, the freeze covers it — both answered (a) by the orchestrator 2026-10-13 | `B1-2`, `B7-2` |
 | B4 | `Q-B4-01` the Workspace record cites `BATCH_PLAN.md:133` for a held file now at line 176: (a) fix the cite in the next Workspace hygiene D-entry — answered (a) by the orchestrator 2026-10-13 · `Q-B4-02` driver-only suite rules (contract-decision files, contract-version lines, screenshot naming, report lines) now readable only at the pointer commit: (a) copy each into that package's `SCOPE.md` standing invariants in `B4-4` with a decision line — answered (a) by the orchestrator 2026-10-13 · `Q-B4-03` live text still pointing at drivers or `_ACT_STATE.md` (AndroidApp and Workspace suite READMEs, Workspace V1 `TASK_CONTEXT.md:47,98`, V1 `README.md:56,99`): (a) READMEs to `B3-5`, the two anchor lines to `C1` as anchor amendments — answered (a) by the orchestrator 2026-10-13 · `Q-B4-04` SDA-DEC-01..05 recorded as overtaken in SDA `STATE.md` by `B4-3`: (a) `B5-3` records the five in the Configuration's decision record only — answered (a) 2026-10-13 · `Q-B4-05` SDA `SCOPE.md:11-12` still says the package binds after SDA-DEC: (a) leave, informational — answered (a) 2026-10-13 | `B3-3`, `B4-4`, `B3-5`/`C1`, `B5-3`, — |
-| B3 | `Q-B3-03` Renamed-table form for the M-9 releases: (a) in-place flips of the existing Renamed rows — answered (a) 2026-10-13 · `Q-B3-01` who flips the hygiene runbook's §3 row M-8: (a) the orchestrator, in this flip commit — answered (a) 2026-10-13 · `Q-B3-02` the Kit version for the pilot lessons (item 17) and K-7: (a) one minor release 0.3.0 with both, then a re-pin of all seven as an M-9 pre-step; (b) a patch 0.2.2 first — open, tied to `Q-G-06` | —, `K-2` |
+| B3 | `Q-B3-04` the B3-3 fence's stale commit-line clause: (a) fence fixed, clause carried by `B3-6` — answered (a) 2026-10-13 · `Q-B3-05` Workspace `docs/local_development.md:7` · `Q-B3-06` Workspace V1 `DRIVER_SCRIPT.md:27` and `SUITE_HANDOFFS.md:5` · `Q-B3-07` Server README derivation links, SV-DOMAIN-01 PyApp paths, SV-B07 link: (a) a follow-up text sweep — all answered (a) 2026-10-13 and folded into the inserted step `B3-7` · `Q-B3-03` Renamed-table form for the M-9 releases: (a) in-place flips of the existing Renamed rows — answered (a) 2026-10-13 · `Q-B3-01` who flips the hygiene runbook's §3 row M-8: (a) the orchestrator, in this flip commit — answered (a) 2026-10-13 · `Q-B3-02` the Kit version for the pilot lessons (item 17) and K-7: (a) one minor release 0.3.0 with both, then a re-pin of all seven as an M-9 pre-step; (b) a patch 0.2.2 first — open, tied to `Q-G-06` | —, `K-2` |
 | B5 | `Q-B5-01` how `design-tokens/` follows a gate value change (the Kit's export tool writes only a report): (a) `B5-3` hand-edits the flagged flat values and proves 0 diffs by round trip · `Q-B5-02` what is byte-equal in a client's synced copy: (a) core, `DESIGN_VERSION.md`, `decisions/`, `contracts/`, `gallery/`, the client's own mapping; each client's `CONFIGURATION.md` lists its own stacks — answered (a) by the orchestrator 2026-10-13 · `Q-B5-03` accept the Template defaults as design facts: (a) at `G-DS` · `Q-B5-04` who lands Q-A9D-02's four amendments: (a) `B5-3` (notes, bans), `B6a-7` (DS-06), `B6a-8` (drift checker) | `B5-3`, `B5-2`/`B5-4`…`6`, `B5-3`, `B5-3`/`B6a-7`/`B6a-8` |
+| B8 | `Q-B8-01` what is left of PyApp's graphify sanction (the allowlist entry in `tests/test_repo_hygiene.py:45-47`, two STATE/evidence lines): (a) the next PyApp writer removes the entry with a dated STATE line — answered (a) 2026-10-13, folded into `B3-7` | `B3-7` |
 | R | `Q-R-01` may a `B6*-8` session implement rows in Phase B and leave them at the status the plan-batch set allows for unvalidated work until Phase C runs the named validation: (a) yes, with a dated STATE line per row naming its deferred row; (b) no — implementation waits for Phase C | `B6a-8`, `B6c-8`, `B6b-8` |
 | A9a Dashboard | `Q-A9D-01` restructure · `Q-A9D-02` ban scope (BAN-02) · `Q-A9D-03` DS-06/DS-01 superseded by gap rows · `Q-A9D-04` alias layer then rename · `Q-A9D-05` Phase C screenshot source · `Q-A9D-06` route drift after IA | `B6a-1`, `B5-3`, `B6a-7`, `B6a-8`, (`C1-1` records), `B6a-6` |
 | A9b AndroidApp | `Q-A9A-01` `Tokens.kt` placement · `Q-A9A-02` `AN-V1-DS-05` fate · `Q-A9A-03` Kotlin literal checks interim · `Q-A9A-04` SDA-DEC recording and the icon change · `Q-A9A-05` routes and tab order · `Q-A9A-06` workspace and pin location † folded into Q-A4-06 · `Q-A9A-07` restructure or re-skin | `B5-6`, `B6b-7`, `B6b-8`, `B5-3`, `B6b-6`, —, `B6b-1` |
@@ -1064,6 +1087,8 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 **Standing rows:** `Q-G-02`, `Q-G-03`, `Q-G-04` and `Q-G-06` gate no single step; they are the program's standing rules, assumed (a) by every block until answered otherwise, and an other answer inserts steps per the table above.
 
 **Resolved by the orchestrator under the operator's standing instruction** ("Do everything you can on your own. Reduce the operator steps to a minimum.", 2026-10-13, Q-G-03): lane questions whose (a) is mechanical and carries no design or scope consequence are recorded as answered (a) by the orchestrator with the date, listed here for the operator's veto at the next §O session: `Q-B7-01` (a), `Q-B7-02` (a), `Q-B4-01` (a), `Q-B5-02` (a). Design-gate questions (`Q-B5-01`, `Q-B5-03`, `Q-B5-04`) are put at `G-DS` (`B5-3`), where the operator decides anyway; `Q-G-06` stays open.
+
+**Recorded deviation:** `Q-A6V-04` (a) read "archive to `archive/scripts/`"; the `B3-5` block said `git rm`, and B3-5 removed the three scripts (recoverable from history); recorded here, no re-run.
 
 **Settled, not asked again:** the kickoff's roots and rules (`PROMPT_master-rework-kickoff_2026-10-13.md`); no test in Phases A and B; the worktree layout (none needed, Q-A8-01); `PROMPTS_` naming for this runbook (Q-A5-02 (a) applied, the enum question stays open for the kit); the D-id shape; the agent set (RC-A1-04..06); the Kit pin by path and version (Q-A4-03 asks only the version).
 
@@ -1133,6 +1158,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `C1-1` | deferred validations planned | todo | — | |
 | `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-6` | sequencers archived | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-7` | residual prose sweep | todo | — | inserted 2026-10-13 after `B3-6` |
 | `C1-3` | resume blocks | todo | — | |
 | `C1-4` | hand-back HANDOVER | todo | — | |
 | `R-4.4` | wave 4 boundary | todo | — | |
