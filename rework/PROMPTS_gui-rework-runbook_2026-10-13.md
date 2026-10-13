@@ -543,8 +543,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6a-8` | Dashboard implementation (per batch) | todo | — | one row per batch appended as `B6a-8 <key>`; waits answered 2026-10-13 (R-4.1) |
 | `B6c-1` | PyApp workspace bootstrap | done 2026-10-13 — PyApp `62b5dd9` | — | re-skin, pin by pointer, unbound; roots D-2026-10-13-05; sentinel+harness routes (Q-B5-18/Q-A9P-04); DESIGN prose recovered, 71 cites; Q-B6c-01/02 (a) |
 | `B6c-2` | PyApp census | done 2026-10-13 — PyApp `e203c95` | — | 164 hex (design_tokens.py, 0 QSS); Kit: 2 colour+369 dim open, 4 banned; 18 role-bypass files; 14 phase rows deferred (Q-B6a-02); Q-B6c-03/04 (a) |
-| `B6c-3` | PyApp contracts, target | running (B6c-3 session) | — | launched 2026-10-13; waits answered (R-4.1) |
-| `B6c-4` | PyApp comparison, gap map | todo | — | |
+| `B6c-3` | PyApp contracts, target | done 2026-10-13 — PyApp `de5551d` | — | 37 contracts (11 views, wizard frame+6 steps, 19 dialogs); Gallery the sole active target; 03 deferred DV-A9P-01 (74 rows); Q-B6c-05..10 (a); DV-B6c-02; UB-18 |
+| `B6c-4` | PyApp comparison, gap map | running (B6c-4 session) | — | launched 2026-10-14 |
 | `B6c-5` | PyApp forward surface; `G-c-1` | todo | — | |
 | `B6c-6` → split `B6c-6a` (to the gate), `B6c-6b` (after `event:G-c-2`) | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | todo | — | after `B6a-6` |
 | `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | waits Q-A9P-02, Q-A7-08 | — | plan-contract hash rule |
