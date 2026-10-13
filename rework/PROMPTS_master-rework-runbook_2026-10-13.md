@@ -145,6 +145,8 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B5-8` | Conductor readiness rows 1–7 per anchored client | Sonnet 5.5 · high | check | super | `B5-4`, `B5-5`, `B5-6` | `rework/EVIDENCE_design-readiness_<date>.md` | — | §3.7 `B5-8` |
 | `B8-2` | §N notes closed by `B4`; step 8 superseded; §L step 6 facts | Opus 5.5 · high | session (headless) | super | `B4-5` | `onboarding/…runbook` §L/§N | Q-A2-03 | §3.8 `B8-2` |
 | `K-1` | Design Template Kit session: the emitter and tool gaps `A4`/`B5-1` recorded, on a Kit branch | Opus 5.5 · high | session (headless) | `C:\Programmierung\Design_Template_Kit` on a branch `pl/kit-gaps-2026-10` from `master` | `B5-3` | the Kit only (never TARGET) | — | §3.7 `K-1` |
+| `K-2` | Repo Hygiene Template Kit session: K-7 and the pilot lessons as release 0.3.0, on a Kit worktree branch, merged and tagged | Opus 5.5 · high | session (headless) | `C:\Programmierung\Repo_Hygiene_Template_Kit_wt\k7` on `pl/k7-2026-10` from `master` | `R-4.1` | the hygiene kit only (never TARGET) | — | §3.5 `K-2` |
+| `B3-8` | all seven repositories re-pinned to kit 0.3.0; the Workspace restructure set released and renamed (M-9) | Opus 5.5 · high | session (headless) | super, then the six suites (serial, in place) | `K-2`, `B3-6` | seven `hygiene/CONSUMED_HYGIENE.md`, `HYGIENE_DECISIONS.md`, `scripts/hygiene/repo_hygiene_check.py`, rule blocks; Workspace `docs/proposals/**`, five suites' `implementation/README.md` | — | §3.5 `B3-8` |
 | `B8-3` | GC-1132: the operator's review of `IMPORTABLE_SOURCE_TREES` recorded | operator; Sonnet 5.5 · high records | operator | PyApp; super | `R-4.1` | PyApp `validation/ONBOARDING_harness-port.md`; onboarding §L step 4 | Q-A2-02 | §3.8 `B8-3` |
 | `R-4.2` | wave 2 boundary | Fable 5.1 · high | procedure | super | all wave-2 steps done or waiting; register re-read | gitlinks, flips, rows, §1, §O | — | procedure: §3a |
 | `B6a-1`…`B6a-8` | Dashboard GUI rework (pointed) | per step | per step | Dashboard; SharedContracts for contracts | `B5-4`, `R-4.2` | see the pointed file | see the pointed file | pointed: `PROMPTS_gui-rework-runbook_2026-10-13.md` §3 |
@@ -493,6 +495,47 @@ Commit line: rework: B3-7 - residual prose sweep - <n> lines
 
 **Watch:** a frozen file edited; a line in a package row.
 
+#### `K-2` — Repo Hygiene Template Kit session: K-7 and the pilot lessons (inserted 2026-10-13, Q-G-06 "a (run yourself)")
+
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\Repo_Hygiene_Template_Kit_wt\k7` on branch `pl/k7-2026-10` (a worktree the orchestrator creates from `master`; the main checkout, which every consumer pins by path, is never touched until the merge) · **Precondition:** `R-4.1` · **Writes:** the hygiene kit only; never a TARGET repository · **Waits:** —
+
+```text
+K-2 — the Repo Hygiene Template Kit: K-7 and the pilot lessons, release 0.3.0
+Close finding K-7 in the kit (an exempt tree or subfolder can be released and a set folder can be held), add the pilot-lessons changelog entry, and ship them as one minor release 0.3.0: branch, tests, changelog, version, merge to master, tag.
+Context: step K-2 of C:\Programmierung\SW_Development\rework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.5), read by that absolute path and never edited; this session is outside the PlantLibrary program's write scope: it writes the kit and nothing else; the kit's own rules are its CONTRIBUTING.md, KIT_SPEC.md and its tests; the finding: C:\Programmierung\SW_Development\handovers\FINDING_kit-exempt-tree-cannot-retire-on-rename_2026-09-17.md (its "Next action" K-7 section and proposed fix: a release that ends an exempt-tree/exempt-subfolder declaration, a directory held-name, three fixtures); the lessons: C:\Programmierung\SW_Development\handovers\HANDOVER_repo-hygiene-pilot-closeout_2026-10-13.md (the ten lessons owed to the kit changelog); the version choice: register row Q-B3-02 (a).
+Where: cwd C:\Programmierung\Repo_Hygiene_Template_Kit_wt\k7 on branch pl/k7-2026-10 (a linked worktree of C:\Programmierung\Repo_Hygiene_Template_Kit); the merge to master and the tag are done from the main checkout at the end, fast-forward only; nothing under C:\Programmierung\SW_Development is written.
+Scope: (1) the checker: `release` may name an exempt-tree or exempt-subfolder path (the declaration ends; existence is judged after folding, as K-6 did for held-name), and `held-name` may name a directory; KIT_SPEC.md §1.6/§6 updated; (2) three negative fixtures and the self-test extended to plant them; (3) the pytest wrapper and the installer unchanged unless the spec change requires it; (4) CHANGELOG with the K-7 entry and the ten pilot lessons; KIT_VERSION.md 0.3.0; the example anchored target updated if its record shape changes; (5) merge pl/k7-2026-10 into master fast-forward, tag v0.3.0. Not here: any consumer re-pin (B3-8); any PlantLibrary file.
+Read first: the finding; the handover's lessons section; KIT_SPEC.md; checker/repo_hygiene_check.py (the record folding around lines 420-460 and 740-770); the existing fixtures and tests; CONTRIBUTING.md; installer/INSTALL.md "The pin" (what a re-pin needs).
+Write: the kit files the scope names, on the branch; then master by fast-forward and the tag.
+Constraints: the kit's own checker self-test and its unit tests are the kit's contract and run here (seconds; no browser; this is not a PlantLibrary lane); nothing else runs; no push unless the kit has a remote the operator pushes (check `git remote -v`; if there is one, push the branch and the tag — the operator allowed pushing); line endings as the kit keeps them.
+Done when: master carries 0.3.0 tagged v0.3.0 with K-7 and the lessons; the self-test and the kit tests are green; the final message lists the commits, the tag, the re-pin command a consumer runs (from INSTALL.md), and gives the §L row.
+Commit line: kit: <item> - <summary>
+```
+
+*Orchestrator note:* the worktree is created by the orchestrator before launch (`git -C C:\Programmierung\Repo_Hygiene_Template_Kit worktree add C:\Programmierung\Repo_Hygiene_Template_Kit_wt\k7 -b pl/k7-2026-10 master`); after the merge the orchestrator removes it. §L row `K-2`.
+**Watch:** a `release` that silently drops the existence check for still-held paths; a version bump without the changelog.
+
+#### `B3-8` — re-pin to kit 0.3.0 and the Workspace set-folder release (M-9, after K-2)
+
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`, then each suite on `main` (serial, in place) · **Precondition:** `K-2`, `B3-6` · **Writes:** seven pins and records, seven checker copies, fourteen rule blocks; Workspace `docs/proposals/**` (the set folder renamed) and its INDEX; five suites' `implementation/README.md` one-line path fix · **Waits:** —
+
+```text
+B3-8 — the seven repositories re-pinned to kit 0.3.0; the Workspace restructure set released
+Re-pin every repository to the released kit with the installer (its documented re-pin: a plain run, then --force, one decision entry each), then do the one M-9 action K-7 held: rename the Workspace set folder with its release line and new exempt-tree line in one entry, the sweep, the INDEX flip, and the five one-line path citers in the suites.
+Context: step B3-8 of the master rework runbook (§3.5); rules: kickoff §2 (rule 3: the installer's INSTALL.md is the procedure; the checker is the contract); the answers: Q-G-06 (a, "run yourself"), Q-B3-02 (a); the release: K-2's final message (by pointer: the §L row K-2) and the kit's CHANGELOG; the M-9 recipe for the set folder: AUDIT_corpus-census-workspace_2026-10-13.md §7.2 "What M-9 would release once K-7 is decided"; the hygiene runbook §17.
+Where: the superproject first, then the six suites, one commit each, in place.
+Scope: per repository the installer re-run (--target alone, then --force) with the decision entry it requires, the verdict before and after quoted; Workspace additionally: git mv of docs/proposals/Repo_Restructure_MVP_V1_Split/ to docs/proposals/PROPOSAL_repo-restructure-mvp-v1-split_2026-07-15/, the release of the old REVIEW_LIST.md exempt-tree path and the new exempt-tree line in the same entry, the two sweeps the audit names, the manifests restored byte for byte, the docs/proposals/INDEX.md line and Renamed row; the five suites' implementation/README.md path lines; the hygiene runbook §L M-9 line appended. Not here: any other hold; any package row.
+Read first: K-2's report; the kit's INSTALL.md; the audit section; the hygiene runbook §17.
+Write: the files listed.
+Constraints: no test; the installer writes only what INSTALL.md lists; line endings as found; every verdict after reads zero violations; no push.
+Questions: proposed Q-B3-<nn> rows; continue.
+If the context runs short: commit the complete repositories, stop; restart as B3-8-r2.
+Done when: seven pins read 0.3.0; the Workspace set is renamed and its hold released; the final message lists commits and D-ids and gives the §L row.
+Commit line: hygiene: B3-8 - re-pinned to kit 0.3.0; <per repository>
+```
+
+**Watch:** an installer run that rewrites a rule block's neighbours; the set folder renamed before the kit's `release` form exists.
+
 #### `B3-6` — the stale sequencers archived (superproject, Workspace)
 
 **Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`; then `PlantLibrary_Workspace` on `main` · **Precondition:** `C1-2` · **Writes:** superproject `archive/**`, `hygiene/HYGIENE_DECISIONS.md`, root; Workspace `archive/**`, `hygiene/HYGIENE_DECISIONS.md`, `implementation/System_V1_Implementation/*` citers · **Waits:** Q-G-05, Q-A6S-01, Q-A6S-05
@@ -669,7 +712,7 @@ Commit line: rework: B5-2 - Design Configuration imported, DRAFT 0.1.0; design/ 
 
 #### `B5-3` — `G-DS`: the design gate; Configuration 1.0.0 BINDING
 
-**Model · reasoning:** operator; Opus 5.5 · high records · **Route:** gate · **Where:** `PlantLibrary_SharedContracts` on `main` (in place) · **Precondition:** `B5-2` · **Writes:** `design/CONFIGURATION.md`, `DESIGN_VERSION.md`, `semantic-roles.json`/`tokens.json` (only the gate's value changes), `decisions/*`, `banned-colors.json` · **Waits:** Q-A4-02, Q-A9D-02, Q-A4-03, Q-A4-04, Q-A9A-04, Q-A9P-08
+**Model · reasoning:** operator; Opus 5.5 · high records · **Route:** gate · **Where:** `PlantLibrary_SharedContracts` on `main` (in place) · **Precondition:** `B5-2` · **Writes:** `design/CONFIGURATION.md`, `DESIGN_VERSION.md`, `semantic-roles.json`/`tokens.json` (only the gate's value changes), `decisions/*`, `banned-colors.json` · **Waits:** — (all answered; the operator's advance answer "G-DS: all recommended, set A" is recorded in the register on Q-B5-01/03/04 and applies to every G-DS item of the evidence pack)
 
 ```text
 B5-3 — G-DS, the design gate recorded
@@ -1010,7 +1053,7 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 | 6 | GC-7053 — `DRIVER_SCRIPT.md` instructs `_ACT_STATE.md` | onboarding §N | `B4-2`, `B8-2` | open |
 | 7 | M-8 closing pass | repo-hygiene §L | `B3-1` | done except the Kit changelog (item 17) |
 | 8 | M-9 hold releases (five suites; the Workspace set after K-7) | repo-hygiene §L | `B3-4` done 2026-10-13 for the five suites; Workspace set: after the Kit session (`K-2`) | open — Workspace set only |
-| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | Q-G-06 still open; under the operator's standing instruction the orchestrator would run it as a separate session in the hygiene kit (`K-2`, inserted when Q-G-06 is answered) | open |
+| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | `K-2` (orchestrator-run, Q-G-06 "a (run yourself)"), then `B3-8` re-pins all seven and releases the Workspace set | open |
 | 10 | Onboarding step 6 hold (S-2, instance 2 is staging) | onboarding §L | lapsed: the instance-2 bindings are obsolete (Q-G-02, Q-A8-02 readings, 2026-10-13); `C1-2` H.6 records it | lapsed |
 | 11 | The Conductor's `OP-RB` copy into `PlantLibrary_Workspace` | `AUDIT_runbook-conventions` F-A5-06 | operator (Q-A5-01); `B1-1` records | open |
 | 12 | Kit session for Compose/Qt emission, Kotlin literal patterns, ARGB bans, TextStyle, the import tool's input path and an export write mode (the Kit defects of `A4` and `B5-1`) | `AUDIT_design-kit-and-methodology` §2; `EVIDENCE_design-gate-pack` | step `K-1`, launched by the orchestrator (Q-A4-05 reading, 2026-10-13) | open |
@@ -1033,7 +1076,7 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | `Q-G-03` | Pushing | (a) no session pushes; operator pushes at each boundary, submodules first | all write lanes | answered | "You are allowed to push." … "Do everything you can on your own. Reduce the operator steps to a minimum." … "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a), the boundary push done by the orchestrator (Reading in the register) |
 | `Q-G-04` | Mechanical checks allowed in Phase B | (a) linters, formatters, type checks, Kit static checks only (no Gradle, no web build) | `B5`, `B6`, `B7` | answered | "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a) |
 | `Q-G-05` | Stale sequencers | (a) archive `IMPLEMENTATION_PLAN.md`/`WORKSPACE_STATE.md`/`V1_IMPLEMENTATION_SEQUENCE.md` after §H replaces them; `Todo.md` ideas to a register (see Q-A6S-04 on "emptied") | `B3-2`, `B3-3`, `B3-6`, `C1-2` | answered | "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a) |
-| `Q-G-06` | Kit finding K-7 | (a) record, hold, queue a Kit session for the operator (no repository needs a K-7 move) | `B3-3`, `B3-4` (Workspace set only) | open | |
+| `Q-G-06` | Kit finding K-7 | (a) record, hold, queue a Kit session (run by the orchestrator as `K-2`) | `K-2`, `B3-8` | answered | "Q-G-06: a (run yourself)" — 2026-10-13 19:07 UTC, orchestrator chat; (a) with the Reading in the register |
 | `Q-G-07` | The design-adoption skill | (a) retire for design-gate after `B5` anchors the three clients, leave a pointer | `B5-7` | answered | "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a) |
 | `Q-G-08` | GUI rework order | (a) all three planned; Dashboard implemented first, PyApp after its static proof, Android after the Kit session | `B6` | answered | "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a) |
 | `Q-G-09` | Codex | (a) freeze as the Conductor did, but block-aware: `.codex/**` and `AGENTS.md` outside the installer-owned blocks, digests from the freeze commit | `B7-2`, `B1`, `B2` (banner) | answered | "all other recommended." — 2026-10-13 18:05 UTC, §O session 2d91d072; (a) |
@@ -1141,7 +1184,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `B4-4` | decision lines; traceability | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B4-5` | static package proof | todo | — | after `B4-2`…`4`; rescoped at R-4.1 |
 | `B5-2` | Configuration DRAFT | todo | — | waits answered 2026-10-13 (R-4.1) |
-| `B5-3` | `G-DS` design gate | waits Q-B5-01, Q-B5-03, Q-B5-04 (put at the gate) | — | the other waits answered 2026-10-13; the gate itself is the operator's |
+| `B5-3` | `G-DS` design gate | todo | — | answered in advance by the operator: "G-DS: all recommended, set A" (2026-10-13 19:07 UTC); B5-3 records the words |
 | `B5-4` | Dashboard anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B5-5` | PyApp anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B5-6` | AndroidApp anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
@@ -1159,6 +1202,8 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-6` | sequencers archived | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-7` | residual prose sweep | todo | — | inserted 2026-10-13 after `B3-6` |
+| `K-2` | hygiene kit session: K-7 and the pilot lessons, release 0.3.0 | todo | — | inserted 2026-10-13 (Q-G-06 "a (run yourself)") |
+| `B3-8` | re-pin to kit 0.3.0; Workspace set released | todo | — | after `K-2`, `B3-6` |
 | `C1-3` | resume blocks | todo | — | |
 | `C1-4` | hand-back HANDOVER | todo | — | |
 | `R-4.4` | wave 4 boundary | todo | — | |
