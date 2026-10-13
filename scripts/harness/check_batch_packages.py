@@ -48,6 +48,7 @@ VERDICT = "batch-packages"
 # (repository folder, package path) relative to the superproject.
 LIVE_PACKAGES = (
     "PlantLibrary_AndroidApp/implementation/System_V1_Implementation",
+    "PlantLibrary_AndroidApp/implementation/Design_Migration_V1",
     "PlantLibrary_Dashboard/implementation/System_V1_Implementation",
     "PlantLibrary_PyApp/implementation/System_V1_Implementation",
     "PlantLibrary_Server/implementation/System_V1_Implementation",
