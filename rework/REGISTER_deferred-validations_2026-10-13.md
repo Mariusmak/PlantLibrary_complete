@@ -4,7 +4,8 @@
 this program runs a test: no test runner, no browser automation, no emulator, no Gradle test task, no Docker
 stack, no app launch for validation. A step that believes it needs one records the need here and goes on. At `C1`
 these rows become the first batches of Phase C through `plan-batch`; the validation cells of the batch packages are
-never widened or deleted in Phase B, only pointed at from here.*
+never widened or deleted in Phase B, only pointed at from here. Rows are written by the orchestrator from a lane's report in
+the step's flip commit; a lane outside the superproject never writes this file.*
 
 ## How to read a row
 
@@ -34,7 +35,7 @@ never widened or deleted in Phase B, only pointed at from here.*
 | DVC-A9D-08 | A9 (analysis) → B6 | PlantLibrary_Dashboard | proposed at R-1: drift checker after canon amendment | `node scripts/check-token-drift.mjs` exits 0 once Q-A9D-02 lands | run-batch standing leg (static; allowed under Q-G-04 (a) if classed as a static check) | B5 | new | proposed |
 | DVC-A9D-09 | A9 (analysis) → B6 | PlantLibrary_Dashboard | proposed at R-1: type/lint after the token-name migration | `tsc -b` and `npm run lint` after the alias or rename step | run-batch standing legs | B6 migration batch | new | proposed |
 | DV-A9A-a | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: Gradle compile (Q-G-04 (b) or Phase C) | The Kit-emitted `Tokens.kt` compiles inside `:core:design` (name resolution of `Color(…)` inside `object Color`, package `design.generated`) | `run-batch` standing leg (`assembleDebug`) | B5 Android emission | new | proposed |
-| DV-A9A-b | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: dark>.png` | Light and dark "current state" capture of all 15 views, named `<page_id>__android__<light\ | emulator | `android-validation:capture` (extended per RC-A9A-11) / B6 workspace bootstrap | new | proposed |
+| DV-A9A-b | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: emulator | Light and dark "current state" capture of all 15 views, named `<page_id>__android__<light\|dark>.png` | `android-validation:capture` (extended per RC-A9A-11) | B6 workspace bootstrap | new | proposed |
 | DV-A9A-c | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: emulator plus mockup snapshot | Visual comparison of Home, Add, Plant detail and Sync against the 4 approved phones, light and dark | methodology 05 / `android-validation:capture` | B6 IA | new | proposed |
 | DV-A9A-d | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: emulator, dark mode | Dark-theme parity (SEMANTIC_DARK surfaces, no light creams on dark) | `AN-V1-QA-01` | B6 implementation | new | proposed |
 | DV-A9A-e | A9 (analysis) → B6 | PlantLibrary_AndroidApp | proposed at R-1; needs: screenshots plus a contrast measurement (impeccable's engine needs a browser, F-A9A-19) | Rendered contrast of filled-button labels and focus indicators (today `#16A34A`; after: `#2A7A30`) | `AN-V1-QA-01` | B6 implementation | new | proposed |
