@@ -231,3 +231,44 @@ Dispositions:
 - allowlist: rework — the master rework program's deliverable root (kickoff prompt §3 R-0 (a))
 
 Commit line: `rework: R-0 - track opened; Workspace gitlink 6b4b88b`
+
+### D-2026-10-13-02 — graphify leftovers retired: `graphify-out` deleted, `update_graph.bat` removed
+
+Authority: step `B3-2` of `rework/PROMPTS_master-rework-runbook_2026-10-13.md` (§3.5), run headless (Opus 5.5 · high),
+on the operator's answer to `Q-A6S-03` as recorded in `rework/REGISTER_operator-questions_2026-10-13.md`, verbatim:
+"Do everything you can on your own. Reduce the operator steps to a minimum." … "all other recommended." (2026-10-13
+18:05 UTC, §O session 2d91d072), resolving to (a) with the register's Reading: the step itself deletes the untracked,
+git-ignored `graphify-out/` before writing this entry, and owed item 13 of the runbook's §3b is discharged here. The
+step's block, written at `R-4.1` on that Reading, removes `update_graph.bat` by `git rm`; the option text's "`git mv
+update_graph.bat archive/root/` (never delete)" is therefore not applied (the superproject has no `archive/` yet), and
+the launcher stays recoverable as `git show 4b2027d:update_graph.bat`. This finishes the graphify drop answered as `D5`
+on 2026-10-02 (hooks and instruction blocks removed in `7946483` and `53051b0`).
+
+Preconditions measured 2026-10-13: superproject on `master` at `4b2027d`, no superproject file modified (the six
+submodule gitlinks show working-tree changes made outside this step; none is staged here); verdict before the step
+`repo-hygiene: pass with holds — 0 violations, 3 held`; last entry `D-2026-10-13-01`, so the next free id by grep over
+this file is `-02` (the superproject's other mentions of `D-2026-10-13-02`/`-03` name entries of Workspace's record).
+`git check-ignore graphify-out` matched (`.gitignore:12`) and `git ls-files graphify-out` printed nothing; the tree held
+2,460 files in 6 folders, 281,673,762 bytes, with no link or junction. `update_graph.bat` was tracked and still called
+`graphify update .`; its citers are `.gitignore:11` (a comment), the allowlist line of `D-2026-09-16-01` and the rework
+audits and registers that describe this retirement.
+
+Dispositions:
+
+1. Deleted from disk: `graphify-out/` (untracked, git-ignored, the output of the dropped tool), by a short Python script
+   (`shutil.rmtree` after the ignore, tracked-file and link checks), not by a shell `rm`.
+2. Removed: `update_graph.bat`, by `git rm` in this commit.
+3. Both names leave the root allowlist and become retired names, so a run of the graphify tool that regrows either at
+   the root fails the checker (`retired`, `allowlist`) instead of growing silently.
+4. Not changed here: `.gitignore:11-12` (the ignore line and its comment, now dead; their fate is a question proposed in
+   the step's report), `.agents/README.md:77-85` (its graphify narrative; that file's rewrite belongs to `B2`), and the
+   onboarding and repo-hygiene records that mention graphify (history). No file cites either name as a path to follow.
+5. Same commit, outside this record: `rework/REGISTER_unplanned-backlog_2026-10-13.md` is born with its
+   `rework/INDEX.md` line (`Q-G-05` (a), `Q-A6S-04` (a); `Todo.md` untouched).
+
+- allowlist-remove: graphify-out — deleted from disk at B3-2 (Q-A6S-03 (a) with its Reading)
+- allowlist-remove: update_graph.bat — removed by git rm at B3-2 (Q-A6S-03 (a))
+- retired-name: graphify-out — output of the dropped graphify tool; must not regrow at the root
+- retired-name: update_graph.bat — launcher of the dropped graphify tool; must not reappear
+
+Commit line: `rework: B3-2 - backlog register; graphify leftovers retired; D-2026-10-13-02`
