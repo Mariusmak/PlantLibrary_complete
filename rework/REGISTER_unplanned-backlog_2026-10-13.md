@@ -80,3 +80,13 @@ Cited by line only. "Done" means the work the block asks for exists in the repos
 | `196` | Follow `IMPLEMENTATION_PLAN.md` | Instruction; superseded by this program |
 | `236-253` | Design analysis and template creation | Done: the Design Template Initiative and the rework's `B5` |
 | `257-280` | The origin prompt of this program | In progress as the master rework itself |
+
+## 5. Findings recorded by the lanes (wave 3 onward)
+
+Rows the lane sessions surfaced that are product backlog for a package owner, not program work; each is also a
+`Q-` row's answer. The `State` cell names the commit the finding was measured at.
+
+| ID | Source | Item | Target · nearest home | State | Needs |
+|---|---|---|---|---|---|
+| `UB-15` | `B6b-2` census (`Q-B6b-07`), AndroidApp `e9ac4a8` `implementation/Design_Migration_V1/current_state/Function_UI_Census.md` | Three dead repository operations with no caller: `AuthRepository.isLoggedIn`, `MediaRepository.getPendingUploads`, `GardenRepository.observeMembershipsForUser` | AndroidApp · the V1 package (`implementation/System_V1_Implementation`), nearest a cleanup row of `AN1-B09` | Unhomed; "leave what you did not make" — reported, never deleted in passing | needs plan-batch in AndroidApp |
+
