@@ -1249,7 +1249,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `K-1` | Design Template Kit session (Kit branch) | done 2026-10-13 — Kit master `612e634`, tag `v1.11.0` (merged ff and pushed by the orchestrator) | — | 10 commits: Kotlin/Qt literals, scoped bans, Compose TextStyle + package option, Qt THEME_VARS, export --write, import --input; node 201/202 (1 pre-existing); browser + Kotlin legs → DV-K1-01 |
 | `B8-2` | onboarding notes closed by B4 | done 2026-10-13 — super `2644ef9` | — | B4-5 proof under step 5; step 7 waits the profile rollout; step 8 Q-A2-03 (a) cited; GC-6082/7053 re-checked; GC-2437 SHA |
 | `B8-3` | GC-1132 reviewed | done 2026-10-13 — PyApp `0d71d71`; super `a4809ac` | — | the operator's review words (Q-A2-02) recorded in ONBOARDING_harness-port.md; onboarding §L step 4 marked reviewed |
-| `R-4.2` | wave 2 boundary | done 2026-10-13 — this commit | — | wave 2 done (B2-1..3, B2-1.1, B7-2, B1-1..3, B7-3, B3-2..5, B4-2..5, B5-2..8 with 3.1-3.3, B8-1..3, K-1, K-2); ledger repaired (§H); pushed all seven; §1/§O refreshed; wave 3 opened |
+| `R-4.2` | wave 2 boundary | done 2026-10-13 — super `331b954` | — | wave 2 done (B2-1..3, B2-1.1, B7-2, B1-1..3, B7-3, B3-2..5, B4-2..5, B5-2..8 with 3.1-3.3, B8-1..3, K-1, K-2); ledger repaired (§H); pushed all seven; §1/§O refreshed; wave 3 opened |
 | `B6a-1`…`B6a-8` | Dashboard GUI rework | pointed | — | see the lane file §L |
 | `B6c-1`…`B6c-8` | PyApp GUI rework | pointed | — | |
 | `B6b-1`…`B6b-8` | AndroidApp GUI rework | pointed | — | |
