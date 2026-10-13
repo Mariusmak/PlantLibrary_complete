@@ -537,8 +537,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6a-2` | Dashboard census | done 2026-10-13 — Dashboard `c4e348b` | — | 13 routes/12 views; 42 ops, 13 reached; CM-01..31 (24 T1, 7 T2); literals 1c+87d; legacy theme 3 values off canon; role layer unused; Q-B6a-04..06 (a) |
 | `B6a-3` | Dashboard contracts, target | done 2026-10-13 — Dashboard `7098108` | — | 13 contracts WSC-01..13 (/login new); 78 regions on roles; GM-01..08; RD-01..06 for the IA; 28 captures deferred (DVC-A9D-01/02); 16 targets, 1 active; Q-B6a-07..09 (a) |
 | `B6a-4` | Dashboard comparison, gap map | done 2026-10-13 — Dashboard `5a2d9c7` | — | 72 gaps: P0 1 (role layer unused), P1 11, P2 38, P3 22; A9 15 placed / 5 dismissed; owners B6a-5 20, B6a-6 22, B6a-7 8, B6a-8 22; Q-B6a-10 (a) |
-| `B6a-5` | Dashboard forward surface; `G-a-1` | running (B6a-5 session) | — | launched 2026-10-14 |
-| `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
+| `B6a-5` | Dashboard forward surface; `G-a-1` | done 2026-10-14 — Dashboard `6eca8eb` | — | 16 open rows: reserve 6 / absorbed 4 / no-UI 6, 13 notes owed at B6a-7 (DS-03 done by B5-4); settings 47 keys 3/16/28; UQ-1..11; D-1 defect; G-a-1 put as Q-G-a-1-01..09 (open); Q-B6a-11/12 (a); UB-20 |
+| `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits G-a-1 (Q-G-a-1-01..09, operator) | — | SharedContracts serialized; Q-A9D-06 answered (a) 2026-10-13 |
 | `B6a-7` → split `B6a-7a` (to the gate), `B6a-7b` (after `event:G-a-4`) | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
 | `B6a-8` | Dashboard implementation (per batch) | todo | — | one row per batch appended as `B6a-8 <key>`; waits answered 2026-10-13 (R-4.1) |
 | `B6c-1` | PyApp workspace bootstrap | done 2026-10-13 — PyApp `62b5dd9` | — | re-skin, pin by pointer, unbound; roots D-2026-10-13-05; sentinel+harness routes (Q-B5-18/Q-A9P-04); DESIGN prose recovered, 71 cites; Q-B6c-01/02 (a) |
