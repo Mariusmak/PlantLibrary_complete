@@ -118,7 +118,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B5-1` | design-gate evidence pack | Opus 5.5 · xhigh | session (headless) | super | `R-3` | `rework/EVIDENCE_design-gate-pack_<date>.md` | — | §3.7 `B5-1` |
 | `B3-1` | M-8 closing pass over seven repositories (the Kit-side item owed) | Opus 5.5 · high | session (headless) | super | `R-3` | `repo-hygiene/REGISTER_…`, `AUDIT_…`, `handovers/HANDOVER_…`, hygiene runbook §L | — | §3.5 `B3-1` |
 | `B4-1` | parser-honest package edits without a question | Opus 5.5 · high | session (headless) | Server, Workspace, SharedContracts (serial, in place) | `B7-1` | three packages' `BATCH_PLAN.md`/`STATE.md` | — | §3.6 `B4-1` |
-| `B8-1` | bindings re-verified statically; ledger and §N corrections | Opus 5.5 · high | session (headless) | super; PyApp | `B4-1` | `onboarding/…runbook` §L/§N; PyApp `.gitignore` | Q-A2-03 (step-8 line only) | §3.8 `B8-1` |
+| `B8-1` | bindings recorded obsolete; ledger and §N corrections; PyApp `.gitignore` and `graphify-out/` | Opus 5.5 · high | session (headless) | super; PyApp | `B4-1` | `onboarding/…runbook` §L/§N; PyApp `.gitignore` | Q-A2-03 (step-8 line only) | §3.8 `B8-1` |
 | `R-4.1` | wave 1 boundary | Fable 5.1 · high | procedure | super | all wave-1 steps done; register re-read | gitlinks, flips, register rows, §O | — | procedure: §3a |
 | `B2-1` | superproject `CLAUDE.md` reconciled; `AGENTS.md` untouched until the freeze | Opus 5.5 · high | session (headless) | super | `R-4.1` | `CLAUDE.md` | Q-A3-03 | §3.4 `B2-1` |
 | `B2-2` | Dashboard, AndroidApp, PyApp guides reconciled; PyApp `.claude/CLAUDE.md` folded | Opus 5.5 · high | session (headless) | the three suites (serial, in place) | `B2-1` | three `CLAUDE.md`; PyApp `.claude/CLAUDE.md` | Q-A3-05, Q-A6A-04 | §3.4 `B2-2` |
@@ -135,7 +135,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B4-2` | out-of-band markers; `DRIVER_SCRIPT.md` to pointer stubs; README run lines | Opus 5.5 · high | session (headless) | the six suites (serial, in place) | `B4-1`, `R-4.1` | seven packages' `BATCH_PLAN.md`, `DRIVER_SCRIPT.md`, `README.md`, `STATE.md` | Q-A7-02, Q-A7-05 | §3.6 `B4-2` |
 | `B4-3` | SDA package superseded | Opus 5.5 · high | session (headless) | Workspace | `B4-1` | `System_Design_Architecture/*` | Q-A7-06, Q-G-01 | §3.6 `B4-3` |
 | `B4-4` | decision lines: plan-batch 1.5.1 adopted, model tiers, mechanical readings, validation cells pointed, `CONTEXT_INDEX.md` traceability | Opus 5.5 · high | session (headless) | the six suites (serial, in place) | `B1-2`, `B4-2` | seven `STATE.md`, `CONTEXT_INDEX.md`, `SCOPE.md` | Q-A7-01, Q-A7-03, Q-A7-04 | §3.6 `B4-4` |
-| `B4-5` | static bind proof under both parsers | Sonnet 5.5 · high | check | super | `B4-2`, `B4-3`, `B4-4` | `rework/EVIDENCE_bind-proof_<date>.md` | — | §3.6 `B4-5` |
+| `B4-5` | static package proof (main's parser; instance 2 informational) | Sonnet 5.5 · high | check | super | `B4-2`, `B4-3`, `B4-4` | `rework/EVIDENCE_bind-proof_<date>.md` | — | §3.6 `B4-5` |
 | `B5-2` | the Configuration in SharedContracts `design/`, DRAFT 0.1.0 | Opus 5.5 · high | session (headless) | SharedContracts | `B5-1`, `B2-3`, `R-4.1` | `design/**`, `CLAUDE.md`, `SCOPE.md`, `hygiene/HYGIENE_DECISIONS.md` | Q-G-01, Q-A4-01, Q-A6C-02 | §3.7 `B5-2` |
 | `B5-3` | `G-DS`: the design gate; Configuration 1.0.0 BINDING | operator; Opus 5.5 · high records | gate | SharedContracts | `B5-2` | `design/CONFIGURATION.md`, `DESIGN_VERSION.md`, decisions | Q-A4-02, Q-A9D-02, Q-A4-03, Q-A4-04, Q-A9A-04, Q-A9P-08 | §3.7 `B5-3` |
 | `B5-4` | Dashboard anchored (installer, impeccable, `web-css`+`web-ts` emitted, pin) | Opus 5.5 · high | session (headless) | Dashboard | `B5-3`, `B2-2`, `B7-2`, `B1-2` | `design/**`, `scripts/design/**`, `.claude/.codex/.agents/.github` skills, `CLAUDE.md` block, `.gitattributes` | Q-A8-03 | §3.7 `B5-4` |
@@ -144,6 +144,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B5-7` | design-adoption retired; six skill cells repointed to design-gate | Opus 5.5 · high | session (headless) | super; Dashboard, AndroidApp, PyApp, Workspace (serial) | `B5-4`, `B5-5`, `B5-6`, `B1-2` | `.claude/skills/design-adoption/*` (super, Workspace), three `STATE.md`/`TASK_CHECKLIST.md` | Q-G-07 | §3.7 `B5-7` |
 | `B5-8` | Conductor readiness rows 1–7 per anchored client | Sonnet 5.5 · high | check | super | `B5-4`, `B5-5`, `B5-6` | `rework/EVIDENCE_design-readiness_<date>.md` | — | §3.7 `B5-8` |
 | `B8-2` | §N notes closed by `B4`; step 8 superseded; §L step 6 facts | Opus 5.5 · high | session (headless) | super | `B4-5` | `onboarding/…runbook` §L/§N | Q-A2-03 | §3.8 `B8-2` |
+| `K-1` | Design Template Kit session: the emitter and tool gaps `A4`/`B5-1` recorded, on a Kit branch | Opus 5.5 · high | session (headless) | `C:\Programmierung\Design_Template_Kit` on a branch `pl/kit-gaps-2026-10` from `master` | `B5-3` | the Kit only (never TARGET) | — | §3.7 `K-1` |
 | `B8-3` | GC-1132: the operator's review of `IMPORTABLE_SOURCE_TREES` recorded | operator; Sonnet 5.5 · high records | operator | PyApp; super | `R-4.1` | PyApp `validation/ONBOARDING_harness-port.md`; onboarding §L step 4 | Q-A2-02 | §3.8 `B8-3` |
 | `R-4.2` | wave 2 boundary | Fable 5.1 · high | procedure | super | all wave-2 steps done or waiting; register re-read | gitlinks, flips, rows, §1, §O | — | procedure: §3a |
 | `B6a-1`…`B6a-8` | Dashboard GUI rework (pointed) | per step | per step | Dashboard; SharedContracts for contracts | `B5-4`, `R-4.2` | see the pointed file | see the pointed file | pointed: `PROMPTS_gui-rework-runbook_2026-10-13.md` §3 |
@@ -393,7 +394,7 @@ B3-2 — superproject leftovers and the backlog register
 Retire the graphify residue, and harvest the live ideas of Todo.md and the unplanned backlog of IMPLEMENTATION_PLAN.md §7 into one register under rework/, so the sequencers can be archived later without losing a line.
 Context: step B3-2 of the master rework runbook (§3, lane B3); rules: kickoff §2; the answers: Q-G-05, Q-A6S-03, Q-A6S-04 (§Q); the evidence: AUDIT_corpus-census-superproject_2026-10-13.md §0, §7.1-§7.3; AUDIT_batch-packages_2026-10-13.md §7.4 (what the sequencers uniquely carry).
 Where: cwd C:\Programmierung\SW_Development on master; superproject only.
-Scope: (1) rework/REGISTER_unplanned-backlog_<date>.md: one row per item from IMPLEMENTATION_PLAN.md §7 (Android cleartext/HTTPS, server setup guide, Gradle 9, server-side enrichment, Fable5 follow-through, MVP folders read-only) and from Todo.md's live ideas as Q-A6S-04 admits, each with its target suite and "needs plan-batch", never a copy of Todo.md's text beyond the idea's one line; the §5 operator decisions of IMPLEMENTATION_PLAN.md (SDA-DEC, the two security sign-offs, VGAP-020) listed as rows for C1's Q- entries; (2) graphify per Q-A6S-03: update_graph.bat removed by git rm, the operator's removal of graphify-out/ recorded as an owed act if not yet done, one decision entry (next free id by grep) with allowlist-remove lines only for entries no longer on disk and retired-name for both; (3) Todo.md itself untouched unless Q-A6S-04 says otherwise. Not here: IMPLEMENTATION_PLAN.md or WORKSPACE_STATE.md moves (B3-6, after the hand-back); any submodule.
+Scope: (1) rework/REGISTER_unplanned-backlog_<date>.md: one row per item from IMPLEMENTATION_PLAN.md §7 (Android cleartext/HTTPS, server setup guide, Gradle 9, server-side enrichment, Fable5 follow-through, MVP folders read-only) and from Todo.md's live ideas as Q-A6S-04 admits, each with its target suite and "needs plan-batch", never a copy of Todo.md's text beyond the idea's one line; the §5 operator decisions of IMPLEMENTATION_PLAN.md (SDA-DEC, the two security sign-offs, VGAP-020) listed as rows for C1's Q- entries; (2) graphify per Q-A6S-03 and its reading: this session deletes the untracked, git-ignored graphify-out/ folder itself (verify it is ignored and untracked first; delete through a short script, never a shell rm in a compound command), removes update_graph.bat by git rm, and writes one decision entry (next free id by grep) with allowlist-remove lines for both entries now gone from disk and retired-name for both; (3) Todo.md itself untouched unless Q-A6S-04 says otherwise. Not here: IMPLEMENTATION_PLAN.md or WORKSPACE_STATE.md moves (B3-6, after the hand-back); any submodule.
 Read first: the §Q answers; AUDIT_corpus-census-superproject_2026-10-13.md §7.1-§7.3; IMPLEMENTATION_PLAN.md §5 and §7; Todo.md (read once, cite by line, copy nothing but the idea lines Q-A6S-04 admits); hygiene/HYGIENE_DECISIONS.md tail.
 Write: the register, its INDEX line, the decision entry, the removal.
 Constraints: sources read-only; no test; an allowlist-remove line only in the commit that removes the entry from disk (the checker fails otherwise); line endings as found; subagents in the foreground; no push; hygiene verdict zero violations before the commit.
@@ -583,8 +584,8 @@ Commit line: rework: B4-4 - STATE decisions; CONTEXT_INDEX traceability; SCOPE p
 **Model · reasoning:** Sonnet 5.5 · high · **Route:** check · **Where:** `C:\Programmierung\SW_Development` on `master` · **Precondition:** `B4-2`, `B4-3`, `B4-4` · **Writes:** `rework/EVIDENCE_bind-proof_<date>.md`, `rework/INDEX.md` · **Waits:** —
 
 ```text
-B4-5 — the static proof that instance 2's bindings still hold
-Prove, without calling the instance, that the seven packages parse clean under main's parser and under instance 2's, that PyApp's plan contract is unchanged, that every git toplevel is its suite folder and every tree is clean.
+B4-5 — the static proof that the seven packages stay bindable
+Prove, without calling any instance, that the seven packages parse clean under the Conductor's main parser (instance 2's bindings are obsolete per Q-G-02/Q-A8-02 of 2026-10-13, so its parser leg is informational only), that every git toplevel is its suite folder and every tree is clean; PyApp's plan-contract hash is quoted before and after as a fact, no longer as a gate.
 Context: step B4-5 of the master rework runbook (§3, lane B4); rules: kickoff §2; the proof list: AUDIT_batch-packages_2026-10-13.md §7.2 "What B4's static proof must show" and §7.5 "What a B4 static check must prove"; the census script with its --parser-src option from B7-1 (by pointer).
 Where: cwd C:\Programmierung\SW_Development on master; writes the superproject only.
 Scope: the six proofs, each quoted verbatim into the evidence file, with the parser provenance line of both runs; the PyApp plan-contract hash computed by the parser on the tree before B4 (the commit §L row R-4.1 records) and after; the config roots of C:\Programs\AI_Orchestrator_2\config.yaml lines 505-517 read once and checked to exist. Not here: any edit; any instance call; any database read.
@@ -593,7 +594,7 @@ Write: the evidence file and its INDEX line.
 Constraints: sources and the instance read-only; bytecode writing disabled; no test; no push.
 Questions: proposed Q-B4-<nn> rows; continue.
 If the context runs short: commit the proofs done, mark the rest "not measured", stop; restart as B4-5-r2.
-Done when: the evidence file holds the six proofs with their outputs; one commit; the final message names it and states whether a re-intake is owed (then a B8 owed item).
+Done when: the evidence file holds the proofs with their outputs; one commit; the final message names it; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B4-5 - static bind proof - 7 packages, 2 parsers
 ```
 
@@ -730,6 +731,26 @@ Commit line: rework: B5-6 - AndroidApp anchored - Kit <version>, compose emitted
 
 **Watch:** `Tokens.kt` added to a Gradle source set (nothing may compile it in Phase B); a ban list without the ARGB spellings.
 
+#### `K-1` — Design Template Kit session (inserted at `R-4.1` under Q-A4-05's reading)
+
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\Design_Template_Kit` on branch `pl/kit-gaps-2026-10` (from `master`, created by the orchestrator) · **Precondition:** `B5-3` · **Writes:** the Kit only; never a TARGET repository · **Waits:** —
+
+```text
+K-1 — the Design Template Kit gaps PlantLibrary needs closed
+Close, on a Kit branch and under the Kit's own contribution rules, the gaps the PlantLibrary analysis recorded against Kit 1.7.0, each with its own commit and test, and leave the branch for the Kit owner's merge and version step.
+Context: step K-1 of C:\Programmierung\SW_Development\rework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.7), read by that absolute path and never edited; this session is outside the PlantLibrary program's write scope: it writes the Kit and nothing else, and the program's rule that sources are read-only still binds every other step; the Kit's rules are C:\Programmierung\Design_Template_Kit\CONTRIBUTING.md and its tests; the gaps, by id: AUDIT_design-kit-and-methodology_2026-10-13.md §2 (the Kit defects marked "record only") and EVIDENCE_design-gate-pack_2026-10-13.md (the two record-only notes and Q-B5-01's cause).
+Where: cwd C:\Programmierung\Design_Template_Kit on branch pl/kit-gaps-2026-10; master and every other branch untouched; nothing under C:\Programmierung\SW_Development is written.
+Scope: (1) check-literals: Kotlin and Qt spellings (Color(0xAARRGGBB), N.dp/N.sp, QColor(r,g,b)); (2) banned-colors: ARGB aliases honoured by the product scan, and BAN scope honoured outside design/; (3) the compose emitter: typography weights and TextStyle, a package-name option, an emitter test; (4) the qt-qss emitter: a header carrying the Configuration name and version, a documented role-name flattening rule, numeric dimensions, shadows kept, an emitter test; (5) import-flat-tokens: an --input path; export-flat-tokens: a write mode that regenerates the flat layout; (6) a changelog entry and the version step the Kit's rules require, left uncommitted to master. Not here: any PlantLibrary file; any Conductor file; a Kit test that needs a browser is left as a documented follow-up.
+Read first: CONTRIBUTING.md; anchoring-kit/checks/check-literals.mjs; anchoring-kit/emitters/emit-stack.mjs; tools/import-flat-tokens.mjs and export-flat-tokens.mjs; the Kit's existing emitter tests; the two PlantLibrary files named above (read-only).
+Write: the Kit files the scope names, on the branch.
+Constraints: the Kit's own unit tests for emitters and checks are the Kit's contract and may run here (this session is not a PlantLibrary lane; the one test slot belongs to the Conductor, so no browser test and no long run — node unit tests only); no npm install; no push; line endings as the Kit keeps them.
+Done when: the branch carries one commit per gap with its test green; the final message lists the commits, the Kit version proposed, and what PlantLibrary's B5-6, B6b-8 and B5-3 (Q-B5-01) can now consume once the Kit owner merges and tags; the final message gives the §L row.
+Commit line: kit: <gap> - <summary>
+```
+
+*Orchestrator note:* the branch is created by the orchestrator before launch; the Kit's merge to `master` and its tag are the Kit owner's (the operator) — the program re-pins only after that; §L row `K-1`.
+**Watch:** a Kit edit that changes an existing emitter's output for the pilot (Conductor) without a version step; any write outside the Kit.
+
 #### `B5-7` — design-adoption retired; six skill cells repointed to design-gate
 
 **Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`; then Dashboard, AndroidApp, PyApp and Workspace on `main` (serial, in place) · **Precondition:** `B5-4`, `B5-5`, `B5-6`, `B1-2` · **Writes:** superproject `.claude/skills/design-adoption/SKILL.md` (pointer), `.agents/README.md`; three packages' `TASK_CHECKLIST.md` (skill cells) and `STATE.md`; the Workspace's mirrored skill folder (pointer) · **Waits:** Q-G-07
@@ -774,16 +795,16 @@ Commit line: rework: B5-8 - design readiness rows 1-7 - 3 clients
 
 ### 3.8 Lane B8 — Conductor onboarding alignment
 
-#### `B8-1` — bindings re-verified statically; ledger and §N corrections
+#### `B8-1` — bindings recorded obsolete; ledger and §N corrections; PyApp `.gitignore` and `graphify-out/`
 
-**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`; then `PlantLibrary_PyApp` on `main` · **Precondition:** `B4-1` · **Writes:** `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md` §L and §N; PyApp `.gitignore` · **Waits:** partial — Q-A2-03 (the step-8 line only) and Q-A6P-04 (the PyApp graphify sanction line only); everything else proceeds
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master`; then `PlantLibrary_PyApp` on `main` · **Precondition:** `B4-1` · **Writes:** `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md` §L and §N; PyApp `.gitignore` · **Waits:** — (Q-A2-03 and Q-A6P-04 answered 2026-10-13)
 
 ```text
 B8-1 — the onboarding runbook brought up to the measured facts
-Re-verify instance 2's six bindings from its config and the trees, correct the onboarding ledger's two miscounts, discharge the §N notes that need no operator, and delete PyApp's four dead .gitignore lines.
+Record that the instance-2 bindings are obsolete (Q-G-02 and Q-A8-02, answered 2026-10-13), correct the onboarding ledger's two miscounts, discharge the §N notes that need no operator, and clean PyApp's .gitignore (the four dead lines and the graphify sanction) together with its graphify-out/ folder.
 Context: step B8-1 of the master rework runbook (§3, lane B8); rules: kickoff §2; the facts: AUDIT_batch-packages_2026-10-13.md §7.5 (what the bindings require; nothing since 2026-09-16 invalidates them), §7.6 (the six §N notes and what B8 does for each), its "Also owed in B8" lines (F-A7-01: AndroidApp ten will_run; F-A7-04: instance 2's config lacks max_scope_targets and soak); AUDIT_git-structure_2026-10-13.md §7.4 (what must stay stable); B4-1's commit (by pointer) for GC-6082.
 Where: superproject first (one commit), then PyApp (one commit), in place; the instance's config.yaml is read once, its database and API never.
-Scope: in the onboarding runbook — §L step 2b's AndroidApp count corrected; §L step 6 gains the config facts; §N rows GC-6082 (B4-1 moved SY1-B07; the attended-batch marker is B4-2's — write "marker at B4-2"), GC-2006 (pointer to the deferred register and the hand-back), GC-2431 (nothing; owner named), GC-2437 (closed by this step's PyApp commit), GC-7053 (closed by B4-2 — write "pending B4-2" if it has not landed), GC-1132 (operator act: B8-3); step 8's §L line reads "superseded by the Conductor's proposal A (project contract and validation profiles); harness half todo there" only once Q-A2-03 is answered, else left; a dated line under §L step 5 recording the static re-verification (six roots exist, six packages present, toplevels equal the suite folders). PyApp: .gitignore lines 11-14 removed with the Edit tool (the file is mixed-eol). Not here: any instance call; any package file; the hold on step 6 (S-2: never lifted here).
+Scope: in the onboarding runbook — §L step 2b's AndroidApp count corrected; §L step 6 gains the config facts; §N rows GC-6082 (B4-1 moved SY1-B07; the attended-batch marker is B4-2's — write "marker at B4-2"), GC-2006 (pointer to the deferred register and the hand-back), GC-2431 (nothing; owner named), GC-2437 (closed by this step's PyApp commit), GC-7053 (closed by B4-2 — write "pending B4-2" if it has not landed), GC-1132 (operator act: B8-3); step 8's §L line reads "superseded by the Conductor's proposal A (project contract and validation profiles); harness half todo there" only once Q-A2-03 is answered, else left; a dated line under §L step 5 recording that the six bindings are obsolete per the operator's words of 2026-10-13 (quoted from the register rows Q-G-02 and Q-A8-02), that instance 2 is neither resumed nor given intake and its store stays untouched, and that no re-verification is owed; §L step 6's hold noted as lapsed for the same reason. PyApp: .gitignore lines 11-14 and the graphify-out sanction line (c48aa17) removed with the Edit tool (the file is mixed-eol), and the untracked, git-ignored PlantLibrary_PyApp/graphify-out/ folder deleted by this session (verify ignored and untracked first; a short script, never a shell rm in a compound command). Not here: any instance call; any package file.
 Read first: the audit sections; the runbook §L and §N; C:\Programs\AI_Orchestrator_2\config.yaml lines 500-520 (read-only).
 Write: the two files.
 Constraints: sources and the instance read-only; no test; the runbook is CRLF in the working tree — append and edit with its own endings, never a rewrite; the three held names it cites are untouched (the kit constraint); the superproject verdict zero violations; no push.
@@ -801,7 +822,7 @@ Commit line: rework: B8-1 - onboarding ledger and notes updated; bindings re-ver
 
 ```text
 B8-2 — the onboarding runbook after B4
-Close the §N rows B4 settled (GC-7053 by the pointer stubs, GC-6082's marker), record B4-5's bind proof under §L step 5, and flip step 8 to superseded per Q-A2-03.
+Close the §N rows B4 settled (GC-7053 by the pointer stubs, GC-6082's marker), record B4-5's package proof under §L step 5, and flip step 8 to superseded per Q-A2-03.
 Context: step B8-2 of the master rework runbook (§3, lane B8); rules: kickoff §2; the answer: Q-A2-03 (§Q); the evidence: B4-2 and B4-5 commits (by pointer: the §L rows), AUDIT_harnesses-and-scripts_2026-10-13.md §7.6 (proposal A, ob-25), AUDIT_batch-packages_2026-10-13.md §7.6.
 Where: superproject on master, in place; one commit.
 Scope: the §N rows' state text; §L step 5's proof line; §L step 8's line; a §L step 7 note that the Server port now waits the Conductor's profile rollout (Q-A2-01/Q-A2-03). Not here: step 6's hold; any package.
@@ -888,7 +909,7 @@ C1-3 — the resume blocks
 Write one two-line resume block per suite into §H.8 of this runbook, each naming the suite folder and the batch key H.1 puts first for it, with the precondition check in the orchestrator note.
 Context: step C1-3 of the master rework runbook (§3, lane C1); rules: kickoff §2; the shape: AUDIT_runbook-conventions_2026-10-13.md §7.6 (the resume block, the batch route's two lines); §H.1 (by pointer).
 Where: the superproject, in place; one commit.
-Scope: six blocks (PyApp's names its held state and the operator act that lifts it, by pointer to H.3); each block's orchestrator note carries the key and the clean-tree check. Not here: any run.
+Scope: six blocks (every suite runs out of band until a Conductor instance is bound anew — the instance-2 bindings are obsolete per Q-G-02/Q-A8-02; H.6 records that); each block's orchestrator note carries the key and the clean-tree check. Not here: any run.
 Read first: §H.1 and §H.3; the audit section.
 Write: §H.8 of this file.
 Constraints: no proof surface in a block (the row's validation cell owns it); no runner named; LF; no push.
@@ -953,7 +974,7 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 3. **Wave 3** — starts at `event:wave-2-merged` and `B5-4` done. `B6a` (Dashboard) in full; `B6c` (PyApp) starts after `B5-5`, its SharedContracts-writing steps after `B6a`'s; `B6b` (AndroidApp) planning steps after `B5-6`, its implementation waits Q-A4-05. Closes at `R-4.3`.
 4. **Wave 4** — `C1-1` → `C1-2` → `B3-6` → `C1-3` → `C1-4`; closes at `R-4.4`; then `R-5`.
 
-**5. The boundary ritual** (every `R-4.<k>`, in order): (1) drain — no write session of this program running in any repository with wave work, every main checkout clean, instance 2 untouched; (2) re-read the question register; flip waiting steps to `todo` or `retired`; update §Q and §O in the boundary's first commit; (3) merge each worktree branch, if any (none planned): `merge --ff-only`, `worktree remove`, `branch -d`, `worktree prune`; an `INDEX.md` conflict resolves as a union; (4) one superproject commit per step in step order carrying the gitlink at that step's own commit (`git update-index --cacheinfo 160000,<sha>,<repo>` for earlier steps, `git add <repo>` for the last), the §L flip and the step's proposed register rows, each preceded by the superproject hygiene verdict; (5) refresh §1 if three days old or a lane closed; rewrite §O for the new open set; read C: free space; (6) write the push list (submodules whose `main` moved first, in the order SharedContracts, Server, Dashboard, AndroidApp, PyApp, Workspace; the superproject last after the containment check `branch -r --contains`) into the `R-4.<k>` Note and tell the operator in two lines; (7) open the next wave and flip `R-4.<k>` done.
+**5. The boundary ritual** (every `R-4.<k>`, in order): (1) drain — no write session of this program running in any repository with wave work, every main checkout clean, instance 2 untouched; (2) re-read the question register; flip waiting steps to `todo` or `retired`; update §Q and §O in the boundary's first commit; (3) merge each worktree branch, if any (none planned): `merge --ff-only`, `worktree remove`, `branch -d`, `worktree prune`; an `INDEX.md` conflict resolves as a union; (4) one superproject commit per step in step order carrying the gitlink at that step's own commit (`git update-index --cacheinfo 160000,<sha>,<repo>` for earlier steps, `git add <repo>` for the last), the §L flip and the step's proposed register rows, each preceded by the superproject hygiene verdict; (5) refresh §1 if three days old or a lane closed; rewrite §O for the new open set; read C: free space; (6) push (Q-G-03's answer of 2026-10-13: "You are allowed to push." — the orchestrator pushes at every boundary, no lane session does): plain `git push` of each submodule whose `main` moved, in the order SharedContracts, Server, Dashboard, AndroidApp, PyApp, Workspace, then the containment check `branch -r --contains` per gitlink, then the superproject; nothing forced; the pushed heads go into the `R-4.<k>` Note and two lines to the operator; (7) open the next wave and flip `R-4.<k>` done.
 
 ## 3b. Owed items
 
@@ -967,14 +988,14 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 | 6 | GC-7053 — `DRIVER_SCRIPT.md` instructs `_ACT_STATE.md` | onboarding §N | `B4-2`, `B8-2` | open |
 | 7 | M-8 closing pass | repo-hygiene §L | `B3-1` | open |
 | 8 | M-9 hold releases (five suites; the Workspace set after K-7) | repo-hygiene §L | `B3-4`; Workspace set: after the Kit session | open |
-| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | operator, outside this program (Q-G-06) | open |
-| 10 | Onboarding step 6 hold (S-2, instance 2 is staging) | onboarding §L | never here; cited by pointer in `C1-2` H.6 | open |
+| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | Q-G-06 still open; under the operator's standing instruction the orchestrator would run it as a separate session in the hygiene kit (`K-2`, inserted when Q-G-06 is answered) | open |
+| 10 | Onboarding step 6 hold (S-2, instance 2 is staging) | onboarding §L | lapsed: the instance-2 bindings are obsolete (Q-G-02, Q-A8-02 readings, 2026-10-13); `C1-2` H.6 records it | lapsed |
 | 11 | The Conductor's `OP-RB` copy into `PlantLibrary_Workspace` | `AUDIT_runbook-conventions` F-A5-06 | operator (Q-A5-01); `B1-1` records | open |
-| 12 | Kit session for Compose/Qt emission, Kotlin literal patterns, ARGB bans, TextStyle (eight Kit defects of `A4`) | `AUDIT_design-kit-and-methodology` §2 | operator (Q-A4-05); `B5-6` lists them by id | open |
-| 13 | `graphify-out/` removal from disk (275 MB superproject, 25 MB PyApp) | `A6a`, `A6c` | operator; `B3-2` records | open |
-| 14 | The end-of-wave pushes (three submodule commits already unpushed) | `A8` F-A8-03 | operator at each `R-4.<k>` (Q-G-03) | open |
+| 12 | Kit session for Compose/Qt emission, Kotlin literal patterns, ARGB bans, TextStyle, the import tool's input path and an export write mode (the Kit defects of `A4` and `B5-1`) | `AUDIT_design-kit-and-methodology` §2; `EVIDENCE_design-gate-pack` | step `K-1`, launched by the orchestrator (Q-A4-05 reading, 2026-10-13) | open |
+| 13 | `graphify-out/` removal from disk (275 MB superproject, 25 MB PyApp) | `A6a`, `A6c` | `B3-2` (superproject) and `B8-1` (PyApp) delete the folders themselves (Q-A6S-03, Q-A6P-04 readings, 2026-10-13) | open |
+| 14 | The end-of-wave pushes (three submodule commits already unpushed) | `A8` F-A8-03 | the orchestrator at each `R-4.<k>` (Q-G-03 reading, 2026-10-13) | open — first push at `R-4.1` |
 | 15 | Readiness row 8 (one dispatched UI batch per anchored client) and the instance's role overrides | `A4` §7.1 | Phase C; `B5-8` records | open |
-| 16 | `PyApp` re-intake at `PY1-B08` if any step moves its plan contract | `A7` F-A7-09 | `B4-5` decides; operator act | open |
+| 16 | `PyApp` re-intake at `PY1-B08` if any step moves its plan contract | `A7` F-A7-09 | lapsed with the bindings (Q-A7-04, Q-A8-02 readings, 2026-10-13) | lapsed |
 | 17 | M-8's Kit changelog commit (hygiene runbook §16; SOURCE-K is read-only here) | `B3-1` | operator's Kit session, with K-7 (item 9) | open |
 
 ## Q. Operator questions — mirror of the register
@@ -1015,7 +1036,9 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | A6g SharedContracts | `Q-A6C-01` no `archive/` · `Q-A6C-02` `design/` source, `design-tokens/` the flat view · `Q-A6C-03` GC-7053 † superseded by Q-A7-05 · `Q-A6C-04` release the hold at M-9 · `Q-A6C-05` stale platform mappings superseded after B5 | —, `B5-2`, —, `B3-4`, (`B5-4`…`6` record) |
 | A7 | `Q-A7-01` `haiku/luna` cells · `Q-A7-02` out-of-band marker · `Q-A7-03` `already_done` readings · `Q-A7-04` PyApp plan contract stays · `Q-A7-05` DRIVER_SCRIPT as pointer stub · `Q-A7-06` SDA superseded · `Q-A7-07` living run-next table in `SUITE_HANDOFFS.md` · `Q-A7-08` B6 versus functional screen rows | `B4-4`, `B4-2`, `B4-4`, `B4-4`, `B4-2`, `B4-3`, `C1-2`, `B6*-7` |
 | A8 | `Q-A8-01` worktrees only for single-repository steps (none planned) · `Q-A8-02` instance 2 stays paused until C1 · `Q-A8-03` path-scoped `.gitattributes` at B5 · `Q-A8-04` D-ids pre-assigned per step · `Q-A8-05` `absorbgitdirs` deferred | —, —, `B5-4`, (§3 notes), — |
-| B7 | `Q-B7-01` same-name suite skill copies the parity check lists but does not compare (PyApp `gui-validation` pointer; six Workspace copies, `verify-stack` diverged): (a) leave to `B1-2` under Q-A1-04 · `Q-B7-02` a per-suite `.codex` compare now: (a) no, the freeze covers it | `B1-2`, `B7-2` |
+| B7 | `Q-B7-01` same-name suite skill copies the parity check lists but does not compare (PyApp `gui-validation` pointer; six Workspace copies, `verify-stack` diverged): (a) leave to `B1-2` under Q-A1-04 · `Q-B7-02` a per-suite `.codex` compare now: (a) no, the freeze covers it — both answered (a) by the orchestrator 2026-10-13 | `B1-2`, `B7-2` |
+| B4 | `Q-B4-01` the Workspace record cites `BATCH_PLAN.md:133` for a held file now at line 176: (a) fix the cite in the next Workspace hygiene D-entry — answered (a) by the orchestrator 2026-10-13 | `B3-3` |
+| B5 | `Q-B5-01` how `design-tokens/` follows a gate value change (the Kit's export tool writes only a report): (a) `B5-3` hand-edits the flagged flat values and proves 0 diffs by round trip · `Q-B5-02` what is byte-equal in a client's synced copy: (a) core, `DESIGN_VERSION.md`, `decisions/`, `contracts/`, `gallery/`, the client's own mapping; each client's `CONFIGURATION.md` lists its own stacks — answered (a) by the orchestrator 2026-10-13 · `Q-B5-03` accept the Template defaults as design facts: (a) at `G-DS` · `Q-B5-04` who lands Q-A9D-02's four amendments: (a) `B5-3` (notes, bans), `B6a-7` (DS-06), `B6a-8` (drift checker) | `B5-3`, `B5-2`/`B5-4`…`6`, `B5-3`, `B5-3`/`B6a-7`/`B6a-8` |
 | R | `Q-R-01` may a `B6*-8` session implement rows in Phase B and leave them at the status the plan-batch set allows for unvalidated work until Phase C runs the named validation: (a) yes, with a dated STATE line per row naming its deferred row; (b) no — implementation waits for Phase C | `B6a-8`, `B6c-8`, `B6b-8` |
 | A9a Dashboard | `Q-A9D-01` restructure · `Q-A9D-02` ban scope (BAN-02) · `Q-A9D-03` DS-06/DS-01 superseded by gap rows · `Q-A9D-04` alias layer then rename · `Q-A9D-05` Phase C screenshot source · `Q-A9D-06` route drift after IA | `B6a-1`, `B5-3`, `B6a-7`, `B6a-8`, (`C1-1` records), `B6a-6` |
 | A9b AndroidApp | `Q-A9A-01` `Tokens.kt` placement · `Q-A9A-02` `AN-V1-DS-05` fate · `Q-A9A-03` Kotlin literal checks interim · `Q-A9A-04` SDA-DEC recording and the icon change · `Q-A9A-05` routes and tab order · `Q-A9A-06` workspace and pin location † folded into Q-A4-06 · `Q-A9A-07` restructure or re-skin | `B5-6`, `B6b-7`, `B6b-8`, `B5-3`, `B6b-6`, —, `B6b-1` |
@@ -1038,6 +1061,8 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | `Q-G-09` (b) remove mirrors | `B7-2` retired; a `B1-0` step removes `.codex/**` in seven commits with D-entries; `AGENTS.md` keeps only its blocks and a pointer; the parity checker's compare switches to suites only |
 
 **Standing rows:** `Q-G-02`, `Q-G-03`, `Q-G-04` and `Q-G-06` gate no single step; they are the program's standing rules, assumed (a) by every block until answered otherwise, and an other answer inserts steps per the table above.
+
+**Resolved by the orchestrator under the operator's standing instruction** ("Do everything you can on your own. Reduce the operator steps to a minimum.", 2026-10-13, Q-G-03): lane questions whose (a) is mechanical and carries no design or scope consequence are recorded as answered (a) by the orchestrator with the date, listed here for the operator's veto at the next §O session: `Q-B7-01` (a), `Q-B7-02` (a), `Q-B4-01` (a), `Q-B5-02` (a). Design-gate questions (`Q-B5-01`, `Q-B5-03`, `Q-B5-04`) are put at `G-DS` (`B5-3`), where the operator decides anyway; `Q-G-06` stays open.
 
 **Settled, not asked again:** the kickoff's roots and rules (`PROMPT_master-rework-kickoff_2026-10-13.md`); no test in Phases A and B; the worktree layout (none needed, Q-A8-01); `PROMPTS_` naming for this runbook (Q-A5-02 (a) applied, the enum question stays open for the kit); the D-id shape; the agent set (RC-A1-04..06); the Kit pin by path and version (Q-A4-03 asks only the version).
 
@@ -1068,44 +1093,45 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `R-2` | registers merged | done 2026-10-13 — `554a591` | — | 264 candidates, 103 lane questions, 31 proposed deferrals |
 | `R-3` | §3, §3a, §3b, §Q, §O, §L, §R written; pointed B6 file | done 2026-10-13 — `4678e35`; §R round applied in the follow-up commit | — | 38 findings, 10 blockers, all resolved |
 | `B7-1` | static guards and the multi-root parity checker | done 2026-10-13 — super `a25b62e` | — | 3 guards green over 7 repos; 0 mixed, 0 parse errors on the 7 live packages; parity self-check 10 plants; Q-A2-04 (a) assumed; re-run by the orchestrator |
-| `B5-1` | design-gate evidence pack | todo | — | |
+| `B5-1` | design-gate evidence pack | done 2026-10-13 — super `99e5143` | — | 7 pairs: 3 candidate sets each 110/110 in scratch; Kit export writes no flat files (Q-B5-01); Q-B5-01..04, DV-B5-01 proposed |
 | `B3-1` | M-8 closing pass | todo | — | |
-| `B4-1` | parser-honest package edits | todo | — | |
-| `B8-1` | bindings re-verified; ledger and §N corrections | todo | — | step-8 line waits Q-A2-03 |
+| `B4-1` | parser-honest package edits | done 2026-10-13 — Server `243b13e`; Workspace `9669d19`; SharedContracts `86398fe` | — | SV1-B06 five tokens (blocked); SY1-B07 above SY1-B05; SC1-B02 four tokens; 0 census errors under both parsers; verified by the orchestrator |
+| `B8-1` | bindings recorded obsolete; ledger and §N corrections; PyApp cleanup | todo | — | rescoped at R-4.1 (bindings obsolete); Q-A2-03 and Q-A6P-04 answered |
 | `R-4.1` | wave 1 boundary | todo | — | |
-| `B2-1` | superproject `CLAUDE.md` | waits Q-A3-03 | — | |
-| `B2-2` | Dashboard, AndroidApp, PyApp guides | waits Q-A3-05, Q-A6A-04 | — | |
+| `B2-1` | superproject `CLAUDE.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B2-2` | Dashboard, AndroidApp, PyApp guides | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B2-3` | Server, SharedContracts, Workspace guides | todo | — | after `B2-1` |
-| `B7-2` | Codex freeze | waits Q-G-09, Q-A3-01 | — | |
-| `B1-1` | superproject `.claude/` synced | waits Q-G-09, Q-A1-01, Q-A1-03, Q-A5-01 | — | |
-| `B1-2` | six mirrors synced | waits Q-A1-04 | — | |
-| `B1-3` | third-party skills | waits Q-A1-02 | — | |
-| `B7-3` | scratch gate, harness docs, Server ledger | waits Q-A2-06 | — | |
-| `B3-2` | superproject leftovers; backlog register | waits Q-G-05, Q-A6S-03, Q-A6S-04 | — | |
-| `B3-3` | Workspace archive; exempt-tree notes | waits Q-A6W-01, Q-A6W-04 | — | |
-| `B3-4` | M-9 hold releases | waits Q-A6P-03, Q-A6A-02, Q-A6D-02, Q-A6D-03, Q-A6V-02, Q-A6C-04 | — | |
-| `B3-5` | stale scripts; Server docs links | waits Q-A6V-04, Q-A6V-05 | — | |
-| `B4-2` | markers; DRIVER_SCRIPT stubs; README lines | waits Q-A7-02, Q-A7-05 | — | |
-| `B4-3` | SDA superseded | waits Q-A7-06, Q-G-01 | — | |
-| `B4-4` | decision lines; traceability | waits Q-A7-01, Q-A7-03, Q-A7-04 | — | |
-| `B4-5` | static bind proof | todo | — | after `B4-2`…`4` |
-| `B5-2` | Configuration DRAFT | waits Q-G-01, Q-A4-01, Q-A6C-02 | — | |
-| `B5-3` | `G-DS` design gate | waits Q-A4-02, Q-A9D-02, Q-A4-03, Q-A4-04, Q-A9A-04, Q-A9P-08 | — | |
-| `B5-4` | Dashboard anchored | waits Q-A8-03 | — | |
-| `B5-5` | PyApp anchored | waits Q-A9P-01 | — | |
-| `B5-6` | AndroidApp anchored | waits Q-A9A-01, Q-A4-05 | — | |
-| `B5-7` | design-adoption retired | waits Q-G-07 | — | |
+| `B7-2` | Codex freeze | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B1-1` | superproject `.claude/` synced | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B1-2` | six mirrors synced | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B1-3` | third-party skills | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B7-3` | scratch gate, harness docs, Server ledger | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-2` | superproject leftovers; backlog register | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-3` | Workspace archive; exempt-tree notes | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-4` | M-9 hold releases | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-5` | stale scripts; Server docs links | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B4-2` | markers; DRIVER_SCRIPT stubs; README lines | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B4-3` | SDA superseded | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B4-4` | decision lines; traceability | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B4-5` | static package proof | todo | — | after `B4-2`…`4`; rescoped at R-4.1 |
+| `B5-2` | Configuration DRAFT | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B5-3` | `G-DS` design gate | waits Q-B5-01, Q-B5-03, Q-B5-04 (put at the gate) | — | the other waits answered 2026-10-13; the gate itself is the operator's |
+| `B5-4` | Dashboard anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B5-5` | PyApp anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B5-6` | AndroidApp anchored | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B5-7` | design-adoption retired | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B5-8` | readiness rows 1–7 | todo | — | after `B5-4`…`6` |
-| `B8-2` | onboarding notes closed by B4 | waits Q-A2-03 | — | |
-| `B8-3` | GC-1132 reviewed | waits Q-A2-02 | — | |
+| `K-1` | Design Template Kit session (Kit branch) | todo | — | inserted at R-4.1 (Q-A4-05 reading); after `B5-3` |
+| `B8-2` | onboarding notes closed by B4 | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B8-3` | GC-1132 reviewed | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `R-4.2` | wave 2 boundary | todo | — | |
 | `B6a-1`…`B6a-8` | Dashboard GUI rework | pointed | — | see the lane file §L |
 | `B6c-1`…`B6c-8` | PyApp GUI rework | pointed | — | |
 | `B6b-1`…`B6b-8` | AndroidApp GUI rework | pointed | — | |
 | `R-4.3` | wave 3 boundary | todo | — | |
 | `C1-1` | deferred validations planned | todo | — | |
-| `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | waits Q-G-05, Q-A7-07 | — | |
-| `B3-6` | sequencers archived | waits Q-G-05, Q-A6S-01, Q-A6S-05 | — | |
+| `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B3-6` | sequencers archived | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `C1-3` | resume blocks | todo | — | |
 | `C1-4` | hand-back HANDOVER | todo | — | |
 | `R-4.4` | wave 4 boundary | todo | — | |

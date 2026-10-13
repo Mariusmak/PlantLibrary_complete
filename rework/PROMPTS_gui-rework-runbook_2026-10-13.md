@@ -35,7 +35,7 @@ Every step's block below follows the master runbook's paste-block shape; each ga
 ## 2. Hygiene and dispatch facts for every workspace
 
 - `implementation/` is not a declared root in the three clients; the workspace's `planning/`, `proposal/` and `handovers/` become roots by a D-entry in the client's `hygiene/HYGIENE_DECISIONS.md` and a roots-table edit of `hygiene/CONSUMED_HYGIENE.md` in the `-1` step, with their `INDEX.md` seeded; methodology file names inside the workspace (`00_…`, `STATE.md`) are package files, not deliverables (the pilot's accepted deviation, restated in the workspace README).
-- Dispatch: the workspace is a second package in the suite; a second instance-2 project per client is a Phase C act (Q-A4-06); every `-7`/`-8` act names the package by path.
+- Dispatch: the workspace is a second package in the suite, bootstrapped unbound (Q-A4-06's reading: the instance-2 bindings are obsolete; no instance project is created); every `-7`/`-8` act names the package by path.
 - The SharedContracts writes of `-6` (contracts, gallery pages, fixtures, a `DESIGN_VERSION.md` step) serialize across the three clients and with `B5`/`B4`/`B3` steps on that repository.
 - Closeout coupling (PyApp): the harness refuses `resources/styles/*.qss` as an unmapped touched path (Q-A9P-04); `B6c-8` records a deferred row per QSS-touching batch until that is settled.
 
@@ -533,27 +533,27 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 
 | Step | Title | Status | Decision | Note |
 |---|---|---|---|---|
-| `B6a-1` | Dashboard workspace bootstrap | waits Q-A4-06, Q-A9D-01 | — | after `B5-4`, `R-4.2` |
+| `B6a-1` | Dashboard workspace bootstrap | todo | — | after `B5-4`, `R-4.2`; waits answered 2026-10-13 (R-4.1) |
 | `B6a-2` | Dashboard census | todo | — | |
 | `B6a-3` | Dashboard contracts, target | todo | — | |
 | `B6a-4` | Dashboard comparison, gap map | todo | — | |
 | `B6a-5` | Dashboard forward surface; `G-a-1` | todo | — | |
 | `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
 | `B6a-7` → split `B6a-7a` (to the gate), `B6a-7b` (after `event:G-a-4`) | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
-| `B6a-8` | Dashboard implementation (per batch) | waits Q-A9D-04, Q-R-01 | — | one row per batch appended as `B6a-8 <key>` |
-| `B6c-1` | PyApp workspace bootstrap | waits Q-A4-06, Q-A9P-09 | — | after `B5-5` |
+| `B6a-8` | Dashboard implementation (per batch) | todo | — | one row per batch appended as `B6a-8 <key>`; waits answered 2026-10-13 (R-4.1) |
+| `B6c-1` | PyApp workspace bootstrap | todo | — | after `B5-5`; waits answered 2026-10-13 (R-4.1) |
 | `B6c-2` | PyApp census | todo | — | |
-| `B6c-3` | PyApp contracts, target | waits Q-A9P-07 | — | |
+| `B6c-3` | PyApp contracts, target | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B6c-4` | PyApp comparison, gap map | todo | — | |
 | `B6c-5` | PyApp forward surface; `G-c-1` | todo | — | |
 | `B6c-6` → split `B6c-6a` (to the gate), `B6c-6b` (after `event:G-c-2`) | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | todo | — | after `B6a-6` |
 | `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | waits Q-A9P-02, Q-A7-08 | — | plan-contract hash rule |
-| `B6c-8` | PyApp implementation (per batch) | waits Q-A9P-03, Q-A9P-04, Q-A9P-05, Q-R-01 | — | |
-| `B6b-1` | AndroidApp workspace bootstrap | waits Q-A4-06, Q-A9A-07 | — | after `B5-6` |
-| `B6b-2` | AndroidApp census | waits Q-A9A-03 | — | |
+| `B6c-8` | PyApp implementation (per batch) | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B6b-1` | AndroidApp workspace bootstrap | todo | — | after `B5-6`; waits answered 2026-10-13 (R-4.1) |
+| `B6b-2` | AndroidApp census | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B6b-3` | AndroidApp contracts, target | todo | — | |
 | `B6b-4` | AndroidApp comparison, gap map | todo | — | |
 | `B6b-5` | AndroidApp forward surface; `G-b-1` | todo | — | |
 | `B6b-6` → split `B6b-6a` (to the gate), `B6b-6b` (after `event:G-b-2`) | AndroidApp IA, mockups, audit; `G-b-2`, `G-b-3` | waits Q-A9A-05 | — | after `B6c-6` |
 | `B6b-7` → split `B6b-7a` (to the gate), `B6b-7b` (after `event:G-b-4`) | AndroidApp classification, plan-batch, SCOPE; `G-b-4` | waits Q-A9A-02, Q-A7-08 | — | |
-| `B6b-8` | AndroidApp implementation (per batch) | waits Q-A4-05, Q-G-04, Q-R-01 | — | after the Kit session |
+| `B6b-8` | AndroidApp implementation (per batch) | todo | — | after the Kit session; waits answered 2026-10-13 (R-4.1) |
