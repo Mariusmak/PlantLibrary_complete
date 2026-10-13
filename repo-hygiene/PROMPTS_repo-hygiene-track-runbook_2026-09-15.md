@@ -215,7 +215,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `M-5` | migrate Dashboard | **Opus 5 · high** | `PlantLibrary_Dashboard` → TARGET | done 2026-09-17 |
 | `M-6` | migrate AndroidApp | **Opus 5 · high** | `PlantLibrary_AndroidApp` → TARGET | done 2026-09-17 |
 | `M-7` | migrate Workspace (declares its four loose roots first) | **Opus 5 · high** | `PlantLibrary_Workspace` → TARGET | done 2026-09-17 (one set folder held — `handovers\FINDING_kit-exempt-tree-cannot-retire-on-rename_2026-09-17.md`) |
-| `M-8` | the closing pass: checker green over the whole tree, census re-run and diffed against the register, the HANDOVER, the kit's changelog | **Sonnet 5 · thinking** | TARGET, then KIT | todo |
+| `M-8` | the closing pass: checker green over the whole tree, census re-run and diffed against the register, the HANDOVER, the kit's changelog | **Sonnet 5 · thinking** | TARGET, then KIT | done except the Kit changelog (owed; master rework §3b item 17) — see §L |
 | `M-9` | rolling: release held names as their citers change (onboarding `2a`/`2b`) or the operator releases them | **Opus 5 · high** | the repo that holds the name → TARGET | rolling |
 
 Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `K-5` → `A-2` … `A-7` → `GA` → `M-0` →
