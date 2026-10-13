@@ -53,7 +53,7 @@ Where: the Dashboard submodule on main, in place; one commit.
 Scope: the workspace folder with the methodology's required files and hierarchy v4 (README recording the naming deviation, STATE.md with the Q-A9D-01 decision, SCOPE.md §1 pinning the Configuration version and the Kit version by pointer to design/conformance/CONSUMED_DESIGN.md, planning/ proposal/ handovers/ with seeded INDEX.md); the D-entry (next free id by grep) declaring the three roots and the roots-table edit. Not here: any census content; any src/ file.
 Read first: the methodology's 00 prompt and templates; the pilot README; the hygiene files' tails.
 Write: the workspace; the two hygiene files.
-Constraints: sources read-only; no test, no build, no browser; the Dashboard hygiene verdict shows zero violations after the roots are declared (seeded indexes, floor 0); CRLF for package files; no push.
+Constraints: sources read-only; no DRIVER_SCRIPT.md and no _ACT_STATE.md are generated in the new workspace (the methodology's driver template is not instantiated; the run-batch skill is the procedure); no test, no build, no browser; the Dashboard hygiene verdict shows zero violations after the roots are declared (seeded indexes, floor 0); CRLF for package files; no push.
 Questions: proposed Q-B6a-<nn> rows; continue.
 If the context runs short: commit what folds green, stop; restart as B6a-1-r2.
 Done when: the workspace exists with the required files; the verdict is green; one commit; the final message names it and the D-id.
@@ -69,7 +69,7 @@ Commit line: rework: B6a-1 - Design_Migration_V1 workspace bootstrapped; roots d
 ```text
 B6a-2 — the Dashboard census
 Re-issue the mechanical design census (01) and the function/UI census (01a) at the current commit, starting from lane A9's static draft, with the Kit's static checks as the detector.
-Context: step B6a-2 of the GUI rework runbook (§3); rules: kickoff §2; the input: AUDIT_gui-current-state-dashboard_2026-10-13.md §7.1-§7.6 (the census draft, the 13 routes, the 42 operations, the unconsumed role layer, the drift facts); the methodology prompts 01 and 01a and the FUNCTION_UI_CENSUS_TEMPLATE; the Kit checks installed at B5-4 (run-all with --paths, outputs to the workspace's census file by quotation, never a cited report outside it).
+Context: step B6a-2 of the GUI rework runbook (§3); rules: kickoff §2; the input: AUDIT_gui-current-state-dashboard_2026-10-13.md §7.1-§7.6 (the census draft, the 13 routes, the 42 operations, the unconsumed role layer, the drift facts); the methodology prompts 01 and 01a and the FUNCTION_UI_CENSUS_TEMPLATE; the Kit's static checks installed at B5-4, their output quoted into the census file (never a cited report outside it).
 Where: the Dashboard submodule on main, in place; one commit.
 Scope: the two census files in the methodology's shape; every CM-* candidate of A9's §2 confirmed or dropped by hand; the role-layer gap, the dark-theme gap and the generated-CSS-versus-canon state after B5-3 measured and stated; the literal counts from the Kit's check. Not here: any fix; any screenshot (DV rows proposed instead).
 Read first: the A9 audit sections; the two prompts and the template; src/app/router.tsx and routes.ts; the Server route modules by listing.
@@ -149,9 +149,10 @@ Commit line: rework: B6a-5 - Dashboard forward surface and information model 06a
 ```text
 B6a-6 — the Dashboard IA, the page and pattern contracts, the mockups, the mockup audit
 Write the information architecture first and put it to the operator (G-a-2); then author the page and pattern contracts and the fixture-driven page mockups into the Configuration as static HTML (the round-6 mockup kit's authoring shape), step the Configuration version, run the mechanical and rubric legs of the mockup audit, and put the audit to the operator who opens the HTML (G-a-3).
+This block runs as two sessions (B6a-6a, then B6a-6b): session a does everything up to the gate G-a-2, ends with the gate's decisions in its final message and stops; session b starts only after event:G-a-2 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6a-6 of the GUI rework runbook (§3); rules: kickoff §2; the answers: G-a-1 (workspace STATE.md), Q-A9D-06 (master §Q); inputs: 06a (B6a-5), AUDIT_design-kit-and-methodology_2026-10-13.md §7.5 (what of the round-6 tooling transfers: the mockup kit's AUTHORING.md, BRIEFS.md, kit.js, data.js, pages.css — read-only at C:\Programmierung\Conductor_GUI_Reconciliation_2026-10-12\mockups\; shot.py and sweep.py do not transfer), the methodology prompts 06b and 06c; the Kit's gallery-governance skill for the Gallery-first rule.
 Where: the Dashboard workspace for 06b's IA and 06c's audit; SharedContracts for the contracts, mockups, fixtures and the version step; one commit per repository; SharedContracts is written only when no other step writes it (the orchestrator confirms in the note).
-Scope: the IA (page tree, navigation, the route drift resolved per Q-A9D-06); the contracts under design/contracts/; the mockups under design/gallery/pages/ with fixtures, authored from the generated tokens.css and the gallery's pages.css, no build; DESIGN_VERSION.md stepped (minor) with the Consumers line; 06c's mechanical leg (the Kit's checks over the mockup files) and rubric leg written; the operator's review recorded as G-a-3. Not here: a screenshot or a browser run (DV rows); any src/ change.
+Scope: the IA (page tree, navigation, the route drift resolved per Q-A9D-06); the contracts under design/contracts/; the mockups under design/gallery/pages/ with fixtures, authored from the generated tokens.css and the gallery's pages.css, no build; DESIGN_VERSION.md stepped (minor) with the Consumers line — the clients' pins hash only the four core files, so a step that changes no core file needs no re-pin, and if the gate's contracts require a core change the client re-syncs in its first -8 batch as a row; 06c's mechanical leg (the Kit's checks over the mockup files) and rubric leg written; the operator's review recorded as G-a-3. Not here: a screenshot or a browser run (DV rows); any src/ change.
 Read first: the prompts; the round-6 AUTHORING.md and BRIEFS.md; the Gallery's structure in SharedContracts design/gallery/; the Configuration's contracts folder.
 Write: the files listed.
 Constraints: sources read-only; the Kit's static checks only; no browser, no build, no test; LF for Configuration files, CRLF for workspace files; the SharedContracts verdict unchanged; no push.
@@ -162,7 +163,7 @@ Commit line: rework: B6a-6 - Dashboard IA 06b; contracts and mockups; mockup aud
 ```
 
 *Orchestrator note:* SharedContracts occupancy is granted here explicitly; the superproject lines are two (`bump PlantLibrary_Dashboard gitlink`, `bump PlantLibrary_SharedContracts gitlink`).
-**Watch:** mockups rendered by a tool (the round-6 `shot.py` runs Playwright — deferred); a token value typed into a mockup.
+**Watch:** mockups rendered by a tool (the round-6 render tools need a browser — deferred); a token value typed into a mockup.
 
 #### `B6a-7` — change classification (06d); plan-batch (07); SCOPE (08); gate `G-a-4`
 
@@ -171,9 +172,10 @@ Commit line: rework: B6a-6 - Dashboard IA 06b; contracts and mockups; mockup aud
 ```text
 B6a-7 — the Dashboard change classification and the batches
 Classify every change the gap map and the mockup audit imply as bugfix / additive-silent / amendment / already-owned, draft the amendment in PlantLibrary's format, cut the waves, put them to the operator (G-a-4), then write the rows and batches through plan-batch and the workspace SCOPE.
+This block runs as two sessions (B6a-7a, then B6a-7b): session a does everything up to the gate G-a-4, ends with the gate's decisions in its final message and stops; session b starts only after event:G-a-4 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6a-7 of the GUI rework runbook (§3); rules: kickoff §2 (rule 4: plan-batch's schema; existing validation cells untouched; supersessions as STATE decisions); the answers: Q-A9D-03, Q-A7-08 (master §Q), G-a-3; inputs: 06c (B6a-6), AUDIT_batch-packages_2026-10-13.md §7.3 (which rows B6 supersedes or absorbs: WD-V1-DS-01/02/03/05/06; which it leaves), AUDIT_gui-current-state-dashboard_2026-10-13.md §0 items 3, 5 (the alias layer, Q-A9D-04), the methodology prompts 06d, 07, 08; the Dashboard's plan-batch skill.
 Where: the Dashboard submodule on main, in place; two commits (06d + G-a-4; then plan-batch + SCOPE).
-Scope: 06d's classification and amendment; the waves; G-a-4 put and recorded; the /plan-batch act into the V1 package (new rows whose validation cells name the Kit's static checks for Phase B legs and the webapp-testing or e2e leg as a deferred row for Phase C; the superseded rows deferred with dated STATE lines; the alias-layer row per Q-A9D-04 first); the workspace SCOPE.md. Not here: any implementation; any validation.
+Scope: 06d's classification and amendment; the waves; G-a-4 put and recorded; the /plan-batch act into the V1 package (new rows whose validation cells the plan-batch skill authors from the row schema and the methodology's templates; every leg that needs a running app is carried as a deferred row by DV id; the superseded rows deferred with dated STATE lines; the alias-layer row per Q-A9D-04 first); the workspace SCOPE.md. Not here: any implementation; any validation.
 Read first: the prompts; 06c; the package's five files; the plan-batch skill in full (its self-review through the batch-plan-auditor agent, in the foreground).
 Write: the files listed.
 Constraints: no test; CRLF; the census after the act reads 0 errors; the Dashboard verdict unchanged; no push.
@@ -187,25 +189,25 @@ Commit line: rework: B6a-7 - Dashboard change classification 06d; <n> rows in <m
 
 #### `B6a-8` — implementation of the classified changes, batch by batch
 
-**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** Dashboard, in place · **Precondition:** `B6a-7`, `event:G-a-4` · **Writes:** `src/**`, `scripts/generate-theme.mjs` (fate per the alias row), `design/conformance/CONFORMANCE_MATRIX.md`, package `STATE.md`/`TASK_CHECKLIST.md` (statuses of the new rows) · **Waits:** Q-A9D-04
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** Dashboard, in place · **Precondition:** `B6a-7`, `event:G-a-4` · **Writes:** `src/**`, `scripts/generate-theme.mjs` (fate per the alias row), `design/conformance/CONFORMANCE_MATRIX.md`, package `STATE.md`/`TASK_CHECKLIST.md` (statuses of the new rows) · **Waits:** Q-A9D-04, Q-R-01
 
 ```text
 B6a-8 — one Dashboard batch implemented with mechanical checks only
-Implement the rows of the named batch, close each row on the Kit's static checks and the type and lint checks, record every visual leg as a deferred row, and leave the package honest.
-Context: step B6a-8 of the GUI rework runbook (§3), one session per batch, the batch key in the orchestrator note; rules: kickoff §2 (rule 1: no browser, no build beyond the type check Q-G-04 (a) admits; rule 4); the answers: Q-A9D-04 and G-a-4; the package: PlantLibrary_Dashboard/implementation/System_V1_Implementation (the batch's rows, their validation cells as the Phase B legs); the Kit's design-gate skill (run before touching a rendered surface) and design-audit (after); AUDIT_gui-current-state-dashboard_2026-10-13.md §7.7 (eslint 9, tsc -b as the type leg).
+Implement the rows of the batch named in the first line of your launch message with the mechanical checks Q-G-04 (a) admits, record every visual leg as a deferred row, and leave the package honest: a row's status is what the plan-batch status set allows for work whose named validation has not run.
+Context: step B6a-8 of the GUI rework runbook (§3), one session per batch, the batch key in the orchestrator note; rules: kickoff §2 (rule 1: no browser, no build beyond the type check Q-G-04 (a) admits; rule 4); the answers: Q-A9D-04 and G-a-4; the package: PlantLibrary_Dashboard/implementation/System_V1_Implementation (the batch's rows, their validation cells as the Phase B legs); the Kit's design-gate skill (run before touching a rendered surface) and design-audit (after); AUDIT_gui-current-state-dashboard_2026-10-13.md §7.7 (the mechanical checks it names).
 Where: the Dashboard submodule on main, in place; one commit per batch.
-Scope: the batch's rows only; the design gate before the first edit; the design audit over the touched paths after; eslint and the type check on the touched files; the conformance matrix rows updated; row statuses set by the rows' own done-when as far as a static leg proves them, else left and a deferred row proposed. Not here: any other batch; any browser; any screenshot.
+Scope: the batch's rows only; the design gate before the first edit; the design audit over the touched paths after; the mechanical checks Q-G-04 (a) admits on the touched files; the conformance matrix rows updated; row statuses per Q-R-01: a row is done only when its validation cell is fully met by the admitted checks, else it keeps the status the plan-batch status set allows for implemented-but-unvalidated work, with a dated STATE line naming its deferred row. Not here: any other batch; any browser; any screenshot; any status the skills do not allow.
 Read first: the batch's rows and anchors; the design-gate skill; the alias-layer decision.
 Write: the files the rows name; the package status cells and STATE lines.
 Constraints: sources read-only; no test, no browser, no production build (the type check only); design-audit green on the touched paths; CRLF/LF as found; the Dashboard verdict unchanged; no push.
 Questions: proposed Q-B6a-<nn> rows; continue.
 If the context runs short: commit the rows complete with their statuses, list the rest, stop; restart as B6a-8-r<k> for the same batch.
 Done when: every row of the batch is done or honestly left; the audit is green; one commit; the final message names it, the row statuses and the deferred rows.
-Commit line: rework: B6a-8 <batch key> - <rows> - mechanical checks green
+Commit line: rework: B6a-8 <the batch key from the launch message> - <rows> rows - mechanical checks
 ```
 
-*Orchestrator note:* the batch key and its Requires state are launch values; the `run-batch` skill is **not** the procedure here (it would demand each row's named validation; kickoff rule 4) — this is a runbook step that follows the row schema and records what it could not prove.
-**Watch:** a row closed on a validation that did not run; a drift-checker run against an unamended ban list.
+*Orchestrator note:* the batch key and its Requires state are launch values, given in the first line of the launch message. This is a runbook step under kickoff rule 4: it implements rows and records what it could not prove; a row closes only on its named validation, which Phase C runs, and the status rule is Q-R-01's answer.
+**Watch:** a row set done on a validation that did not run; a drift-checker run against an unamended ban list.
 
 ## 4. Lane `B6c` — PyApp
 
@@ -221,7 +223,7 @@ Where: the PyApp submodule on main, in place; one commit.
 Scope: the workspace with the required files and hierarchy v4; the D-entry (next free id by grep) declaring planning/, proposal/, handovers/ with seeded INDEX.md and the roots-table edit. Not here: census content; any app/ or resources/ file.
 Read first: the 00 prompt and templates; the pilot README; the hygiene files' tails; B5-5's mapping.md.
 Write: the workspace; the two hygiene files.
-Constraints: sources read-only; no test, no app launch; the PyApp verdict green after the declaration; CRLF; no push.
+Constraints: sources read-only; no DRIVER_SCRIPT.md and no _ACT_STATE.md are generated in the new workspace (the methodology's driver template is not instantiated; the run-batch skill is the procedure); no test, no app launch; the PyApp verdict green after the declaration; CRLF; no push.
 Questions: proposed Q-B6c-<nn> rows; continue.
 If the context runs short: commit what folds green, stop; restart as B6c-1-r2.
 Done when: the workspace exists; the verdict is green; one commit; the final message names it and the D-id.
@@ -235,7 +237,7 @@ Commit line: rework: B6c-1 - PyApp Design_Migration_V1 workspace bootstrapped; r
 ```text
 B6c-2 — the PyApp census
 Re-issue the mechanical design census (01) at the current commit from lane A9's draft — 164 hex literals in design_tokens.py, 0 in QSS, the 18 files bypassing the role layer, the 126 px literals, the sub-scale font sizes — with the Kit's literal check as the detector over app/gui/**/*.py and resources/styles/*.qss; 01a as input only (re-skin), its pass-A totals re-measured by name match.
-Context: step B6c-2 of the GUI rework runbook (§4); rules: kickoff §2; inputs: AUDIT_gui-current-state-pyapp_2026-10-13.md §7.1-§7.6; the methodology prompts 01 and 01a; the Kit checks installed at B5-5 (run with --paths, outputs quoted into the census file).
+Context: step B6c-2 of the GUI rework runbook (§4); rules: kickoff §2; inputs: AUDIT_gui-current-state-pyapp_2026-10-13.md §7.1-§7.6; the methodology prompts 01 and 01a; the Kit's static checks installed at B5-5, their output quoted into the census file.
 Where: the PyApp submodule on main, in place; one commit.
 Scope: the 01 census file complete; the 01a header and pass-A table as the re-skin's input; the PRIMARY-versus-canon table and the 26 DARK_THEME role differences restated at this commit. Not here: any fix; any app import or launch; screenshots (DV-A9P-01 by id).
 Read first: the audit sections; the prompts; app/gui/design_tokens.py and theme_utils.py (read, not changed).
@@ -311,6 +313,7 @@ Commit line: rework: B6c-5 - PyApp forward surface and information model 06a; G-
 ```text
 B6c-6 — the PyApp IA, contracts, mockups and mockup audit
 Write the IA for the desktop client and put it to the operator (G-c-2); author the page and pattern contracts and the fixture-driven page mockups into the Configuration as static HTML (desktop variants beside the Dashboard's, the Gallery-first rule), step the Configuration version, run the mechanical and rubric legs of the mockup audit, and put it to the operator (G-c-3).
+This block runs as two sessions (B6c-6a, then B6c-6b): session a does everything up to the gate G-c-2, ends with the gate's decisions in its final message and stops; session b starts only after event:G-c-2 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6c-6 of the GUI rework runbook (§4); rules: kickoff §2; the answer: G-c-1 (workspace STATE.md); inputs: 06a (B6c-5), the Dashboard's contracts and mockups as landed at B6a-6 (by pointer; a shared page gets a desktop variant, not a copy), the round-6 mockup kit's AUTHORING.md and BRIEFS.md (read-only), the prompts 06b and 06c, the gallery-governance skill.
 Where: the PyApp workspace for the IA and the audit; SharedContracts for the Configuration writes, only when the orchestrator grants occupancy; one commit per repository.
 Scope: the IA (view tree, sidebar order, dialogs; the "Follow system setting" theme question Q-A9P-03 carried as an IA item); the contracts and mockups; DESIGN_VERSION.md stepped; 06c's two static legs; G-c-3 put and recorded. Not here: a Qt render or screenshot (DV rows); any app file.
@@ -319,26 +322,27 @@ Write: the files listed.
 Constraints: as B6a-6.
 Questions: G-c-2 and G-c-3 are the outputs; others as proposed Q-B6c-<nn> rows.
 If the context runs short: commit the IA and the validated Configuration files, list the rest, stop; restart as B6c-6-r2.
-Done when: the IA recorded with G-c-2's words; the contracts and mockups exist and the mechanical leg passes; G-c-3 put; two commits.
+Done when: the IA recorded with G-c-2's words; the contracts and mockups exist and the mechanical leg passes; G-c-3 put; two commits; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6c-6 - PyApp IA 06b; contracts and mockups; mockup audit 06c; G-c-2/3
 ```
 
 #### `B6c-7` — change classification (06d); plan-batch (07); SCOPE (08); gate `G-c-4`
 
-**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** PyApp, in place · **Precondition:** `B6c-6`, `event:G-c-3` · **Writes:** workspace `06d_*`; the V1 package (new rows and batches; superseded/absorbed rows' STATE lines); workspace `SCOPE.md` · **Waits:** Q-A9P-02, Q-A9P-08, Q-A7-08
+**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** PyApp, in place · **Precondition:** `B6c-6`, `event:G-c-3` · **Writes:** workspace `06d_*`; the V1 package (new rows and batches; superseded/absorbed rows' STATE lines); workspace `SCOPE.md` · **Waits:** Q-A9P-02, Q-A7-08 (Q-A9P-08 is recorded at `B5-3`)
 
 ```text
 B6c-7 — the PyApp change classification and the batches
 Classify every change as bugfix / additive-silent / amendment / already-owned, draft the amendment, cut the waves, put them to the operator (G-c-4); then write the rows and batches through plan-batch and the workspace SCOPE — with the adapter (B5-5's route) as the first batch, the role-layer migration of the 18 bypassing files second, the dark-theme roles third, the defects (missing check-white.svg, the theme mapping, the off-scale radii and sub-scale sizes) as bugfix rows.
+This block runs as two sessions (B6c-7a, then B6c-7b): session a does everything up to the gate G-c-4, ends with the gate's decisions in its final message and stops; session b starts only after event:G-c-4 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6c-7 of the GUI rework runbook (§4); rules: kickoff §2 (rule 4; PyApp's plan contract: instance 2 holds PY1-B08 — the V1 package's batch order, goals, Model lines, primary rows and Requires are not changed; new rows and batches are appended after the existing ones, or, if plan-batch's amendment rule cannot append without moving the contract, the rows go into the workspace package and a re-intake item is proposed for B8); the answers: Q-A9P-02, Q-A9P-08, Q-A7-08, G-c-3; inputs: 06c, AUDIT_batch-packages_2026-10-13.md §7.3 (PyApp rows), AUDIT_gui-current-state-pyapp_2026-10-13.md §0 items 2-4, 6; the prompts 06d, 07, 08; the PyApp plan-batch skill.
 Where: the PyApp submodule on main, in place; two commits.
-Scope: 06d; G-c-4; the plan-batch act with validation cells naming the Kit's static checks, ruff and mypy for Phase B legs and gui-validation legs as deferred rows; the PY-V1-DS-01/02/03 supersessions as STATE lines; SCOPE 08 listing resources/styles/*.qss as touchable and the harness refusal (Q-A9P-04) as a standing note. Not here: implementation.
+Scope: 06d; G-c-4; the plan-batch act (validation cells authored by the plan-batch skill from the row schema; every leg that needs the running app carried as a deferred row by DV id); the PY-V1-DS-01/02/03 supersessions as STATE lines; SCOPE 08 listing resources/styles/*.qss as touchable and the harness refusal (Q-A9P-04) as a standing note. Not here: implementation.
 Read first: the prompts; 06c; the package's five files; the plan-batch skill (self-review through the batch-plan-auditor agent in the foreground); the parser's plan-contract hash before (quoted) and after.
 Write: the files listed.
 Constraints: no test; CRLF; census 0 errors; the plan-contract hash unchanged or the PyApp stop reported; no push.
 Questions: G-c-4 is the output; others as proposed Q-B6c-<nn> rows.
 If the context runs short: commit 06d, stop; restart as B6c-7-r2 for the act.
-Done when: rows and batches exist (or the stop is reported with the re-intake item); G-c-4 recorded; two commits.
+Done when: rows and batches exist (or the stop is reported with the re-intake item); G-c-4 recorded; two commits; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6c-7 - PyApp change classification 06d; <n> rows in <m> batches; SCOPE 08
 ```
 
@@ -346,21 +350,21 @@ Commit line: rework: B6c-7 - PyApp change classification 06d; <n> rows in <m> ba
 
 #### `B6c-8` — implementation of the classified changes, batch by batch
 
-**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** PyApp, in place · **Precondition:** `B6c-7`, `event:G-c-4` · **Writes:** `app/gui/**`, `resources/styles/*.qss`, `design/conformance/CONFORMANCE_MATRIX.md`, package status cells and `STATE.md` · **Waits:** Q-A9P-03, Q-A9P-04, Q-A9P-05
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** PyApp, in place · **Precondition:** `B6c-7`, `event:G-c-4` · **Writes:** `app/gui/**`, `resources/styles/*.qss`, `design/conformance/CONFORMANCE_MATRIX.md`, package status cells and `STATE.md` · **Waits:** Q-A9P-03, Q-A9P-04, Q-A9P-05, Q-R-01
 
 ```text
 B6c-8 — one PyApp batch implemented with mechanical checks only
-Implement the rows of the named batch — the adapter in theme_utils.py over the emitted tokens.py first, design_tokens.py re-exporting generated data until its importers migrate, then the role-layer and dark-theme rows, then the bugfix rows — close each row on the Kit's static checks, ruff and mypy, record every visual leg as a deferred row, and keep the package honest.
+Implement the rows of the batch named in the first line of your launch message — the adapter in theme_utils.py over the emitted tokens.py first, design_tokens.py re-exporting generated data until its importers migrate, then the role-layer and dark-theme rows, then the bugfix rows — with the mechanical checks Q-G-04 (a) admits, record every visual leg as a deferred row, and keep the package honest (statuses per Q-R-01).
 Context: step B6c-8 of the GUI rework runbook (§4), one session per batch, the key in the orchestrator note; rules: kickoff §2 (rule 1: no app launch, no Qt, no screenshot; rule 4); the answers: Q-A9P-03, Q-A9P-04, Q-A9P-05, G-c-4; the package rows; the design-gate skill before, design-audit after; AUDIT_gui-current-state-pyapp_2026-10-13.md §7.7 (the adapter shape, the units rule, the flattening rule, the allow-listed files, the closeout coupling).
 Where: the PyApp submodule on main, in place; one commit per batch.
-Scope: the batch's rows only; design gate before the first edit; design audit over touched paths after; ruff and mypy on touched files; a Python AST parse of every changed module; the conformance matrix; row statuses by their static legs, else left with a deferred row proposed (every QSS-touching batch proposes the harness row of Q-A9P-04 by id until settled). Not here: any other batch; any run of the app.
+Scope: the batch's rows only; design gate before the first edit; design audit over touched paths after; the admitted mechanical checks on touched files; a syntax parse of every changed module; the conformance matrix; row statuses per Q-R-01 with a dated STATE line per row naming its deferred row (every QSS-touching batch proposes the harness row of Q-A9P-04 by id until settled). Not here: any other batch; any run of the app.
 Read first: the batch's rows and anchors; the design-gate skill; B5-5's mapping.md.
 Write: the files the rows name; the package status cells and STATE lines.
 Constraints: sources read-only; no test, no app import; design-audit green; line endings as found (pyproject.toml and .gitignore are mixed: Edit tool only); the PyApp verdict unchanged; no push.
 Questions: proposed Q-B6c-<nn> rows; continue.
 If the context runs short: commit the complete rows with statuses, stop; restart as B6c-8-r<k>.
 Done when: every row done or honestly left; the audit green; one commit; the final message names it, the statuses and the deferred rows.
-Commit line: rework: B6c-8 <batch key> - <rows> - mechanical checks green
+Commit line: rework: B6c-8 <the batch key from the launch message> - <rows> rows - mechanical checks
 ```
 
 **Watch:** a QSS edited by a text tool that changes its endings; a value transcribed by hand into design_tokens.py (the adapter derives, never copies).
@@ -379,7 +383,7 @@ Where: the AndroidApp submodule on main, in place; one commit.
 Scope: the workspace; the D-entry declaring the three roots with seeded INDEX.md and the roots-table edit. Not here: census; any Kotlin or Gradle file.
 Read first: the 00 prompt and templates; the pilot README; the hygiene tails; B5-6's mapping.md.
 Write: the workspace; the two hygiene files.
-Constraints: sources read-only; no Gradle, no emulator, no test; the AndroidApp verdict green after the declaration; CRLF; no push.
+Constraints: sources read-only; no DRIVER_SCRIPT.md and no _ACT_STATE.md are generated in the new workspace (the methodology's driver template is not instantiated; the run-batch skill is the procedure); no Gradle, no emulator, no test; the AndroidApp verdict green after the declaration; CRLF; no push.
 Questions: proposed Q-B6b-<nn> rows; continue.
 If the context runs short: commit what folds green, stop; restart as B6b-1-r2.
 Done when: the workspace exists; the verdict green; one commit; the final message names it and the D-id.
@@ -420,7 +424,7 @@ Write: the workspace files and INDEX lines.
 Constraints: as B6b-2.
 Questions: proposed Q-B6b-<nn> rows; continue.
 If the context runs short: commit the contracts written, stop; restart as B6b-3-r2.
-Done when: 15 contracts and the target; one commit.
+Done when: 15 contracts and the target; one commit; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6b-3 - AndroidApp screen contracts 02; target 04; capture 03 deferred
 ```
 
@@ -439,7 +443,7 @@ Write: the two files and INDEX lines.
 Constraints: as B6b-2.
 Questions: proposed Q-B6b-<nn> rows; continue.
 If the context runs short: commit, stop; restart as B6b-4-r2.
-Done when: the gap map complete; one commit.
+Done when: the gap map complete; one commit; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6b-4 - AndroidApp comparison 05 and gap map 06 - <n> gaps
 ```
 
@@ -469,6 +473,7 @@ Commit line: rework: B6b-5 - AndroidApp forward surface and information model 06
 ```text
 B6b-6 — the AndroidApp IA, contracts, mockups and mockup audit
 Write the IA for the phone client (routes, tab order and nav selection per Q-A9A-05) and put it to the operator (G-b-2); author the page and pattern contracts and the fixture-driven page mockups into the Configuration as static HTML phone variants (the Gallery renders dp as px — stated in each mockup's note), step the Configuration version, run the mechanical and rubric legs of the mockup audit, put it to the operator (G-b-3).
+This block runs as two sessions (B6b-6a, then B6b-6b): session a does everything up to the gate G-b-2, ends with the gate's decisions in its final message and stops; session b starts only after event:G-b-2 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6b-6 of the GUI rework runbook (§5); rules: kickoff §2; the answers: G-b-1, Q-A9A-05; inputs: 06a (B6b-5), the Dashboard's and PyApp's landed contracts (by pointer), the approved mockup's four phones, the round-6 mockup kit's AUTHORING.md (read-only), the prompts 06b and 06c, gallery-governance.
 Where: the AndroidApp workspace for the IA and audit; SharedContracts for the Configuration writes when occupancy is granted; one commit per repository.
 Scope: the IA; the contracts and mockups; DESIGN_VERSION.md stepped; 06c's two static legs; G-b-3 put and recorded. Not here: an emulator, a screenshot; any Kotlin.
@@ -477,7 +482,7 @@ Write: the files listed.
 Constraints: as B6a-6.
 Questions: G-b-2 and G-b-3 are the outputs; others as proposed Q-B6b-<nn> rows.
 If the context runs short: commit the IA and the validated Configuration files, stop; restart as B6b-6-r2.
-Done when: the IA recorded with G-b-2's words; contracts and mockups exist and the mechanical leg passes; G-b-3 put; two commits.
+Done when: the IA recorded with G-b-2's words; contracts and mockups exist and the mechanical leg passes; G-b-3 put; two commits; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6b-6 - AndroidApp IA 06b; contracts and mockups; mockup audit 06c; G-b-2/3
 ```
 
@@ -488,35 +493,36 @@ Commit line: rework: B6b-6 - AndroidApp IA 06b; contracts and mockups; mockup au
 ```text
 B6b-7 — the AndroidApp change classification and the batches
 Classify every change as bugfix / additive-silent / amendment / already-owned, draft the amendment, cut the waves, put them to the operator (G-b-4); then write the rows and batches through plan-batch and the workspace SCOPE — the Tokens.kt wiring and the hand-written ColorScheme/Typography/Shapes adapter as the first batch (its compile a deferred row, DV-A9A-a), the spacing-literal replacement second, the dark theme and launch theme third, the icon-set decision as an amendment row.
+This block runs as two sessions (B6b-7a, then B6b-7b): session a does everything up to the gate G-b-4, ends with the gate's decisions in its final message and stops; session b starts only after event:G-b-4 (the operator's words recorded in the workspace STATE.md by the orchestrator) and does the rest; both sessions paste this same block and say which part they are in their first line.
 Context: step B6b-7 of the GUI rework runbook (§5); rules: kickoff §2 (rule 4); the answers: Q-A9A-02, Q-A7-08, G-b-3; inputs: 06c, AUDIT_batch-packages_2026-10-13.md §7.3 (AndroidApp rows), AUDIT_gui-current-state-androidapp_2026-10-13.md §7.7 (the adapter minimum, the six requirements); the prompts 06d, 07, 08; the AndroidApp plan-batch skill.
 Where: the AndroidApp submodule on main, in place; two commits.
-Scope: 06d; G-b-4; the plan-batch act with validation cells naming the Kit's static checks and the interim Kotlin scan for Phase B legs and the Gradle compile, lint and android-validation legs as deferred rows; the AN-V1-DS-01/02/03/04/05 supersessions as STATE lines; SCOPE 08. Not here: implementation; Gradle.
+Scope: 06d; G-b-4; the plan-batch act (validation cells authored by the plan-batch skill from the row schema; every leg that needs a compile, an emulator or a device carried as a deferred row by DV id); the AN-V1-DS-01/02/03/04/05 supersessions as STATE lines; SCOPE 08. Not here: implementation; Gradle.
 Read first: the prompts; 06c; the package's five files; the plan-batch skill (self-review through the batch-plan-auditor agent, in the foreground).
 Write: the files listed.
 Constraints: no test; CRLF; census 0 errors; no push.
 Questions: G-b-4 is the output; others as proposed Q-B6b-<nn> rows.
 If the context runs short: commit 06d, stop; restart as B6b-7-r2 for the act.
-Done when: rows and batches exist; G-b-4 recorded; two commits.
+Done when: rows and batches exist; G-b-4 recorded; two commits; the final message gives the §L row and the commit the gitlink takes.
 Commit line: rework: B6b-7 - AndroidApp change classification 06d; <n> rows in <m> batches; SCOPE 08
 ```
 
 #### `B6b-8` — implementation of the classified changes, batch by batch (after the Kit session)
 
-**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** AndroidApp, in place · **Precondition:** `B6b-7`, `event:G-b-4`, `event:Kit-session-done` (the owed item 12 of the master runbook §3b, Q-A4-05) · **Writes:** `core/design/**`, `feature/**`, `app/**`, `design/conformance/CONFORMANCE_MATRIX.md`, package status cells and `STATE.md` · **Waits:** Q-A4-05, Q-G-04
+**Model · reasoning:** Opus 5.5 · high · **Route:** session (headless), one per batch · **Where:** AndroidApp, in place · **Precondition:** `B6b-7`, `event:G-b-4`, `event:Kit-session-done` (the owed item 12 of the master runbook §3b, Q-A4-05) · **Writes:** `core/design/**`, `feature/**`, `app/**`, `design/conformance/CONFORMANCE_MATRIX.md`, package status cells and `STATE.md` · **Waits:** Q-A4-05, Q-G-04, Q-R-01
 
 ```text
 B6b-8 — one AndroidApp batch implemented with mechanical checks only
-Implement the rows of the named batch — the Tokens.kt wiring and the adapter first — close each row on the Kit's static checks (now Kotlin-aware after the Kit session) and the interim text scan, record the compile, lint and emulator legs as deferred rows (or, if Q-G-04 (b) admitted a compile, run it as the row's named Phase B leg), and keep the package honest.
+Implement the rows of the batch named in the first line of your launch message — the Tokens.kt wiring and the adapter first — with the Kit's static checks (Kotlin-aware after the Kit session) and the interim text scan, record every leg the row's cell names that Phase B cannot run as a deferred row by DV id (if Q-G-04 (b) admitted a compile, it is a named leg of the row and runs as such), and keep the package honest (statuses per Q-R-01).
 Context: step B6b-8 of the GUI rework runbook (§5), one session per batch, the key in the orchestrator note; rules: kickoff §2 (rule 1: no Gradle task unless Q-G-04 (b); no emulator; rule 4); the answers: Q-A4-05 (the Kit session's result by pointer), Q-G-04, G-b-4; the package rows; the design-gate skill before, design-audit after; AUDIT_gui-current-state-androidapp_2026-10-13.md §7.7 (the adapter minimum items 1-6).
 Where: the AndroidApp submodule on main, in place; one commit per batch.
-Scope: the batch's rows only; design gate before the first edit; design audit after; the text scan for 0xFF… and .dp literals on touched files; the conformance matrix; row statuses by their static legs, else left with deferred rows (DV-A9A-a, -j by id). Not here: any other batch; the emulator; a Gradle task unless admitted.
+Scope: the batch's rows only; design gate before the first edit; design audit after; the text scan for 0xFF… and .dp literals on touched files; the conformance matrix; row statuses per Q-R-01 with a dated STATE line per row naming its deferred rows (DV-A9A-a, -j by id). Not here: any other batch; the emulator; a Gradle task unless admitted.
 Read first: the batch's rows and anchors; the design-gate skill; B5-6's mapping.md and the Kit session's findings.
 Write: the files the rows name; the package status cells and STATE lines.
 Constraints: sources read-only; no test; design-audit green; line endings as found (eight .kt files and three build.gradle.kts are mixed: Edit tool only); the AndroidApp verdict unchanged; no push.
 Questions: proposed Q-B6b-<nn> rows; continue.
 If the context runs short: commit the complete rows with statuses, stop; restart as B6b-8-r<k>.
 Done when: every row done or honestly left; the audit green; one commit; the final message names it, the statuses and the deferred rows.
-Commit line: rework: B6b-8 <batch key> - <rows> - mechanical checks green
+Commit line: rework: B6b-8 <the batch key from the launch message> - <rows> rows - mechanical checks
 ```
 
 **Watch:** `Tokens.kt` wired into a source set with no compile deferred row; a hand-transcribed colour.
@@ -532,22 +538,22 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6a-3` | Dashboard contracts, target | todo | — | |
 | `B6a-4` | Dashboard comparison, gap map | todo | — | |
 | `B6a-5` | Dashboard forward surface; `G-a-1` | todo | — | |
-| `B6a-6` | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
-| `B6a-7` | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
-| `B6a-8` | Dashboard implementation (per batch) | waits Q-A9D-04 | — | one row per batch appended as `B6a-8 <key>` |
+| `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
+| `B6a-7` → split `B6a-7a` (to the gate), `B6a-7b` (after `event:G-a-4`) | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
+| `B6a-8` | Dashboard implementation (per batch) | waits Q-A9D-04, Q-R-01 | — | one row per batch appended as `B6a-8 <key>` |
 | `B6c-1` | PyApp workspace bootstrap | waits Q-A4-06, Q-A9P-09 | — | after `B5-5` |
 | `B6c-2` | PyApp census | todo | — | |
 | `B6c-3` | PyApp contracts, target | waits Q-A9P-07 | — | |
 | `B6c-4` | PyApp comparison, gap map | todo | — | |
 | `B6c-5` | PyApp forward surface; `G-c-1` | todo | — | |
-| `B6c-6` | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | todo (after `B6a-6`) | — | |
-| `B6c-7` | PyApp classification, plan-batch, SCOPE; `G-c-4` | waits Q-A9P-02, Q-A9P-08, Q-A7-08 | — | plan-contract hash rule |
-| `B6c-8` | PyApp implementation (per batch) | waits Q-A9P-03, Q-A9P-04, Q-A9P-05 | — | |
+| `B6c-6` → split `B6c-6a` (to the gate), `B6c-6b` (after `event:G-c-2`) | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | todo | — | after `B6a-6` |
+| `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | waits Q-A9P-02, Q-A7-08 | — | plan-contract hash rule |
+| `B6c-8` | PyApp implementation (per batch) | waits Q-A9P-03, Q-A9P-04, Q-A9P-05, Q-R-01 | — | |
 | `B6b-1` | AndroidApp workspace bootstrap | waits Q-A4-06, Q-A9A-07 | — | after `B5-6` |
 | `B6b-2` | AndroidApp census | waits Q-A9A-03 | — | |
 | `B6b-3` | AndroidApp contracts, target | todo | — | |
 | `B6b-4` | AndroidApp comparison, gap map | todo | — | |
 | `B6b-5` | AndroidApp forward surface; `G-b-1` | todo | — | |
-| `B6b-6` | AndroidApp IA, mockups, audit; `G-b-2`, `G-b-3` | waits Q-A9A-05 | — | after `B6c-6` |
-| `B6b-7` | AndroidApp classification, plan-batch, SCOPE; `G-b-4` | waits Q-A9A-02, Q-A7-08 | — | |
-| `B6b-8` | AndroidApp implementation (per batch) | waits Q-A4-05, Q-G-04 | — | after the Kit session |
+| `B6b-6` → split `B6b-6a` (to the gate), `B6b-6b` (after `event:G-b-2`) | AndroidApp IA, mockups, audit; `G-b-2`, `G-b-3` | waits Q-A9A-05 | — | after `B6c-6` |
+| `B6b-7` → split `B6b-7a` (to the gate), `B6b-7b` (after `event:G-b-4`) | AndroidApp classification, plan-batch, SCOPE; `G-b-4` | waits Q-A9A-02, Q-A7-08 | — | |
+| `B6b-8` | AndroidApp implementation (per batch) | waits Q-A4-05, Q-G-04, Q-R-01 | — | after the Kit session |
