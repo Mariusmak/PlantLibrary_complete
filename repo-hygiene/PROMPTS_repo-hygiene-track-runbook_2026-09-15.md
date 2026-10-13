@@ -216,7 +216,7 @@ SOURCE's two proof-surface detectors: zero hits, before and after the fixes.
 | `M-6` | migrate AndroidApp | **Opus 5 · high** | `PlantLibrary_AndroidApp` → TARGET | done 2026-09-17 |
 | `M-7` | migrate Workspace (declares its four loose roots first) | **Opus 5 · high** | `PlantLibrary_Workspace` → TARGET | done 2026-09-17 (one set folder held — `handovers\FINDING_kit-exempt-tree-cannot-retire-on-rename_2026-09-17.md`) |
 | `M-8` | the closing pass: checker green over the whole tree, census re-run and diffed against the register, the HANDOVER, the kit's changelog | **Sonnet 5 · thinking** | TARGET, then KIT | done except the Kit changelog (owed; master rework §3b item 17) — see §L |
-| `M-9` | rolling: release held names as their citers change (onboarding `2a`/`2b`) or the operator releases them | **Opus 5 · high** | the repo that holds the name → TARGET | rolling |
+| `M-9` | rolling: release held names as their citers change (onboarding `2a`/`2b`) or the operator releases them | **Opus 5 · high** | the repo that holds the name → TARGET | rolling M-9: PyApp PYAPP_V1_PROPOSAL.md, AndroidApp ANDROIDAPP_V1_PROPOSAL.md, Dashboard DASHBOARD_V1_PROPOSAL.md + WD-MOCKUP-UPGRADE_PROPOSAL.md + WD-UX-10_mockup_parity_report.md, Server SERVER_V1_PROPOSAL.md, SharedContracts SHAREDCONTRACTS_V1_PROPOSAL.md released 2026-10-13 (master rework B3-4; D-2026-10-13-01 per suite); the Workspace set waits K-7 |
 
 Dependencies: `K-1` → `K-2a` → `K-2b` → `K-2c` → `K-3` → `K-4` → `GK` → `A-1` → `K-5` → `A-2` … `A-7` → `GA` → `M-0` →
 `GM` → `K-6` → `M-1` … `M-7` → `M-8`; `M-9` any time after `M-8` for a name whose hold is released. `A-2`…`A-7` are
