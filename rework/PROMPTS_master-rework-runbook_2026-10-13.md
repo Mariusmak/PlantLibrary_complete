@@ -1234,7 +1234,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `B4-2` | markers; DRIVER_SCRIPT stubs; README lines | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B4-3` | SDA superseded | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B4-4` | decision lines; traceability | done 2026-10-13 — Server `6dd192b`; SharedContracts `986f081`; Workspace `88a6226`; Dashboard `57ecc25`; PyApp `2bd98b2`; AndroidApp `a0f614a` | — | 7 packages: 1.5.1-pl/tiers/readings/DV-pointer STATE lines; Traceability sections; SCOPE procedure line; Q-B4-02 rules in Standing invariants; SC design/ repointed (Q-B5-06); census unchanged; verified |
-| `B4-5` | static package proof | todo | — | after `B4-2`…`4`; rescoped at R-4.1 |
+| `B4-5` | static package proof | done 2026-10-13 — super `0597766` | — | 0 errors under both parsers (60 batches, 185 rows); PyApp hash unchanged since 35ddc63; 7 toplevels = suites; trees clean; 28/28 required files; verified |
 | `B5-2` | Configuration DRAFT | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B5-3` | `G-DS` design gate | todo | — | answered in advance by the operator: "G-DS: all recommended, set A" (2026-10-13 19:07 UTC); B5-3 records the words |
 | `B5-3.1` | component contracts; Gallery page; eol attributes | todo | — | inserted 2026-10-13 after `B5-3` |
