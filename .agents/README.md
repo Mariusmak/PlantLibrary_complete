@@ -100,6 +100,7 @@ marked in the bridge table above; their Codex copies keep the frozen text.
 | `code-quality-review` | `../.claude/skills/code-quality-review` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A); its reference adapted from wshobson/agents @ `156b7a5`; MIT (`LICENSE`). Adapted (RC-A1-15): Python suites only, deliverable root parameterised to `hygiene/CONSUMED_HYGIENE.md`, Conductor settings, dependency and loop terms dropped; operator session only | B1-3 |
 | `security-audit` | `../.claude/skills/security-audit` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A); `references/` adapted from trailofbits/skills @ `82fe822`; CC-BY-SA-4.0 (`NOTICE`, the PlantLibrary changes listed there); `SKILL.md` original. Adapted (RC-A1-15): deliverable root parameterised, scratch outside the tree, no executable PoC, Kotlin/TS via the generic references; operator session only | B1-3 |
 | `pathfinder` | `../.claude/skills/pathfinder` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A), adapted from thedotmack/claude-mem @ `039c616`; Apache-2.0 (`LICENSE`, `NOTICE`, the PlantLibrary modifications listed there). Adapted (RC-A1-15): read exclusions and deliverable root are this repository's; operator session only | B1-3 |
+| `scratch-gate` | `PlantLibrary_PyApp/.claude/skills/scratch-gate`, `PlantLibrary_Server/.claude/skills/scratch-gate` (suite copies; none in this repository, which has no reclaim script and no `.tmp/` ignore) | the Conductor's operator skill `scratch-gate` 0.1.0 (`Orchestrator_System` @ `2e7adb3`), adapted as 0.1.0-pl (RC-A1-13, RC-A2-24): PyApp's `7ad02b1` `reclaim_scratch.py` port (no sweep, no lock); Server's copy stops at its step 0 until the Server harness port (`Q-A2-01` (a)); original, no third-party licence; operator session only | B7-3 |
 
 Declined at B1-3: `dependency-audit` (the Conductor's, Trail of Bits-derived, CC-BY-SA-4.0) is not installed - deferred until Gradle coverage is decided (`Q-A1-02` (a), RC-A1-16): it cannot read PlantLibrary_AndroidApp's Gradle dependencies, and its GitHub route sends the `gh` token to `api.github.com`.
 
@@ -132,8 +133,9 @@ Declined at B1-3: `dependency-audit` (the Conductor's, Trail of Bits-derived, CC
 - `design-gate`, `design-audit`, `gallery-governance`, `impeccable`:
   installed by the Design Template Kit into the client suites at `B5`, never
   by hand, and not into this repository (RC-A1-10, RC-A1-11).
-- `scratch-gate`: PyApp only, the one suite with `reclaim_scratch.py`
-  (RC-A1-13, `B7-3`).
+- `scratch-gate`: not in this repository (no reclaim script, no `.tmp/`
+  ignore); its PyApp and Server copies are in the Claude-only table
+  (RC-A1-13, RC-A2-24, `B7-3`).
 
 ## Maintenance notes
 
