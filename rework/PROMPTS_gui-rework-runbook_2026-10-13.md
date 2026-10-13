@@ -541,8 +541,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
 | `B6a-7` → split `B6a-7a` (to the gate), `B6a-7b` (after `event:G-a-4`) | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
 | `B6a-8` | Dashboard implementation (per batch) | todo | — | one row per batch appended as `B6a-8 <key>`; waits answered 2026-10-13 (R-4.1) |
-| `B6c-1` | PyApp workspace bootstrap | running (B6c-1 session) | — | launched 2026-10-13 after R-4.2; folds Q-B5-17 (part), Q-B5-18, Q-A9P-04, Q-B4-07 |
-| `B6c-2` | PyApp census | todo | — | |
+| `B6c-1` | PyApp workspace bootstrap | done 2026-10-13 — PyApp `62b5dd9` | — | re-skin, pin by pointer, unbound; roots D-2026-10-13-05; sentinel+harness routes (Q-B5-18/Q-A9P-04); DESIGN prose recovered, 71 cites; Q-B6c-01/02 (a) |
+| `B6c-2` | PyApp census | running (B6c-2 session) | — | launched 2026-10-13; folds Q-B6a-02 (PY-DM phase rows retired) |
 | `B6c-3` | PyApp contracts, target | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B6c-4` | PyApp comparison, gap map | todo | — | |
 | `B6c-5` | PyApp forward surface; `G-c-1` | todo | — | |
