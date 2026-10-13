@@ -37,7 +37,7 @@ as a chapter. The template it follows is `AUDIT_runbook-conventions_2026-10-13.m
 | Packages | seven live packages parse with 0 errors under the Conductor parser at `2e7adb3` (60 batches, 185 rows); instance 2 holds PyApp at `PY1-B08` (plan-contract hash pinned); instance 2's parser lacks nothing main has |
 | Design | no `design/` folder anywhere; canon = `PlantLibrary_SharedContracts/design-tokens` (flat, tokens 1.2.0); the Kit imports and round-trips it byte-equal but 7 of 110 contrast pairs fail; Kit emits five stacks in code, only `web-css` tested |
 | Clients | Dashboard: generated CSS equals the canon, role layer unconsumed; PyApp: template-rendered QSS, hand-written primitives still Verdant; AndroidApp: hand-transcribed pre-1.2.0 mirror, no tests, no compile-free lint |
-| Conductor | its orchestrator session busy on `Orchestrator_System`; it holds the machine's closeout lease; its planned act `OP-RB` would copy a skill into `PlantLibrary_Workspace` (Q-A5-01) |
+| Conductor | `main` has moved to `40598ae` since the audits read `2e7adb3` (the census parser is main's at that commit); its orchestrator session busy on `Orchestrator_System`; it holds the machine's closeout lease; its planned act `OP-RB` would copy a skill into `PlantLibrary_Workspace` (Q-A5-01) |
 | Claude CLI | 2.1.292; headless launch `claude -p --model <family id> --effort <level> --permission-mode <mode> --output-format stream-json` from the step's cwd |
 | Registers | questions 111 rows (111 distinct ids: 9 program, the lane rows after a duplicate `Q-G-02` raised by `A8` was removed, and `Q-R-01`); deferred validations 31 proposed; reuse candidates 264 |
 | Prior tracks | their own §L ledgers (`repo-hygiene/…` §L, `onboarding/…` §L) are of record; owed items in §3b |
@@ -1013,6 +1013,7 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | A6g SharedContracts | `Q-A6C-01` no `archive/` · `Q-A6C-02` `design/` source, `design-tokens/` the flat view · `Q-A6C-03` GC-7053 † superseded by Q-A7-05 · `Q-A6C-04` release the hold at M-9 · `Q-A6C-05` stale platform mappings superseded after B5 | —, `B5-2`, —, `B3-4`, (`B5-4`…`6` record) |
 | A7 | `Q-A7-01` `haiku/luna` cells · `Q-A7-02` out-of-band marker · `Q-A7-03` `already_done` readings · `Q-A7-04` PyApp plan contract stays · `Q-A7-05` DRIVER_SCRIPT as pointer stub · `Q-A7-06` SDA superseded · `Q-A7-07` living run-next table in `SUITE_HANDOFFS.md` · `Q-A7-08` B6 versus functional screen rows | `B4-4`, `B4-2`, `B4-4`, `B4-4`, `B4-2`, `B4-3`, `C1-2`, `B6*-7` |
 | A8 | `Q-A8-01` worktrees only for single-repository steps (none planned) · `Q-A8-02` instance 2 stays paused until C1 · `Q-A8-03` path-scoped `.gitattributes` at B5 · `Q-A8-04` D-ids pre-assigned per step · `Q-A8-05` `absorbgitdirs` deferred | —, —, `B5-4`, (§3 notes), — |
+| B7 | `Q-B7-01` same-name suite skill copies the parity check lists but does not compare (PyApp `gui-validation` pointer; six Workspace copies, `verify-stack` diverged): (a) leave to `B1-2` under Q-A1-04 · `Q-B7-02` a per-suite `.codex` compare now: (a) no, the freeze covers it | `B1-2`, `B7-2` |
 | R | `Q-R-01` may a `B6*-8` session implement rows in Phase B and leave them at the status the plan-batch set allows for unvalidated work until Phase C runs the named validation: (a) yes, with a dated STATE line per row naming its deferred row; (b) no — implementation waits for Phase C | `B6a-8`, `B6c-8`, `B6b-8` |
 | A9a Dashboard | `Q-A9D-01` restructure · `Q-A9D-02` ban scope (BAN-02) · `Q-A9D-03` DS-06/DS-01 superseded by gap rows · `Q-A9D-04` alias layer then rename · `Q-A9D-05` Phase C screenshot source · `Q-A9D-06` route drift after IA | `B6a-1`, `B5-3`, `B6a-7`, `B6a-8`, (`C1-1` records), `B6a-6` |
 | A9b AndroidApp | `Q-A9A-01` `Tokens.kt` placement · `Q-A9A-02` `AN-V1-DS-05` fate · `Q-A9A-03` Kotlin literal checks interim · `Q-A9A-04` SDA-DEC recording and the icon change · `Q-A9A-05` routes and tab order · `Q-A9A-06` workspace and pin location † folded into Q-A4-06 · `Q-A9A-07` restructure or re-skin | `B5-6`, `B6b-7`, `B6b-8`, `B5-3`, `B6b-6`, —, `B6b-1` |
@@ -1062,7 +1063,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `R-1` | Phase A: seventeen audits | done 2026-10-13 — `b5daba2` | — | 51 lane claims re-checked, all held (the commit message miscounts 18/54) |
 | `R-2` | registers merged | done 2026-10-13 — `554a591` | — | 264 candidates, 103 lane questions, 31 proposed deferrals |
 | `R-3` | §3, §3a, §3b, §Q, §O, §L, §R written; pointed B6 file | done 2026-10-13 — `4678e35`; §R round applied in the follow-up commit | — | 38 findings, 10 blockers, all resolved |
-| `B7-1` | static guards and the multi-root parity checker | todo | — | |
+| `B7-1` | static guards and the multi-root parity checker | done 2026-10-13 — super `a25b62e` | — | 3 guards green over 7 repos; 0 mixed, 0 parse errors on the 7 live packages; parity self-check 10 plants; Q-A2-04 (a) assumed; re-run by the orchestrator |
 | `B5-1` | design-gate evidence pack | todo | — | |
 | `B3-1` | M-8 closing pass | todo | — | |
 | `B4-1` | parser-honest package edits | todo | — | |
