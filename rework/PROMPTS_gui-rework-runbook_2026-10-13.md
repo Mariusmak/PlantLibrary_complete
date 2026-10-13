@@ -535,8 +535,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 |---|---|---|---|---|
 | `B6a-1` | Dashboard workspace bootstrap | done 2026-10-13 — Dashboard `a3f5211` | — | restructure brief (DM-DEC-01); pin by pointer; roots D-2026-10-13-05; package seeded empty (DM-DEC-05); lint ignores, Design context, authority row; Q-B6a-01..03 (a) |
 | `B6a-2` | Dashboard census | done 2026-10-13 — Dashboard `c4e348b` | — | 13 routes/12 views; 42 ops, 13 reached; CM-01..31 (24 T1, 7 T2); literals 1c+87d; legacy theme 3 values off canon; role layer unused; Q-B6a-04..06 (a) |
-| `B6a-3` | Dashboard contracts, target | running (B6a-3 session) | — | launched 2026-10-13 |
-| `B6a-4` | Dashboard comparison, gap map | todo | — | |
+| `B6a-3` | Dashboard contracts, target | done 2026-10-13 — Dashboard `7098108` | — | 13 contracts WSC-01..13 (/login new); 78 regions on roles; GM-01..08; RD-01..06 for the IA; 28 captures deferred (DVC-A9D-01/02); 16 targets, 1 active; Q-B6a-07..09 (a) |
+| `B6a-4` | Dashboard comparison, gap map | running (B6a-4 session) | — | launched 2026-10-13 |
 | `B6a-5` | Dashboard forward surface; `G-a-1` | todo | — | |
 | `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
 | `B6a-7` → split `B6a-7a` (to the gate), `B6a-7b` (after `event:G-a-4`) | Dashboard classification, plan-batch, SCOPE; `G-a-4` | waits Q-A9D-03, Q-A7-08 | — | |
