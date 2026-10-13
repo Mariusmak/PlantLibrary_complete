@@ -308,6 +308,13 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 | RC-A9P-10 | `PlantLibrary_PyApp/scripts/harness/regression_scope.py` @ 35ddc63 (:273, :566-587) | No route for `resources/styles/*.qss` | add a declared route mapping `resources/styles/*.qss` to the tests that render the stylesheet; update `test_harness_port.py:133` in the same change | same files | B6 | Q-A9P-04 |  |
 | RC-A9P-11 | `PlantLibrary_PyApp` git `6921bc8^:Improvements/GUI_Improvements_V3/mockups/` | 13 V3 page mockups + rendered current PNGs | historical evidence only; do not restore as targets | none (cite by commit) | B6 | Q-A9P-07 |  |
 
+| *Kit findings recorded by the transfer lanes at `R-4.2` (2026-10-13)* | | | | | | | |
+| RC-B5-01 | Design_Template_Kit `anchoring-kit/checks/check-parity.mjs` @ 1.11.0 | `compareImpeccableTree` assumes one byte-identical impeccable tree; impeccable 3.8.0 ships per-runtime builds (`.claude` vs `.github` paths, `/impeccable` vs `$impeccable`, `agents/*.toml` and `openai.yaml` only in `.agents`), so the check fails on PyApp and AndroidApp | record only (Kit finding; a per-runtime allowance) | — | next Kit session | Q-B5-15 | R-4.2 |
+| RC-B5-02 | Design_Template_Kit `anchoring-kit/conductor/check-conductor-readiness.mjs` @ 1.11.0 | takes the prose `Columns (Conductor schema, 15): …` line of a `TASK_CHECKLIST.md` as the table header and scans zero rows, so readiness row 6 passes vacuously | record only (Kit finding) | — | next Kit session | Q-B5-21 | R-4.2 |
+| RC-B5-03 | Design_Template_Kit `anchoring-kit/install.mjs` @ 1.11.0 | after BINDING the installer still seeds the matrix rows with "pending design gate approval" and leaves `<Surface>` placeholders in the pin title and the allowlist header | record only (Kit finding) | — | next Kit session | — | R-4.2 |
+| RC-B5-04 | Design_Template_Kit `tools/` contract renderer @ 1.7.0/1.11.0 | `renderComponentContract` hard-codes design version `0.1.0` and the line "Emitted by the wizard"; the generated Gallery page's bytes depend on the Kit checkout's line endings (CRLF working tree) | record only (Kit finding) | — | next Kit session | — | R-4.2 |
+| RC-B5-05 | Repo_Hygiene_Template_Kit 0.3.0 | the `release` form for exempt trees and the directory `held-name` (K-7) exist since 0.3.0; the consumers re-pin at `B3-8` | adopt (re-pin) | all seven `hygiene/` | B3-8 | Q-B3-02 | R-4.2 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
