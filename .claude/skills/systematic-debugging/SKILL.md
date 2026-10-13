@@ -1,13 +1,12 @@
 ---
 name: systematic-debugging
-description: Root-cause-first debugging technique — before proposing a fix for a concrete bug, test failure, or unexpected behavior, investigate systematically (reproduce, trace, form and test a single hypothesis) rather than guessing. Apply this technique when triaging or fixing a specific defect, not as a trigger for "run the next batch" or batch status/retry handling — those flows stay governed by run-batch.
+description: Use when a bug, test failure or unexpected behaviour needs its root cause before any fix — in an operator session on request, or inside a batch when a row's `skill` column names it; never widens the rerun ladder.
 ---
+<!-- Adapted from obra/superpowers @ 8ca22db, skills/systematic-debugging/SKILL.md (MIT; see LICENSE). Modified 2026-10-04 by OP-SK-A, D-2026-10-04-11. PlantLibrary copy 2026-10-13 (master rework B1-1, RC-A1-09): stack-neutral commands; this copy keeps `condition-based-waiting-example.ts` and `find-polluter.sh`. -->
 
 # Systematic Debugging
 
 ## Overview
-
-Random fixes waste time and create new bugs. Quick patches mask underlying issues.
 
 **Core principle:** ALWAYS find root cause before attempting fixes. Symptom fixes are failure.
 
@@ -87,25 +86,18 @@ You MUST complete each phase before proceeding to the next.
    ```
 
    **Example (multi-layer system):**
-   ```bash
-   # Layer 1: Workflow
-   echo "=== Secrets available in workflow: ==="
-   echo "IDENTITY: ${IDENTITY:+SET}${IDENTITY:-UNSET}"
-
-   # Layer 2: Build script
-   echo "=== Env vars in build script: ==="
-   env | grep IDENTITY || echo "IDENTITY not in environment"
-
-   # Layer 3: Signing script
-   echo "=== Keychain state: ==="
-   security list-keychains
-   security find-identity -v
-
-   # Layer 4: Actual signing
-   codesign --sign "$IDENTITY" --verbose=4 "$APP"
+   ```text
+   # Layer 1: the launching session - print SET or UNSET for <VAR>, never its value
+   # Layer 2: a child process started the way the launcher starts it - the same SET/UNSET line
+   # Layer 3: the component that consumes it - log presence and source, never the value
    ```
 
-   **This reveals:** Which layer fails (secrets → workflow ✓, workflow → build ✗)
+   Print presence (`SET`/`UNSET`) and where a value came from, never the value itself: nothing is quoted from a
+   credential. `<VAR>` is a placeholder name; use the shell the session runs in.
+
+   **This reveals:** Which layer fails (session ✓, child ✗)
+
+   Instrumentation goes only into paths the batch's scope file allows, and is removed before the batch closes.
 
 5. **Trace Data Flow**
 
@@ -164,7 +156,7 @@ You MUST complete each phase before proceeding to the next.
 4. **When You Don't Know**
    - Say "I don't understand X"
    - Don't pretend to know
-   - Ask for help
+   - Record the open question in the report (a headless session cannot ask)
    - Research more
 
 ### Phase 4: Implementation
@@ -186,15 +178,16 @@ You MUST complete each phase before proceeding to the next.
 
 3. **Verify Fix**
    - Test passes now?
-   - No other tests broken?
+   - The row's named validation passes? (Anything wider runs only at batch close, `run-batch` §6.)
    - Issue actually resolved?
+   - Use the row's named validation before claiming success
 
 4. **If Fix Doesn't Work**
    - STOP
    - Count: How many fixes have you tried?
    - If < 3: Return to Phase 1, re-analyze with new information
    - **If ≥ 3: STOP and question the architecture (step 5 below)**
-   - DON'T attempt Fix #4 without architectural discussion
+   - Never attempt fix #4: question the architecture (step 5) and mark the row blocked
 
 5. **If 3+ Fixes Failed: Question Architecture**
 
@@ -208,7 +201,7 @@ You MUST complete each phase before proceeding to the next.
    - Are we "sticking with it through sheer inertia"?
    - Should we refactor architecture vs. continue fixing symptoms?
 
-   **Discuss with your human partner before attempting more fixes**
+   **Mark the row blocked with the recorded blocker and stop; never attempt fix #4.**
 
    This is NOT a failed hypothesis - this is a wrong architecture.
 
@@ -231,7 +224,7 @@ If you catch yourself thinking:
 
 **If 3+ fixes failed:** Question the architecture (see Phase 4.5)
 
-## your human partner's Signals You're Doing It Wrong
+## Signals You're Doing It Wrong
 
 **Watch for these redirections:**
 - "Is that not happening?" - You assumed without verifying
@@ -282,15 +275,3 @@ These techniques are part of systematic debugging and available in this director
 - **`root-cause-tracing.md`** - Trace bugs backward through call stack to find original trigger
 - **`defense-in-depth.md`** - Add validation at multiple layers after finding root cause
 - **`condition-based-waiting.md`** - Replace arbitrary timeouts with condition polling
-
-**Related skills:**
-- **test-driven-development** - For creating failing test case (Phase 4, Step 1)
-- **verify** - Verify fix worked before claiming success (this repo's built-in verify skill)
-
-## Real-World Impact
-
-From debugging sessions:
-- Systematic approach: 15-30 minutes to fix
-- Random fixes approach: 2-3 hours of thrashing
-- First-time fix rate: 95% vs 40%
-- New bugs introduced: Near zero vs common

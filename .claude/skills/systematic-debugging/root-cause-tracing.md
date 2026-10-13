@@ -1,3 +1,4 @@
+<!-- Adapted from obra/superpowers @ 8ca22db, skills/systematic-debugging/root-cause-tracing.md (MIT; see LICENSE). Modified 2026-10-04 by OP-SK-A, D-2026-10-04-11. PlantLibrary copy 2026-10-13 (master rework B1-1, RC-A1-09): stack-neutral commands; this copy keeps `condition-based-waiting-example.ts` and `find-polluter.sh`. -->
 # Root Cause Tracing
 
 ## Overview
@@ -67,26 +68,22 @@ Project.create('name', context.tempDir); // Accessed before beforeEach!
 
 When you can't trace manually, add instrumentation:
 
-```typescript
-// Before the problematic operation
-async function gitInit(directory: string) {
-  const stack = new Error().stack;
-  console.error('DEBUG git init:', {
-    directory,
-    cwd: process.cwd(),
-    nodeEnv: process.env.NODE_ENV,
-    stack,
-  });
-
-  await execFileAsync('git', ['init'], { cwd: directory });
-}
+```python
+# Before the problematic operation
+def git_init(directory: Path) -> None:
+    print("DEBUG git init:", {
+        "directory": str(directory),
+        "cwd": os.getcwd(),
+        "stack": "".join(traceback.format_stack()),
+    })
+    subprocess.run(["git", "init"], cwd=directory, check=True)
 ```
 
-**Critical:** Use `console.error()` in tests (not logger - may not show)
+**Critical:** print it and run the test with the runner's output capture off, so the output is not captured (a logger may be filtered out)
 
 **Run and capture:**
-```bash
-npm test 2>&1 | grep 'DEBUG git init'
+```text
+<the row's named validation, narrowed to the one test, capture off> | filter for 'DEBUG git init'
 ```
 
 **Analyze stack traces:**
@@ -98,13 +95,9 @@ npm test 2>&1 | grep 'DEBUG git init'
 
 If something appears during tests but you don't know which test:
 
-Use the bisection script `find-polluter.sh` in this directory:
-
-```bash
-./find-polluter.sh '.git' 'src/**/*.test.ts'
-```
-
-Runs tests one-by-one, stops at first polluter. See script for usage.
+Bisect by running candidate tests one at a time; never a whole-suite diagnostic rerun. In an npm suite the
+bisection script `find-polluter.sh` in this directory does this (`./find-polluter.sh '.git' 'src/**/*.test.ts'`;
+see the script for usage).
 
 ## Real Example: Empty projectDir
 
@@ -124,7 +117,7 @@ Runs tests one-by-one, stops at first polluter. See script for usage.
 **Also added defense-in-depth:**
 - Layer 1: Project.create() validates directory
 - Layer 2: WorkspaceManager validates not empty
-- Layer 3: NODE_ENV guard refuses git init outside tmpdir
+- Layer 3: a guard refuses git init outside the allowed directory, in every environment
 - Layer 4: Stack trace logging before git init
 
 ## Key Principle
@@ -155,10 +148,10 @@ digraph principle {
 
 ## Stack Trace Tips
 
-**In tests:** Use `console.error()` not logger - logger may be suppressed
+**In tests:** print it and turn the runner's output capture off, not a logger - a logger may be filtered out
 **Before operation:** Log before the dangerous operation, not after it fails
-**Include context:** Directory, cwd, environment variables, timestamps
-**Capture stack:** `new Error().stack` shows complete call chain
+**Include context:** Directory, cwd, which environment variables are set (never a value), timestamps
+**Capture stack:** `traceback.format_stack()` shows the complete call chain
 
 ## Real-World Impact
 

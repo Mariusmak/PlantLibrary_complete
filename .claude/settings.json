@@ -1,1 +1,37 @@
-{}
+{
+  "env": {
+    "BASH_MAX_TIMEOUT_MS": "3600000"
+  },
+  "permissions": {
+    "deny": [
+      "Bash(git stash*)",
+      "PowerShell(git stash*)",
+      "Bash(git reset --hard*)",
+      "PowerShell(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "PowerShell(git clean -f*)",
+      "Bash(git checkout -- *)",
+      "PowerShell(git checkout -- *)",
+      "Bash(git restore *)",
+      "PowerShell(git restore *)",
+      "Bash(git branch -D*)",
+      "PowerShell(git branch -D*)",
+      "Bash(git branch --delete*)",
+      "PowerShell(git branch --delete*)",
+      "Bash(git push --force*)",
+      "PowerShell(git push --force*)",
+      "Bash(git push -f*)",
+      "PowerShell(git push -f*)",
+      "Bash(git push --force-with-lease*)",
+      "PowerShell(git push --force-with-lease*)",
+      "Bash(git push --delete*)",
+      "PowerShell(git push --delete*)",
+      "Bash(git rebase*)",
+      "PowerShell(git rebase*)",
+      "Bash(git filter-branch*)",
+      "PowerShell(git filter-branch*)",
+      "Bash(git gc --prune*)",
+      "PowerShell(git gc --prune*)"
+    ]
+  }
+}

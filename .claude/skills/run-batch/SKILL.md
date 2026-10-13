@@ -327,6 +327,11 @@ anchor — never the whole files):
 
 ## 7. Close the batch
 
+A package write keeps the file's existing newline style: read the bytes,
+detect CRLF or LF, write the same; never rewrite a whole package file in a
+different style. This governs every write this section and §6 make to
+`TASK_CHECKLIST.md`, `STATE.md`, and the evidence files.
+
 Before completion, inspect `git diff --stat` first and then only focused hunks
 for the touched paths. If this invocation can spawn agents, also pass the
 batch key, each selected row's done-when, the touched paths, and the package

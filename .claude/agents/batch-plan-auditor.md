@@ -2,9 +2,9 @@
 name: batch-plan-auditor
 description: Adversarial fresh-context audit of a drafted batch package against plan-batch's self-review checklist, before the package is written. Returns pass/fail per checklist item with row IDs.
 model: sonnet
-effort: medium
+effort: high
 disallowedTools: Write, Edit, NotebookEdit, Bash, PowerShell, Agent
-maxTurns: 12
+maxTurns: 24
 skills:
   - plan-batch
   - real-stack-testing
@@ -35,3 +35,13 @@ target named — this line is the AC142 discipline leg (AM-52) and must be
 joinable with the package's own premise guard, never folded silently into a
 single "§7 passes" summary. No rewrites, no style advice, no file edits. The
 parent planner owns all fixes and the final write.
+
+Judge each artifact against its contract, never against the draft's claim
+about it: a `validation` cell is checked by what its target executes, not by
+its description. Among the at most 5 additional defects, look first for: a
+quiet scope reduction (a done-when narrower than the baseline it cites, or a
+source requirement no row carries); a broken contract between rows (one row
+consumes a file, key or schema that another produces under a different name
+or shape); and a mis-cut (two rows a reviewer could not accept one of while
+rejecting the other belong in one row; one row bundling changes that could be
+rejected independently should be split).

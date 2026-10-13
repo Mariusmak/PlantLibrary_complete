@@ -5,7 +5,15 @@ user-invocable: true
 argument-hint: "[suite-or-package-path] [what to plan]"
 ---
 
-<!-- plan-batch skill version: 1.4.0 (2026-08-05) — adds optional subagent
+<!-- plan-batch skill version: 1.5.1-pl (2026-10-13) — PlantLibrary's copy of the
+     Conductor's 1.5.1 text with one §7 item changed: the Conductor's closeout-budget
+     item (`closeout.py --predict` against `validation.closeout_budget_s`) is replaced
+     by 1.4.0's cap item, because no PlantLibrary suite has `closeout.py`
+     (Q-A1-01 (a), RC-A1-02; master rework step B1-1). The Conductor's history follows.
+     1.5.1 (2026-10-04): the §7 premise item refuses
+     a `cites:` target under implementation/*/validation/ (D-2026-10-04-04 (g)).
+     1.5.0 (2026-08-27) added the §7 proof-surface
+     item (F-7, D-2026-08-27-01). 1.4.0 (2026-08-05) added optional subagent
      delegation (section reads, draft audit) with mandatory inline fallbacks.
      1.3.0 removed the approval gate; plan-batch auto-selects the recommended
      option and writes the package in one pass. -->
@@ -199,10 +207,15 @@ checklist status is the single source of truth).
 - [ ] IDs collision-free; batches ordered; independence marked
 - [ ] Findings for other packages routed, not duplicated
 - [ ] Every stated row premise verified against the current tree; cited-fact
-      rows name their `cites:` target (AM-52/AC142)
+      rows name their `cites:` target (AM-52/AC142); no `cites:` target lies
+      under `implementation/*/validation/`, which no test may read - such an
+      artifact is named in the row's prose instead (D-2026-10-04-04 (g))
 - [ ] Every batch's touched-path set scopes under the active cap; a batch that
       touches a root `conftest.py` scopes the whole corpus and must say so in
       its `Blockers`
+- [ ] No `PROMPTS_`/runbook entry or row note names a proof surface beyond
+      the row's `validation` cell (whole-suite runs, `--ignore`, `-x`); widen
+      the cell by amendment instead
 
 ## 8. Notify at every terminal user handoff
 

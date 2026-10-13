@@ -37,10 +37,14 @@ not permission to replace it with a stand-in.
 5. Capture full failure evidence to files; keep model-visible output compact.
 6. Treat a skipped required validation as failure through the repository's
    strict flag.
-7. Run chunked validation in the foreground with the resumable runner; the
-   envelope is derived (`foreground_ceiling_s − envelope_grace_s`), never a
-   hand-typed number, and a runner is never backgrounded (AM-44 cl.7,
-   AC131/AC132).
+7. Run every validation in the foreground, never backgrounded. Where the
+   suite ships the resumable runner (`scripts/harness/run_chunks.py`, PyApp
+   today), chunked validation goes through it and its envelope is derived
+   (`foreground_ceiling_s − envelope_grace_s`), never a hand-typed number
+   (AM-44 cl.7, AC131/AC132); elsewhere the row's named validation runs as
+   the suite's own command, and this skill teaches no runner. A test never
+   reads a file the harness writes — the history, its sidecar, chunk scratch,
+   the package's own evidence; committed fixtures only.
 
 For a rendered UI, assert the triad: visible DOM, outbound request, and
 persisted state. Read [references/gui-testing.md](references/gui-testing.md)

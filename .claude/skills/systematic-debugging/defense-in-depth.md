@@ -1,3 +1,4 @@
+<!-- Adapted from obra/superpowers @ 8ca22db, skills/systematic-debugging/defense-in-depth.md (MIT; see LICENSE). Modified 2026-10-04 by OP-SK-A, D-2026-10-04-11. -->
 # Defense-in-Depth Validation
 
 ## Overview
@@ -50,24 +51,18 @@ function initializeWorkspace(projectDir: string, sessionId: string) {
 ```
 
 ### Layer 3: Environment Guards
-**Purpose:** Prevent dangerous operations in specific contexts
+**Purpose:** Prevent dangerous operations outside their allowed place - in every environment, never only under test
 
-```typescript
-async function gitInit(directory: string) {
-  // In tests, refuse git init outside temp directories
-  if (process.env.NODE_ENV === 'test') {
-    const normalized = normalize(resolve(directory));
-    const tmpDir = normalize(resolve(tmpdir()));
-
-    if (!normalized.startsWith(tmpDir)) {
-      throw new Error(
-        `Refusing git init outside temp dir during tests: ${directory}`
-      );
-    }
-  }
-  // ... proceed
-}
+```python
+def init_repository(directory: Path, data_dir: Path) -> None:
+    # Refuse any path outside the configured data_dir, in production and in tests alike
+    if not directory.resolve().is_relative_to(data_dir.resolve()):
+        raise ValueError(f"Refusing to initialise outside data_dir: {directory}")
+    # ... proceed
 ```
+
+A guard keyed on a test flag (an environment variable a test sets) makes the product behave differently under test,
+which `real-stack-testing` forbids.
 
 ### Layer 4: Debug Instrumentation
 **Purpose:** Capture context for forensics
@@ -106,7 +101,7 @@ Bug: Empty `projectDir` caused `git init` in source code
 **Four layers added:**
 - Layer 1: `Project.create()` validates not empty/exists/writable
 - Layer 2: `WorkspaceManager` validates projectDir not empty
-- Layer 3: `WorktreeManager` refuses git init outside tmpdir in tests
+- Layer 3: `WorktreeManager` refuses git init outside its allowed directory, in every environment
 - Layer 4: Stack trace logging before git init
 
 **Result:** All 1847 tests passed, bug impossible to reproduce

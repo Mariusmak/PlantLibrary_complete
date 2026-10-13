@@ -1,3 +1,4 @@
+<!-- Adapted from obra/superpowers @ 8ca22db, skills/systematic-debugging/condition-based-waiting.md (MIT; see LICENSE). Modified 2026-10-04 by OP-SK-A, D-2026-10-04-11. PlantLibrary copy 2026-10-13 (master rework B1-1, RC-A1-09): stack-neutral commands; this copy keeps `condition-based-waiting-example.ts` and `find-polluter.sh`. -->
 # Condition-Based Waiting
 
 ## Overview
@@ -79,8 +80,6 @@ async function waitFor<T>(
 }
 ```
 
-See `condition-based-waiting-example.ts` in this directory for complete implementation with domain-specific helpers (`waitForEvent`, `waitForEventCount`, `waitForEventMatch`) from actual debugging session.
-
 ## Common Mistakes
 
 **❌ Polling too fast:** `setTimeout(check, 1)` - wastes CPU
@@ -113,3 +112,5 @@ From debugging session (2025-10-03):
 - Pass rate: 60% → 100%
 - Execution time: 40% faster
 - No more race conditions
+
+See `condition-based-waiting-example.ts` in this directory for complete implementation with domain-specific helpers (`waitForEvent`, `waitForEventCount`, `waitForEventMatch`) from actual debugging session.
