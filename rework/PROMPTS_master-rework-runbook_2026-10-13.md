@@ -330,7 +330,8 @@ Commit line: rework: B2-1 - superproject CLAUDE.md reconciled - <n> sections add
 ```text
 B2-1.1 — one sentence of the operator's Testing block
 Replace the "Its Sonnet/Terra worker" sentence of the superproject CLAUDE.md Testing block (lines 10-12) with the Conductor's E-03r wording, adapted to the roster B1-1 landed; nothing else in the block changes.
-Context: step B2-1.1 of C:\Programmierung\SW_Developmentework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.4); rules: kickoff §2; the answers: Q-A3-02 (a), Q-B2-01 (a), recorded 2026-10-13; the wording source: C:\Programmierung\Orchestrator_System\CLAUDE.md lines 122-125 (read-only); the roster as B1-1 committed it (the §L row B1-1, by pointer).
+Context: step B2-1.1 of C:\Programmierung\SW_Development
+ework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.4); rules: kickoff §2; the answers: Q-A3-02 (a), Q-B2-01 (a), recorded 2026-10-13; the wording source: C:\Programmierung\Orchestrator_System\CLAUDE.md lines 122-125 (read-only); the roster as B1-1 committed it (the §L row B1-1, by pointer).
 Where: cwd C:\Programmierung\SW_Development on master; this session writes CLAUDE.md only.
 Scope: that one sentence. Not here: any other line; AGENTS.md (frozen); the hygiene block.
 Read first: the Conductor lines; the superproject CLAUDE.md Testing block; .claude/agents/real-stack-validator.md as B1-1 left it.
@@ -1073,7 +1074,7 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 | 6 | GC-7053 — `DRIVER_SCRIPT.md` instructs `_ACT_STATE.md` | onboarding §N | `B4-2`, `B8-2` | open |
 | 7 | M-8 closing pass | repo-hygiene §L | `B3-1` | done except the Kit changelog (item 17) |
 | 8 | M-9 hold releases (five suites; the Workspace set after K-7) | repo-hygiene §L | `B3-4` done 2026-10-13 for the five suites; Workspace set: after the Kit session (`K-2`) | open — Workspace set only |
-| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | `K-2` (orchestrator-run, Q-G-06 "a (run yourself)"), then `B3-8` re-pins all seven and releases the Workspace set | open |
+| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | `K-2` done 2026-10-13 (kit 0.3.0, `d5b9742`); `B3-8` re-pins all seven and releases the Workspace set | done — kit side |
 | 10 | Onboarding step 6 hold (S-2, instance 2 is staging) | onboarding §L | lapsed: the instance-2 bindings are obsolete (Q-G-02, Q-A8-02 readings, 2026-10-13); `C1-2` H.6 records it | lapsed |
 | 11 | The Conductor's `OP-RB` copy into `PlantLibrary_Workspace` | `AUDIT_runbook-conventions` F-A5-06 | operator (Q-A5-01); `B1-1` records | open |
 | 12 | Kit session for Compose/Qt emission, Kotlin literal patterns, ARGB bans, TextStyle, the import tool's input path and an export write mode (the Kit defects of `A4` and `B5-1`) | `AUDIT_design-kit-and-methodology` §2; `EVIDENCE_design-gate-pack` | step `K-1`, launched by the orchestrator (Q-A4-05 reading, 2026-10-13) | open |
@@ -1081,7 +1082,7 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 | 14 | The end-of-wave pushes (three submodule commits already unpushed) | `A8` F-A8-03 | the orchestrator at each `R-4.<k>` (Q-G-03 reading, 2026-10-13) | open — first push at `R-4.1` |
 | 15 | Readiness row 8 (one dispatched UI batch per anchored client) and the instance's role overrides | `A4` §7.1 | Phase C; `B5-8` records | open |
 | 16 | `PyApp` re-intake at `PY1-B08` if any step moves its plan contract | `A7` F-A7-09 | lapsed with the bindings (Q-A7-04, Q-A8-02 readings, 2026-10-13) | lapsed |
-| 17 | M-8's Kit changelog commit (hygiene runbook §16; SOURCE-K is read-only here) | `B3-1` | operator's Kit session, with K-7 (item 9) | open |
+| 17 | M-8's Kit changelog commit (hygiene runbook §16) | `B3-1` | `K-2` done 2026-10-13 (the ten lessons in the 0.3.0 changelog) | done |
 
 ## Q. Operator questions — mirror of the register
 
@@ -1224,7 +1225,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-6` | sequencers archived | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-7` | residual prose sweep | todo | — | inserted 2026-10-13 after `B3-6` |
-| `K-2` | hygiene kit session: K-7 and the pilot lessons, release 0.3.0 | todo | — | inserted 2026-10-13 (Q-G-06 "a (run yourself)") |
+| `K-2` | hygiene kit session: K-7 and the pilot lessons, release 0.3.0 | done 2026-10-13 — kit main `d5b9742`, tag `v0.3.0` (pushed) | — | release ends exempt-tree/subfolder declarations; a set folder can be held; 3 fixtures, 14/14 green; 10 lessons logged; worktree removed; verified |
 | `B3-8` | re-pin to kit 0.3.0; Workspace set released | todo | — | after `K-2`, `B3-6` |
 | `C1-3` | resume blocks | todo | — | |
 | `C1-4` | hand-back HANDOVER | todo | — | |
