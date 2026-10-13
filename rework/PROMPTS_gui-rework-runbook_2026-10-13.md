@@ -551,8 +551,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6c-8` | PyApp implementation (per batch) | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B6b-1` | AndroidApp workspace bootstrap | done 2026-10-13 — AndroidApp `6ad8087` | — | restructure brief, unbound; 16 phase rows in ADM1-B00..B07; roots D-2026-10-13-05; hook file added; design-authority row repointed; Q-B6b-01..04 (a) |
 | `B6b-2` | AndroidApp census | done 2026-10-13 — AndroidApp `e9ac4a8` | — | 215 literals (87 colour, 128 dim; 82 dp UI); 6 banned lines; mirror 58/27/49; 65 ops/51 reached; CM-01..04 confirmed; README fixed; Q-B6b-05..07 (a) |
-| `B6b-3` | AndroidApp contracts, target | running (B6b-3 session) | — | launched 2026-10-13; folds Q-B6a-02 (ADM1 phase rows retired), Q-B6b-06 |
-| `B6b-4` | AndroidApp comparison, gap map | todo | — | |
+| `B6b-3` | AndroidApp contracts, target | done 2026-10-13 — AndroidApp `c02f9bb` | — | 15 contracts (3/5/7; 8 contracted, 7 partial); 4 of 9 routes drift; 11 targets, 4 active; 03 deferred DV-A9A-b; 15 ADM1 rows deferred; Q-B6b-06 closed; UB-16 |
+| `B6b-4` | AndroidApp comparison, gap map | running (B6b-4 session) | — | launched 2026-10-13 |
 | `B6b-5` | AndroidApp forward surface; `G-b-1` | todo | — | |
 | `B6b-6` → split `B6b-6a` (to the gate), `B6b-6b` (after `event:G-b-2`) | AndroidApp IA, mockups, audit; `G-b-2`, `G-b-3` | waits Q-A9A-05 | — | after `B6c-6` |
 | `B6b-7` → split `B6b-7a` (to the gate), `B6b-7b` (after `event:G-b-4`) | AndroidApp classification, plan-batch, SCOPE; `G-b-4` | waits Q-A9A-02, Q-A7-08 | — | |
