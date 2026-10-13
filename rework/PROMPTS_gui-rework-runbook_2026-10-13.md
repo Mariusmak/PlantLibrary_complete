@@ -533,8 +533,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 
 | Step | Title | Status | Decision | Note |
 |---|---|---|---|---|
-| `B6a-1` | Dashboard workspace bootstrap | running (B6a-1 session) | — | launched 2026-10-13 after R-4.2; folds Q-B5-12, Q-B5-14, Q-B4-07 |
-| `B6a-2` | Dashboard census | todo | — | |
+| `B6a-1` | Dashboard workspace bootstrap | done 2026-10-13 — Dashboard `a3f5211` | — | restructure brief (DM-DEC-01); pin by pointer; roots D-2026-10-13-05; package seeded empty (DM-DEC-05); lint ignores, Design context, authority row; Q-B6a-01..03 (a) |
+| `B6a-2` | Dashboard census | running (B6a-2 session) | — | launched 2026-10-13; folds Q-B6a-01, Q-B6a-03 |
 | `B6a-3` | Dashboard contracts, target | todo | — | |
 | `B6a-4` | Dashboard comparison, gap map | todo | — | |
 | `B6a-5` | Dashboard forward surface; `G-a-1` | todo | — | |

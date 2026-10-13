@@ -50,6 +50,7 @@ LIVE_PACKAGES = (
     "PlantLibrary_AndroidApp/implementation/System_V1_Implementation",
     "PlantLibrary_AndroidApp/implementation/Design_Migration_V1",
     "PlantLibrary_Dashboard/implementation/System_V1_Implementation",
+    "PlantLibrary_Dashboard/implementation/Design_Migration_V1",
     "PlantLibrary_PyApp/implementation/System_V1_Implementation",
     "PlantLibrary_Server/implementation/System_V1_Implementation",
     "PlantLibrary_SharedContracts/implementation/System_V1_Implementation",
