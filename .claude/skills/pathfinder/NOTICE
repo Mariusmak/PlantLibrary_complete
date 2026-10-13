@@ -1,0 +1,28 @@
+Claude-Mem
+Copyright 2026 Alex Newman
+
+This product includes software developed for the Claude-Mem project.
+
+Licensed under the Apache License, Version 2.0.
+
+If other attributions are required by dependencies or included code, add them here.
+
+---
+Modifications: plugin/skills/pathfinder/SKILL.md from
+https://github.com/thedotmack/claude-mem at commit
+039c6160f0ff26e9fab37cae7f50b994ba68f7ff, adapted for this repository on
+2026-10-04 (OP-SK-A, D-2026-10-04-11): description, hand-off target, output
+location, read scope, delegation fallback and the Phase 3/4 wording
+changed, as listed in
+implementation/Conductor_V2/planning/PLAN_instructions-and-skills-reconciliation_2026-10-02.md
+section 2.6 (K-10) and PLAN_instructions-and-skills-reconciliation-addendum_2026-10-02.md
+section 2.9.
+Those two plans are in the Conductor's repository (Orchestrator_System @
+2e7adb3), not in this one.
+
+Modifications for PlantLibrary: SKILL.md copied from Orchestrator_System @
+2e7adb3 into the PlantLibrary superproject and changed on 2026-10-13
+(master rework step B1-3, Q-A1-02 (a)): description (operator session
+only), working-file location (the session's scratchpad), deliverable root
+(parameterised to this repository's hygiene roots), read exclusions,
+legitimate-specialization examples and baseline wording.

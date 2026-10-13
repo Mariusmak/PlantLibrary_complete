@@ -97,6 +97,11 @@ marked in the bridge table above; their Codex copies keep the frozen text.
 | Skill | Claude source | Source @ pin, licence | Added at |
 | --- | --- | --- | --- |
 | `harness-upkeep` | `../.claude/skills/harness-upkeep` | the Conductor's operator skill `harness-upkeep` 0.1.0 (`Orchestrator_System` @ `2e7adb3`), rewritten for this repository's checks as 0.1.0-pl (RC-A1-12); original, no third-party licence | B1-1 |
+| `code-quality-review` | `../.claude/skills/code-quality-review` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A); its reference adapted from wshobson/agents @ `156b7a5`; MIT (`LICENSE`). Adapted (RC-A1-15): Python suites only, deliverable root parameterised to `hygiene/CONSUMED_HYGIENE.md`, Conductor settings, dependency and loop terms dropped; operator session only | B1-3 |
+| `security-audit` | `../.claude/skills/security-audit` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A); `references/` adapted from trailofbits/skills @ `82fe822`; CC-BY-SA-4.0 (`NOTICE`, the PlantLibrary changes listed there); `SKILL.md` original. Adapted (RC-A1-15): deliverable root parameterised, scratch outside the tree, no executable PoC, Kotlin/TS via the generic references; operator session only | B1-3 |
+| `pathfinder` | `../.claude/skills/pathfinder` | the Conductor's (`Orchestrator_System` @ `2e7adb3`, OP-SK-A), adapted from thedotmack/claude-mem @ `039c616`; Apache-2.0 (`LICENSE`, `NOTICE`, the PlantLibrary modifications listed there). Adapted (RC-A1-15): read exclusions and deliverable root are this repository's; operator session only | B1-3 |
+
+Declined at B1-3: `dependency-audit` (the Conductor's, Trail of Bits-derived, CC-BY-SA-4.0) is not installed - deferred until Gradle coverage is decided (`Q-A1-02` (a), RC-A1-16): it cannot read PlantLibrary_AndroidApp's Gradle dependencies, and its GitHub route sends the `gh` token to `api.github.com`.
 
 ## Provenance of the bridged skills
 
@@ -108,8 +113,8 @@ marked in the bridge table above; their Codex copies keep the frozen text.
 | `validate-real-stack` | `../.claude/skills/validate-real-stack` | the Conductor's, identical (RC-A1-27); original |
 | `test-driven-development` | `../.claude/skills/test-driven-development` | obra/superpowers `8ca22db`, edited by the Conductor (OP-SK-A) and at B1-1 (stack-neutral commands, RC-A1-08); MIT (`LICENSE`) |
 | `systematic-debugging` | `../.claude/skills/systematic-debugging` | obra/superpowers `8ca22db`, edited by the Conductor (OP-SK-A) and at B1-1 (stack-neutral commands; keeps `condition-based-waiting-example.ts` and `find-polluter.sh`, RC-A1-09); MIT (`LICENSE`) |
-| `webapp-testing` | `../.claude/skills/webapp-testing` | third-party; Apache-2.0 (`LICENSE.txt`); upstream pin not recorded |
-| `ui-ux-pro-max` | `../.claude/skills/ui-ux-pro-max` | third-party; upstream, pin and licence not recorded in this repository |
+| `webapp-testing` | `../.claude/skills/webapp-testing` | third-party; upstream not named in the copy (`SKILL.md` front matter: `license: Complete terms in LICENSE.txt`); Apache-2.0, `LICENSE.txt` "Copyright 2026 Anthropic, PBC."; no upstream pin in the copy; added here at `bdcb8f4` (2026-07-17) with a PlantLibrary_Dashboard section (`Q-B1-01` (a), B1-3) |
+| `ui-ux-pro-max` | `../.claude/skills/ui-ux-pro-max` | third-party; no licence file in the copy; origin per `SKILL.md` (front matter `name: ui-ux-pro-max`, "UI/UX Pro Max - Design Intelligence"; no upstream URL, author, version or pin); added here at `0b3a0c0` (2026-07-14) (`Q-B1-01` (a), B1-3) |
 | `android-validation`, `design-adoption`, `gui-validation`, `sync-contracts`, `verify-stack` | `../.claude/skills/<name>` | PlantLibrary originals |
 
 ## Not installed here
@@ -120,8 +125,10 @@ marked in the bridge table above; their Codex copies keep the frozen text.
   lane `B1` closes and decides the skill for all seven repositories.
 - `instance-sync`: not taken; it syncs a deployed Conductor instance
   (RC-A1-14).
-- `code-quality-review`, `security-audit`, `pathfinder`, `dependency-audit`
-  (third-party-derived): decided at `B1-3` (`Q-A1-02`).
+- `dependency-audit` (third-party-derived): declined at `B1-3`, deferred
+  until Gradle coverage is decided (`Q-A1-02` (a), RC-A1-16); see the line
+  under the Claude-only table. `code-quality-review`, `security-audit` and
+  `pathfinder` were installed at `B1-3` (Claude-only table).
 - `design-gate`, `design-audit`, `gallery-governance`, `impeccable`:
   installed by the Design Template Kit into the client suites at `B5`, never
   by hand, and not into this repository (RC-A1-10, RC-A1-11).
