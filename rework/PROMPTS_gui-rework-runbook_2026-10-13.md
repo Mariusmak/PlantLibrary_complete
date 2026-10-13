@@ -534,8 +534,8 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | Step | Title | Status | Decision | Note |
 |---|---|---|---|---|
 | `B6a-1` | Dashboard workspace bootstrap | done 2026-10-13 — Dashboard `a3f5211` | — | restructure brief (DM-DEC-01); pin by pointer; roots D-2026-10-13-05; package seeded empty (DM-DEC-05); lint ignores, Design context, authority row; Q-B6a-01..03 (a) |
-| `B6a-2` | Dashboard census | running (B6a-2 session) | — | launched 2026-10-13; folds Q-B6a-01, Q-B6a-03 |
-| `B6a-3` | Dashboard contracts, target | todo | — | |
+| `B6a-2` | Dashboard census | done 2026-10-13 — Dashboard `c4e348b` | — | 13 routes/12 views; 42 ops, 13 reached; CM-01..31 (24 T1, 7 T2); literals 1c+87d; legacy theme 3 values off canon; role layer unused; Q-B6a-04..06 (a) |
+| `B6a-3` | Dashboard contracts, target | running (B6a-3 session) | — | launched 2026-10-13 |
 | `B6a-4` | Dashboard comparison, gap map | todo | — | |
 | `B6a-5` | Dashboard forward surface; `G-a-1` | todo | — | |
 | `B6a-6` → split `B6a-6a` (to the gate), `B6a-6b` (after `event:G-a-2`) | Dashboard IA, mockups, audit; `G-a-2`, `G-a-3` | waits Q-A9D-06 | — | SharedContracts serialized |
