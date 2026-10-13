@@ -195,3 +195,39 @@ Dispositions, in the map's order:
 - exempt-name: IMPLEMENTATION_PLAN.md — the living program plan, never renamed (GM proposal 1); allowlisted since D-2026-09-16-01
 
 Commit line: `repo-hygiene: M-1 - superproject migrated per the confirmed map; INDEX mapping tables`
+
+## 2026-10-13 — master rework track opened
+
+### D-2026-10-13-01 — general root `rework` declared for the PlantLibrary master rework program
+
+Authority: step `R-0` of `rework/PROMPT_master-rework-kickoff_2026-10-13.md` (§3), the kickoff prompt of the
+PlantLibrary master rework program, executed by its orchestrating session (Fable 5.1 · high). No operator gate
+answered here: the kickoff names the root, its kind and its pattern, and §2 rule 3 of that prompt requires this
+entry. The pin's own rule (`hygiene/CONSUMED_HYGIENE.md`, header): a root change is a decision entry with the roots
+table edited in the same commit, and the checker reads roots from that table only.
+
+Preconditions measured 2026-10-13: superproject on `master`, tree clean at `67dcc51` except the
+`PlantLibrary_Workspace` gitlink (checkout `6b4b88b`, two already-committed Workspace commits ahead of the pinned
+`752ff51`, bumped in this commit); all six submodules on `main`, clean; no worktree beyond the seven checkouts;
+verdict before this step `repo-hygiene: pass with holds — 0 violations, 3 held` (the onboarding-runbook holds of
+`D-2026-09-16-01`/`D-2026-09-16-03`, unchanged by this entry); last entry `D-2026-09-16-03`.
+
+Dispositions:
+
+1. Root: `rework/` is declared a **general** root with the **standard** pattern (`<TYPE>_<topic>_<YYYY-MM-DD>.md`),
+   the deliverable root of the master rework program for its prompts, runbook, registers, audits, matrices and
+   findings. Its `INDEX.md` is written in this commit (table shape, as `repo-hygiene/INDEX.md`), not seeded by the
+   installer. Every HANDOVER of the program still goes to `handovers/` (`D-2026-09-16-01`, routing).
+2. Allowlist: `rework` enters the root allowlist (module `root-allowlist`, on since `D-2026-09-16-01`).
+3. Files born in the root in this commit: `PROMPT_master-rework-kickoff_2026-10-13.md` (the kickoff prompt,
+   verbatim, its only copy), `PROMPTS_master-rework-runbook_2026-10-13.md` (the program runbook, §3 filled at
+   `R-3`), `REGISTER_operator-questions_2026-10-13.md`, `REGISTER_deferred-validations_2026-10-13.md`,
+   `REGISTER_conductor-reuse-candidates_2026-10-13.md`. Each has its `INDEX.md` line. Both prompt files pass the
+   proof-surface rule as written.
+4. Nothing else changes: no exemption, no hold, no release, no enum extension, no scratch module; the
+   `IMPLEMENTATION_PLAN.md` exemption and the three holds stand (their fate is the program's `Q-G-05` and the
+   `B3` lane, each a later entry).
+
+- allowlist: rework — the master rework program's deliverable root (kickoff prompt §3 R-0 (a))
+
+Commit line: `rework: R-0 - track opened; Workspace gitlink 6b4b88b`

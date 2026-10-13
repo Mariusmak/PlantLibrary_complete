@@ -25,3 +25,4 @@ file floor is an integer ≥ 0 (`KIT_SPEC.md` §4); a 0 is legal only when a dec
 | `repo-hygiene` | general | standard |
 | `onboarding` | general | standard |
 | `handovers` | handovers | date-anywhere |
+| `rework` | general | standard |
