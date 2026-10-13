@@ -126,6 +126,7 @@ Route and block vocabulary per §3.0. `super` = `C:\Programmierung\SW_Developmen
 | `B7-2` | Codex freeze: block-aware `AGENTS.md` banners and digests, the freeze guard, seven D-entries | Opus 5.5 · high | session (headless) | super, then the six suites (serial, in place) | `B7-1`, `B2-2`, `B2-3` | `scripts/harness/check_harness_parity.py`, seven `AGENTS.md`, seven `hygiene/HYGIENE_DECISIONS.md` | Q-G-09, Q-A3-01 | §3.3 `B7-2` |
 | `B1-1` | superproject `.claude/` synced; `.agents/README.md` rewritten; settings | Opus 5.5 · high | session (headless) | super | `B7-2` | `.claude/**`, `.agents/README.md`, `.claude/settings.json` | Q-A1-01, Q-A1-03, Q-A5-01 | §3.3 `B1-1` |
 | `B1-2` | six mirrors synced incl. the PlantLibrary-only skills the rows name; parity green | Sonnet 5.5 · high | session (headless) | the six suites (serial, in place) | `B1-1` | each suite's `.claude/**` | Q-A1-04 | §3.3 `B1-2` |
+| `B2-1.1` | the superproject Testing block's "Sonnet/Terra worker" sentence reworded to the Conductor's E-03r form (Q-A3-02) | Sonnet 5.5 · high | session (headless) | super | `B1-1` | `CLAUDE.md` lines 10-12 only | — | §3.4 `B2-1.1` |
 | `B1-3` | third-party-derived Conductor skills adopted or declined | Opus 5.5 · high | session (headless) | super | `B1-1` | `.claude/skills/*`, `.agents/README.md` | Q-A1-02 | §3.3 `B1-3` |
 | `B7-3` | scratch gate, harness docs page, Server ledger file | Opus 5.5 · high | session (headless) | super; PyApp; Server (serial; all six suites if Q-A2-06 (a)) | `B1-2` | `scripts/harness/README.md`, `.agents/README.md`, PyApp/Server `.claude/skills/scratch-gate`, Server package `validation/KNOWN_FAILURES.md`, suite pins | Q-A2-06 | §3.3 `B7-3` |
 | `B3-2` | superproject leftovers: graphify, `update_graph.bat`, the unplanned-backlog register from `Todo.md` and `IMPLEMENTATION_PLAN.md` §7 | Opus 5.5 · high | session (headless) | super | `R-4.1` | `rework/REGISTER_unplanned-backlog_<date>.md`, `hygiene/HYGIENE_DECISIONS.md`, root entries | Q-G-05, Q-A6S-03, Q-A6S-04 | §3.5 `B3-2` |
@@ -321,6 +322,25 @@ Commit line: rework: B2-1 - superproject CLAUDE.md reconciled - <n> sections add
 ```
 
 **Watch:** the roster written before the agent set is decided (it is decided by the register: RC-A1-04..06); a session rule that restates the Conductor's instance-1 facts; an edit inside the markers.
+
+#### `B2-1.1` — the Testing block's worker sentence (inserted 2026-10-13, Q-B2-01 (a))
+
+**Model · reasoning:** Sonnet 5.5 · high · **Route:** session (headless) · **Where:** `C:\Programmierung\SW_Development` on `master` (in place) · **Precondition:** `B1-1` · **Writes:** `CLAUDE.md` (the one sentence) · **Waits:** —
+
+```text
+B2-1.1 — one sentence of the operator's Testing block
+Replace the "Its Sonnet/Terra worker" sentence of the superproject CLAUDE.md Testing block (lines 10-12) with the Conductor's E-03r wording, adapted to the roster B1-1 landed; nothing else in the block changes.
+Context: step B2-1.1 of C:\Programmierung\SW_Developmentework\PROMPTS_master-rework-runbook_2026-10-13.md (§3.4); rules: kickoff §2; the answers: Q-A3-02 (a), Q-B2-01 (a), recorded 2026-10-13; the wording source: C:\Programmierung\Orchestrator_System\CLAUDE.md lines 122-125 (read-only); the roster as B1-1 committed it (the §L row B1-1, by pointer).
+Where: cwd C:\Programmierung\SW_Development on master; this session writes CLAUDE.md only.
+Scope: that one sentence. Not here: any other line; AGENTS.md (frozen); the hygiene block.
+Read first: the Conductor lines; the superproject CLAUDE.md Testing block; .claude/agents/real-stack-validator.md as B1-1 left it.
+Write: CLAUDE.md.
+Constraints: Edit tool only (CRLF as found); the rest of the Testing block and the hygiene block byte-identical before and after; no runner named; the hygiene checker zero violations before the commit; no test; no push.
+Done when: the sentence reads in the E-03r form and names the validator agent and its model; one commit; the final message gives the §L row and the commit.
+Commit line: rework: B2-1.1 - Testing block worker sentence reworded (Q-A3-02)
+```
+
+**Watch:** any byte outside the sentence.
 
 #### `B2-2` — Dashboard, AndroidApp, PyApp guides reconciled; PyApp `.claude/CLAUDE.md` folded
 
@@ -1103,6 +1123,7 @@ The register of record is `REGISTER_operator-questions_2026-10-13.md` (nine prog
 | A8 | `Q-A8-01` worktrees only for single-repository steps (none planned) · `Q-A8-02` instance 2 stays paused until C1 · `Q-A8-03` path-scoped `.gitattributes` at B5 · `Q-A8-04` D-ids pre-assigned per step · `Q-A8-05` `absorbgitdirs` deferred | —, —, `B5-4`, (§3 notes), — |
 | B7 | `Q-B7-01` same-name suite skill copies the parity check lists but does not compare (PyApp `gui-validation` pointer; six Workspace copies, `verify-stack` diverged): (a) leave to `B1-2` under Q-A1-04 · `Q-B7-02` a per-suite `.codex` compare now: (a) no, the freeze covers it — both answered (a) by the orchestrator 2026-10-13 | `B1-2`, `B7-2` |
 | B4 | `Q-B4-01` the Workspace record cites `BATCH_PLAN.md:133` for a held file now at line 176: (a) fix the cite in the next Workspace hygiene D-entry — answered (a) by the orchestrator 2026-10-13 · `Q-B4-02` driver-only suite rules (contract-decision files, contract-version lines, screenshot naming, report lines) now readable only at the pointer commit: (a) copy each into that package's `SCOPE.md` standing invariants in `B4-4` with a decision line — answered (a) by the orchestrator 2026-10-13 · `Q-B4-03` live text still pointing at drivers or `_ACT_STATE.md` (AndroidApp and Workspace suite READMEs, Workspace V1 `TASK_CONTEXT.md:47,98`, V1 `README.md:56,99`): (a) READMEs to `B3-5`, the two anchor lines to `C1` as anchor amendments — answered (a) by the orchestrator 2026-10-13 · `Q-B4-04` SDA-DEC-01..05 recorded as overtaken in SDA `STATE.md` by `B4-3`: (a) `B5-3` records the five in the Configuration's decision record only — answered (a) 2026-10-13 · `Q-B4-05` SDA `SCOPE.md:11-12` still says the package binds after SDA-DEC: (a) leave, informational — answered (a) 2026-10-13 | `B3-3`, `B4-4`, `B3-5`/`C1`, `B5-3`, — |
+| B2 | `Q-B2-01` no step applied Q-A3-02 (a) to the Testing block's "Sonnet/Terra worker" sentence: (a) a one-sentence step `B2-1.1` after `B1-1` — answered (a) 2026-10-13 | `B2-1.1` |
 | B3 | `Q-B3-04` the B3-3 fence's stale commit-line clause: (a) fence fixed, clause carried by `B3-6` — answered (a) 2026-10-13 · `Q-B3-05` Workspace `docs/local_development.md:7` · `Q-B3-06` Workspace V1 `DRIVER_SCRIPT.md:27` and `SUITE_HANDOFFS.md:5` · `Q-B3-07` Server README derivation links, SV-DOMAIN-01 PyApp paths, SV-B07 link: (a) a follow-up text sweep — all answered (a) 2026-10-13 and folded into the inserted step `B3-7` · `Q-B3-03` Renamed-table form for the M-9 releases: (a) in-place flips of the existing Renamed rows — answered (a) 2026-10-13 · `Q-B3-01` who flips the hygiene runbook's §3 row M-8: (a) the orchestrator, in this flip commit — answered (a) 2026-10-13 · `Q-B3-02` the Kit version for the pilot lessons (item 17) and K-7: (a) one minor release 0.3.0 with both, then a re-pin of all seven as an M-9 pre-step; (b) a patch 0.2.2 first — open, tied to `Q-G-06` | —, `K-2` |
 | B5 | `Q-B5-01` how `design-tokens/` follows a gate value change (the Kit's export tool writes only a report): (a) `B5-3` hand-edits the flagged flat values and proves 0 diffs by round trip · `Q-B5-02` what is byte-equal in a client's synced copy: (a) core, `DESIGN_VERSION.md`, `decisions/`, `contracts/`, `gallery/`, the client's own mapping; each client's `CONFIGURATION.md` lists its own stacks — answered (a) by the orchestrator 2026-10-13 · `Q-B5-03` accept the Template defaults as design facts: (a) at `G-DS` · `Q-B5-04` who lands Q-A9D-02's four amendments: (a) `B5-3` (notes, bans), `B6a-7` (DS-06), `B6a-8` (drift checker) | `B5-3`, `B5-2`/`B5-4`…`6`, `B5-3`, `B5-3`/`B6a-7`/`B6a-8` |
 | B8 | `Q-B8-01` what is left of PyApp's graphify sanction (the allowlist entry in `tests/test_repo_hygiene.py:45-47`, two STATE/evidence lines): (a) the next PyApp writer removes the entry with a dated STATE line — answered (a) 2026-10-13, folded into `B3-7` | `B3-7` |
@@ -1167,13 +1188,14 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `B4-1` | parser-honest package edits | done 2026-10-13 — Server `243b13e`; Workspace `9669d19`; SharedContracts `86398fe` | — | SV1-B06 five tokens (blocked); SY1-B07 above SY1-B05; SC1-B02 four tokens; 0 census errors under both parsers; verified by the orchestrator |
 | `B8-1` | bindings recorded obsolete; ledger and §N corrections; PyApp cleanup | todo | — | rescoped at R-4.1 (bindings obsolete); Q-A2-03 and Q-A6P-04 answered |
 | `R-4.1` | wave 1 boundary | todo | — | |
-| `B2-1` | superproject `CLAUDE.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B2-1` | superproject `CLAUDE.md` | done 2026-10-13 — super `3c8ae25` | — | title + 6 sections; Testing and hygiene blocks byte-identical (verified); rules 4/5 per the readings; roster 3 agents; Q-B2-01 → `B2-1.1` |
 | `B2-2` | Dashboard, AndroidApp, PyApp guides | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B2-3` | Server, SharedContracts, Workspace guides | todo | — | after `B2-1` |
 | `B7-2` | Codex freeze | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B1-1` | superproject `.claude/` synced | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B1-2` | six mirrors synced | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B1-3` | third-party skills | todo | — | waits answered 2026-10-13 (R-4.1) |
+| `B2-1.1` | the Testing block's worker sentence reworded (Q-A3-02) | todo | — | inserted 2026-10-13 after `B1-1` (Q-B2-01 (a)) |
 | `B7-3` | scratch gate, harness docs, Server ledger | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-2` | superproject leftovers; backlog register | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-3` | Workspace archive; exempt-tree notes | todo | — | waits answered 2026-10-13 (R-4.1) |
