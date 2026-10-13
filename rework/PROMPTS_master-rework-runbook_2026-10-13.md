@@ -132,7 +132,7 @@ mirrors it, the hygiene checker is green, and the commit is made. Commit line:
 | Step | What | Model · reasoning | Status |
 |---|---|---|---|
 | `R-0` | verify and open the track: `D-2026-10-13-01` (root `rework`), index, kickoff prompt, runbook skeleton, three registers, Workspace gitlink `6b4b88b` | Fable 5.1 · high | done 2026-10-13 — this commit |
-| `R-1` | Phase A: `A1`…`A9` fanned out as subagents, one REGISTER or AUDIT each under `rework/`, the three most consequential claims per lane verified by the orchestrator | Fable 5.1 · high (lanes Opus 5.5 · high; `A4` xhigh; `A6` Sonnet 5.5 · high ×7; `A9` ×3) | todo |
+| `R-1` | Phase A: `A1`…`A9` fanned out as subagents, one REGISTER or AUDIT each under `rework/`, the three most consequential claims per lane verified by the orchestrator | Fable 5.1 · high (lanes Opus 5.5 · high; `A4` xhigh; `A6` Sonnet 5.5 · high ×7; `A9` ×3) | done 2026-10-13 — 18 audits under `rework/`, 54 lane claims re-checked by the orchestrator (all held); this commit |
 | `R-2` | the reuse register merged from `A1`…`A9` | Fable 5.1 · high | todo |
 | `R-3` | §3, §3a, §Q, §O, §L filled; the operator told where the runbook and register are | Fable 5.1 · xhigh | todo |
 | `R-4` | execution of every runnable lane step, worktrees merged at boundaries, register re-read at every boundary | Fable 5.1 · high (lanes per row) | todo |
