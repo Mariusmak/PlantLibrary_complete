@@ -1332,3 +1332,168 @@ Verdict recorded: after these edits `B7-1` may launch; findings 4–10 were repa
 2026-10-13 (after `B8-2`): a defect in the orchestrator's flip scripts had replaced 24 step-map rows of §3.2 with ledger text while their §L rows stayed `todo`; each step-map row was restored from the commit before its damage and the done text moved into §L (commit noted in §L's `R-4.2` row). No block text was affected.
 
 Retired blocks are moved here whole. The hand-back section (H.1–H.8) is written at `C1-2` and `C1-3`.
+
+### Hand-back — what runs next
+
+Written at `C1-2` on 2026-10-14 (answers `Q-G-05` (a), `Q-A7-07` (a)). Row statuses in each package's `TASK_CHECKLIST.md` are the truth; this section is derived from them and from the superproject's static package census (`scripts/harness/check_batch_packages.py`, bytecode writing disabled) at superproject `adb4d2b` with the suite heads Server `3bd5050`, SharedContracts `bf6187d`, Dashboard `8efccbf`, AndroidApp `ae191d3`, PyApp `57c34a6`, Workspace `41fd24c` (all six trees clean). The census verdict, quoted: "batch-packages: pass — 0 errors in 10 counted packages (84 batches, 263 rows parsed clean); 4 frozen packages listed, 123 errors there not counted; parser C:\Programmierung\Orchestrator_System\src\conductor\batch_package.py" (parser checkout `7610926`, clean at HEAD). This section is the one-time resume map: it replaces `IMPLEMENTATION_PLAN.md`, Workspace `WORKSPACE_STATE.md` and Workspace V1 `V1_IMPLEMENTATION_SEQUENCE.md` (archived by `B3-6`, H.7). The living run-next table is Workspace V1 `SUITE_HANDOFFS.md`, which carries H.1 and is maintained by the SY1 checkpoint rows (that package's `SCOPE.md` Standing invariants); where the two differ later, `SUITE_HANDOFFS.md` and the row statuses win. `C1-3` writes H.8 (the resume blocks).
+
+### H.1 Run-next table
+
+51 open batches in the six live V1 packages, grouped by wave. `V` is the deferred-validation wave that opens Phase C (runbook §3.9: `C1-1` placed every deferred-validation batch first in its package's plan order); `A`–`F` are the waves of the archived `IMPLEMENTATION_PLAN.md` §4, kept as labels. An order id is where a batch is first selected; a batch whose primary rows clear one by one (every `V` batch, `SY1-B01`) is re-selected until each primary row is `done` or carries a recorded block. Classification is the census reading (`already_done*` = a recorded-block reading, F-A7-07, Q-A7-03 (a): the batch has no row done; name its key explicitly once its prerequisite lands and its rows return to `todo`). Route: `out of band` = an unattended `run-batch` session in the suite (no Conductor is bound, H.6); `attended` = the batch carries the package's out-of-band marker and needs the operator at the screen. Model is the batch's `**Model:**` pair; a row's own `model` cell overrides it. No checklist row is copied here: Waits on names tokens, and the rows hold the detail.
+
+**Wave V — deferred validations (Phase C's first batches)**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `V.1` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B08` — Deferred validation DV-B3-01: code-cited document names | `will_run` | out of band | `sonnet/terra` (`SV-V1-CITE-01` `haiku/luna`) | nothing; no Server harness yet, so its rows end `needs-reverify` until the port (H.2 item 2; Q-C1-02 (a)); `SV-V1-CITE-02`'s hygiene paths per Q-C1-01 (a) | `DV-B3-01` (+ the `Q-A6V-03` (a) release) |
+| `V.2` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B09` — Deferred validations, unattended: harness routes, sentinels, QSS byte compare | `will_run` | out of band | `sonnet/terra` (`PY-V1-DV-01` `opus/sol`) | `PY-V1-DV-01`, `-02`: nothing; `PY-V1-DV-03`: the `GAP-PY-001`/`-004` rows `B6c-7b` appends and `B6c-8` closes | `DV-B6c-01`, `DV-B5-02`, `DV-A9P-08` |
+| `V.3` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B15` — Deferred validations, unattended | `will_run` | out of band | `sonnet/terra` | `AN-V1-DV-01`: the Kit `v1.11.0` export under `.tmp/` (Q-C1-15 (a)); `-DV-02`: `B6b-7`'s consumption row (Q-A9A-01 (a)); `-DV-03`: `B6b-7`'s rows, implemented at `B6b-8` | `DV-K1-01`, `DV-A9A-a`, `DV-A9A-j` |
+| `V.4` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B09` — Deferred validations, unattended: static and unit legs | `will_run` | out of band | `haiku/luna` | the Dashboard `Design_Migration_V1` rows of `B6a-7b` (batch Requires); then each row's `GAP-` rows done at `B6a-8`; `WD-V1-DV-03` leg 1 at the migration base sha | `DVC-A9D-08`, `DVC-A9D-09`, `DV-B6a-01` |
+| `V.5` | `PlantLibrary_SharedContracts/implementation/System_V1_Implementation` | `SC1-B04` — Deferred validation: Gallery baselines of the BINDING Design Configuration | `will_run` | attended | `sonnet/terra` | operator at the screen; Kit `f08e588` in the sibling checkout, Node ≥ 20, network into `.tmp/`; `SC-V1-DS-02` lands Configuration patch `1.0.1` (Q-C1-03 (a), listed for veto) | `DV-B5-01` |
+| `V.6` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B10` — Deferred validations, attended: live browser on the seeded stack | `will_run` | attended | `sonnet/terra` | operator; seeded stack (`verify-stack`); `WD-V1-DV-04` first (pre-migration captures from a detached worktree at the base sha, Q-C1-06 (a)); `-DV-05`…`-13` wait their `B6a-8` rows; `-DV-14` waits the next Conductor bind (Q-C1-09 (a)) | `DVC-A9D-01`…`07`, `DV-B6a-02`, `-03`, `-04`, `DV-B5-04` (Dashboard part) |
+| `V.7` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B10` — Deferred validations, attended: the real app before and after the re-skin | `will_run` | attended | `sonnet/terra` (`PY-V1-DV-06` `opus/sol`) | operator (`gui-validation`); stack for `D-08`/`D-10`/`D-11`; `PY-V1-DV-04` (before leg) at the re-skin base (Q-C1-18 (a)); the after legs wait the `GAP-PY-` rows of `B6c-7b`/`B6c-8`; `-DV-12` waits `PY-V1-REL-01` (`F.3`); `-DV-15` waits the next bind | `DV-A9P-01`…`07`, `-09`, `-10`, `DV-B5-03`, `DV-B6c-02`…`05`, `DV-B5-04` (PyApp part) |
+| `V.8` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B16` — Deferred validations, attended | `will_run` | attended | `sonnet/terra` | the owed `android-validation` act (H.3 item 7) before `AN-V1-DV-04`; `-DV-04` before the first `B6b-8` UI commit (Q-C1-14 (a)); seeded stack, headless AVD; gated rows released by `B6b-7`, G-b-2, `B6b-8` and the next bind (Q-C1-17 (a)); `-DV-07` waits `AN-V1-DS-02`/`-03` (`E.5`) | `DV-A9A-b`…`i`, `-k`, `-l`, `DV-B6b-01`…`04`, `DV-B5-04` (AndroidApp part) |
+
+**Wave A — the contract critical path (strictly in order)**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `A.1` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B00` — MVP sync-push coverage and sync reconciliation | `will_run` | out of band | `opus/sol` | the `VGAP-020` scope confirmation (H.3 item 3); the Server harness port before its closeout can be green (H.2 item 2); may stop after `SV-OPENAPI-01` (H.2 item 3) | — |
+| `A.2` | `PlantLibrary_SharedContracts/implementation/System_V1_Implementation` | `SC1-B00` — Regen wave 1 | `will_run` | out of band | `opus/sol` | Server `SV-OPENAPI-01` done | — |
+| `A.3` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B01` — MVP closure sequencing checkpoints | `will_run` | out of band | `haiku/luna` | `SY1-SEQ-01` ← `SV1-B00` + `SC1-B00` (`SY1-GATE-01`/`-02` done) | — |
+
+**Wave B — independent foundations (beside wave A, any order unless a row says otherwise)**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `B.1` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B07` — Live-stack test tier and validation anchoring | `will_run` | out of band | `sonnet/terra` | a healthy local stack (`verify-stack`); `SV-V1-TEST-02` ← `-TEST-01` | — |
+| `B.2` | `PlantLibrary_SharedContracts/implementation/System_V1_Implementation` | `SC1-B03` — Validation anchoring | `will_run` | out of band | `haiku/luna` | `SY1-VAL-01` done (met); `SC-V1-DOC-01` left until next touched (Q-C1-04 (a)) | — |
+| `B.3` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B08` — Headless browser e2e and validation anchoring | `will_run` | out of band | `sonnet/terra` | `WD-V1-TEST-02` ← `-TEST-01` and a healthy stack | — |
+| `B.4` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B13` — Headless test foundation and validation anchoring | `will_run` | out of band | `sonnet/terra` | nothing; GC-2006 (owed item 2): the suite tracks no test sources today, so "unit tests pass" is not evidence until `AN-V1-TEST-01` creates them | `DV-B8-01` (on `AN-V1-TEST-01`, Q-C1-12 (a)) |
+| `B.5` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B08` — Full-app headless driver and validation anchoring | `will_run` | out of band | `sonnet/terra` | nothing | — |
+| `B.6` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B00` — Live walkthrough and UI-edit evidence | `will_run` | attended | `sonnet/terra` | operator; seeded stack | — |
+| `B.7` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B00` — Live server/OIDC/sync walkthrough | `will_run` | attended | `sonnet/terra` | operator (`gui-validation`); stack, Keycloak, seeded garden; generated client installed | — |
+| `B.8` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B01` — Real-server integration test + test-debt cleanup | `blocked` | out of band | `sonnet/terra` | `PY1-B00` done (or its stack recipe recorded) | — |
+
+**Wave C — API expansion, then contract wave 2 (strictly in order)**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `C.1` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B01` — Catalog/profile read endpoints + logout | `blocked` | out of band | `sonnet/terra` | `SV1-B00` done | — |
+| `C.2` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B02` — External search + manual profile creation | `blocked` | out of band | `opus/sol` | `SV1-B01` done | — |
+| `C.3` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B04` — Tags | `blocked` | out of band | `sonnet/terra` | `SV1-B01` done; preferred before `SV1-B03` (H.2 item 4) | — |
+| `C.4` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B03` — Provider status, enrichment jobs, admin-review categories | `blocked` | out of band | `opus/sol` | `SV1-B02` done | — |
+| `C.5` | `PlantLibrary_SharedContracts/implementation/System_V1_Implementation` | `SC1-B02` — Regen wave 2 | `will_run` | out of band | `opus/sol` | Server `SV-OPENAPI-02`…`05` done; the `UB-20` export items (H.4) | — |
+| `C.6` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B02` — V1 endpoint wave checkpoint | `will_run` | out of band | `sonnet/terra` | `SV1-B01`…`B04` and `SC1-B02` progressing | — |
+
+**Wave D — client V1 capability**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `D.1` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B01` — Live-data reactivation wave A: catalog + locations | `already_done*` | out of band | `sonnet/terra` | `SC1-B02` TypeScript client (catalog, locations) | — |
+| `D.2` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B02` — Live-data reactivation wave B: search, sources, settings, logout, tags | `already_done*` | out of band | `sonnet/terra` | `SC1-B02` families (search/manual, providers/jobs, logout, tags) | — |
+| `D.3` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B02` — Sync UX polish + harvest preset | `blocked` | out of band | `sonnet/terra` | `PY1-B00` done; `PY-V1-REFDATA-01` waits the `VGAP-020` decision (H.3 item 3) and the Server outcome | — |
+| `D.4` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B03` — Contract-wave consumption and tags reconciliation | `already_done*` | out of band | `opus/sol` | `SC1-B00` (`PY-V1-CLIENT-01`); `SC1-B02` + the Server `SV1-B04` tag note (`PY-V1-TAGS-01`) | — |
+| `D.5` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B01` — Production shell and Home | `will_run` | out of band | `sonnet/terra` | the MVP gate (open since 2026-07-13); may start beside wave C | — |
+| `D.6` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B02` — Plants list and detail depth | `will_run` | out of band | `sonnet/terra` | the MVP gate; may start beside wave C | — |
+| `D.7` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B03` — Add/search/enrichment maturity + offline quick-capture inbox | `will_run` | out of band | `opus/sol` | the MVP gate and the `SC1-B02` Kotlin client (`AN-V1-ADD-04` needs only the gate) | — |
+| `D.8` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B04` — Field care workflows + care reminders | `will_run` | out of band | `sonnet/terra` | the MVP gate | — |
+| `D.9` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B05` — Media V1 | `will_run` | out of band | `sonnet/terra` | the MVP gate | — |
+| `D.10` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B06` — Sync/conflict hardening | `will_run` | out of band | `opus/sol` | the MVP gate | — |
+| `D.11` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B07` — More/Settings/locations/source summaries | `will_run` | out of band | `sonnet/terra` | the MVP gate; the logout half `SC1-B02` | — |
+
+**Wave E — the design track, overtaken by the GUI lane (`Q-G-01` (a), `Q-A7-06` (a)); nothing waits on it**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `E.1` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B06` — Design tokens 1.2.0 adoption | `will_run` | out of band | `sonnet/terra` | do not run: `WD-V1-DS-06` is superseded by the design-migration gap rows (Q-A9D-03 (a)); the status flip is `B6a-7b`'s | — |
+| `E.2` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B11` — Design tokens 1.2.0 adoption | `will_run` | out of band | `sonnet/terra` | do not run: `AN-V1-DS-05` superseded (Q-A9A-02 (a)); the flip is `B6b-7b`'s | — |
+| `E.3` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B06` — Design tokens 1.2.0 adoption | `will_run` | attended | `sonnet/terra` | do not run: `PY-V1-DS-03` absorbed by generation (Q-A9P-02 (a)); the flip is `B6c-7b`'s | — |
+| `E.4` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B04` — Design-system convergence | `already_done*` | out of band | `sonnet/terra` | `SDA-B02` (SDA superseded, Q-A7-06 (a)); `WD-V1-DS-01` superseded (Q-A9D-03 (a)) | — |
+| `E.5` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B08` — Design docs and impeccable onboarding | `will_run` | out of band | `sonnet/terra` | `AN-V1-DS-01` superseded (Q-A9A-02 (a)); `AN-V1-DS-02`…`04` live and feed `AN-V1-DV-07` (`V.8`) | — |
+| `E.6` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B04` — Design-system adoption and impeccable audit of sync-era UI | `will_run` | out of band | `sonnet/terra` | `PY-V1-DS-01` superseded by generation; `PY-V1-DS-02` ← `PY1-B00` evidence | — |
+| `E.7` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B03` — Design-system convergence checkpoint | `will_run` | out of band | `haiku/luna` | the SDA state (read-only, superseded): the checkpoint records the supersession | — |
+
+**Wave F — harden and release**
+
+| Order | Package (path) | Batch | Classification (census) | Route | Model | Waits on | Deferred validations |
+|---|---|---|---|---|---|---|---|
+| `F.1` | `PlantLibrary_Server/implementation/System_V1_Implementation` | `SV1-B06` — Operations hardening and household install | `blocked` | out of band | `opus/sol` | `SV1-B00`…`B04` done or deferred; `SV-V1-SEC-01` runs last in the batch; `UB-02` (H.4) | — |
+| `F.2` | `PlantLibrary_Dashboard/implementation/System_V1_Implementation` | `WD1-B05` — Quality, impeccable onboarding, CI, release | `will_run` | out of band | `opus/sol` | per row: `WD-V1-DS-05` ← `WD1-B00` + `WD-V1-DS-03`; `WD-V1-QA-01` ← `WD1-B01`…`B03` | — |
+| `F.3` | `PlantLibrary_PyApp/implementation/System_V1_Implementation` | `PY1-B05` — Release hardening | `blocked` | out of band | `opus/sol` | `PY1-B01`…`B04` done or deferred | — |
+| `F.4` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B09` — Quality and release hardening | `blocked` | out of band | `opus/sol` | `AN1-B01`…`B07` done or deferred; the `AN-V1-SEC-01` decision (H.3 item 1); `UB-01`, `UB-03`, `UB-15`…`17` nearest here (H.4) | — |
+| `F.5` | `PlantLibrary_AndroidApp/implementation/System_V1_Implementation` | `AN1-B10` — Cross-platform V1 acceptance | `blocked` | attended | `opus/sol` | `AN1-B09` done; scheduled jointly with `SY1-B04` | — |
+| `F.6` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B04` — Cross-platform V1 smoke | `will_run` | attended | `opus/sol` | `SV1-B06`, `WD1-B05`, `AN1-B09`, `PY1-B05` done or deferred with rationale; `AN1-B10` jointly | — |
+| `F.7` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B07` — V1 security review gate | `will_run` | out of band | `sonnet/terra` | Server `SV-V1-SEC-01` done with its triage file; the named sign-offs (H.3 item 2) | — |
+| `F.8` | `PlantLibrary_Workspace/implementation/System_V1_Implementation` | `SY1-B05` — Release readiness | `blocked` | out of band | `opus/sol` | `SY1-B04` done; `SY1-B07` done with verdict `pass` | — |
+
+**Not in the table.** The eight done batches (`SC1-B01`, `WD1-B07`, `AN1-B00`, `AN1-B12`, `AN1-B14`, `PY1-B07`, `SY1-B00`, `SY1-B06`). The superseded Workspace `System_Design_Architecture` package (all nine batches `already_done` by deferral, Q-A7-06 (a)) and the four frozen packages. The three client `Design_Migration_V1` packages, as a **pending amendment**: Dashboard's has no batch yet; AndroidApp's eight `ADM1-` batches and PyApp's eight `PYDM1-` batches hold retired phase rows (`deferred`, Q-B6a-02 (a), Q-B6c-03 (a); the census reads `ADM1-B00`…`B07` `already_done`, `PYDM1-B01` `will_run` and `PYDM1-B02`…`B07` `blocked`, and none of them runs). The GUI lane's stage-07 plan acts `B6a-7b`, `B6c-7b` and `B6b-7b` add the design-migration implementation rows and flip the superseded DS rows of wave E; their batches enter `SUITE_HANDOFFS.md` when those acts land, and the `V` rows that wait on them clear then.
+
+### H.2 Cross-suite order
+
+1. **The deferred validations first.** Each package's `V` batch is first in its plan order (`C1-1`). Run the unattended ones at once (`V.1`–`V.4`); the attended ones when the operator is at the screen (`V.5`–`V.8`). Two of them are time-bound: `WD-V1-DV-04` and `AN-V1-DV-04` are the pre-migration baselines and run before the first `B6a-8` / `B6b-8` UI commit (or from the base sha, as each batch's Notes say); `PY-V1-DV-04` likewise at the re-skin base.
+2. **The Server harness port before the first Server closeout that must be green** (Q-C1-02 (a); onboarding runbook §L step 7; Q-A2-01 (a) holds the port for one re-port with PyApp's after the Conductor's proposal-A harness half). `SV1-B08` may run before it and end `needs-reverify`; the port's first batch re-verifies its rows. `SV1-B00`'s rows cannot close `done` without it, and `SC1-B00` requires `SV-OPENAPI-01` `done`: the critical path waits on the port (proposed Q-C1-26). The other suites without `scripts/harness/` (SharedContracts, Dashboard, AndroidApp, Workspace) are proposed Q-C1-27.
+3. **Wave A, strictly in order:** `SV1-B00` → `SC1-B00` → `SY1-B01`. **`SV1-B00` early handoff:** the batch may stop after `SV-OPENAPI-01` is `done`; that row is the only hard prerequisite of `SC1-B00`, which may then start while the rest of `SV1-B00` continues. Nothing on any client consumes new Server behaviour before its regeneration lands.
+4. **Wave C, strictly sequential:** `SV1-B01` → `SV1-B02` → `SV1-B04` → `SV1-B03` → `SC1-B02` → `SY1-B02`. **The Wave C preference:** `SV1-B04` (needs only `SV1-B01`) runs before `SV1-B03` (needs `SV1-B02`) although the Server plan lists `B03` first; two sessions on `SV1-B02`/`SV1-B04` in parallel would have to reconcile one OpenAPI export, so do not. `SC1-B02` may run once after all four exports or in recorded sub-waves; it is the gate of the blocked client rows (wave D).
+5. **Wave B beside A and C**, independent of the contract path; `PY1-B01` after `PY1-B00`.
+6. **Wave D after `SC1-B02`**, the three clients in parallel: Dashboard `WD1-B01` → `WD1-B02`; PyApp `PY1-B02` → `PY1-B03`; AndroidApp `AN1-B01` → `B07`. `AN1-B01`, `B02`, `B04`, `B05`, `B06` need only the open MVP gate and may start beside wave C; `AN1-B03` and the logout half of `AN1-B07` wait `SC1-B02`.
+7. **Wave E is not run as written**: its DS rows are superseded or absorbed by the GUI lane (wave E table); `AN1-B08`'s live rows run when convenient, before `AN-V1-DV-07`; `SY1-B03` records the outcome.
+8. **Wave F:** `SV1-B06` (`SV-V1-SEC-01` last), `WD1-B05`, `PY1-B05`, `AN1-B09` → `AN1-B10` scheduled jointly with `SY1-B04` → **`SY1-B07` before `SY1-B05`** (the key is an identifier, not the sequence: the same pattern as `SY1-B06`, numbered last and run first; Workspace V1 `SCOPE.md` Standing invariants) → `SY1-B05`.
+
+### H.3 Operator decisions on the path
+
+Open questions live in `rework/REGISTER_operator-questions_2026-10-13.md` (mirrored in §Q); this list names those that stand on the H.2 path.
+
+1. **`AN-V1-SEC-01`** (release-blocking, rule `SYS-QUAL-GAP-004`; `UB-12`): Keystore-backed token storage or a named sign-off on the recorded DataStore deviation (AndroidApp `docs/security_token_storage_acceptance.md`); gates `AN1-B09` → `AN1-B10` → `SY1-B04` → release. Proposed Q-C1-23.
+2. **The `/security-review` sign-offs** (release-blocking; `UB-13`): every accepted or deferred finding of `SV-V1-SEC-01`'s triage carries a named sign-off before `SY1-B07` can pass. Asked when the triage file exists. Proposed Q-C1-24.
+3. **`VGAP-020` / `SD-GAP-008` stays V1 scope** (`UB-14`; deferred out of MVP into V1 on 2026-07-15): carried by `SV-SYNC-REFDATA-01`, `SC1-B00` and `PY-V1-REFDATA-01` (whose requirement is a named product-owner decision); confirm before `SV1-B00` runs, since it sizes that batch. Proposed Q-C1-25.
+4. **The three open GUI gates:** `G-a-1` (`Q-G-a-1-01`…`09`, Dashboard), `G-b-1` (`Q-G-b-1-01`…`09`, AndroidApp), `G-c-1` (`Q-G-c-1-01`…`08`, PyApp), and `Q-G-10` (whether the orchestrator answers the later gates G-x-2…4 "recommended unless flagged"). They hold each lane's `-6a` and therefore the stage-07 amendments every `GAP-` dependent `V` row waits on.
+5. **Owed item 18** (`Q-B5-13`): the GitHub repository variables `DESIGN_KIT_REPOSITORY` and `DESIGN_KIT_REF` (`v1.11.0`) for the design-conformance workflow in Dashboard, PyApp and AndroidApp; until set, that workflow goes red on push.
+6. **The answers listed for veto** in the register (among them `Q-C1-03`, the Configuration patch `1.0.1` that `SC-V1-DS-02` lands; `Q-C1-21`; `Q-B6a-10`, `Q-B6c-07`, `Q-B6c-08`, `Q-B6c-10`): taken as (a) by the orchestrator; the operator may veto at an §O session.
+7. **Owed acts that are not batches** (a session does them; they are listed here because a batch waits on each):
+   - superproject: the `android-validation` skill gains RC-A9A-11 (capture naming `<page_id>__android__<theme>.png` and light/dark switching), mirrored byte for byte to the suites with harness parity green, **before `AN1-B16` runs** (Q-C1-13 (a); `AN-V1-DV-04` requires it);
+   - Server: the harness port (H.2 item 2; onboarding step 7);
+   - Server package: the next writer adds a hard-scope line for hygiene bookkeeping (`docs/`, `hygiene/`) to `SCOPE.md` (Q-C1-01 (a));
+   - Dashboard V1 package: the next writer adds the `DVC-`/`DV-`/`GAP-` traceability tokens to `CONTEXT_INDEX.md` (Q-C1-10 (a));
+   - at the next Conductor bind: the Kit's two role overrides (owed item 19) and readiness row 8 (owed item 15); the three `DV-B5-04` parts stay `blocked` until then (Q-C1-09 (a)).
+8. **Closed, listed so nobody re-asks:** `SDA-DEC-01`…`05` are overtaken (`Q-G-01` (a), `Q-A7-06` (a); `UB-11`); the instance-2 canary hold `S-2` has lapsed (H.6).
+
+### H.4 Backlog without rows
+
+The register of record is `rework/REGISTER_unplanned-backlog_2026-10-13.md` (`UB-01`…`21`; §1 the archived plan's §7, §2 `Todo.md`'s live ideas, §3 the operator decisions carried into H.3, §5 the lanes' findings). Nothing in it is scheduled; each item becomes work only through `plan-batch` in its target suite.
+
+| Target | Items | Needs |
+|---|---|---|
+| AndroidApp | `UB-01` (no cleartext HTTP, plan HTTPS; release-path security), `UB-03` (Gradle 9), `UB-15` (dead repository operations), `UB-16` (code findings; two may be claimed by the IA), `UB-17` (string resources), `UB-19` (garden scope, day boundary, `base_url` editors; runtime check `DV-B6b-04`) | plan-batch in AndroidApp, nearest `AN1-B09` or the named rows |
+| Server | `UB-02` (operator setup guide, only to widen `SV-OPS-INSTALL-01`), `UB-04` (enrichment in the creation flow: operator decision on the proposal first), `UB-20` (the Server half) | plan-batch in Server |
+| SharedContracts | `UB-07` (build parts excluded from git: operator names the files first), `UB-20` (the export half) | plan-batch in SharedContracts |
+| PyApp | `UB-18` (dead GUI code), `UB-21` (unowned forward behaviours) | plan-batch in PyApp |
+| Workspace | `UB-05` (GTM proposal), `UB-08` (value audit), `UB-09` (security assessment beyond the two rows) | operator decision first, then plan-batch |
+| none | `UB-06` (MVP folders read-only: a standing rule, H.5), `UB-10` (outside the seven repositories), `UB-11`…`14` (H.3) | no plan-batch |
+
+### H.5 Binding rules and environment
+
+- **Where the rules live.** Each live package's `SCOPE.md` (Hard scope, Standing invariants): the six `System_V1_Implementation` packages and the three client `Design_Migration_V1` packages. The suite `CLAUDE.md` files carry each suite's commands and environment; the superproject `CLAUDE.md` carries the session rules that bind them all.
+- **Contract first.** Contract-changing Server work ends with its `SV-OPENAPI-*` row; SharedContracts regenerates (version bump and changelog in the same batch) before any client consumes it (`sync-contracts` skill; SharedContracts and Server `SCOPE.md`).
+- **Client invariants.** Dashboard: honest empty or disabled states, never mocked production data (Dashboard V1 `SCOPE.md`). PyApp: local-only mode valid after every change (PyApp V1 `SCOPE.md`). AndroidApp: MVP-gated rows wait the gate ledger (AndroidApp V1 `SCOPE.md`; the gate is open since 2026-07-13).
+- **Release ledger, stated once.** Release needs `SY1-REL-01`'s ledger tying suite versions, the contract version and the validation evidence (the `SV-OPS-INSTALL-01` install verification is one input).
+- **Security gate, stated once.** Release needs `SY1-B07` / `SY1-SEC-01` at verdict `pass`. `/security-review` runs in the suite repository that owns the code (`SV-V1-SEC-01` for the four server-side V1 surfaces), never from the Workspace, which holds only planning documents.
+- **Phase C proof.** A deferred-validation row's `validation` cell is the register's "What would be run", unnarrowed (`rework/REGISTER_deferred-validations_2026-10-13.md`); the rows run under `run-batch` like any other.
+- **Design.** The canonical Design Configuration is SharedContracts `design/` (BINDING `1.0.0`; `Q-G-01` (a)); each anchored client holds a synced copy with its own `conformance/` and runs the `design-gate` skill before a rendered-surface edit (`design-adoption` is a retired pointer, `Q-G-07` (a)).
+- **History stays read-only.** The MVP folders and every frozen tree are kept, never deleted or edited (`UB-06`; each repository's hygiene record).
+- **Environment pointers.** Docker is the `desktop-linux` context and the running api container is not a test environment (Server `CLAUDE.md`, "Docker is the authoritative local runtime" and "Test-environment distinction"); the stack's bring-up, seed and walkthroughs are the `verify-stack` skill's; the emulator is `android-validation`'s; a desktop GUI is driven only under `gui-validation` (never assume focus); the browser under `webapp-testing` through the Dashboard's own `e2e/` setup. One test slot on the machine (superproject `CLAUDE.md`, session rule 2).
+
+### H.6 Instance 2
+
+No Conductor binding exists. The six projects bound on instance 2 at onboarding step 5 (2026-09-16; the call-by-call record is `onboarding/REGISTER_package-census_2026-09-15.md`, "Instance 2 registration, step 5", and the onboarding runbook §L step `5`) are obsolete by the operator's word ("We can keep repo structure but dont need to keep instance 2 bindings. They are obsolete.", 2026-10-13, `Q-G-02`; `Q-A8-02`). Instance 2 is neither resumed nor given intake; its store, including the paused `PY1-B08` execution, stays untouched, and no re-intake is owed (owed item 16 lapsed). The staging hold `S-2` on the canary (onboarding runbook §L step `6`) has lapsed with the bindings (owed item 10). **The next bind is the operator's decision**, to whichever instance; until then every batch runs out of band (H.1 Route). Its static precondition is the bind contract of `rework/AUDIT_batch-packages_2026-10-13.md` §7.5, last proved at `B4-5` (`rework/EVIDENCE_bind-proof_2026-10-13.md`); the acts it releases are H.3 item 7's last line.
+
+### H.7 Archived sequencers (the plan for `B3-6`)
+
+| Old path | Archive path | Decision |
+|---|---|---|
+| `SW_Development/IMPLEMENTATION_PLAN.md` | `SW_Development/archive/root/IMPLEMENTATION_PLAN.md` | the superproject entry `B3-6` mints (allowlist `archive`, `exempt-tree: archive — legacy`, allowlist-remove `IMPLEMENTATION_PLAN.md`); `archive/README.md` mapping row |
+| `PlantLibrary_Workspace/WORKSPACE_STATE.md` | `PlantLibrary_Workspace/archive/WORKSPACE_STATE.md` | the Workspace entry `B3-6` mints (the tree is declared by `D-2026-10-13-01`); mapping row; its two citers repointed |
+| `PlantLibrary_Workspace/implementation/System_V1_Implementation/V1_IMPLEMENTATION_SEQUENCE.md` | `PlantLibrary_Workspace/archive/V1_IMPLEMENTATION_SEQUENCE.md` | the same Workspace entry; mapping row |
+| `PlantLibrary_Workspace/implementation/System_V1_Implementation/SUITE_HANDOFFS.md` | stays: reshaped in place at `C1-2` (`Q-A7-07` (a)) | none; `B3-6` drops it from the "Expected members" line of Workspace `archive/README.md` |
+
+What only the three carried is now here: the dependency chain, the Wave C preference and the `SV1-B00` early handoff (H.2), the operator decisions (H.3), the environment notes (H.5), the backlog (H.4, by pointer), the binding-rules recap (H.5 and `SUITE_HANDOFFS.md`) and the run-next table (H.1 and `SUITE_HANDOFFS.md`). Their model-role meanings (Sol/Terra/Luna) are superseded by the `model` column; the MVP-era status in `WORKSPACE_STATE.md` has no live content left.
