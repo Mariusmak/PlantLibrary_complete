@@ -330,6 +330,9 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-C1-01 | Conductor `real-stack-testing` skill, harness contract item 7 | "a test never reads a file the harness writes" forbids the shape guard on a committed `duration_history.json` that run-batch itself commits; PlantLibrary ratified a narrow exception (Q-C1-57 (a)) | proposal: word item 7 to allow a shape check of a committed history (never timing values) | — | next Conductor proposal | Q-C1-57 | Phase C |
 
+| RC-B6-10 | Design_Template_Kit `check-literals.mjs:29,255` @ 1.11.0 | exempts every `/gallery/` path even when the file is named, so a literal leg over mockups is vacuously green | record (K-3 input: scan named Gallery page files, exempt only the generated index and fragments) | — | K-3 | Q-B6a-16 | B6a-6b |
+| RC-B6-11 | Design_Template_Kit `wizard/emit-configuration.mjs` @ 1.11.0 | copies Gallery specimen text into a component contract (C-11 "Keep accessions") | record (K-3 input) | — | K-3 | Q-B6a-17 | B6a-6b |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
