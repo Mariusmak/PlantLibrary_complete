@@ -324,6 +324,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 | RC-B6-06 | Design_Template_Kit `check-literals.mjs` @ 1.11.0 | does not read named colours (`white` at PyApp `calendar_view.py:102`, `:295`) nor Kotlin `FontWeight(n)`, alpha values, bare integers in `tokenStyle(...)`, or banned colours reached by name | record only (Kit finding) | — | next Kit session | B6b-2's and B6c-4's reports | R-4.3 |
 | RC-B6-07 | Design_Template_Kit `literal_allowlist.txt` semantics @ 1.11.0 | allowlist records for the banned `#4ADE80` and `#22C55E` exist in PyApp yet the scan still reports them, so the literal check exits 1 until the re-skin removes the values | record only (Kit finding: say whether a banned value can be allow-listed at all) | — | next Kit session | B6c-2's report | R-4.3 |
 
+| RC-B6-08 | Design_Template_Kit `anchoring-kit` installer template `design-conformance.yml` @ 1.11.0 | the workflow's "Checkout Design Template Kit" step passes no token, so a consumer whose Kit repository is private gets a red job even with `DESIGN_KIT_REPOSITORY`/`DESIGN_KIT_REF` set; the consumers add `token: ${{ secrets.DESIGN_KIT_TOKEN }}` by hand | record only (Kit finding: the template should carry the token input) | — | next Kit session | Q-B5-13 reading, 2026-10-14 | R-4.4 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).

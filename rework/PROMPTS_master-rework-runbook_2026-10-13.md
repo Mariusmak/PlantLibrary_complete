@@ -41,7 +41,7 @@ as a chapter. The template it follows is `AUDIT_runbook-conventions_2026-10-13.m
 | Design | SharedContracts `design/` 1.0.0 BINDING unchanged; proposed for the serialized `B6a-6`/`B6c-6` step and listed for veto: Q-B6a-10 (tokens), Q-B6a-07 and Q-B6c-10 (page contracts); Q-C1-03 (Gallery baselines as 1.0.1, Phase C) |
 | Kits | Design Template Kit `master` 1.11.0 @ `612e634`; Repo Hygiene Template Kit `main` 0.3.0 @ `d5b9742`; 12 Kit findings recorded (RC-B5-01..05, RC-B6-01..07) |
 | Conductor | `main` at `7610926` (another session writes there; read-only from here); no instance bound |
-| Operator items open | owed item 18 (GitHub variables); the three gates and Q-G-10; Q-C1-23/24/26/31; the veto list in §Q; owed items 11, 15, 19 at the next Conductor bind |
+| Operator items open | owed item 18, second half: the secret `DESIGN_KIT_TOKEN` (a fine-grained read-only token for the private Kit) in the three anchored clients — the variables are set (operator, 2026-10-14), the token line lands at the `-6a` steps; the gates, Q-G-10, Q-C1-23/24/26/31 and the veto walk answered (a) 2026-10-14 (§O session f4bc91fc, super `c176a9c`); owed items 11, 15, 19 at the next Conductor bind |
 
 ## 2. Rules
 
@@ -1110,7 +1110,7 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 | 16 | `PyApp` re-intake at `PY1-B08` if any step moves its plan contract | `A7` F-A7-09 | lapsed with the bindings (Q-A7-04, Q-A8-02 readings, 2026-10-13) | lapsed |
 | 17 | M-8's Kit changelog commit (hygiene runbook §16) | `B3-1` | `K-2` done 2026-10-13 (the ten lessons in the 0.3.0 changelog) | done |
 | 19 | The Kit's two Conductor role overrides, to be deployed to whichever Conductor instance is bound next (none today) | `B5-8` | Phase C, at the next Conductor bind | open |
-| 18 | GitHub repository variables `DESIGN_KIT_REPOSITORY` and `DESIGN_KIT_REF` (`v1.11.0`) for the design-conformance workflow in Dashboard, PyApp and AndroidApp; until set, that workflow goes red on push | `B5-4` (Q-B5-13) | operator, at any time before the next push (the orchestrator cannot set repository variables) | open |
+| 18 | GitHub repository variables `DESIGN_KIT_REPOSITORY` and `DESIGN_KIT_REF` (`v1.11.0`) for the design-conformance workflow in Dashboard, PyApp and AndroidApp; until set, that workflow goes red on push | `B5-4` (Q-B5-13) | operator, at any time before the next push (the orchestrator cannot set repository variables) | open, second half — variables set by the operator 2026-10-14 (unverified: gh absent, repos private); the Kit stays private, so the workflow needs `token: ${{ secrets.DESIGN_KIT_TOKEN }}` on its Kit checkout step (folded into `B6a-6a`/`B6c-6a`/`B6b-6a`) and the operator stores that secret in the three repositories |
 
 ## Q. Operator questions — mirror of the register
 
@@ -1288,7 +1288,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `C1-3` | resume blocks | done 2026-10-14 — super `f4b814a` | — | §H.8: six blocks in H.2 order (SV1-B08, PY1-B09, AN1-B15, WD1-B09, SC1-B04, SY1-B01); first = R-5's Phase C prompt; all out of band; Q-C1-29/30 (a) |
 | `C1-4` | hand-back HANDOVER | done 2026-10-14 — this commit | — | handovers/HANDOVER_master-rework-hand-back_2026-10-14.md: lanes with commit lines, seven heads, open items by owner, continuation fence, Phase C first act; Q-C1-31 put |
 | `R-4.4` | wave 4 boundary | done 2026-10-14 — this commit | — | wave 4 done (C1-1..4, B3-6, B3-6.1, B3-7, B3-8); §1 and §3b refreshed; pushed all seven at every flip; R-5 waits the GUI lanes (gates G-a-1/b-1/c-1, Q-G-10) |
-| `R-5` | close | waits the GUI lanes (B6*-6a..-8) and the gates | — | R-4.4 done 2026-10-14; the close follows the last B6 step |
+| `R-5` | close | waits the GUI lanes (B6*-6a..-8; gates answered (a) 2026-10-14) | — | R-4.4 done 2026-10-14; the close follows the last B6 step |
 
 ## R. Adversarial round on the R-3 draft
 
