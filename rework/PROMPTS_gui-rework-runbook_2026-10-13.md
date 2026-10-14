@@ -328,7 +328,7 @@ Commit line: rework: B6c-6 - PyApp IA 06b; contracts and mockups; mockup audit 0
 
 #### `B6c-7` — change classification (06d); plan-batch (07); SCOPE (08); gate `G-c-4`
 
-**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** PyApp, in place · **Precondition:** `B6c-6`, `event:G-c-3` · **Writes:** workspace `06d_*`; the V1 package (new rows and batches; superseded/absorbed rows' STATE lines); workspace `SCOPE.md` · **Waits:** Q-A9P-02, Q-A7-08 (Q-A9P-08 is recorded at `B5-3`)
+**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** PyApp, in place · **Precondition:** `B6c-6`, `event:G-c-3` · **Writes:** workspace `06d_*`; `implementation/Design_Migration_V1/{BATCH_PLAN,TASK_CHECKLIST,TASK_CONTEXT,STATE}.md` (new rows and batches — Q-A7-08 (a), G-c-4 item 2, Q-B6c-21 (a), corrected 2026-10-14); the V1 package receives the anchor notes, the DS-row supersession lines and statuses, the eight DV rows' `requirements` cells (CC-78) and the one engineering row (CC-80) only; workspace `SCOPE.md` · **Waits:** Q-A9P-02, Q-A7-08 (Q-A9P-08 is recorded at `B5-3`)
 
 ```text
 B6c-7 — the PyApp change classification and the batches
@@ -488,7 +488,7 @@ Commit line: rework: B6b-6 - AndroidApp IA 06b; contracts and mockups; mockup au
 
 #### `B6b-7` — change classification (06d); plan-batch (07); SCOPE (08); gate `G-b-4`
 
-**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** AndroidApp, in place · **Precondition:** `B6b-6`, `event:G-b-3` · **Writes:** workspace `06d_*`; the V1 package (new rows and batches; superseded/absorbed rows' STATE lines); workspace `SCOPE.md` · **Waits:** Q-A9A-02, Q-A7-08
+**Model · reasoning:** Opus 5.5 · xhigh for 06d; the `/plan-batch` act Opus 5.5 · high · **Route:** session (headless), then plan · **Where:** AndroidApp, in place · **Precondition:** `B6b-6`, `event:G-b-3` · **Writes:** workspace `06d_*`; `implementation/Design_Migration_V1/{BATCH_PLAN,TASK_CHECKLIST,TASK_CONTEXT,STATE}.md` (new rows and batches — Q-A7-08 (a), G-c-4 item 2, Q-B6c-21 (a), corrected 2026-10-14); the V1 package receives the anchor notes, the DS-row supersession lines and statuses, the eight DV rows' `requirements` cells (CC-78) and the one engineering row (CC-80) only; workspace `SCOPE.md` · **Waits:** Q-A9A-02, Q-A7-08
 
 ```text
 B6b-7 — the AndroidApp change classification and the batches
@@ -549,7 +549,7 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6c-4` | PyApp comparison, gap map | done 2026-10-14 — PyApp `573590c` | — | 118 gaps: P0 1 (tokens.py unused), P1 13, P2 79, P3 25; owners B6c-5 11 / B6c-6 6 / B6c-7 41 / B6c-8 60; F-A9P 11 placed, 5 dismissed; AVD-PY-01..06; Q-B6c-11..13 (a) |
 | `B6c-5` | PyApp forward surface; `G-c-1` | done 2026-10-14 — PyApp `cac2e5f` (r2) | — | re-skin form: 8 open rows reserve 3 / absorbed 2 / no-UI 3; 9 notes owed at B6c-7; settings 47 entries 25/9/13, 9 never read; G-c-1 put as Q-G-c-1-01..08 (open); Q-B6c-14 (a); UB-21 |
 | `B6c-6` → split `B6c-6a` (to the gate), `B6c-6b` (after `event:G-c-2`) | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | done 2026-10-14 — PyApp `c1a48aa` (6a), SharedContracts `51f2bf5` + PyApp `12c27c1` (6b) | — | IA 12 pages (today's tree); Configuration 1.2.0 (11 desktop contracts, 11 mockups, 12 fixtures, 104 regions; no core change); audit 68 findings, 30 fixed; GUI routers retired; G-c-3: 13 items (a) under Q-G-10, item 7 follows Q-G-a-3-03 |
-| `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | running (B6c-7a session; G-c-3 item 7 and Q-G-a-3-03 carried as open) | — | plan-contract hash rule |
+| `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | running — 7a done 2026-10-14 (PyApp `47d2ffc`: 104 changes, 68 rows / 22 batches PYDM1-B08..B29; G-c-4: 17 items (a) under Q-G-10, item 14 (D-V1-15) flagged → the operator); 7b running | — | plan-contract hash rule |
 | `B6c-8` | PyApp implementation (per batch) | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B6b-1` | AndroidApp workspace bootstrap | done 2026-10-13 — AndroidApp `6ad8087` | — | restructure brief, unbound; 16 phase rows in ADM1-B00..B07; roots D-2026-10-13-05; hook file added; design-authority row repointed; Q-B6b-01..04 (a) |
 | `B6b-2` | AndroidApp census | done 2026-10-13 — AndroidApp `e9ac4a8` | — | 215 literals (87 colour, 128 dim; 82 dp UI); 6 banned lines; mirror 58/27/49; 65 ops/51 reached; CM-01..04 confirmed; README fixed; Q-B6b-05..07 (a) |
