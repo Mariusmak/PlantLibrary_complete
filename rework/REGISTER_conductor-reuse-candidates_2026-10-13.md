@@ -349,6 +349,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-16 | Design_Template_Kit `check-drift.mjs` @ 1.12.0 | counts a `__pycache__/` directory beside `generated/tokens.py` as drift, so any Python import of the emitted module turns the check red | record (next Kit session: skip `__pycache__` and other ignored paths) | — | next Kit session | Q-B6c-44 | B6c-8 PYDM1-B09 |
 
+| RC-B6-17 | Design_Template_Kit `design-conformance.yml` @ 1.12.0 | the CI job checks the Kit out at the repository variable `DESIGN_KIT_REF`, which must be hand-moved at every Kit upgrade; the pinned tag already sits in `CONSUMED_DESIGN.md` | record (next Kit session: the workflow reads the tag from the pin file; the variable retires) | — | next Kit session | Q-B6a-44 (c) | §O session 9b5c772b |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
