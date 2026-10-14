@@ -347,6 +347,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-15 | Design_Template_Kit compose emitter @ 1.12.0 | `SizeButton*FontSize` is emitted as dp instead of sp, so button text ignores the user's font scale | record (next Kit session: emit sp for type sizes) | — | next Kit session | Q-B6b-24 | B6b-7a |
 
+| RC-B6-16 | Design_Template_Kit `check-drift.mjs` @ 1.12.0 | counts a `__pycache__/` directory beside `generated/tokens.py` as drift, so any Python import of the emitted module turns the check red | record (next Kit session: skip `__pycache__` and other ignored paths) | — | next Kit session | Q-B6c-44 | B6c-8 PYDM1-B09 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
