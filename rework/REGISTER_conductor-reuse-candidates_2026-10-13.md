@@ -345,6 +345,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 | RC-B5-06 | Design_Template_Kit role vocabulary @ 1.12.0 | `themeRoles`/`stateRoles` are closed: no error hover/active or on-error (label on the error fill) roles can be declared, so destructive buttons alias `states_error_*` and `on_accent` in every client | record (next Kit session: add them as optional state or flat roles and to the Gallery's `.btn--destructive`) | — | next Kit session | Q-B6c-39 | B5-10 |
 | RC-B5-07 | Design_Template_Kit `a11y.pairs` families @ 1.12.0 | no non-text boundary pair family exists; boundary pairs borrow `chart_series_on_surface` as A-03 directs | record (next Kit session: a boundary family) | — | next Kit session | Q-G-a-3-03 | B5-10 |
 
+| RC-B6-15 | Design_Template_Kit compose emitter @ 1.12.0 | `SizeButton*FontSize` is emitted as dp instead of sp, so button text ignores the user's font scale | record (next Kit session: emit sp for type sizes) | — | next Kit session | Q-B6b-24 | B6b-7a |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
