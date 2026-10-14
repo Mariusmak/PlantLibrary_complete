@@ -1299,7 +1299,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `C1-3` | resume blocks | done 2026-10-14 — super `f4b814a` | — | §H.8: six blocks in H.2 order (SV1-B08, PY1-B09, AN1-B15, WD1-B09, SC1-B04, SY1-B01); first = R-5's Phase C prompt; all out of band; Q-C1-29/30 (a) |
 | `C1-4` | hand-back HANDOVER | done 2026-10-14 — this commit | — | handovers/HANDOVER_master-rework-hand-back_2026-10-14.md: lanes with commit lines, seven heads, open items by owner, continuation fence, Phase C first act; Q-C1-31 put |
 | `C1-5` | interim Server harness port | todo | — | inserted 2026-10-14 (Q-C1-26 (a)); after AN1-B15 releases the test slot |
-| `C1-6` | PyApp closeout-guide amendments | running (C1-6 session) | — | inserted 2026-10-14 (Q-C1-37..39 (a)); text only, no slot |
+| `C1-6` | PyApp closeout-guide amendments | done 2026-10-14 — PyApp `088c879` | — | Q-C1-37/38/39 (a): harness commands under the base python 3.12; a `{}` history is scratch; the ledger to `.tmp/chunks/`; two false 'base lacks PySide6' premises removed; STATE line |
 | `R-4.4` | wave 4 boundary | done 2026-10-14 — this commit | — | wave 4 done (C1-1..4, B3-6, B3-6.1, B3-7, B3-8); §1 and §3b refreshed; pushed all seven at every flip; R-5 waits the GUI lanes (gates G-a-1/b-1/c-1, Q-G-10) |
 | `R-5` | close | waits the GUI lanes (B6*-6b..-8; the second gates' flagged rows with the operator) | — | Phase C under Q-C1-31: SV1-B08 complete (Server `7c230a9`), PY1-B09 done (PyApp `d28a698`, closeout pass; DV-03 blocked on B6c-7), AN1-B15 running; C1-5 after it; C1-6 running (PyApp guide) |
 
