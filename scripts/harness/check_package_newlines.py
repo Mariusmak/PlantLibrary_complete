@@ -52,8 +52,11 @@ LIVE_PACKAGES = frozenset(
         ("PlantLibrary_Dashboard", "implementation/Design_Migration_V1"),
         ("PlantLibrary_PyApp", "implementation/System_V1_Implementation"),
         ("PlantLibrary_PyApp", "implementation/Design_Migration_V1"),
+        ("PlantLibrary_PyApp", "implementation/Garden_Planner_V1"),
         ("PlantLibrary_Server", "implementation/System_V1_Implementation"),
+        ("PlantLibrary_Server", "implementation/Garden_Planner_V1"),
         ("PlantLibrary_SharedContracts", "implementation/System_V1_Implementation"),
+        ("PlantLibrary_SharedContracts", "implementation/Garden_Planner_V1"),
         ("PlantLibrary_Workspace", "implementation/System_V1_Implementation"),
         ("PlantLibrary_Workspace", "implementation/System_Design_Architecture"),
     }
