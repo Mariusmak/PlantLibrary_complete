@@ -367,6 +367,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 | RC-B5-08 | Design_Template_Kit token schema @ 1.13.0 | the `size` group is closed, so a project cannot declare a `size.layout` map; layout sizes had to go into `size.shell` as `layout_*` | record (next Kit session: an open `size.layout` map; moving the ladder is a minor deprecation) | — | next Kit session | Q-B6c-61, Q-B5-35 | B5-11 |
 | RC-B5-09 | Design_Template_Kit asset manifest schema @ 1.13.0 | no mirroring field for an auto-mirrored icon (RTL); stated in the label and family description instead | record (next Kit session: a `mirrored` flag) | — | next Kit session | Q-B6b-52 | B5-11 |
 
+| RC-K4-05 | Design_Template_Kit `check-parity.mjs` @ 1.13.0 | compares every runtime mirror to `.claude`, so a frozen runtime (`.codex`, Q-G-09) reads red after each installer run | record (next Kit session: honour a frozen-runtime marker or an exclude list) | — | next Kit session | Q-B6b-65 | B6b-8 ADM1-B24 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
