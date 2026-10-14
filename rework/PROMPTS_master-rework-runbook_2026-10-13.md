@@ -21,27 +21,27 @@ as a chapter. The template it follows is `AUDIT_runbook-conventions_2026-10-13.m
 | Models | §2a; every §3 row names its own |
 | What this file never does | Run or name a test, a test runner, a tests root, a selection flag or a whole-suite phrase; widen, delete or rewrite a validation cell; carry status outside §L; copy a block from another file (it points); put a launch value (a base SHA, a D-id, an earlier step's commit) inside a fence; decide (every choice is a `Q-…` row or a `gate` step); write a source; push |
 
-## 1. Where things stand — measured at `9ac6b67` on 2026-10-14 (R-4.3)
+## 1. Where things stand — measured at `733d97d` on 2026-10-14 (R-4.4)
 
 ≤ 15 rows, rewritten whole when three days old or when a lane closes; no step status here.
 
 | Fact | Measured |
 |---|---|
-| Superproject | `master` at `9ac6b67` before this boundary's commit, 0 commits ahead of `origin/master` until this boundary's push; tree clean |
-| Submodules | all six on `main`, clean: Workspace `41fd24c`, PyApp `573590c`, AndroidApp `762bc1e`, Dashboard `6eca8eb`, Server `d6a6497`, SharedContracts `72e5a38`; ahead of origin until this boundary's push: PyApp 0, AndroidApp 0, Dashboard 0, the other three 0 |
+| Superproject | `master` at `733d97d` before this boundary's commit, level with `origin/master` (pushed at every flip since R-4.3); tree clean |
+| Submodules | all six on `main`, clean, pushed and contained: Workspace `a9b9e6c`, PyApp `50375b7`, AndroidApp `a30fc61`, Dashboard `3b50594`, Server `0e491d3`, SharedContracts `11d33eb` |
 | Submodule form | unchanged: old-form, uninitialized, embedded `.git` directories; index LF everywhere; path-scoped `eol=lf` lines in SharedContracts `design/` and the three anchored clients |
 | Worktrees | none in TARGET |
-| Disk | C: 69 GB free of 321 GB (21.4 %); floor 20 % |
-| Hygiene | superproject `pass with holds — 0 violations, 3 held`; Workspace `pass with holds — 0 violations, 10 held`; the other five suites `0 violations, 0 held`; all seven still pinned to kit `0.2.1` (re-pin to `0.3.0` is `B3-8`) |
-| Harness guards | parity `pass` over 7 repositories; package census `0 errors` in 10 counted packages (the three `Design_Migration_V1` workspaces listed live; their seeded phase rows `deferred` by Q-B6a-02); newline guard 0 mixed |
-| Skills and agents | unchanged since `R-4.2`: 17 skill folders in the superproject, byte-copied mirrors in every suite, parity green |
-| Instructions | unchanged since `R-4.2`; PyApp `CLAUDE.md` line 91 now names the Kit emitter (B6c-1) |
-| Packages | seven live V1 packages unchanged in rows; three design-migration workspaces bootstrapped (Dashboard empty by DM-DEC-05; PyApp 14 and AndroidApp 15 phase rows `deferred`); stage 07 (`B6*-7`) seeds the real rows |
-| GUI lane | stages 00–06a done in all three clients: census, contracts (13 / 37 / 15), gap maps (72 / 118 / 62 gaps), forward surfaces; three gates open — G-a-1 (9), G-b-1 (9), G-c-1 (pending, B6c-5-r2 running) — the `-6a` steps wait |
-| Design | SharedContracts `design/` 1.0.0 BINDING unchanged; the lanes propose one Configuration addition (Q-B6a-10: border-width, opacity, scrim) and two page-contract additions (Q-B6a-07 `/login`, Q-B6c-10 Add flow) for the serialized `B6a-6`/`B6c-6` SharedContracts step |
-| Kits | Design Template Kit `master` 1.11.0 @ `612e634`; Repo Hygiene Template Kit `main` 0.3.0 @ `d5b9742`; seven new Kit findings recorded this boundary (RC-B6-01..07) |
-| Conductor | `main` at `7610926`; instance 2 untouched, bindings obsolete |
-| Operator items open | owed item 18 (GitHub variables, Q-B5-13); the gates (18 rows open, G-c-1 to follow, all with (a) recommended); the veto list in §Q (now incl. Q-B6a-10, Q-B6c-07/08/10) |
+| Disk | C: 68 GB free of 321 GB (21.1 %); floor 20 % |
+| Hygiene | all seven pinned to kit `0.3.0` (`D-2026-10-14-03`…`-10`); superproject `pass with holds — 0 violations, 3 held`; Workspace `pass with holds — 0 violations, 10 held` (the restructure set released and renamed; its hold was a prose hold, so the count stays); the other five `0 violations, 0 held`; `archive/` and `reviews/` declared in the superproject |
+| Harness guards | parity `pass` over 7 repositories (Codex frozen 7/7; the installer-owned blocks re-stamped 0.3.0 without tripping the freeze); package census `0 errors` in 10 counted packages (84 batches, 263 rows: the deferred-validation batches first in every live package); newline guard 0 mixed |
+| Skills and agents | 17 skill folders in the superproject (the three review skills default to `reviews/`), byte-copied mirrors in every suite, parity green |
+| Instructions | all seven `CLAUDE.md` reconciled; every `AGENTS.md` frozen outside its installer block; the superproject layout table names `archive/` and `reviews/` |
+| Packages | seven live packages with 47 new deferred-validation rows in eight first-placed batches (`SV1-B08`, `SC1-B04`, `WD1-B09/B10`, `AN1-B15/B16`, `PY1-B09/B10`); three design-migration workspaces with no live rows until stage 07; `SUITE_HANDOFFS.md` carries the living H.1 |
+| GUI lane | stages 00–06a done in all three clients; three gates open — G-a-1 (9), G-b-1 (9), G-c-1 (8) — the `-6a` steps wait; Q-G-10 (standing answer for the later gates) open |
+| Design | SharedContracts `design/` 1.0.0 BINDING unchanged; proposed for the serialized `B6a-6`/`B6c-6` step and listed for veto: Q-B6a-10 (tokens), Q-B6a-07 and Q-B6c-10 (page contracts); Q-C1-03 (Gallery baselines as 1.0.1, Phase C) |
+| Kits | Design Template Kit `master` 1.11.0 @ `612e634`; Repo Hygiene Template Kit `main` 0.3.0 @ `d5b9742`; 12 Kit findings recorded (RC-B5-01..05, RC-B6-01..07) |
+| Conductor | `main` at `7610926` (another session writes there; read-only from here); no instance bound |
+| Operator items open | owed item 18 (GitHub variables); the three gates and Q-G-10; Q-C1-23/24/26/31; the veto list in §Q; owed items 11, 15, 19 at the next Conductor bind |
 
 ## 2. Rules
 
@@ -1092,20 +1092,20 @@ The orchestrator closes the runbook per §2 rule 9 and prints the Phase C resume
 
 | # | Item | Source | Discharged at (step) | Status |
 |---|---|---|---|---|
-| 1 | GC-1132 — operator review of PyApp `IMPORTABLE_SOURCE_TREES` | onboarding §N | `B8-3` | open |
+| 1 | GC-1132 — operator review of PyApp `IMPORTABLE_SOURCE_TREES` | onboarding §N | `B8-3` | done 2026-10-13 (`B8-3`: reviewed, accepted (a); record in PyApp `validation/ONBOARDING_harness-port.md` §2.1) |
 | 2 | GC-2006 — AndroidApp has no test sources; "unit tests pass" is not evidence | onboarding §N | `B8-1` (pointer), `C1-2` H.1 | open |
 | 3 | GC-6082 — D7 reorder (`SY1-B07` before `SY1-B05`) and attended markers | onboarding §N | `B4-1`, `B4-2`, `B8-1` | open |
 | 4 | GC-2431 — SharedContracts version drift (`SC-SYNC-REGEN-01`) | onboarding §N | never here (a batch); `B8-1` records the owner | open |
 | 5 | GC-2437 — PyApp `.gitignore` dead lines | onboarding §N | `B8-1` | open |
 | 6 | GC-7053 — `DRIVER_SCRIPT.md` instructs `_ACT_STATE.md` | onboarding §N | `B4-2`, `B8-2` | open |
 | 7 | M-8 closing pass | repo-hygiene §L | `B3-1` | done except the Kit changelog (item 17) |
-| 8 | M-9 hold releases (five suites; the Workspace set after K-7) | repo-hygiene §L | `B3-4` done 2026-10-13 for the five suites; Workspace set: after the Kit session (`K-2`) | open — Workspace set only |
-| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | `K-2` done 2026-10-13 (kit 0.3.0, `d5b9742`); `B3-8` re-pins all seven and releases the Workspace set | done — kit side |
+| 8 | M-9 hold releases (five suites; the Workspace set after K-7) | repo-hygiene §L | `B3-4` done 2026-10-13 for the five suites; Workspace set: after the Kit session (`K-2`) | done 2026-10-14 (`B3-8`, Workspace `a9b9e6c`, `D-2026-10-14-05`: the set renamed and its hold released) |
+| 9 | K-7 Kit session (exempt tree cannot retire on rename) | `handovers/FINDING_…_2026-09-17.md` | `K-2` done 2026-10-13 (kit 0.3.0, `d5b9742`); `B3-8` re-pins all seven and releases the Workspace set | done (`K-2` kit 0.3.0; `B3-8` re-pinned all seven 2026-10-14) |
 | 10 | Onboarding step 6 hold (S-2, instance 2 is staging) | onboarding §L | lapsed: the instance-2 bindings are obsolete (Q-G-02, Q-A8-02 readings, 2026-10-13); `C1-2` H.6 records it | lapsed |
 | 11 | The Conductor's `OP-RB` copy into `PlantLibrary_Workspace` | `AUDIT_runbook-conventions` F-A5-06 | operator (Q-A5-01); `B1-1` records | open |
 | 12 | Kit session for Compose/Qt emission, Kotlin literal patterns, ARGB bans, TextStyle, the import tool's input path and an export write mode | `AUDIT_design-kit-and-methodology` §2; `EVIDENCE_design-gate-pack` | `K-1` done 2026-10-13 (Kit 1.11.0 @ `612e634`); F-A4-10/F-A4-11 remain the Kit owner's design decisions | done — K-1 |
 | 13 | `graphify-out/` removal from disk (superproject, PyApp) | `A6a`, `A6c` | `B8-1` (PyApp, 45 MB) and `B3-2` (superproject, 282 MB) deleted them 2026-10-13 | done |
-| 14 | The end-of-wave pushes (three submodule commits already unpushed) | `A8` F-A8-03 | the orchestrator at each `R-4.<k>` (Q-G-03 reading, 2026-10-13) | open — first push at `R-4.1` |
+| 14 | The end-of-wave pushes (three submodule commits already unpushed) | `A8` F-A8-03 | the orchestrator at each `R-4.<k>` (Q-G-03 reading, 2026-10-13) | ongoing — pushed at every boundary and every flip since `R-4.3`; all seven level with origin at `R-4.4` |
 | 15 | Readiness row 8 (one dispatched UI batch per anchored client) and the instance's role overrides | `A4` §7.1 | Phase C; `B5-8` records | open |
 | 16 | `PyApp` re-intake at `PY1-B08` if any step moves its plan contract | `A7` F-A7-09 | lapsed with the bindings (Q-A7-04, Q-A8-02 readings, 2026-10-13) | lapsed |
 | 17 | M-8's Kit changelog commit (hygiene runbook §16) | `B3-1` | `K-2` done 2026-10-13 (the ten lessons in the 0.3.0 changelog) | done |
@@ -1284,8 +1284,8 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `B3-8` | re-pin to kit 0.3.0; Workspace set released | done 2026-10-14 — super `203f790`; Workspace `a9b9e6c`; Server `0e491d3`; SharedContracts `11d33eb`; Dashboard `3b50594`; AndroidApp `a30fc61`; PyApp `50375b7` | `D-2026-10-14-03` (super), `-04`/`-05` (Workspace), `-06` Server, `-07` SharedContracts, `-08` Dashboard, `-09` AndroidApp, `-10` PyApp | 7 pins 0.3.0, blocks and checker synced; six suites `scratch` on; Workspace set renamed, REVIEW_LIST exempt released and redeclared; held stays 10 (a prose hold, Q-B3-16); parity green; Q-B3-14..16 (a) |
 | `C1-3` | resume blocks | done 2026-10-14 — super `f4b814a` | — | §H.8: six blocks in H.2 order (SV1-B08, PY1-B09, AN1-B15, WD1-B09, SC1-B04, SY1-B01); first = R-5's Phase C prompt; all out of band; Q-C1-29/30 (a) |
 | `C1-4` | hand-back HANDOVER | done 2026-10-14 — this commit | — | handovers/HANDOVER_master-rework-hand-back_2026-10-14.md: lanes with commit lines, seven heads, open items by owner, continuation fence, Phase C first act; Q-C1-31 put |
-| `R-4.4` | wave 4 boundary | todo | — | |
-| `R-5` | close | todo | — | |
+| `R-4.4` | wave 4 boundary | done 2026-10-14 — this commit | — | wave 4 done (C1-1..4, B3-6, B3-6.1, B3-7, B3-8); §1 and §3b refreshed; pushed all seven at every flip; R-5 waits the GUI lanes (gates G-a-1/b-1/c-1, Q-G-10) |
+| `R-5` | close | waits the GUI lanes (B6*-6a..-8) and the gates | — | R-4.4 done 2026-10-14; the close follows the last B6 step |
 
 ## R. Adversarial round on the R-3 draft
 
