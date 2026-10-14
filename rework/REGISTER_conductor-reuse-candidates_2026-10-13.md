@@ -351,6 +351,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-17 | Design_Template_Kit `design-conformance.yml` @ 1.12.0 | the CI job checks the Kit out at the repository variable `DESIGN_KIT_REF`, which must be hand-moved at every Kit upgrade; the pinned tag already sits in `CONSUMED_DESIGN.md` | record (next Kit session: the workflow reads the tag from the pin file; the variable retires) | — | next Kit session | Q-B6a-44 (c) | §O session 9b5c772b |
 
+| RC-B6-18 | Design_Template_Kit readiness check @ 1.12.0 | row 6 reads a checklist's schema comment line as the table header and so counts 0 required rows (vacuous pass); row 2 fails on an impeccable mirror difference the installer does not fix | record (next Kit session: skip comment lines before the header; re-sync the mirrors in the installer) | — | next Kit session | Q-B6b-27 | B6b-7b |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
