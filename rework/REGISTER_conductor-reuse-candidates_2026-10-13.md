@@ -339,6 +339,9 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-14 | Conductor batch parser (`check_batch_packages.py` loader) + plan-batch SKILL.md §7 | the parser rejects a backticked row id after the first sentence of a `**Requires:**` field, and plan-batch's self-review does not state the rule, so a correct-looking amendment fails the census | record (next Conductor or skill session: state the rule in plan-batch §7 or relax the parser) | — | next Conductor session | Q-B6a-43 | B6a-7.1 |
 
+| RC-B9-01 | Design_Template_Kit component set @ 1.12.0 | the set stops at C-25; no drawing-surface, drawn-shape, marker, palette-tile or preview-card type exists for a planner | record (`K-4` adds them after G-gp-1) | — | `K-4` | Q-B9-17 | B9-3 |
+| RC-B9-02 | Design_Template_Kit governance @ 1.12.0 | no governed family for illustration assets (SVG symbols) and, as read, none for a project role family beyond the canon roles | record (`K-4` decides the family shape) | — | `K-4` | Q-B9-07, Q-B9-08 | B9-3 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
