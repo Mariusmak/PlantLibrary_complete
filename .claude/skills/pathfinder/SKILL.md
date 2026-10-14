@@ -1,8 +1,8 @@
 ---
 name: pathfinder
-description: Map the PlantLibrary codebase (the superproject and its six suites) into feature-grouped flowcharts with file:line evidence and report duplicated concerns. Operator session only - use when the operator asks for an architecture or duplication map; no batch row names this skill. Read-only; it proposes, plan-batch plans.
+description: Map the PlantLibrary codebase (the superproject and its six suites) into feature-grouped flowcharts with file:line evidence and report duplicated concerns. Operator session only - use when the operator asks for an architecture or duplication map; no batch row names this skill. Read-only; it proposes, plan-batch plans; writes to reviews/ by default.
 ---
-<!-- Adapted from thedotmack/claude-mem @ 039c616, plugin/skills/pathfinder/SKILL.md (Apache-2.0; see LICENSE and NOTICE). Modified 2026-10-04 by the Conductor (Orchestrator_System, OP-SK-A, D-2026-10-04-11) and 2026-10-13 for PlantLibrary (master rework B1-3, Q-A1-02 (a)). -->
+<!-- Adapted from thedotmack/claude-mem @ 039c616, plugin/skills/pathfinder/SKILL.md (Apache-2.0; see LICENSE and NOTICE). Modified 2026-10-04 by the Conductor (Orchestrator_System, OP-SK-A, D-2026-10-04-11) and 2026-10-13 for PlantLibrary (master rework B1-3, Q-A1-02 (a)); local edit 2026-10-14: default root reviews/ (B3-6.1, Q-B3-11 (a)). -->
 
 # Pathfinder
 
@@ -35,10 +35,10 @@ Working files go in `pathfinder/<YYYY-MM-DD>/` under the session's scratchpad di
 
 The one deliverable, assembled from those files, is
 `<root>/AUDIT_pathfinder-<topic>_<YYYY-MM-DD>.md` in this repository (the
-PlantLibrary superproject) with its line in `<root>/INDEX.md`, where `<root>`
-is the deliverable root the operator names from the `general` roots of
-`hygiene/CONSUMED_HYGIENE.md`. No root named: no file is written and the
-report is the final message.
+PlantLibrary superproject) with its line in `<root>/INDEX.md` in the same
+commit, where `<root>` is `reviews/` unless the operator names another of
+the `general` roots of `hygiene/CONSUMED_HYGIENE.md` (the default since
+master rework B3-6.1, 2026-10-14, Q-B3-11 (a)).
 
 ## Phases
 

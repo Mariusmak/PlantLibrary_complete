@@ -26,3 +26,7 @@ Modifications for PlantLibrary: SKILL.md copied from Orchestrator_System @
 only), working-file location (the session's scratchpad), deliverable root
 (parameterised to this repository's hygiene roots), read exclusions,
 legitimate-specialization examples and baseline wording.
+
+Local edit for PlantLibrary (2026-10-14, master rework step B3-6.1,
+Q-B3-11 (a)): SKILL.md's description and deliverable paragraph name
+reviews/ as the default deliverable root.

@@ -39,3 +39,8 @@ dependency rule; references/fp-check-deep-verification.md names
 PlantLibrary's external services and the scratchpad instead of the
 Conductor's; references/fp-check-standard-verification.md names the
 scratchpad instead of .tmp/. The other references are unchanged.
+
+Local edit for PlantLibrary (2026-10-14, master rework step B3-6.1,
+Q-B3-11 (a)): SKILL.md's description and deliverable rule name reviews/
+as the default deliverable root (FINDING_ for a single triage result).
+The references are unchanged.

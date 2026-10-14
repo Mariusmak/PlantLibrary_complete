@@ -1,6 +1,6 @@
 ---
 name: code-quality-review
-description: Review Python code in the PlantLibrary suites (PlantLibrary_PyApp, PlantLibrary_Server, PlantLibrary_SharedContracts) for anti-patterns and AI-generated debt - swallowed exceptions, blocking calls in async code, mock-heavy tests, invented imports. Operator session only - use when the operator asks for a code-quality review; no batch row names this skill. Read-only; it reports findings, it never fixes them.
+description: Review Python code in the PlantLibrary suites (PlantLibrary_PyApp, PlantLibrary_Server, PlantLibrary_SharedContracts) for anti-patterns and AI-generated debt - swallowed exceptions, blocking calls in async code, mock-heavy tests, invented imports. Operator session only - use when the operator asks for a code-quality review; no batch row names this skill. Read-only; it reports findings, it never fixes them; writes to reviews/ by default.
 ---
 
 <!-- references/python-anti-patterns.md is adapted from wshobson/agents @ 156b7a5 (MIT; see LICENSE),
@@ -17,9 +17,9 @@ offline-first layering; `real-stack-testing`). Pre-existing code outside
 the given paths is reported, never changed. No edit anywhere except the
 one deliverable,
 `<root>/AUDIT_code-quality-review-<topic>_<YYYY-MM-DD>.md` in this repository (the
-PlantLibrary superproject) with its line in `<root>/INDEX.md`, where `<root>`
-is the deliverable root the operator names from the `general` roots of
-`hygiene/CONSUMED_HYGIENE.md`. No root named: no file is written and the
-report is the final message.
+PlantLibrary superproject) with its line in `<root>/INDEX.md` in the same
+commit, where `<root>` is `reviews/` unless the operator names another of
+the `general` roots of `hygiene/CONSUMED_HYGIENE.md` (the default since
+master rework B3-6.1, 2026-10-14, Q-B3-11 (a)).
 Scratch notes stay in the session's scratchpad directory, never in the
 repository tree. No network; no token or credential is read or configured.

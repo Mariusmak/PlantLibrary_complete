@@ -1,6 +1,6 @@
 ---
 name: security-audit
-description: Security review of a change or a module in the PlantLibrary repositories - triage a suspected finding, check an API or configuration for footguns, verify whether a finding is a true positive. Operator session only - use when the operator asks for a security review or triage; no batch row names this skill. Read-only; it reports findings, it never fixes them.
+description: Security review of a change or a module in the PlantLibrary repositories - triage a suspected finding, check an API or configuration for footguns, verify whether a finding is a true positive. Operator session only - use when the operator asks for a security review or triage; no batch row names this skill. Read-only; it reports findings, it never fixes them; writes to reviews/ by default.
 ---
 
 <!-- References under references/ are adapted from Trail of Bits skills
@@ -18,10 +18,12 @@ Rules: operator session only (Q-A1-02 (a)); no network; no token or
 credential is read or configured; no edit anywhere except the one
 deliverable,
 `<root>/AUDIT_security-audit-<topic>_<YYYY-MM-DD>.md` in this repository (the
-PlantLibrary superproject) with its line in `<root>/INDEX.md`, where `<root>`
-is the deliverable root the operator names from the `general` roots of
-`hygiene/CONSUMED_HYGIENE.md`. No root named: no file is written and the
-report is the final message.
+PlantLibrary superproject) - for a single triage result
+`<root>/FINDING_security-audit-<topic>_<YYYY-MM-DD>.md` - with its line in
+`<root>/INDEX.md` in the same commit, where `<root>` is `reviews/` unless
+the operator names another of the `general` roots of
+`hygiene/CONSUMED_HYGIENE.md` (the default since master rework B3-6.1,
+2026-10-14, Q-B3-11 (a)).
 Scratch notes stay in the session's scratchpad directory, never in the
 repository tree.
 A proof of concept is pseudocode or a negative PoC in the report. No batch
