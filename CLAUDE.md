@@ -69,9 +69,9 @@ rules bind in the suites too, and each suite `CLAUDE.md` adds that suite's param
 | `.codex/`, `AGENTS.md` | Codex mirrors, frozen (see Authority) |
 | `scripts/harness/` | Static guards over all seven repositories; its `README.md` is the inventory and says which check follows which edit |
 | `scripts/hygiene/`, `hygiene/`, `.github/workflows/repo-hygiene.yml` | The installed hygiene checker; the pin and roots (`hygiene/CONSUMED_HYGIENE.md`) and the append-only decision record (`hygiene/HYGIENE_DECISIONS.md`); its CI job |
-| `repo-hygiene/`, `onboarding/`, `rework/` | Declared deliverable roots: the hygiene track, the Conductor onboarding track, the master rework program (opened 2026-10-13) |
+| `repo-hygiene/`, `onboarding/`, `rework/`, `reviews/` | Declared deliverable roots: the hygiene track, the Conductor onboarding track, the master rework program (opened 2026-10-13), the operator-run review skills' audits |
 | `handovers/` | Declared deliverable root: handovers and findings |
-| `IMPLEMENTATION_PLAN.md` | The 2026-08-04 program sequencer: stale, exempt by hygiene decision, never a requirements source |
+| `archive/` | Retired material, moved by `git mv` with names unchanged (legacy exempt tree, `D-2026-10-14-01`); `archive/README.md` maps old to new paths. Holds `archive/root/IMPLEMENTATION_PLAN.md`, the 2026-08-04 program sequencer replaced by the master rework runbook's §H: never a requirements source |
 
 The root-allowlist module is on: a new top-level path needs an allowlist entry, and that entry
 is a decision entry in `hygiene/HYGIENE_DECISIONS.md`.

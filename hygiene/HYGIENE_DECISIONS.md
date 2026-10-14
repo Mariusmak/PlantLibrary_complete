@@ -326,3 +326,59 @@ Dispositions:
 No directive line: the entry changes no root, exemption, hold or allowlist (`.codex/` is not a declared root).
 
 Commit line: `rework: B7-2 - codex frozen; AGENTS.md banner; D-2026-10-13-03`
+
+## 2026-10-14 — master rework: the sequencers archived
+
+### D-2026-10-14-01 — `archive/` declared and `IMPLEMENTATION_PLAN.md` archived into it; general root `reviews` declared
+
+Authority: step `B3-6` of `rework/PROMPTS_master-rework-runbook_2026-10-13.md` (§3.5, lane B3), run headless (Opus 5.5 ·
+high), on the hand-back section §H of that runbook (written at `C1-2`, commit `07ef063`; H.7 is this step's plan) and
+on the operator's answers recorded in `rework/REGISTER_operator-questions_2026-10-13.md`, verbatim: "all other
+recommended." (2026-10-13 18:05 UTC, §O session 2d91d072), resolving `Q-G-05`, `Q-A6S-01` and `Q-A6S-05` to (a): the
+stale sequencers are archived once §H replaces them; one top-level `archive/`, allowlisted, `exempt-tree … legacy`,
+with subfolders by origin; the spent hygiene-track files leave `repo-hygiene/` only after `M-8`/`M-9`. `Q-B3-09` (a)
+and `Q-B1-04` (a), answered by the orchestrator 2026-10-13 under the operator's standing instruction (`Q-G-03`): the
+dead graphify lines of `.gitignore` are removed here, and a general root `reviews` is declared here for the
+operator-run review skills. Drafts: `rework/AUDIT_corpus-census-superproject_2026-10-13.md` §7.3 (layout (a)),
+`rework/AUDIT_batch-packages_2026-10-13.md` §7.4.
+
+Preconditions measured 2026-10-14: superproject on `master` at `e6545d1`, tree clean; §H present (H.1–H.7); verdict
+before the step `repo-hygiene: pass with holds — 0 violations, 3 held`; `archive` and `reviews` did not exist; the
+root hold on `IMPLEMENTATION_PLAN.md` of `D-2026-09-16-01` was already released (`D-2026-09-16-03`), so the move needs
+no `release`; no `D-2026-10-14-*` id existed in this repository, in any of the six submodules (`git -C <suite> grep`,
+tracked and untracked) or in any worktree (none beyond the seven checkouts), so this is `-01`; last entry here
+`D-2026-10-13-03`. `graphify-out/` and `update_graph.bat` are gone since `D-2026-10-13-02`.
+
+Dispositions:
+
+1. Declared: `archive/` at the repository root, its `README.md` (purpose, rules, the mapping table
+   `| old path | new path | date | entry |`) created in this commit so the declared path exists when the line folds.
+   Only the top-level path is declared, never a sub-path, so the folder never has to move (finding K-7). It is not a
+   deliverable root: no roots-table row, no `INDEX.md`.
+2. Moved: `IMPLEMENTATION_PLAN.md` → `archive/root/IMPLEMENTATION_PLAN.md` by `git mv`, basename unchanged, no byte
+   changed; its mapping row in `archive/README.md`. It leaves the root allowlist. Its `exempt-name` line of
+   `D-2026-09-16-03` stays as written and is inert (no declared root holds a file of that basename; `exempt-name` has
+   no existence check).
+3. Citers. The ten citing lines of `onboarding/PROMPTS_conductor-onboarding-runbook_2026-09-15.md` (17, 52, 210, 213,
+   217, 221, 685, 820, 845, 898) stay as they are (that runbook is live and another track's; the name resolves
+   through `archive/README.md`). Repointed: `CLAUDE.md`'s repository-layout table (the `IMPLEMENTATION_PLAN.md` row
+   becomes the `archive/` row; `reviews/` joins the declared-roots row). History that names the file (the
+   `repo-hygiene/` records, `handovers/FINDING_kit-release-after-move-fails-record_2026-09-16.md`, the `rework/`
+   audits and registers) is not edited.
+4. Declared: `reviews/` as a **general** root with the **standard** pattern, the standing home of the operator-run
+   review skills' deliverables (`code-quality-review`, `security-audit`, `pathfinder`; each writes
+   `AUDIT_<skill>-<topic>_<YYYY-MM-DD>.md` into the general root the operator names). The roots table of
+   `hygiene/CONSUMED_HYGIENE.md` gains its row in this commit (the pin's rule: a root change is a decision entry with
+   the table edited in the same commit); `reviews/INDEX.md` is seeded from the kit's `templates/INDEX_TEMPLATE.md`
+   (`0.2.1`) with no lines.
+5. `.gitignore`: the dead graphify ignore line and its comment (lines 11-12) removed, with the blank line that
+   followed them, so one blank line still separates the remaining groups.
+6. Not here: the spent `repo-hygiene/` track files (`Q-A6S-05` (a): `B3-8` and the Workspace release), the onboarding
+   holds (`Q-A6S-02` (a)), `Todo.md` (`Q-A6S-04` (a)), any submodule (the Workspace's own move is its entry there).
+
+- allowlist: archive — retired material moved in by git mv with basenames unchanged (Q-A6S-01 (a))
+- exempt-tree: archive — legacy; retired superproject files, moved not renamed, under subfolders by origin (archive/root/ …); declared at the top-level path only so the folder never needs to move
+- allowlist-remove: IMPLEMENTATION_PLAN.md — moved to archive/root/ at B3-6 (Q-G-05 (a)); replaced by the master rework runbook's §H
+- allowlist: reviews — general root for the operator-run review skills' deliverables (Q-B1-04 (a))
+
+Commit line: `rework: B3-6 - sequencers archived (WORKSPACE_STATE.md, IMPLEMENTATION_PLAN.md, V1_IMPLEMENTATION_SEQUENCE.md); D-2026-10-14-01`
