@@ -1,8 +1,10 @@
 # reviews — index
 
 Deliverables of the operator-run review skills (`code-quality-review`, `security-audit`, `pathfinder`): one
-`AUDIT_<skill>-<topic>_<YYYY-MM-DD>.md` per invocation that names this root. Declared a general root (pattern
-standard) by `D-2026-10-14-01` (master rework `Q-B1-04` (a)).
+`AUDIT_<skill>-<topic>_<YYYY-MM-DD>.md` per invocation that names this root, or
+`FINDING_security-audit-<topic>_<YYYY-MM-DD>.md` for a single security-audit triage result. Declared a general
+root (pattern standard) by `D-2026-10-14-01` (master rework `Q-B1-04` (a)); the `FINDING_` form added at master
+rework step `B3-8` (`Q-B3-13` (a)).
 
 Newest first. Line shape: `- YYYY-MM-DD · <file> · <TYPE> · <status> · <summary>`; a dated set folder
 (`<TYPE>_<topic>_<YYYY-MM-DD>/`) takes one line naming the folder with its trailing `/`, and its members take

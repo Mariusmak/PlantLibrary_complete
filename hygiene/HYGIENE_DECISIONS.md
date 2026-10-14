@@ -382,3 +382,52 @@ Dispositions:
 - allowlist: reviews — general root for the operator-run review skills' deliverables (Q-B1-04 (a))
 
 Commit line: `rework: B3-6 - sequencers archived (WORKSPACE_STATE.md, IMPLEMENTATION_PLAN.md, V1_IMPLEMENTATION_SEQUENCE.md); D-2026-10-14-01`
+
+## 2026-10-14 — master rework: re-pin to kit 0.3.0
+
+### D-2026-10-14-03 — re-pinned to kit 0.3.0
+
+Authority: step `B3-8` of `rework/PROMPTS_master-rework-runbook_2026-10-13.md` (§3.5, lane B3), run headless (Opus 5.5 ·
+high), by the kit's `installer/INSTALL.md`, "The pin" (a kit upgrade is a re-run with `--target` alone, then `--force`
+once the re-pin is decided, then the verification, committed together), on `Q-B3-02` (a) as recorded in
+`rework/REGISTER_operator-questions_2026-10-13.md`: one minor release `0.3.0` carrying `K-7` and the pilot's lessons,
+then all seven repositories re-pinned — answered by the orchestrator 2026-10-13 under the operator's standing
+instruction (`Q-G-03`) and the operator's words "Q-G-06: a (run yourself)" (2026-10-13 19:07 UTC). The release: the
+kit's `main` at `d5b9742`, tag `v0.3.0` (step `K-2`, its §L row), changelog `KIT_VERSION.md` "0.3.0 — 2026-10-13": a
+`release` may end an `exempt-tree` or `exempt-subfolder` declaration, a `held-name` may name a set folder; additive,
+"a record that passes on `0.2.1` passes on `0.3.0` with the same lines".
+
+Preconditions measured 2026-10-14: superproject on `master` at `6fe9cb7`, tree clean; verdict before the step
+`repo-hygiene: pass with holds — 0 violations, 3 held`; the pin records kit `0.2.1` (`Pinned on` 2026-09-16), Modules
+`root-allowlist`, no wrapper, rule block on, no launcher, floor 1; the kit checkout
+`C:/Programmierung/Repo_Hygiene_Template_Kit` on `main` at `d5b9742` (`v0.3.0`), clean; `D-2026-10-14-01` (here) and
+`-02` (the Workspace) exist from `B3-6`, and no other `D-2026-10-14-*` id existed in this repository (tracked and
+untracked), in any of the six submodules (`git -C <suite> grep` and the working files) or in any worktree (none beyond
+the seven checkouts), so this is `-03`; last entry here `D-2026-10-14-01`.
+
+Dispositions:
+
+1. Run from the superproject, the kit read-only (bytecode writing off): `python
+   C:/Programmierung/Repo_Hygiene_Template_Kit/installer/install.py --target C:/Programmierung/SW_Development` →
+   `wrote scripts/hygiene/repo_hygiene_check.py`, `updated CLAUDE.md — rule block`, `updated AGENTS.md — rule block`,
+   the workflow `unchanged`, the five root indexes and the record `kept`, `kept hygiene/CONSUMED_HYGIENE.md — Kit
+   version '0.2.1' → '0.3.0'`, then `install: done — pin records kit 0.2.1 @ C:/Programmierung/Repo_Hygiene_Template_Kit;
+   this kit is 0.3.0 @ C:/Programmierung/Repo_Hygiene_Template_Kit; re-run with --force to re-pin`, exit 0; then the
+   same command with `--force` → every other path `unchanged`, `skipped` or `kept`, `wrote hygiene/CONSUMED_HYGIENE.md`,
+   then `install: done — pin re-written (--force)`, exit 0.
+2. What changed: the checker copy, byte-identical to the kit's `checker/repo_hygiene_check.py` (`cmp`); one line in
+   the installer-owned block of `CLAUDE.md` and of `AGENTS.md` (`@ 0.2.1` → `@ 0.3.0`), each file keeping its line
+   endings, no byte outside the block touched; the pin's `Kit version` `0.3.0` and `Pinned on` 2026-10-14. The
+   declaration is unchanged: the roots table, Modules `root-allowlist`, no wrapper, no launcher, floor 1.
+3. The kit's `scratch` module stays off here (`Q-A2-06` (a): the superproject turns it on only when a step needs
+   scratch); the six suites enable it in their own re-pin entries of this step.
+4. No directive line: this record holds no `exempt-tree` or `exempt-subfolder` that moved and no folder hold, so
+   `0.3.0` changes nothing in this repository's verdict.
+5. In the same commit, outside the re-pin: `reviews/INDEX.md`'s header names the `FINDING_security-audit-…` form beside
+   `AUDIT_…` (`Q-B3-13` (a), answered by the orchestrator 2026-10-14 under `Q-G-03`); the hygiene track runbook
+   `repo-hygiene/PROMPTS_repo-hygiene-track-runbook_2026-09-15.md` gains its `M-9` ledger line for the Workspace set
+   folder released by this step (the Workspace's `D-2026-10-14-05`).
+
+Verify after: `repo-hygiene: pass with holds — 0 violations, 3 held`.
+
+Commit line: `hygiene: B3-8 - re-pinned to kit 0.3.0; superproject`

@@ -8,10 +8,10 @@ file floor is an integer ≥ 0 (`KIT_SPEC.md` §4); a 0 is legal only when a dec
 
 | Field | Value |
 |---|---|
-| Kit version | `0.2.1` |
+| Kit version | `0.3.0` |
 | Kit path | `C:/Programmierung/Repo_Hygiene_Template_Kit` |
 | SOURCE harness | `fc5a14c` |
-| Pinned on | 2026-09-16 |
+| Pinned on | 2026-10-14 |
 | Modules | root-allowlist |
 | Pytest wrapper | no |
 | Rule block | on |

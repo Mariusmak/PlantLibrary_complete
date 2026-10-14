@@ -229,6 +229,7 @@ class Record:
     exempt_paths: set[str] = field(default_factory=set)
     exempt_subfolders: dict[str, int] = field(default_factory=dict)
     exempt_trees: dict[str, str] = field(default_factory=dict)  # path -> class
+    exempt_tree_at: dict[str, int] = field(default_factory=dict)  # path -> the exempt-tree line in force
     held: dict[str, str] = field(default_factory=dict)  # path -> note
     held_at: dict[str, int] = field(default_factory=dict)  # path -> the held-name line in force
     held_lines: set[tuple[str, int]] = field(default_factory=set)
@@ -415,10 +416,17 @@ def load_record(path: Path, repo_root: Path, label: str) -> Record:
             problem(number, f"unknown directive {name!r}")
             continue
         _apply_directive(directive, record, repo_root, problem)
-    # A held name must exist while held (§6): judged once the whole record is folded, only for
-    # holds still active, on the held-name line in force — a hold ended by a release needs no file.
+    # A held name, an exempt subfolder and an exempt tree must exist while declared (§6): judged once
+    # the whole record is folded, only for declarations still active, on the line in force — a
+    # declaration ended by a release needs no path. A held name may be a file or a set folder.
+    for rel, number in record.exempt_subfolders.items():
+        if not (repo_root / rel).is_dir():
+            problem(number, f"exempt-subfolder {rel} does not exist")
+    for rel, number in record.exempt_tree_at.items():
+        if not (repo_root / rel).exists():
+            problem(number, f"exempt-tree {rel} does not exist")
     for rel, number in record.held_at.items():
-        if not (repo_root / rel).is_file():
+        if not (repo_root / rel).exists():
             problem(number, f"held-name {rel} does not exist")
     return record
 
@@ -436,31 +444,39 @@ def _apply_directive(d: Directive, record: Record, repo_root: Path, problem) -> 
         if not is_inside_repository(rel):
             problem(d.line_number, f"{name}: {value!r} is not a repository-relative path")
             return
-        target = repo_root / rel
         if name == "exempt-name":
             record.exempt_paths.add(rel)
         elif name == "exempt-subfolder":
-            if not target.is_dir():
-                problem(d.line_number, f"exempt-subfolder {rel} does not exist")
-            record.exempt_subfolders[rel] = d.line_number
+            record.exempt_subfolders[rel] = d.line_number  # existence is judged after the fold (load_record)
         elif name == "exempt-tree":
             tree_class = d.note.split(";")[0].split()[0].lower() if d.note.strip() else ""
             if tree_class not in TREE_CLASSES:
                 problem(d.line_number, f"exempt-tree {rel}: note must name a class — {', '.join(TREE_CLASSES)}")
-            if not target.exists():
-                problem(d.line_number, f"exempt-tree {rel} does not exist")
             record.exempt_trees[rel] = tree_class or "legacy"
+            record.exempt_tree_at[rel] = d.line_number  # existence is judged after the fold (load_record)
         elif name == "held-name":
             if "cited by" not in d.note:
                 problem(d.line_number, f"held-name {rel}: note must read `<group>; cited by <citer>; target on release: <name>`")
             record.held[rel] = d.note
             record.held_at[rel] = d.line_number  # existence is judged after the fold (load_record)
         elif name == "release":
-            if rel not in record.held:
-                problem(d.line_number, f"release {rel}: no earlier held-name for this path")
-            else:
+            # A release ends every declaration still active for this path: a hold, an exempt
+            # subfolder, an exempt tree (§6). A path moved on that still needs its class takes a
+            # new declaration for its new path in the same entry.
+            ended = False
+            if rel in record.held:
                 del record.held[rel]
                 del record.held_at[rel]
+                ended = True
+            if rel in record.exempt_subfolders:
+                del record.exempt_subfolders[rel]
+                ended = True
+            if rel in record.exempt_trees:
+                del record.exempt_trees[rel]
+                del record.exempt_tree_at[rel]
+                ended = True
+            if not ended:
+                problem(d.line_number, f"release {rel}: no earlier held-name, exempt-subfolder or exempt-tree for this path")
         return
     if name == "held-line":
         path_part, sep, line_part = value.rpartition(":")
@@ -536,6 +552,7 @@ class RootScan:
     other_files: list[str] = field(default_factory=list)
     set_folders: list[str] = field(default_factory=list)
     exempt_subfolders: list[str] = field(default_factory=list)
+    held_folders: list[str] = field(default_factory=list)  # set folders held as a whole (§1.6)
     nested_roots: list[str] = field(default_factory=list)
     subfolders: list[str] = field(default_factory=list)
     index_text: str | None = None
@@ -601,6 +618,8 @@ class Rules:
                     scan.nested_roots.append(entry.name)
                 elif rel in self.record.exempt_subfolders:
                     scan.exempt_subfolders.append(entry.name)
+                elif self.is_held(rel):
+                    scan.held_folders.append(entry.name)
                 elif self.set_folder.match(entry.name):
                     scan.set_folders.append(entry.name)
                 else:
@@ -637,6 +656,8 @@ def check_roots(rules: Rules, result: CheckResult) -> list[RootScan]:
                 result.add(rel, "name", _pattern_hint(root))
             elif klass == "held":
                 result.held.append(f"{rel} — {rules.record.held[rel]}")
+        for folder in scan.held_folders:
+            result.held.append(f"{root.path}/{folder}/ — {rules.record.held[f'{root.path}/{folder}']}")
         if scan.index_text is None:
             result.add(f"{root.path}/{INDEX_NAME}", "index-missing", f"root {root.path} has no {INDEX_NAME}")
         else:
@@ -645,7 +666,7 @@ def check_roots(rules: Rules, result: CheckResult) -> list[RootScan]:
                     continue
                 if basename not in scan.index_text:
                     result.add(f"{root.path}/{basename}", "index", f"not listed in {root.path}/{INDEX_NAME}")
-            for folder in scan.set_folders:
+            for folder in [*scan.set_folders, *scan.held_folders]:
                 if folder not in scan.index_text:
                     result.add(f"{root.path}/{folder}/", "index", f"set folder not listed in {root.path}/{INDEX_NAME}")
     return scans
@@ -865,6 +886,10 @@ def run_census(repo_root: os.PathLike[str] | str, config_dir: os.PathLike[str] |
         for folder in scan.set_folders:
             out.append(f"| {folder}/ | set-folder | {git_created(repo, f'{root.path}/{folder}', True)} | yes |")
             counts["set folders"] += 1
+        for folder in scan.held_folders:
+            compliance = "yes" if rules.set_folder.match(folder) else "no"
+            out.append(f"| {folder}/ | held | {git_created(repo, f'{root.path}/{folder}', True)} | {compliance} |")
+            counts["held"] += 1
         for folder in scan.exempt_subfolders:
             out.append(f"| {folder}/ | exempt | {git_created(repo, f'{root.path}/{folder}', True)} | n/a |")
         for folder in scan.subfolders:
