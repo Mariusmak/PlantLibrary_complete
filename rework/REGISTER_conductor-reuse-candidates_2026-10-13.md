@@ -362,6 +362,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 | RC-K4-03 | Design_Template_Kit `examples/anchored-target` pin @ 1.13.0 | names Kit `0.7.0`, which no tag carries, so coverage falls back to the checkout with a note | record (next Kit session: re-pin the example) | — | next Kit session | — | K-4 |
 | RC-K4-04 | Design_Template_Kit Gallery fragments C-26, C-29, C-30 @ 1.13.0 | reference pattern and glyph ids defined in C-27 and C-28 on the same page, so a page rendering one type alone lacks them | record (next Kit session: shared defs fragment) | — | next Kit session | — | K-4 |
 
+| RC-B9-03 | Design_Template_Kit `gallery.css` @ 1.13.0 | `.btn__why`, `.slider__why`, `.tbl__why`, `.chip__why` draw reason text on `disabled_text` while the pattern (SH.R7) and the C-05 contract say `text_secondary` | record (next Kit session: the specimens follow the pattern) | — | next Kit session | Q-B6a-57 | B9-6 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
