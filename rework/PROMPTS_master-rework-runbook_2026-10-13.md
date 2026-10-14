@@ -1266,7 +1266,7 @@ Status vocabulary: `todo` · `running (<session name>)` · `done <YYYY-MM-DD> �
 | `B6c-1`…`B6c-8` | PyApp GUI rework | pointed | — | lane file §L: -1..-4 done, -5 running (r2), -6a waits G-c-1 |
 | `B6b-1`…`B6b-8` | AndroidApp GUI rework | pointed | — | lane file §L: -1..-5 done, -6a waits G-b-1 |
 | `R-4.3` | wave 3 boundary | done 2026-10-14 — this commit | — | B6a/B6b -1..-5 and B6c -1..-4 done; B6c-5-r2 running at the boundary (crash re-run, flipped after); lanes wait at G-a-1/G-b-1 (18 rows open, G-c-1 to follow); Kit findings RC-B6-01..07; §1/§O refreshed; pushed all seven; wave 4 opened |
-| `C1-1` | deferred validations planned | todo | — | |
+| `C1-1` | deferred validations planned | running (4 per-suite plan sessions: AndroidApp, Dashboard, Server, SharedContracts; PyApp after B6c-5-r2; Workspace has no DV rows) | — | launched 2026-10-14 after R-4.3 |
 | `C1-2` | hand-back section; `SUITE_HANDOFFS.md` | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-6` | sequencers archived | todo | — | waits answered 2026-10-13 (R-4.1) |
 | `B3-7` | residual prose sweep | todo | — | inserted 2026-10-13 after `B3-6` |

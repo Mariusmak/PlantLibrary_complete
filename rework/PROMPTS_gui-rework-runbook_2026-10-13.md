@@ -545,7 +545,7 @@ Status vocabulary as the master runbook §L. The master runbook's rows `B6a-1`�
 | `B6c-2` | PyApp census | done 2026-10-13 — PyApp `e203c95` | — | 164 hex (design_tokens.py, 0 QSS); Kit: 2 colour+369 dim open, 4 banned; 18 role-bypass files; 14 phase rows deferred (Q-B6a-02); Q-B6c-03/04 (a) |
 | `B6c-3` | PyApp contracts, target | done 2026-10-13 — PyApp `de5551d` | — | 37 contracts (11 views, wizard frame+6 steps, 19 dialogs); Gallery the sole active target; 03 deferred DV-A9P-01 (74 rows); Q-B6c-05..10 (a); DV-B6c-02; UB-18 |
 | `B6c-4` | PyApp comparison, gap map | done 2026-10-14 — PyApp `573590c` | — | 118 gaps: P0 1 (tokens.py unused), P1 13, P2 79, P3 25; owners B6c-5 11 / B6c-6 6 / B6c-7 41 / B6c-8 60; F-A9P 11 placed, 5 dismissed; AVD-PY-01..06; Q-B6c-11..13 (a) |
-| `B6c-5` | PyApp forward surface; `G-c-1` | running (B6c-5 session) | — | launched 2026-10-14 in the re-skin form (Q-B6c-01); folds Q-B6c-11 |
+| `B6c-5` | PyApp forward surface; `G-c-1` | running (B6c-5-r2 session) | — | launched 2026-10-14 in the re-skin form (Q-B6c-01); folds Q-B6c-11; first run lost to a VM crash (no commit), re-run r2 |
 | `B6c-6` → split `B6c-6a` (to the gate), `B6c-6b` (after `event:G-c-2`) | PyApp IA, mockups, audit; `G-c-2`, `G-c-3` | todo | — | after `B6a-6` |
 | `B6c-7` → split `B6c-7a` (to the gate), `B6c-7b` (after `event:G-c-4`) | PyApp classification, plan-batch, SCOPE; `G-c-4` | waits Q-A9P-02, Q-A7-08 | — | plan-contract hash rule |
 | `B6c-8` | PyApp implementation (per batch) | todo | — | waits answered 2026-10-13 (R-4.1) |
