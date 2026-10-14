@@ -326,6 +326,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-08 | Design_Template_Kit `anchoring-kit` installer template `design-conformance.yml` @ 1.11.0 | the workflow's "Checkout Design Template Kit" step passes no token, so a consumer whose Kit repository is private gets a red job even with `DESIGN_KIT_REPOSITORY`/`DESIGN_KIT_REF` set; the consumers add `token: ${{ secrets.DESIGN_KIT_TOKEN }}` by hand | record only (Kit finding: the template should carry the token input) | — | next Kit session | Q-B5-13 reading, 2026-10-14 | R-4.4 |
 
+| RC-B6-09 | Design_Template_Kit `package-lock.json` @ v1.11.0 | pulls `fast-uri` 3.1.6 through `ajv` 8.20.0, a high-severity advisory (GHSA-qw65-cvwx-89v3, GHSA-58mr-gqgx-xq4g, GHSA-hrr3-gc8f-f4qj) with a fix available; no leg's result is affected | record only (Kit finding: lockfile bump at the next release) | — | next Kit session | Q-C1-44 | Phase C |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
