@@ -328,6 +328,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-09 | Design_Template_Kit `package-lock.json` @ v1.11.0 | pulls `fast-uri` 3.1.6 through `ajv` 8.20.0, a high-severity advisory (GHSA-qw65-cvwx-89v3, GHSA-58mr-gqgx-xq4g, GHSA-hrr3-gc8f-f4qj) with a fix available; no leg's result is affected | record only (Kit finding: lockfile bump at the next release) | — | next Kit session | Q-C1-44 | Phase C |
 
+| RC-C1-01 | Conductor `real-stack-testing` skill, harness contract item 7 | "a test never reads a file the harness writes" forbids the shape guard on a committed `duration_history.json` that run-batch itself commits; PlantLibrary ratified a narrow exception (Q-C1-57 (a)) | proposal: word item 7 to allow a shape check of a committed history (never timing values) | — | next Conductor proposal | Q-C1-57 | Phase C |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
