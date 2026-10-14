@@ -1502,3 +1502,61 @@ No Conductor binding exists. The six projects bound on instance 2 at onboarding 
 | `PlantLibrary_Workspace/implementation/System_V1_Implementation/SUITE_HANDOFFS.md` | stays: reshaped in place at `C1-2` (`Q-A7-07` (a)) | none; `B3-6` drops it from the "Expected members" line of Workspace `archive/README.md` |
 
 What only the three carried is now here: the dependency chain, the Wave C preference and the `SV1-B00` early handoff (H.2), the operator decisions (H.3), the environment notes (H.5), the backlog (H.4, by pointer), the binding-rules recap (H.5 and `SUITE_HANDOFFS.md`) and the run-next table (H.1 and `SUITE_HANDOFFS.md`). Their model-role meanings (Sol/Terra/Luna) are superseded by the `model` column; the MVP-era status in `WORKSPACE_STATE.md` has no live content left.
+
+### H.8 Resume blocks
+
+The first block below (Server, `SV1-B08`) is the Phase C resume prompt that `R-5` prints to the operator, with its orchestrator note. Written at `C1-3` on 2026-10-14: one block per suite in H.2's order, each pasted unchanged into a fresh session started in the suite folder its first line names; the orchestrator note beside it carries the launch values and is never pasted. No Conductor instance is bound (H.6; `Q-G-02`, `Q-A8-02`), so every suite runs out of band and each route is a plain `run-batch` invocation with the package path. The session runs on Opus 5.5 · high (superproject `CLAUDE.md` session rule 1); the batch's `**Model:**` pair, and a row's own `model` cell, are `run-batch`'s recommendation for the rows. Proof is each row's `validation` cell under `run-batch`; no block names one. One test slot on the machine (session rule 2): one batch session's closeout at a time across the six suites, nothing launched before `R-5` (this program runs no test). The suite commit is the one `run-batch` proposes, on `main`; the superproject gitlink bump follows; the session never pushes (session rule 5).
+
+**1. Server — `V.1`, unattended**
+
+```text
+PlantLibrary_Server — resume validated batch work after the master rework: SV1-B08
+/run-batch implementation/System_V1_Implementation SV1-B08
+```
+
+*Orchestrator note:* Key `SV1-B08` (out of band; `sonnet/terra`, `SV-V1-CITE-01` carries `haiku/luna`). Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_Server status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_Server branch --show-current` prints `main`. Precondition: none from the batch (its Requires reads "Nothing — independent"), so it launches first. Q-C1-02 (a): the Server has no `scripts/harness/` yet (the harness port, H.2 item 2 and H.3 item 7, held by `Q-A2-01` (a) and open `Q-C1-26`), so its scoped closeout cannot run; as the batch's Blockers line says, a row whose named validation passed ends `needs-reverify` with the reason recorded in `STATE.md`, never `done`, and the session stops there with no hand-rolled closeout; the port's first batch re-verifies the rows. `SV-V1-CITE-02` writes the three hygiene paths its Blockers line names under `Q-A6V-03` (a) (`Q-C1-01` (a) leaves the owed `SCOPE.md` hard-scope line to the package's next writer, H.3 item 7).
+
+**2. PyApp — `V.2`, unattended**
+
+```text
+PlantLibrary_PyApp — resume validated batch work after the master rework: PY1-B09
+/run-batch implementation/System_V1_Implementation PY1-B09
+```
+
+*Orchestrator note:* Key `PY1-B09` (out of band; `sonnet/terra`, `PY-V1-DV-01` carries `opus/sol` and runs first). Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_PyApp status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_PyApp branch --show-current` prints `main`. Precondition: none for `PY-V1-DV-01` and `PY-V1-DV-02` (Requires: "Nothing — independent"); `PY-V1-DV-03` waits on the `GAP-PY-001`/`GAP-PY-004` rows that `B6c-7b` appends and `B6c-8` closes, and until they are `done` `run-batch`'s preflight sets it `blocked` naming the missing row while the batch closes on the other two. Re-select `PY1-B09` by key once those rows are `done` (H.1: a `V` batch is re-selected until each primary row is `done` or carries a recorded block). PyApp is the one suite with `scripts/harness/` today.
+
+**3. AndroidApp — `V.3`, unattended**
+
+```text
+PlantLibrary_AndroidApp — resume validated batch work after the master rework: AN1-B15
+/run-batch implementation/System_V1_Implementation AN1-B15
+```
+
+*Orchestrator note:* Key `AN1-B15` (out of band; `sonnet/terra`). Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_AndroidApp status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_AndroidApp branch --show-current` prints `main`. Precondition: `AN-V1-DV-01` needs the Kit `v1.11.0` export under the suite's `.tmp/` (`Q-C1-15` (a)), never the Kit checkout itself; `AN-V1-DV-02` and `AN-V1-DV-03` stay `gated` until `B6b-7` writes the rows they wait on (the `Tokens.kt` source-dir wiring of `Q-A9A-01` (a); the design-migration rows, implemented at `B6b-8`) and flips them to `todo`, so the batch cannot close before `B6b-7` and is re-selected by key after it. Nothing else runs on the machine beside its closeout (the batch's Blockers line). The suite has no `scripts/harness/`: under `Q-C1-27` (a) a row whose closeout cannot run ends `needs-reverify`.
+
+**4. Dashboard — `V.4`, unattended**
+
+```text
+PlantLibrary_Dashboard — resume validated batch work after the master rework: WD1-B09
+/run-batch implementation/System_V1_Implementation WD1-B09
+```
+
+*Orchestrator note:* Key `WD1-B09` (out of band; `haiku/luna`). Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_Dashboard status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_Dashboard branch --show-current` prints `main`. Precondition: the batch's Requires — the Dashboard `Design_Migration_V1` package carries planned rows, which `B6a-7b` writes (it waits on the open gate `G-a-1`, H.3 item 4); do not launch before that commit, since `run-batch` still enforces a named batch's Requires. After it, each row waits on its own `GAP-` rows done at `B6a-8`, and `WD-V1-DV-03` leg 1 runs at the migration base sha that the `WD1-B10` Notes define. The suite has no `scripts/harness/`: under `Q-C1-27` (a) a row whose closeout cannot run ends `needs-reverify`.
+
+**5. SharedContracts — `V.5`, attended**
+
+```text
+PlantLibrary_SharedContracts — resume validated batch work after the master rework: SC1-B04
+/run-batch implementation/System_V1_Implementation SC1-B04
+```
+
+*Orchestrator note:* Key `SC1-B04` (attended: its heading carries the package's out-of-band marker `*(out-of-band; no Conductor)*`; `sonnet/terra`). Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_SharedContracts status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_SharedContracts branch --show-current` prints `main`. Precondition: the operator at the screen for the visual reading of the Gallery baselines; the batch's Requires line holds — Kit commit `f08e588` (Kit 1.7.0, the Configuration's pin) reachable in `C:\Programmierung\Design_Template_Kit` (the pinned commit, never that checkout's later working tree), Node 20 or later, network access into the suite's `.tmp/`. `SC-V1-DS-02` lands Configuration patch `1.0.1` (`Q-C1-03` (a), listed for veto, H.3 item 6): the operator confirms no veto before that row starts; afterwards each anchored client re-syncs as its own upgrade task. The suite has no `scripts/harness/`: under `Q-C1-27` (a) a row whose closeout cannot run ends `needs-reverify`.
+
+**6. Workspace — `A.3`, its first open batch (the Workspace has no deferred-validation batch)**
+
+```text
+PlantLibrary_Workspace — resume validated batch work after the master rework: SY1-B01
+/run-batch implementation/System_V1_Implementation SY1-B01
+```
+
+*Orchestrator note:* Key `SY1-B01` (out of band; `haiku/luna`), the Workspace batch H.1 puts first. Before launch, `git -C C:\Programmierung\SW_Development\PlantLibrary_Workspace status --porcelain` prints nothing and `git -C C:\Programmierung\SW_Development\PlantLibrary_Workspace branch --show-current` prints `main`; the explicit package path matters here, since the Workspace holds several packages. Precondition and wait: wave A runs strictly in order (H.2 item 3), `SV1-B00` → `SC1-B00` → `SY1-B01`; the batch's open row `SY1-SEQ-01` observes Server `SV1-B00` and SharedContracts `SC1-B00` done (`SY1-GATE-01`/`-02` are done), so launch it after `SC1-B00` closes. That chain waits on the Server harness port (H.2 item 2, open `Q-C1-26`). It is a checkpoint batch: it records a suite blocker in `SUITE_HANDOFFS.md` and never fixes suite code, and it is re-selected by key until `SY1-SEQ-01` is `done`. The suite has no `scripts/harness/`: under `Q-C1-27` (a) a row whose closeout cannot run ends `needs-reverify`.
