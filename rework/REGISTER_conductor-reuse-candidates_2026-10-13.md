@@ -355,6 +355,8 @@ the log of those 51 checks is the closing section, and a transfer step that acts
 
 | RC-B6-19 | Design_Template_Kit `emit-stack.mjs` compose emitter @ 1.12.0 (`:321`) | emits only `space`/`radius`/`size` groups, so `border.width.*` never reaches `Tokens.kt` (KG-C-06) | record and route to K-4 (running): emit `border.width` for compose | — | K-4 | Q-B6b-35 | B6b-8 ADM1-B08 |
 
+| RC-B6-20 | Design_Template_Kit `run-all.mjs` @ 1.12.0 | a `--paths` directory is expanded into git-ignored `build/reports` lint HTML, inflating the literal census with non-product files | record and route to K-4 (running): honour `.gitignore` / `audit_exclude.txt` when expanding directories | — | K-4 | Q-B6b-44 | B6b-8 ADM1-B09 |
+
 ## Claims verified at `R-1` (orchestrator, 2026-10-13)
 
 Every lane named its three most consequential claims with a read-only check; the orchestrator ran each check before the `R-1` commit (`b5daba2`).
